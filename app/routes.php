@@ -21,6 +21,7 @@ Route::get('/', function()
 	// $root = get_class(Form::getFacadeRoot());
 
 	// var_dump($root);
+	// karlo comment
 
 	return "hello 1";
 });
