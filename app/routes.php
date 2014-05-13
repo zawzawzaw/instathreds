@@ -10,8 +10,23 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::pattern('id', '[0-9]+');
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	// return View::make('hello');
+
+	# get facade class name running in behind
+
+	// $root = get_class(Form::getFacadeRoot());
+
+	// var_dump($root);
+
+	return "hello 1";
+});
+
+Route::match(array('GET', 'POST'), '/hello/{id}', array('as' => 'hello'), function($id = null)
+{
+	// return View::make('hello');
+	return "hello " . $id;
 });
