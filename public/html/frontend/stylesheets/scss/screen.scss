@@ -1,0 +1,20 @@
+/*!
+Theme Name: Starter Template
+Author: Karlo Estrada
+Url: http://www.digitalmohawk.com
+*/
+
+
+@import "partials/variables";
+@import "partials/mixins";
+@import "partials/extensions";
+@import "partials/reset";
+
+@import "partials/global";
+@import "partials/grid";
+
+@import "modules/typography";
+@import "modules/buttons";
+@import "modules/forms";
+
+
