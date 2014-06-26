@@ -7,10 +7,8 @@
     <title>Instathreds Shirt Builder</title>
 
     <!-- Style sheets -->
-    <!-- <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
-    -->
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+    
     <!-- Google Webfonts -->
     <link href='http://fonts.googleapis.com/css?family=Gorditas' rel='stylesheet' type='text/css'>
 
@@ -22,6 +20,13 @@
 	<link rel="stylesheet" type="text/css" href="css/jquery.fancyProductDesigner.css" />
 	<!-- Optional - only when you would like to use custom fonts -->
 	<link rel="stylesheet" type="text/css" href="css/jquery.fancyProductDesigner-fonts.css" />
+
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<!-- TYPEKIT -->
+    <script type="text/javascript" src="//use.typekit.net/qcf3jnv.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script> 
+
 
     <!-- Include js files -->
 	<script src="js/jquery.min.js" type="text/javascript"></script>
@@ -38,6 +43,7 @@
     <script src="js/webfont.js"></script>
 
     <script type="text/javascript">
+	    
 	    jQuery(document).ready(function(){
 
 	    	var yourDesigner = $('#clothing-designer').fancyProductDesigner({
@@ -57,9 +63,19 @@
 			$('#clothing-designer').on('ready', function() {
 			  //the designer is ready
 			  //console.log("test");
-
 			});
+
+			//$(".fpd-sidebar").css("height", windowHeight);
 			
+
+			/*
+			$(window).bind('resize', function(e)
+			{
+				windowHeight = $(document).height();
+				alert(windowHeight);
+				$(".fpd-sidebar").css("height", windowHeight);
+			});
+			*/
 
 			//create an image
 			$('#image-button').click(function(){
@@ -153,8 +169,7 @@
     </head>
 
     <body>
-    	<div id="main-container" class="container">
-          	<h3 id="clothing">Clothing Designer</h3>
+    	<div id="main-container">
           	<div id="clothing-designer">
           		<div class="fpd-product" title="Shirt Front" data-thumbnail="images/yellow_shirt/front/preview.png">
 	    			<img src="images/yellow_shirt/front/base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": "#d59211", "price": 20}' />
@@ -233,33 +248,7 @@
 				  	</div>
 		  		</div>
 		  	</div>
-		  	<br />
-		  	<div class="row">
-			  	<div class="api-buttons col-md-7">
-				  	<a href="#" id="print-button" class="btn btn-primary">Print</a>
-				  	<a href="#" id="image-button" class="btn btn-primary">Create Image</a>
-				  	<a href="#" id="pdf-button" class="btn btn-primary">Create PDF</a>
-				  	<a href="#" id="checkout-button" class="btn btn-success">Checkout</a>
-				  	<a href="#" id="recreation-button" class="btn btn-success">Recreate product</a>
-			  	</div>
-			  	<div class="col-md-2">
-			  		<a href="#" id="upload-button" class="btn btn-warning">Upload own design</a>
-				  	<label class="checkbox inline"><input type="checkbox" id="colorizable" /> Colorizable?</label>
-			  	</div>
-			  	<div class="col-md-3">
-				  	<span class="price badge badge-inverse"><span id="thsirt-price"></span> $</span>
-			  	</div>
-		  	</div>
-
-		  	<h4>Only working on a webserver:</h4>
-		  	<button class="btn btn-info" id="save-image-php">Save image with php</button>
-		  	<button class="btn btn-info" id="send-image-mail-php">Send image to mail</button>
-
-		  	<!-- The form recreation -->
-		  	<input type="file" id="design-upload" style="display: none;" />
-			<form action="php/recreation.php" id="recreation-form" method="post">
-				<input type="hidden" name="recreation_product" value="" />
-			</form>
+		  	
 
     	</div>
     </body>

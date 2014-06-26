@@ -1,5 +1,7 @@
 /* ======== TYPOGRAPHY ============ */
 
+
+
 .font-size-xxx-large { font-size: $font-size-xxx-large; }
 .font-size-xx-large { font-size: $font-size-xx-large; }
 .font-size-x-large { font-size: $font-size-x-large; }
@@ -11,21 +13,19 @@
 
 /* Links */
 /*Anchor tags*/
-a:active, a:link {
+a:active, a:link,a {
   color: $color-accent;
   text-decoration: none;
-  border-bottom:1px solid rgba($color-accent,0.1);
   &:hover { 
-    color: $color-accent-alt;
-    border-bottom:1px solid rgba($color-accent,1);
-    transition: all 0.8s ease 0s;
+    color: $color-accent !important;
+    transition: all 0.5s ease 0s;
     }
 }
 
 
 /* Headers */
 h1, h2, h3, h4, h5, h6 {
-	@extend .title;
+  @extend .title;
 	padding-top: 0px; 
 	margin-bottom: $row-height; 
 	&:first-child {
@@ -122,7 +122,7 @@ small {
 
 code {
   font-family: Consolas, "Liberation Mono", Courier, monospace;
-  color: #bd260d; }
+  color: $color-accent-alt; }
 
 /* Lists */
 ul,
