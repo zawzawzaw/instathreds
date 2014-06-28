@@ -18,6 +18,7 @@ Route::resource('register', 'RegisterController', array('only' => array('index',
 
 Route::resource('login', 'LoginController', array('only' => array('index', 'store', 'destroy')));
 
+
 Route::get('logout', array(
   'uses' => 'LoginController@destroy',
   'as' => 'login.destroy'

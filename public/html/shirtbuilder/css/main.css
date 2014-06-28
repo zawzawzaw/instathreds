@@ -1,0 +1,210 @@
+/*
+font-family: "open-sans",sans-serif;
+font-family: "open-sans-condensed",sans-serif;
+font-family: "museo-slab",serif;
+*/
+
+body{font-family: "open-sans",sans-serif;}
+
+.navbar .brand {
+	font-size: 16px;
+	padding: 0;
+	line-height: 40px;
+	color: #000000;
+	float: right;
+	font-weight: bold;
+	margin-left: 20px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.125);
+}
+
+#main-container {
+	margin:0 auto;
+}
+
+.container{
+	max-width:1200px;
+}
+
+.api-buttons {
+	margin-top: 20px;
+}
+
+.api-buttons > a {
+	margin-right: 10px;
+}
+
+.price {
+	font-size: 25px !important;
+	line-height: 26px !important;
+}
+
+
+/*SIDEBAR*/
+section.fpd-sidebar {
+	width:330px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:9;
+	background:#fff;
+	box-shadow:1px 0px 10px #000000;
+}
+
+section.fpd-sidebar > div{
+	float:left;
+	height:auto;
+}
+
+
+section.fpd-sidebar .logo{
+	height:75px;
+	width:200px;
+	position:relative;
+	display:block;
+	margin:20px 20px;	
+}
+
+section.fpd-sidebar .logo h6{
+	text-align:center;
+	font-size:18px;
+	margin:5px 0;	
+}
+
+
+.fpd-product-container {
+	margin-left:335px !important;
+}
+
+#accordion .panel-heading {
+    background:none !important;
+    border:0px !important;
+}
+
+#accordion .panel-default {
+    background:none !important;
+    border:0px !important;
+}
+
+#accordion .panel-body{
+	border:0px !important;
+	padding:10px 20px 10px 70px;
+} 
+
+#accordion .panel-heading a{
+	font-family: "open-sans",sans-serif;
+	font-size:24px;
+	color:#828282;
+	display:block;
+	padding:15px 15px;
+	text-decoration:none;
+	outline:0;
+}
+
+#accordion .panel-heading a:hover{
+	text-decoration:none;
+}
+
+
+#accordion .panel-heading a img{
+	margin-right:15px;
+}
+
+#accordion .panel-body .title{
+	font-family: "open-sans",sans-serif;
+	font-style: normal;
+	font-weight: 300;
+	font-size:18px;
+}
+
+.shirt-colors{
+	position:relative;
+	display:block;
+	overflow:hidden;
+}
+
+.shirt-colors .color{
+	background:#000;
+	width:23px;
+	height:23px;
+	float:left;
+	margin-right:7px;
+}
+
+.shirt-colors .color:last-child{
+	margin-right:0px;
+}
+
+
+.image-color{
+	background:#000;
+	width:23px;
+	height:23px;
+	float:left;
+	margin-left:7px;
+}
+
+
+.select{
+	position:relative;
+}
+
+.select .dropdown{
+	background:#E8E8E8;
+	padding:5px 10px;
+	color:#333;
+	font-size:18px;
+	text-decoration:none;
+}
+
+.select .dropdown-menu{
+	margin-top:5px;
+}
+
+.select .dropdown-menu li a{
+	padding:3px 10px;
+}
+
+
+
+.shapes ul {
+    height: 100%;
+    overflow: hidden;
+}
+
+.shapes ul li{
+	cursor: pointer;
+    float: left;
+    height: 70px;
+    padding: 10px;
+    position: relative;
+    width: 50%;
+}
+
+.shapes ul li img{
+	display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+    position: relative;
+}
+
+.selected-image ul li{
+	float:left;
+}
+
+.fpd-product-container{
+	display:block;
+}
+
+.add-text{
+	position:relative;
+}
+
+.add-text textarea{
+	width:250px;
+	height:70px;
+	margin-bottom:10px;
+}
+
+
+

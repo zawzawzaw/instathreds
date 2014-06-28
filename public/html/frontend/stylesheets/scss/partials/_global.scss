@@ -1,0 +1,42 @@
+/* ======== GLOBAL ============ */
+
+body {
+	background: $color-highlight;
+	color: $color-off-black;
+	height: 100%;
+	text-rendering: optimizelegibility; 
+}
+
+.block-position{
+	position:relative;
+	display:block;
+	overflow:hidden;
+}
+
+
+
+/* Titles */
+.title, .widget-title {
+	font: #{$font-weight-bold} #{$font-size-medium}/1.3 #{$typeface-third};
+	a {
+		color: $color-midtone;
+		&:hover {
+			color: $color-dark;
+		}
+	}
+}
+
+.title.large {
+	font-size: $font-size-large;
+}
+.title.small {
+	font: $font-weight-bold #{$font-size-small}/1.25 #{$typeface-secondary};
+}
+
+.float-left{
+	float:left;
+}
+
+.float-right{
+	float:right;
+}
