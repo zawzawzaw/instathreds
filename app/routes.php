@@ -12,23 +12,16 @@
 */
 Route::pattern('id', '[0-9]+');
 
-Route::get('/', function()
-{
-	// return View::make('hello');
+Route::get('/', 'HomeController@index');
 
-	# get facade class name running in behind
+Route::resource('register', 'RegisterController', array('only' => array('index', 'store')));
 
-    # addd some commet
- 
-	// $root = get_class(Form::getFacadeRoot());
+Route::resource('login', 'LoginController', array('only' => array('index', 'store', 'destroy')));
 
-	// var_dump($root);
+Route::get('logout', array(
+  'uses' => 'LoginController@destroy',
+  'as' => 'login.destroy'
+));
 
-	return "hello 1";
-});
-
-Route::match(array('GET', 'POST'), '/hello/{id}', array('as' => 'hello'), function($id = null)
-{
-	// return View::make('hello');
-	return "hello " . $id;
-});
+Route::resource('fblogin', 'FbloginController', array('as'=>'fblogin'));
+Route::resource('instalogin', 'IngloginController', array('as'=>'instalogin'));
