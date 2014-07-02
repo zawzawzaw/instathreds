@@ -254,6 +254,8 @@ section.fpd-sidebar .logo h6{
 	position: relative;
 }
 
+.fpd-product-container > .fpd-product-stage{background:none;}
+
 .fpd-designs > ul > li:nth-child(2n) {
 	border-right: none;
 	border-left: none;
