@@ -206,5 +206,69 @@ section.fpd-sidebar .logo h6{
 	margin-bottom:10px;
 }
 
+/*
+//////////////////////
+//////////////////////
+*/
+
+.fpd-content {
+	width: 100%!important;
+	background: none;
+}
+
+#accordion {
+	display: block!important;
+}
+
+.fpd-navigation {
+	display: none!important;
+}
+
+.fpd-sidebar > .fpd-content > div {
+	padding: 0;
+}
+
+/*//// copy from plugin css ////*/
+
+.fpd-designs,
+.fpd-designs > ul {
+	height: 100%;
+	overflow: hidden;
+}
+
+.fpd-designs > ul > li {
+	width: 33%;
+	height: 70px;
+	padding: 10px;
+	float: left;
+	border-top: none;
+	cursor: pointer;
+	position: relative;
+}
+
+.fpd-designs > ul > li > img {
+	max-width: 100%;
+	max-height: 100%;
+	display: block;
+	margin: 0 auto;
+	position: relative;
+}
+
+.fpd-designs > ul > li:nth-child(2n) {
+	border-right: none;
+	border-left: none;
+}
+
+/*//// copy from plugin css ////*/
 
 
+/*//// upload button reset /////*/
+
+.fpd-button-submit {
+	background: none!important;
+}
+
+.fpd-submit {
+	font-size: 14px;
+	color: #428bca;
+}

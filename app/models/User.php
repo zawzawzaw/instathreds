@@ -24,6 +24,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @return mixed
 	 */
+
+	public static $rules = array(
+	    'username'=>'required|alpha|min:3',
+	    'email'=>'required|email|unique:users',
+	    'password'=>'required|alpha_num|between:6,12|confirmed',
+	    'password_confirmation'=>'required|alpha_num|between:6,12'
+    );
+
 	public function getAuthIdentifier()
 	{
 		return $this->getKey();
@@ -48,5 +56,37 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->email;
 	}
+
+	public function getRememberToken()
+	{
+	    return $this->remember_token;
+	}
+
+	public function setRememberToken($value)
+	{
+	    $this->remember_token = $value;
+	}
+
+	public function getRememberTokenName()
+	{
+	    return 'remember_token';
+	}
+	/**
+     * Find by username, or throw an exception.
+     *
+     * @param string $username The username.
+     * @param mixed $columns The columns to return.
+     *
+     * @throws ModelNotFoundException if no matching User exists.
+     *
+     * @return User
+     */
+    public static function findByUsernameOrFail($username, $columns = array('*')) {
+        if ( ! is_null($user = static::whereUsername($username)->first($columns))) {
+            return $user;
+        }
+
+        throw new ModelNotFoundException;
+    }
 
 }

@@ -105,6 +105,7 @@
 					$sidebar.css('height', options.dimensions.sidebarHeight);
 					$sidebarNavi.css('width', options.dimensions.sidebarNavWidth);
 					$sidebarContent.css('width', options.dimensions.sidebarContentWidth);
+					// $sidebarNavi.hide();
 				}
 
 				$elem.trigger('templateLoad', [this.url]);
@@ -142,6 +143,8 @@
 				hoverCursor: 'pointer',
 				rotationCursor: 'default'
 			});
+
+			// console.log('hello')
 
 
 			stage.setDimensions({width: options.dimensions.productStageWidth, height: options.dimensions.productStageHeight})
@@ -203,6 +206,9 @@
 						padding: 7
 					});
 
+					console.log(elemParams)
+					console.log(currentElement)
+
 					$sidebarContent.find('.fpd-elements-dropdown').children('option[value="'+currentElement.id+'"]').prop('selected', true).parent().trigger('chosen:updated');;
 
 					//toggle colorpicker
@@ -225,6 +231,7 @@
 						}
 						//palette
 						else {
+							// console.log($colorPicker);
 							$colorPicker.children('input').spectrum("destroy").spectrum({
 								preferredFormat: "hex",
 								showInput: true,
@@ -414,7 +421,8 @@
 
 			//check if upload designs is supported
 			if(options.uploadDesigns) {
-				var $uploadDesigns = $sidebarContent.children('.fpd-upload-designs');
+				var $uploadDesigns = $sidebarContent.find('.fpd-upload-designs');
+
 				$sidebarNavi.find('li[data-target=".fpd-upload-designs"]').show();
 
 				//trigger click on input upload
@@ -472,6 +480,43 @@
 					}
 
 				});
+			}
+
+			// get param
+			var param_access_token = window.location.hash;
+			param_access_token = param_access_token.replace("#access_token=", "");
+
+			// check if user can add photos from instagram
+			if(options.instagramAppId && options.instagramAppId.length > 0) {
+				var $inUserPhotos = $sidebarContent.children('.fpd-in-user-photos'),
+					$inSelects = $inUserPhotos.find('select'),
+					$inUserPhotosList = $inUserPhotos.find('.fpd-in-user-photos-list'),
+					$inLoaderGif = $inUserPhotos.find('.fpd-loading-gif'),
+					$uploadDesigns = $sidebarContent.find('.fpd-upload-designs'),
+					code;
+
+				//trigger click on input upload
+				$uploadDesigns.children('.fpd-button-instagram').click(function(evt) {
+					evt.preventDefault();
+					// int instagram js sdk
+					window.location.href = "https://instagram.com/oauth/authorize/?display=touch&client_id="+options.instagramAppId+"&redirect_uri="+encodeURI('http://instathreds.dev/html/shirtbuilder/index.php')+"&response_type=token";
+				});
+
+				if(param_access_token) {
+					
+					$.ajax({
+				        type: "GET",
+				        dataType: "jsonp",
+				        cache: false,
+				        url: "https://api.instagram.com/v1/users/self/media/recent?access_token="+param_access_token,
+				        success: function(response) {
+				        	$.each( response.data, function( key, obj ) {
+							  	console.log(obj.images.thumbnail.url)
+							})
+				        }
+					});
+				}
+				
 			}
 
 			//check if user can add photos from facebook
@@ -740,6 +785,12 @@
 				}
 
 			}).filter(':visible:first').click();
+
+			$('#accordion').on('shown.bs.collapse', function (e) {
+			  	var openIndex = $(e.currentTarget).find('.in').data('index');
+			  	var objects = stage.getObjects();
+			 	stage.setActiveObject(objects[openIndex]);
+			});
 
 			//set active object
 			$sidebarContent.find('.fpd-elements-dropdown').change(function() {
@@ -1700,7 +1751,8 @@
 		this.addProduct = function(views) {
 
 			//load product by click
-			$sidebarContent.find('.fpd-products ul').append('<li><span class="fpd-loading-gif"></span><img src="'+views[0].thumbnail+'" title="'+views[0].title+'" style="display:none;" /></li>').children('li:last').click(function(evt) {
+			$sidebarContent.find('.fpd-products ul').append('<li><a href="#">'+views[0].title+'</a></li>')
+			.children('li:last').click(function(evt) {
 				evt.preventDefault();
 				var $this = $(this),
 					index = $sidebarContent.find('.fpd-products ul li').index($this);
@@ -2344,6 +2396,7 @@
 			productStageHeight: 800
 		},//the dimensions for the product designer
 		facebookAppId: '', //to add photos from facebook, you have to set your own facebook api key
+		instagramAppId: '1a2bb373cd9f4775b7720eb5005a04f6', //to add photos from facebook, you have to set your own facebook api key
 		phpDirectory: 'php/', //the path to the directory that contains php scripts that are used for some functions of the plugin
 		patterns: [], //an array with the urls to the patterns
 	};

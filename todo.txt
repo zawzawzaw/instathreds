@@ -1,0 +1,136 @@
+Create their own t-shirt designs using the t-shirt builder.
+• The t-shirt they build can be purchased on the site and shipped to them.
+• Users can upload designs and sell them in the t-shirt store, receiving a portion of
+the profit (Shutterstock model)
+• Users can have their own shop that features their designs.
+• T-shirts that are designed can be shared across social media platforms
+• The website will sync with 3rd party accounting packages
+• Website will need a typical e-commerce backend interface where orders ect can
+be viewed.
+• Users will have accounts
+
+Phase 1
+The purpose of the phase 1 site will be to...
+Produce a site that will replace the current instathreds site.
+Provide a working t-shirt builder that will mimic the one in the phase 2 site
+T-shirt builder must have the same functionality as the Skreened t-shirt builder but with an improved design.
+Provide information about the current stores
+Be a platform to market instathreds (run promotions ect. In lead up to phase 2) Have a location for people to begin signing up.
+
+Phase 2
+The phase 2 site will include...
+A page for users to upload their designs for approval to be sold on.
+A system to identify when a user needs to be paid for designs that have been sold (e.g. Monthly)
+Integration with the companies CRM
+Users that are selling designs can have a store where they can upload their own banner/logo to their page to personalise it.
+Images of other versions of their shirt below the t-shirt builder. A store that includes all designs
+Featured designs on the homepage (trending)
+
+Users must be able to create an account.
+Opt into newsletter on sign up (mailchimp)
+Users need to agree to the terms and conditions before account is created.
+See previously ordered designs.
+
+Account 
+
+User must have an account to use the tshirt Allow users to use a number of predesigned builder artwork
+Users must be logged in to design a shirt. Price changes depending on selections.
+
+Shirt Builder
+
+Ability to upload images Link on the shirt builder page to see garment measurements
+Ability to upload multiple images
+Ability to upload image from instagram Pop up with hints appears in the bottom corner.
+Ability to upload multiple images from instagram
+Ability to add clipart from website
+Ability to upload multiple images from clipart Ability to choose which side the art work is on Ability to remove artwork from the board Increase price when additional art is added Increase price if multiple sides are used
+
+Ability to add text
+Ability to add multiple text elements
+Ability to specify colour of text
+Ability to choose font
+Ability to change the side the text is displayed on
+Ability to remove text
+
+Increase the price of the shirt for additional text Ability to specify the type of shirt
+
+Ability to specify quantity
+Ability to specify color
+Ability to specify size
+Ability to specify sex
+Type, quantity, color, size, sex can be added again after “add to cart” is clicked to create additional versions of the shirt.
+
+Ability to move and re-size artwork
+
+Add all items created to the cart
+Images and text on the shirt need to be saved as a single 31 x 49 image in CMYK per side
+Store all relevant info and image for accessibility in the backend
+
+Ability to zoom in and out the shirt
+Ability to move the image around the shirt Ability to change the size of the image on the shirt
+
+Give a price tally that increases and decreases depending on selections
+
+Ability to post your t-shirt on Facebook
+
+Extra cost added for black t-shirts
+
+At checkout pickup/delivery details placed Version 1 – paypal
+
+Error Detection for file size
+Error detection for file type
+
+Summary is displayed at checkout
+Summary is displayed in Cart
+
+Users can enter an instathreds promocode at checkout
+Order No. is assigned to each order
+
+Backend
+
+Order summary – Orders that have been placed. And all their info
+Change site text on static pages
+Mark completed jobs off
+Access the images and details need to complete the shirt.
+View users info
+Change the slider on the home page.
+Ability to download the 31 x 49 image for t-shirt orders
+
+Stockart for t-shirt builder can be added
+Stockart can be assigned a category
+
+
+Questions..
+
+threadless/redbubble
+username
+email
+age
+
+User details to be saved in db (scope)
+Terms and condition for facebook and instagram login?
+
+Will it only saved final image and details? I guess yes
+All designed shirt will goes to user own store?
+Instathreds pre designed shirt store is different?
+Stockart store so 3 stores altogether?
+
+female/male
+How many kind of base shirt will there be? list of possible t-shirt table men/women/kids/bags?
+Price changes on? text count, artwork count? type of shirt? any limit?
+
+Product details to be saved in db
+- Type of shirt
+- Color
+- Size
+- Underbase
+- Large print area
+
+blog?
+
+promo codes db
+
+
+
+
+

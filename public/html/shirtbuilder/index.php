@@ -134,36 +134,36 @@
 			});
 
 			//upload image
-			document.getElementById('design-upload').onchange = function (e) {
-				if(window.FileReader) {
-					var reader = new FileReader();
-			    	reader.readAsDataURL(e.target.files[0]);
-			    	reader.onload = function (e) {
+			// document.getElementById('design-upload').onchange = function (e) {
+			// 	if(window.FileReader) {
+			// 		var reader = new FileReader();
+			//     	reader.readAsDataURL(e.target.files[0]);
+			//     	reader.onload = function (e) {
 
-			    		var image = new Image;
-			    		image.src = e.target.result;
-			    		image.onload = function() {
-				    		var maxH = 400,
-			    				maxW = 300,
-			    				imageH = this.height,
-			    				imageW = this.width,
-			    				scaling = 1;
+			//     		var image = new Image;
+			//     		image.src = e.target.result;
+			//     		image.onload = function() {
+			// 	    		var maxH = 400,
+			//     				maxW = 300,
+			//     				imageH = this.height,
+			//     				imageW = this.width,
+			//     				scaling = 1;
 
-							if(imageW > imageH) {
-								if(imageW > maxW) { scaling = maxW / imageW; }
-							}
-							else {
-								if(imageH > maxH) { scaling = maxH / imageH; }
-							}
+			// 				if(imageW > imageH) {
+			// 					if(imageW > maxW) { scaling = maxW / imageW; }
+			// 				}
+			// 				else {
+			// 					if(imageH > maxH) { scaling = maxH / imageH; }
+			// 				}
 
-				    		yourDesigner.addElement('image', e.target.result, 'my custom design', {colors: $('#colorizable').is(':checked') ? '#000000' : false, zChangeable: true, removable: true, draggable: true, resizable: true, rotatable: true, autoCenter: true, boundingBox: "Base", scale: scaling});
-			    		};
-					};
-				}
-				else {
-					alert('FileReader API is not supported in your browser, please use Firefox, Safari, Chrome or IE10!')
-				}
-			};
+			// 	    		yourDesigner.addElement('image', e.target.result, 'my custom design', {colors: $('#colorizable').is(':checked') ? '#000000' : false, zChangeable: true, removable: true, draggable: true, resizable: true, rotatable: true, autoCenter: true, boundingBox: "Base", scale: scaling});
+			//     		};
+			// 		};
+			// 	}
+			// 	else {
+			// 		alert('FileReader API is not supported in your browser, please use Firefox, Safari, Chrome or IE10!')
+			// 	}
+			// };
 	    });
     </script>
     </head>

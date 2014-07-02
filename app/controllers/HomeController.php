@@ -15,6 +15,22 @@ class HomeController extends BaseController {
 	|
 	*/
 
+	# set template
+	protected $layout = "layouts.master";
+
+	public function index()
+	{
+		// print_r(Auth::user());
+		if (Auth::check())
+		{
+		    $username = Auth::user()->username;
+		}else {
+			$username = '';
+		}
+
+		$this->layout->content = View::make('home.index')->with('username', $username);
+	}
+
 	public function showWelcome()
 	{
 		return View::make('hello');
