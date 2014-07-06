@@ -1,4 +1,4 @@
-/*
+
 font-family: "open-sans",sans-serif;
 font-family: "open-sans-condensed",sans-serif;
 font-family: "museo-slab",serif;
@@ -46,7 +46,7 @@ section.fpd-sidebar {
 	top:0px;
 	left:0px;
 	z-index:9;
-	background:#fff;
+	background:#f7f7f7;
 	box-shadow:1px 0px 10px #000000;
 }
 
@@ -83,6 +83,7 @@ section.fpd-sidebar .logo h6{
 #accordion .panel-default {
     background:none !important;
     border:0px !important;
+    box-shadow: none;
 }
 
 #accordion .panel-body{
@@ -207,8 +208,10 @@ section.fpd-sidebar .logo h6{
 }
 
 /*
-//////////////////////
-//////////////////////
+//////////////////////////////////
+////// CHANGES STARTS HERE! //////
+//// overwritting plugin css /////
+//////////////////////////////////
 */
 
 .fpd-content {
@@ -227,8 +230,6 @@ section.fpd-sidebar .logo h6{
 .fpd-sidebar > .fpd-content > div {
 	padding: 0;
 }
-
-/*//// copy from plugin css ////*/
 
 .fpd-designs,
 .fpd-designs > ul {
@@ -254,6 +255,28 @@ section.fpd-sidebar .logo h6{
 	position: relative;
 }
 
+.fpd-in-user-photos {
+	height: 205px;
+}
+
+.fpd-in-user-photos > ul > li  {
+	width: 31%;
+	height: 70px;
+	padding: 5px 0px;
+	float: left;
+	border-top: none;
+	cursor: pointer;
+	position: relative;
+}
+
+.fpd-in-user-photos > ul > li > img {
+	max-width: 100%;
+	max-height: 100%;
+	display: block;
+	margin: 0 auto;
+	position: relative;
+}
+
 .fpd-product-container > .fpd-product-stage{background:none;}
 
 .fpd-designs > ul > li:nth-child(2n) {
@@ -261,10 +284,22 @@ section.fpd-sidebar .logo h6{
 	border-left: none;
 }
 
-/*//// copy from plugin css ////*/
+/*
+/////////////////////////////////////////
+////////// header color fix /////////////
+/////////////////////////////////////////
+*/
+
+section.fpd-sidebar .logo h6 {
+	color: #828282;
+}
 
 
-/*//// upload button reset /////*/
+/*
+//////////////////////////////
+//// upload button reset /////
+//////////////////////////////
+*/
 
 .fpd-button-submit {
 	background: none!important;
@@ -273,4 +308,208 @@ section.fpd-sidebar .logo h6{
 .fpd-submit {
 	font-size: 14px;
 	color: #428bca;
+}
+
+/*
+//////////////////////////
+//// select image tab ////
+//////////////////////////
+*/
+
+ul#imageSelectTab {
+	background: none;
+	border: none;
+}
+
+ul#imageSelectTab li {
+	background: none;
+	border: none;
+}
+
+ul#imageSelectTab li a {
+	background: none;
+	border: none;
+	padding: 0 5px;
+}
+
+
+.tab-pane {
+	display: none;
+}
+
+.active {
+	display: block;
+}
+
+/*
+////////////////////
+////hide menu bar///
+////////////////////
+*/
+
+.fpd-menu-bar {
+	display: none;
+}
+
+/*
+///////////////////////////
+/////// dropdown fix //////
+///////////////////////////
+*/
+
+.select .dropdown {
+	width: 235px;
+	display: block;
+	padding: 3px 10px;
+}
+
+.dropdown-menu {
+	width: 235px;
+	z-index: 999;
+}
+
+/*
+///////////////////////
+//////// caret ////////
+///////////////////////
+*/
+
+.caret {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	border-top: 8px solid;
+	border-right: 8px solid transparent;
+	border-left: 8px solid transparent;
+}
+
+/*
+////////////////////////////
+//////// custom btn ////////
+////////////////////////////
+*/
+
+.custom-btn {
+	background: black!important;
+	padding: 11px;
+	color: white;
+	font-size: 15px;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	margin: 20px 0;
+	width: 100%;
+}
+
+.custom-btn:hover {
+	color: white
+	text-decoration: none;
+}
+
+/*
+////////////////////////////////////
+//////// instagram connect /////////
+////////////////////////////////////
+*/
+
+.fpd-button-instagram {
+	background: url(../images/in_connect.png) no-repeat;
+	text-indent: -99999px;
+	width: 235px;
+	height: 40px;
+	display: block;
+	margin-top: 11px;
+	margin-bottom: 11px;
+}
+
+/*
+//////////////////////////
+/////// select ///////////
+//////////////////////////
+*/
+
+.select .fpd-designs .chosen-container a.chosen-single {
+	background:#E8E8E8;
+	padding:0px 10px;
+	color:#333;
+	font-size:18px;
+	text-decoration:none;
+	border: none;
+	box-shadow: none;
+}
+
+/*
+////////////////////////////////
+///////// textarea /////////////
+////////////////////////////////
+*/
+
+.add-text textarea {
+	width: 238px;
+	margin-bottom: 0px;
+}
+
+/*
+////////////////////////////////////////
+///////// clipart colour picker ////////
+////////////////////////////////////////
+*/
+
+#customText .fpd-toolbar, #clipart .fpd-toolbar {
+	background: #E8E8E8;
+	width: 230px;
+	height: 65px;
+}
+
+#customText .fpd-toolbar > div, #clipart .fpd-toolbar > div {
+	margin: 5px 10px 0 0;
+	padding: 0 0 0 10px;
+	display: inline-block;
+	float: left;
+	width: 80px;
+	border-left: 1px solid #eee;
+	height: 85%;
+}
+
+#customText .fpd-toolbar > div {
+	margin: 10px 10px 0 0;
+}
+
+#customText label, #clipart label {
+	display: block;
+	font-weight: normal;
+}
+
+#customText .fpd-toolbar > .fpd-element-buttons, #clipart .fpd-toolbar > .fpd-element-buttons {
+	display: inline-block;
+	width: 60px;
+}
+
+#customText .fpd-toolbar .currentText, #clipart .fpd-toolbar .currentClipArt {
+	width: 60px;
+	height: 90%;
+}
+
+#customText .currentText img, #clipart .currentClipArt img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#customText .fpd-trash, #clipart .fpd-trash {
+	display: block;
+	margin: 0 auto;
+}
+
+#customText .fpd-button, #clipart .fpd-button {
+	background: white;
+	border: 1px solid black;
+}
+
+#customText .fpd-toolbar {
+	display: none;
+}
+
+ul.color-list li {
+	display: inline-block;
+	margin-right: 6px;
 }

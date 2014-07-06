@@ -102,7 +102,7 @@
 					$sidebarNavi.css('height', options.dimensions.sidebarNavWidth);
 				}
 				else {
-					$sidebar.css('height', options.dimensions.sidebarHeight);
+					$sidebar.css('min-height', options.dimensions.sidebarHeight);
 					$sidebarNavi.css('width', options.dimensions.sidebarNavWidth);
 					$sidebarContent.css('width', options.dimensions.sidebarContentWidth);
 					// $sidebarNavi.hide();
@@ -206,32 +206,49 @@
 						padding: 7
 					});
 
-					console.log(elemParams)
-					console.log(currentElement)
+					// my edit (changing clipart preview)
+					$('.fpd-toolbar').find('.currentClipArt').html('<img src="'+currentElement.source+'">');
 
-					$sidebarContent.find('.fpd-elements-dropdown').children('option[value="'+currentElement.id+'"]').prop('selected', true).parent().trigger('chosen:updated');;
+					$sidebarContent.find('.fpd-elements-dropdown').children('option[value="'+currentElement.id+'"]').prop('selected', true).parent().trigger('chosen:updated');
 
 					//toggle colorpicker
 					if(Array.isArray(elemParams.colors) && _elementIsColorizable(currentElement) != false) {
 						$colorPicker.children('input').val(elemParams.currentColor ? elemParams.currentColor : elemParams.colors[0]);
 						//color list
+						var $colorlist = $('.fpd-color-picker').find('.color-list');
+
+						// console.log($colorlist)
 
 						if(elemParams.colors.length > 1) {
-							$colorPicker.children('input').spectrum({
-								preferredFormat: "hex",
-								showPaletteOnly: true,
-								showPalette: true,
-								palette: elemParams.colors,
-								chooseText: options.labels.colorpicker.change,
-								cancelText: options.labels.colorpicker.cancel,
-								change: function(color) {
-									_changeColor(currentElement, color.toHexString());
-								}
+							// $colorPicker.children('input').spectrum({
+							// 	preferredFormat: "hex",
+							// 	showPaletteOnly: true,
+							// 	showPalette: true,
+							// 	palette: elemParams.colors,
+							// 	chooseText: options.labels.colorpicker.change,
+							// 	cancelText: options.labels.colorpicker.cancel,
+							// 	change: function(color) {
+							// 		console.log(color.toHexString())
+							// 		_changeColor(currentElement, color.toHexString());
+							// 	}
+							// });
+	
+							$colorPicker.children('input').hide();
+							$colorlist.empty();
+							$.each(elemParams.colors, function(i, color){
+								$colorlist.append('<li><span class="colorOptions" data-color="'+color+'" style="background: '+color+'; width: 23px; height: 23px; display: inline-block"></span></li>')
+									.children('li:last').click(function(evt) {
+
+										evt.preventDefault();
+
+										color = $(this).children('span').data('color');
+
+										_changeColor(currentElement, color);
+								});
 							});
 						}
 						//palette
 						else {
-							// console.log($colorPicker);
 							$colorPicker.children('input').spectrum("destroy").spectrum({
 								preferredFormat: "hex",
 								showInput: true,
@@ -306,6 +323,8 @@
 									}
 								}
 							}
+
+							console.log(currentBoundingObject)
 						}
 					}
 
@@ -391,9 +410,15 @@
 			//show edit elements navi
 			$sidebarNavi.find('li[data-target=".fpd-edit-elements"]').show();
 
+			//init tab
+			$('#imageSelectTab a').click(function (e) {
+			  e.preventDefault()
+			  $(this).tab('show')
+			})
+
 			//check if custom text is supported
 			if(options.customTexts) {
-				var $customText = $sidebarContent.children('.fpd-custom-text'),
+				var $customText = $sidebarContent.find('.fpd-custom-text'),
 					placeholder = $customText.children('textarea').val();
 
 				$sidebarNavi.find('li[data-target=".fpd-custom-text"]').show();
@@ -488,21 +513,24 @@
 
 			// check if user can add photos from instagram
 			if(options.instagramAppId && options.instagramAppId.length > 0) {
-				var $inUserPhotos = $sidebarContent.children('.fpd-in-user-photos'),
-					$inSelects = $inUserPhotos.find('select'),
+				var $inUserPhotos = $sidebarContent.find('.fpd-in-user-photos'),
 					$inUserPhotosList = $inUserPhotos.find('.fpd-in-user-photos-list'),
 					$inLoaderGif = $inUserPhotos.find('.fpd-loading-gif'),
-					$uploadDesigns = $sidebarContent.find('.fpd-upload-designs'),
+					$inPhotos = $sidebarContent.find('.fpd-instagram'),
 					code;
 
+				$sidebarNavi.find('li[data-target=".fpd-in-user-photos"]').show();
+
 				//trigger click on input upload
-				$uploadDesigns.children('.fpd-button-instagram').click(function(evt) {
+				$inPhotos.children('.fpd-button-instagram').click(function(evt) {
 					evt.preventDefault();
 					// int instagram js sdk
 					window.location.href = "https://instagram.com/oauth/authorize/?display=touch&client_id="+options.instagramAppId+"&redirect_uri="+encodeURI('http://instathreds.dev/html/shirtbuilder/index.php')+"&response_type=token";
 				});
 
 				if(param_access_token) {
+
+					$inUserPhotosList.empty();
 					
 					$.ajax({
 				        type: "GET",
@@ -511,8 +539,67 @@
 				        url: "https://api.instagram.com/v1/users/self/media/recent?access_token="+param_access_token,
 				        success: function(response) {
 				        	$.each( response.data, function( key, obj ) {
-							  	console.log(obj.images.thumbnail.url)
-							})
+
+							  	$inUserPhotosList.append('<li><span class="fpd-loading-gif"></span><img src="'+obj.images.thumbnail.url+'" title="'+obj.id+'" data-picture="'+obj.images.standard_resolution.url+'" style="display: none;" /></li>')
+									.children('li:last').click(function(evt) {
+
+										evt.preventDefault();
+										$productLoader.show();
+
+										var $img = $(this).children('img');
+
+										$.post(options.phpDirectory + 'get_image_data_url.php', { url: $img.data('picture') }, function(data) {
+
+											console.log(options)
+
+											if(data && data.error == undefined) {
+
+												var picture = new Image();
+												picture.src = data.data_url;
+												picture.onload = function() {
+
+													options.customImagesParameters.scale = _getScalingByDimesions(
+														this.width,
+														this.height,
+														options.customImagesParameters.resizeToW,
+														options.customImagesParameters.resizeToH
+													);
+
+													thisClass.addElement('image', this.src, $img.attr('title'), options.customImagesParameters, currentViewIndex);
+												};
+
+											}
+											else {
+												alert(data.error);
+											}
+
+											$productLoader.hide();
+
+										}, 'json')
+										.fail(function(evt) {
+
+											$productLoader.hide();
+											alert(evt.statusText);
+
+										});
+									})
+									.children('img').load(function() {
+
+										//fade in photo and remove loading gif
+										$(this).fadeIn(500).prev('span').fadeOut(300, function() {
+											$(this).remove();
+										});
+
+									})
+									.error(function() {
+										//image not found, remove associated list item
+										$(this).parent().remove();
+									});
+								
+
+							});
+
+							_createScrollbar($inUserPhotosList);
 				        }
 					});
 				}
@@ -786,10 +873,23 @@
 
 			}).filter(':visible:first').click();
 
+			function setcurrentObj(openIndex) {
+				var objects = stage.getObjects();
+			  		console.log(objects)
+			 		stage.setActiveObject(objects[openIndex]);	
+			}
+
+			//set active on shirt
 			$('#accordion').on('shown.bs.collapse', function (e) {
 			  	var openIndex = $(e.currentTarget).find('.in').data('index');
-			  	var objects = stage.getObjects();
-			 	stage.setActiveObject(objects[openIndex]);
+			  	
+			  	// if first accordian open
+			  	if(openIndex==0) {
+			  		setcurrentObj(openIndex);	
+			  	}else {
+			  		console.log('deselect')
+			  		_deselectElement();
+			  	}
 			});
 
 			//set active object
@@ -1756,6 +1856,8 @@
 				evt.preventDefault();
 				var $this = $(this),
 					index = $sidebarContent.find('.fpd-products ul li').index($this);
+
+				console.log(index);		
 
 				thisClass.selectProduct(index);
 			}).data('views', views)

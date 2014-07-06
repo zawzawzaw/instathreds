@@ -50,8 +50,9 @@
 	    		editorMode: false,
 	    		centerInBoundingbox:true, 
 	    		fonts: ['Arial', 'Fearless', 'Helvetica', 'Times New Roman', 'Verdana', 'Geneva', 'Gorditas'],
-	    		customTextParameters: {colors: false, removable: true, resizable: true, draggable: true, rotatable: true, autoCenter: true, boundingBox: "Base"},
-	    		uploadedDesignsParameters: {draggable: true, removable: true, colors: '#000', autoCenter: true, boundingBox: "Base"}
+	    		customTextParameters: {colors: "#000", removable: true, resizable: true, draggable: true, rotatable: true, autoCenter: true, boundingBox: {"x": 325, "y": 345, "width": 200, "height": 350}},
+	    		uploadedDesignsParameters: {draggable: true, removable: true, resizable: true, rotatable: true, colors: '#000', autoCenter: true, boundingBox: {"x": 325, "y": 345, "width": 200, "height": 350}},
+	    		zoomFactor: 1
 	    	}).data('fancy-product-designer');
 
 	    	//print button
@@ -172,12 +173,12 @@
     	<div id="main-container">
           	<div id="clothing-designer">
           		<div class="fpd-product" title="Shirt Front" data-thumbnail="images/yellow_shirt/front/preview.png">
-	    			<img src="images/yellow_shirt/front/base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": "#d59211", "price": 20}' />
+	    			<img src="images/yellow_shirt/front/base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#000","#fff","#51bc18","#e83fd4","#006837","#29abe2","#ff2500","#fcee20"], "price": 20}' />
 			  		<img src="images/yellow_shirt/front/shadows.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 			  		<img src="images/yellow_shirt/front/body.png" title="Hightlights" data-parameters='{"x": 322, "y": 137}' />
 			  		
 
-			  		<span title="Any Text" data-parameters='{"boundingBox": "border", "x": 326, "y": 232, "zChangeable": true, "removable": true, "draggable": true, "rotatable": true, "resizable": true, "colors": "#000000"}' >Default Text</span>
+			  		<!-- <span title="Any Text" data-parameters='{"boundingBox": "border", "x": 326, "y": 232, "zChangeable": true, "removable": true, "draggable": true, "rotatable": true, "resizable": true, "colors": "#000000"}' >Default Text</span> -->
 			  		<div class="fpd-product" title="Shirt Back" data-thumbnail="images/yellow_shirt/back/preview.png">
 		    			<img src="images/yellow_shirt/back/base.png" title="Base" data-parameters='{"x": 317, "y": 329, "colors": "Base", "price": 20}' />
 		    			<img src="images/yellow_shirt/back/body.png" title="Hightlights" data-parameters='{"x": 333, "y": 119}' />
@@ -213,7 +214,7 @@
 	    			<img src="images/shirt/collar_arms.png" title="Collars & Arms" data-parameters='{"x": 326, "y": 217, "colors": "#000000"}' />
 			  		<img src="images/shirt/highlights.png" title="Hightlights" data-parameters='{"x": 330, "y": 313}' />
 			  		<img src="images/shirt/shadow.png" title="Shadow" data-parameters='{"x": 327, "y": 312}' />
-			  		<span title="Any Text" data-parameters='{"boundingBox": "Base", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "colors": "#000000"}' >Default Text</span>
+			  		<!-- <span title="Any Text" data-parameters='{"boundingBox": "Base", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "colors": "#000000"}' >Default Text</span> -->
 				</div>
 				<div class="fpd-product" title="Short" data-thumbnail="images/shorts/preview.png">
 	    			<img src="images/shorts/basic.png" title="Base" data-parameters='{"x": 317, "y": 332, "colors": "#81b5eb", "price": 15}' />
