@@ -55,8 +55,8 @@
       
       <h5 class="sidebartitle">Navigation</h5>
       <ul class="nav nav-pills nav-stacked nav-bracket">
-        <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-        <li><a href="orders.html"><span class="pull-right badge badge-success">12</span><i class="fa fa-pencil-square-o"></i> <span>Orders</span></a></li>
+        <li><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+        <li class="active"><a href="orders.html"><span class="pull-right badge badge-success">12</span><i class="fa fa-pencil-square-o"></i> <span>Orders</span></a></li>
         <li><a href="users.html"><i class="fa fa-users"></i> <span>Users</span></a></li>
         <li><a href="designs-store.html"><span class="pull-right badge badge-success">23</span><i class="fa fa-photo"></i> <span>Designs in Store</span></a></li>
         <li><a href="stockart.html"><i class="fa fa-suitcase"></i> <span>Stock Art</span></a></li>
@@ -64,8 +64,6 @@
         <li><a href="slider.html"><i class="fa fa-sliders"></i> <span>Slider</span></a></li>
         <li><a href="settings.html"><i class="fa fa-cogs"></i> <span>Settings</span></a></li>
       </ul>
-      
-      
       
     </div><!-- leftpanelinner -->
   </div><!-- leftpanel -->
@@ -101,12 +99,12 @@
     </div><!-- headerbar -->
     
     <div class="pageheader">
-      <h2><i class="fa fa-home"></i> Dashboard <span style="display:none;">Subtitle goes here...</span></h2>
+      <h2><i class="fa fa-home"></i> Orders <span>Complete list of your orders</span></h2>
       <div class="breadcrumb-wrapper">
         <span class="label">You are here:</span>
         <ol class="breadcrumb">
-          <li><a href="index.html">Instathreds</a></li>
-          <li class="active">Dashboard</li>
+          <li><a href="index.html">Home</a></li>
+          <li class="active">Orders</li>
         </ol>
       </div>
     </div>
@@ -115,10 +113,8 @@
 
       <div class="row">
         <div class="col-sm-12 col-md-12">
-        <h3 class="mb5">Latest Orders</h3>
-          <p class="mb20">Summary of your current orders.</p>
           <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table" id="orders-table">
               <thead>
                  <tr>
                     <th>Order No.</th>
@@ -281,13 +277,22 @@
 <script src="js/chosen.jquery.min.js"></script>
 
 <script src="js/custom.js"></script>
-<script src="js/dashboard.js"></script>
+
 <script>
   jQuery(document).ready(function() {
-    
-    jQuery('#orders-table').dataTable({
-      "sPaginationType": "full_numbers"
+
+    $('#orders-table').dataTable( {
+      "sPaginationType": "full_numbers",
+      "aoColumnDefs": [
+      { "bSortable": false, "aTargets": [ 6 ] }
+      ] 
     });
+    
+    //jQuery('#orders-table').dataTable({
+    //  "sPaginationType": "full_numbers"
+    //});
+    
+    jQuery('#orders-table tr th:last-child').empty();
     
     
     // Chosen Select

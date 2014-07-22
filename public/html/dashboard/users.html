@@ -11,6 +11,8 @@
 
   <link href="css/style.default.css" rel="stylesheet">
   <link href="css/jquery.datatables.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -55,17 +57,15 @@
       
       <h5 class="sidebartitle">Navigation</h5>
       <ul class="nav nav-pills nav-stacked nav-bracket">
-        <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+        <li><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
         <li><a href="orders.html"><span class="pull-right badge badge-success">12</span><i class="fa fa-pencil-square-o"></i> <span>Orders</span></a></li>
-        <li><a href="users.html"><i class="fa fa-users"></i> <span>Users</span></a></li>
+        <li class="active"><a href="users.html"><i class="fa fa-users"></i> <span>Users</span></a></li>
         <li><a href="designs-store.html"><span class="pull-right badge badge-success">23</span><i class="fa fa-photo"></i> <span>Designs in Store</span></a></li>
         <li><a href="stockart.html"><i class="fa fa-suitcase"></i> <span>Stock Art</span></a></li>
         <li><a href="pages.html"><i class="fa fa-file-o"></i> <span>Pages</span></a></li>
         <li><a href="slider.html"><i class="fa fa-sliders"></i> <span>Slider</span></a></li>
         <li><a href="settings.html"><i class="fa fa-cogs"></i> <span>Settings</span></a></li>
       </ul>
-      
-      
       
     </div><!-- leftpanelinner -->
   </div><!-- leftpanel -->
@@ -101,12 +101,12 @@
     </div><!-- headerbar -->
     
     <div class="pageheader">
-      <h2><i class="fa fa-home"></i> Dashboard <span style="display:none;">Subtitle goes here...</span></h2>
+      <h2><i class="fa fa-home"></i> Users <span>Complete list of Users</span></h2>
       <div class="breadcrumb-wrapper">
         <span class="label">You are here:</span>
         <ol class="breadcrumb">
-          <li><a href="index.html">Instathreds</a></li>
-          <li class="active">Dashboard</li>
+          <li><a href="index.html">Home</a></li>
+          <li class="active">Users</li>
         </ol>
       </div>
     </div>
@@ -115,132 +115,56 @@
 
       <div class="row">
         <div class="col-sm-12 col-md-12">
-        <h3 class="mb5">Latest Orders</h3>
-          <p class="mb20">Summary of your current orders.</p>
           <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-hover" id="users-table">
               <thead>
                  <tr>
-                    <th>Order No.</th>
-                    <th>Date</th>
-                    <th>Status</th>
+                    <th></th>
+                    <th>Name</th>
                     <th>Username</th>
-                    <th>Total</th>
-                    <th>Shipping</th>
+                    <th>Email</th>
                     <th></th>
                  </tr>
               </thead>
               <tbody>
                  <tr class="odd">
-                    <td>617</td>
-                    <td>12/01/2014</td>
-                    <td>Pending</td>
-                    <td>oklah</td>
-                    <td>$31.50</td>
-                    <td>#401 7 Brighton Rd. St. Kilda VIC 3121</td>
+                    <td><img  class="profilepic" src="images/photos/loggeduser.png" /></td>
+                    <td>Karlo Estrada</td>
+                    <td>karloestrada</td>
+                    <td>karloestrada@gmail.com</td>
                     <td class="table-action">
-                      <a href="orders-detail.html"><i class="fa fa-pencil"></i></a>
+                      <a href="users-detail.html"><i class="fa fa-pencil"></i></a>
                     </td>
                  </tr>
                  <tr class="even">
-                    <td>618</td>
-                    <td>11/21/2014</td>
-                    <td>Completed</td>
-                    <td>drummerboy</td>
-                    <td>$22.50</td>
-                    <td>#401 7 Brighton Rd. St. Kilda VIC 3121</td>
+                    <td><img class="profilepic" src="images/photos/loggeduser.png" /></td>
+                    <td>Zaw Zaw Zaw </td>
+                    <td>zawzawzaw</td>
+                    <td>zawzawzaw@gmail.com</td>
                     <td class="table-action">
-                      <a href="orders-detail.html"><i class="fa fa-pencil"></i></a>
+                      <a href="users-detail.html"><i class="fa fa-pencil"></i></a>
                     </td>
                  </tr>
                  <tr class="odd">
-                    <td>619</td>
-                    <td>12/11/2014</td>
-                    <td>Completed</td>
-                    <td>rockabilly</td>
-                    <td>$90.50</td>
-                    <td>#401 7 Brighton Rd. St. Kilda VIC 3121</td>
+                    <td><img class="profilepic" src="images/photos/loggeduser.png" /></td>
+                    <td>Saul Edmonds</td>
+                    <td>sauledmonds</td>
+                    <td>sauledmonds@gmail.com</td>
                     <td class="table-action">
-                      <a href="orders-detail.html"><i class="fa fa-pencil"></i></a>
+                      <a href="users-detail.html"><i class="fa fa-pencil"></i></a>
                     </td>
                  </tr>
                  <tr class="even">
-                    <td>620</td>
-                    <td>12/19/2014</td>
-                    <td>Pending</td>
-                    <td>thedentist</td>
-                    <td>$34.50</td>
-                    <td>#401 7 Brighton Rd. St. Kilda VIC 3121</td>
+                    <td><img class="profilepic" src="images/photos/loggeduser.png" /></td>
+                    <td>Belinda Rex</td>
+                    <td>belindarex</td>
+                    <td>belindarex@gmail.com</td>
                     <td class="table-action">
-                      <a href="orders-detail.html"><i class="fa fa-pencil"></i></a>
+                      <a href="users-detail.html"><i class="fa fa-pencil"></i></a>
                     </td>
                  </tr>
-                 <tr class="odd">
-                    <td>621</td>
-                    <td>12/22/2014</td>
-                    <td>Pending</td>
-                    <td>johnnyhardcore</td>
-                    <td>$121.50</td>
-                    <td>#401 7 Brighton Rd. St. Kilda VIC 3121</td>
-                    <td class="table-action">
-                      <a href="orders-detail.html"><i class="fa fa-pencil"></i></a>
-                    </td>
-                 </tr>
-                 <tr class="odd">
-                    <td>622</td>
-                    <td>12/23/2014</td>
-                    <td>Completed</td>
-                    <td>federalman</td>
-                    <td>$331.50</td>
-                    <td>#401 7 Brighton Rd. St. Kilda VIC 3121</td>
-                    <td class="table-action">
-                      <a href="orders-detail.html"><i class="fa fa-pencil"></i></a>
-                    </td>
-                 </tr>
-                 <tr class="even">
-                    <td>623</td>
-                    <td>12/29/2014</td>
-                    <td>Pending</td>
-                    <td>rastemboy</td>
-                    <td>$431.50</td>
-                    <td>#401 7 Brighton Rd. St. Kilda VIC 3121</td>
-                    <td class="table-action">
-                      <a href="orders-detail.html"><i class="fa fa-pencil"></i></a>
-                    </td>
-                 </tr>
-                 <tr class="odd">
-                    <td>624</td>
-                    <td>12/30/2014</td>
-                    <td>Pending</td>
-                    <td>johnsnow</td>
-                    <td>$331.50</td>
-                    <td>#401 7 Brighton Rd. St. Kilda VIC 3121</td>
-                    <td class="table-action">
-                      <a href="orders-detail.html"><i class="fa fa-pencil"></i></a>
-                    </td>
-                 </tr>
-                 <tr class="even">
-                    <td>625</td>
-                    <td>12/08/2014</td>
-                    <td>Pending</td>
-                    <td>eyeballman</td>
-                    <td>$231.50</td>
-                    <td>#401 7 Brighton Rd. St. Kilda VIC 3121</td>
-                    <td class="table-action">
-                      <a href="orders-detail.html"><i class="fa fa-pencil"></i></a>
-                    </td>
-                 </tr>
-                 <tr class="odd">
-                    <td>629</td>
-                    <td>12/06/2014</td>
-                    <td>Completed</td>
-                    <td>gotzegoal</td>
-                    <td>$131.50</td>
-                    <td>#401 7 Brighton Rd. St. Kilda VIC 3121</td>
-                    <td class="table-action">
-                      <a href="orders-detail.html"><i class="fa fa-pencil"></i></a>
-                    </td>
-                 </tr>
+                 
+                 
 
               </tbody>
            </table>
@@ -281,13 +205,24 @@
 <script src="js/chosen.jquery.min.js"></script>
 
 <script src="js/custom.js"></script>
-<script src="js/dashboard.js"></script>
+
 <script>
   jQuery(document).ready(function() {
-    
-    jQuery('#orders-table').dataTable({
-      "sPaginationType": "full_numbers"
+
+    $('#users-table').dataTable( {
+      "sPaginationType": "full_numbers",
+      "aoColumnDefs": [
+      { 
+        "bSortable": false, "aTargets": [ 0,4 ]
+      }
+      ] 
     });
+    
+    //jQuery('#orders-table').dataTable({
+    //  "sPaginationType": "full_numbers"
+    //});
+    
+    jQuery('#orders-table tr th:last-child').empty();
     
     
     // Chosen Select
