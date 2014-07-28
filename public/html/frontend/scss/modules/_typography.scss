@@ -28,7 +28,9 @@ a:active, a:link,a {
 h1, h2, h3, h4, h5, h6 {
   @extend .title;
 	padding-top: 0px; 
-	margin-bottom: $row-height; 
+	margin-bottom: $row-height;
+  font-family:$typeface-third;
+  font-weight:$font-weight-bold; 
 	&:first-child {
 		margin-top: 0;
 	}
@@ -39,6 +41,11 @@ h3 { @extend .font-size-x-large; }
 h4 { @extend .font-size-large; }
 h5 { @extend .font-size-medium; }
 h6 { @extend .font-size-small; }
+
+.title.blue{color:$color-blue;}
+.title.orange{color:$color-orange;}
+.title.green{color:$color-green;}
+
 
 .example {
     margin: 1em -1em 2em;
@@ -64,6 +71,11 @@ hr {
     margin: 1em 0 2em;
     padding: 0;
     text-align: center;
+}
+
+.separator-line{
+  border-bottom:1px solid #BDCCD4;
+  margin:20px 0;
 }
 
 /*Paragraph*/

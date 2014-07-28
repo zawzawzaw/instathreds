@@ -5,14 +5,6 @@
 #status {width:200px;height:200px;position:absolute;left:50%;top:50%;margin:-100px 0 0 -100px;color:#fff;text-align:center;}
 
 
-/* SIDEBAR */
-.sidebar{
-	position:absolute;
-	width:200px;
-	height:500px;
-	top:0px;
-	left:0px;
-}
 
 /* HEADER */
 .header{
@@ -496,13 +488,16 @@
 
 
 /*BANNER/SLIDER*/
+.banner-page{position:relative;margin-bottom:30px;display:block;}
+.banner-page:hover{border:0px !important;}
+
+
 .slider{
 	margin-top:10px;	
 }
 
 .offers-bar{
 	background:#0381F4;
-	min-height:45px;
 	text-align:center;
 	padding:7px 0px;
 }
@@ -1070,6 +1065,33 @@ h3.divider-word span {
     color:#606060;
 }
 
+
+
+/* SIDEBAR */
+.sidebar{padding:20px 0;}
+.sidebar h3{margin:0px;}
+.sidebar .title-blue{color:$color-blue;}
+.sidebar .title-blue a:hover{border:0px;color:$color-dark-grey !important;}
+
+.menu-sidebar{position:block;}
+.menu-sidebar h5{margin:0px 0 10px 0;}
+.menu-sidebar ul{margin:0px;list-style:none;}
+.menu-sidebar ul li{margin-bottom:10px;}
+.menu-sidebar ul li.active a{color:$color-yellow;}
+
+.content-right{margin-top:63px;}
+.content-right .block-grid.four-up > li {
+    margin-left: 0%;
+    margin-bottom:35px;
+    width: 25%;
+}
+
+.content-right .block-grid.four-up > li a:hover{border:0px;}
+
+
+.content-right .block-grid.four-up > li a.title{
+    margin-top:20px;display:block;color:$color-dark-grey;
+}
 
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
