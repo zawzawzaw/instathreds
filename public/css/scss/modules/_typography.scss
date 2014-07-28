@@ -1,0 +1,208 @@
+/* ======== TYPOGRAPHY ============ */
+
+
+
+.font-size-xxx-large { font-size: $font-size-xxx-large; }
+.font-size-xx-large { font-size: $font-size-xx-large; }
+.font-size-x-large { font-size: $font-size-x-large; }
+.font-size-large { font-size: $font-size-large; }
+.font-size-medium { font-size: $font-size-medium; }
+.font-size-small { font-size: $font-size-small; }
+.font-size-x-small { font-size: $font-size-x-small; }
+.font-size-xx-small { font-size: $font-size-xx-small; }
+
+/* Links */
+/*Anchor tags*/
+a:active, a:link,a {
+  color: $color-accent;
+  text-decoration: none;
+  &:hover { 
+    color: $color-accent !important;
+    transition: all 0.5s ease 0s;
+    border-bottom:1px solid $color-accent;
+    }
+}
+
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+  @extend .title;
+	padding-top: 0px; 
+	margin-bottom: $row-height; 
+	&:first-child {
+		margin-top: 0;
+	}
+}
+h1 { @extend .font-size-xxx-large; }
+h2 { @extend .font-size-xx-large; }
+h3 { @extend .font-size-x-large; }
+h4 { @extend .font-size-large; }
+h5 { @extend .font-size-medium; }
+h6 { @extend .font-size-small; }
+
+.example {
+    margin: 1em -1em 2em;
+    outline: 1px dashed #DDDDDD;
+    padding: 0.5em 1em;
+}
+
+hr:after {
+    color: #BBBBBB;
+    content: "";
+    height: 0;
+    letter-spacing: 1em;
+    padding-left: 1em;
+}
+hr {
+    border: 0 none;
+    clear: both;
+    display: block;
+    font-size: 2em;
+    font-weight: 400;
+    height: 0;
+    line-height: 1;
+    margin: 1em 0 2em;
+    padding: 0;
+    text-align: center;
+}
+
+/*Paragraph*/
+p {
+	margin: $row-height 0;
+  line-height:1.6;
+	@extend .font-size-small; 
+	&:first-child { margin-top: 0; }
+	&:last-child { margin-bottom: 10px; }
+}
+
+/*Blockquote*/
+blockquote {
+    border-left: 0.25em solid #EEEEEE;
+    color: $color-dark;
+    margin: 1em 0 1.5em;
+    padding: 0 1.5em 0 1.25em;
+  p {
+    font-size: $font-size-small;
+    line-height: inherit;
+  }
+}
+
+
+
+/*Pre & Code*/
+pre, code {
+   font: 400 0.875em/90% "andale mono", "lucida console", monospace;
+}
+
+pre { /*Merge with Blockquote?*/
+	margin:0px;
+  white-space: pre-line;
+}
+
+samp {
+    color: #333333;
+    font: 400 0.875em/90% source-code-pro,monospace;
+    margin: 0 0.25em;
+}
+
+small { @extend .font-size-small; }
+
+/* Helpful Typography Defaults */
+em,
+i {
+  font-style: italic;
+  line-height: inherit; }
+
+strong,
+b {
+  font-weight: bold;
+  line-height: inherit; }
+
+small {
+  font-size: 60%;
+  line-height: inherit; }
+
+code {
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+  color: $color-accent-alt; }
+
+/* Lists */
+ul,
+ol,
+dl {
+  @extend .font-size-small; 
+  line-height: inherit;
+  margin-bottom: 1.25rem;
+  list-style-position: outside;
+ }
+
+ul {
+  margin-left: 1.1rem; }
+  ul.no-bullet {
+    margin-left: 0; }
+    ul.no-bullet li ul,
+    ul.no-bullet li ol {
+      margin-left: 1.25rem;
+      margin-bottom: 0;
+      list-style: none; }
+
+/* Unordered Lists */
+ul li ul,
+ul li ol {
+  margin-left: 1.25rem;
+  margin-bottom: 0; }
+ul.square li ul, ul.circle li ul, ul.disc li ul {
+  list-style: inherit; }
+ul.square {
+  list-style-type: square;
+  margin-left: 1.1rem; }
+ul.circle {
+  list-style-type: circle;
+  margin-left: 1.1rem; }
+ul.disc {
+  list-style-type: disc;
+  margin-left: 1.1rem; }
+ul.no-bullet {
+  list-style: none; }
+
+/* Ordered Lists */
+ol {
+  margin-left: 1.4rem; }
+  ol li ul,
+  ol li ol {
+    margin-left: 1.25rem;
+    margin-bottom: 0; }
+
+/* Definition Lists */
+dl dt {
+  margin-bottom: 0.3rem;
+  font-weight: bold; }
+dl dd {
+  margin-bottom: 0.75rem; }
+
+/* Abbreviations */
+abbr,
+acronym {
+  text-transform: uppercase;
+  font-size: 90%;
+  color: #222222;
+  border-bottom: 1px dotted #dddddd;
+  cursor: help; }
+
+abbr {
+  text-transform: none; }
+
+
+/*MOBILE*/
+@media only screen and  (max-width: 767px) {
+
+	/*Typography*/
+	/*
+  h1 { font-size: $font-size-x-large; }
+	h2 { font-size: $font-size-large; }
+	h3 { font-size: $font-size-medium; }
+	h4 { font-size: $font-size-small; }
+	h5 { font-size: $font-size-x-small; }
+	h6 { font-size: $font-size-xx-small; }
+  */
+}

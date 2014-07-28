@@ -1,0 +1,22 @@
+css fixes
+  - select boxes (fixed)
+  - tab (fixed)
+function needed
+  - shirt color change
+  - image color change / remove (fixed)
+  - text color change / remove 
+  - resize uploaded image and instagram image (fixed)
+  - zoom
+  - price
+  - smaller boundary area (fixed)
+  - remove default text (fixed)
+ask
+  - instagram how do u want?
+  - two checkboxes
+
+db
+db189877_instathreds
+instadbp@ssword
+
+ssh
+instaserverp@ssword

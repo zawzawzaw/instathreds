@@ -32,7 +32,7 @@ class LoginController extends \BaseController {
 
 		    return Redirect::intended('/')->with('message', 'You are now logged in!');
 		} else {
-		    return Redirect::to('login')
+		    return Redirect::to('/')
 		        ->with('message', 'Your username/password combination was incorrect')
 		        ->withInput();
 		}	
@@ -46,7 +46,7 @@ class LoginController extends \BaseController {
 	public function destroy()
 	{
 		Auth::logout();
-    	return Redirect::to('login')->with('message', 'Your are now logged out!');
+    	return Redirect::to('/');
 	}
 
 

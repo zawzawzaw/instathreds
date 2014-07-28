@@ -37,11 +37,11 @@ class RegisterController extends \BaseController {
 		    $user->password = Hash::make(Input::get('password'));
 		    $user->save();
 		 
-		    return Redirect::to('register')->with('message', 'Thanks for registering!');
+		    return Redirect::to('/')->with('message', 'Thanks for registering!');
 
 	    } else {
 	        # validation has failed, display error messages
-	    	return Redirect::to('register')->with('message', 'The following errors occurred')->withErrors($validator)->withInput();
+	    	return Redirect::to('/')->with('message', 'The following errors occurred')->withErrors($validator)->withInput();
 	    }
 	}
 
