@@ -137,9 +137,7 @@
     <!-- END HEADER -->
              
     <section class="main-content">
-      <div class="container">
           @yield('content')
-      </div>
     </section>             
 
      <!-- FOOTER -->
