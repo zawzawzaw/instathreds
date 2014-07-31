@@ -72,6 +72,12 @@ $( document ).ready(function() {
 
 	});	
 
+	$signupContainer.children('form').find('input[name="email"]').on('keypress', function(e){
+		if(e.which==13) {
+			$(this).closest('form').submit();	
+		}
+	});
+
 	$signupContainer.children('form').validate({
 		rules: {
 			username: {
@@ -113,7 +119,13 @@ $( document ).ready(function() {
 				email: 'Invalid email address'
 			}
 		}
-	});	
+	});
+
+	$loginContainer.children('form').find('input[name="password"]').on('keypress', function(e){
+		if(e.which==13) {
+			$(this).closest('form').submit();	
+		}
+	});
 
 	$loginContainer.children('form').find('button').on('click', function(e){
 
