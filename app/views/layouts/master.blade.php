@@ -262,7 +262,7 @@
                     <p class="alert">{{ Session::get('login_message') }}</p>
                 @endif
                 @if(!isset($errors))
-                <ul>
+                <ul class="errors-list">
                     @foreach($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
@@ -305,7 +305,7 @@
                     <p class="alert">{{ Session::get('register_message') }}</p>
                   @endif
                   @if(!$errors->isEmpty())
-                    <ul>
+                    <ul class="errors-list">
                         @foreach($errors->all() as $error)
                             <li>{{ $error }}</li>
                         @endforeach
@@ -316,7 +316,7 @@
                       {{ Form::text('username', null, array('class'=>'form-control desired-username', 'placeholder'=>'Desired Username')) }}
                       </div>
                       <div class="form-group">
-                      {{ Form::password('password', array('class'=>'form-control password', 'placeholder'=>'Password')) }}
+                      {{ Form::password('password', array('class'=>'form-control password','id'=>'password', 'placeholder'=>'Password')) }}
                       </div>
                       <div class="form-group">
                       {{ Form::password('password_confirmation', array('class'=>'form-control retype-password', 'placeholder'=>'Retype Password')) }}
@@ -360,6 +360,7 @@
     <script src="js/bootstrap/modal.js"></script>
     <script src="js/bootstrap/tab.js"></script>
     <script src="js/vendor/caroufredsel.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

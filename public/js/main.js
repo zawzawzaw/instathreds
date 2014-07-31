@@ -72,12 +72,70 @@ $( document ).ready(function() {
 
 	});	
 
+	$signupContainer.children('form').validate({
+		rules: {
+			username: {
+				required: true,
+				alphanumeric: true,
+				minlength: 3
+			},
+			password: {
+				required: true,
+				minlength: 6,
+				maxlength: 12
+			},
+			password_confirmation: {
+				required: true,
+				equalTo: '#password'
+			},
+			email: {
+				required: true,
+				email: true
+			}
+		},
+		messages: {
+			username : {
+				required: 'Please enter your user name',
+				alphanumeric: 'Only characters and numbers allowed',
+				minlength: 'Please enter minimum 3 characters'
+			},
+			password: {
+				required: 'Please enter your password',
+				minlength: 'Please enter minimum 6 characters',
+				maxlength: 'Max 12 characters allowed'
+			},
+			password_confirmation: {
+				required: 'Please enter password confirmation',
+				equalTo: "Password mismatch"
+			},
+			email: {
+				required: 'Please enter your email address',
+				email: 'Invalid email address'
+			}
+		}
+	});	
+
 	$loginContainer.children('form').find('button').on('click', function(e){
 
 		e.preventDefault();
 		$(this).closest('form').submit();
 
 	});
+
+	$loginContainer.children('form').validate({
+		rules : {
+			username : 'required',
+			password : 'required'
+		},
+		messages : {
+			username : 'Please enter your user name',
+			password : 'Please enter your password'
+		}
+	});
+
+	jQuery.validator.addMethod("alphanumeric", function(value, element) {
+		return this.optional(element) || value == value.match(/^[a-z0-9A-Z#]+$/);
+	},"Only Characters, Numbers & Hash Allowed.");
 
 	if(signupLoginMsg) {
 		if(signupLoginMsg == 'Your username or password was incorrect.'){
@@ -91,4 +149,7 @@ $( document ).ready(function() {
 			$('#login-tab a:last').tab('show');
 		}
 	}
+
+
+
 });

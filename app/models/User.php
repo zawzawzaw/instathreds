@@ -26,10 +26,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 
 	public static $rules = array(
-	    'username'=>'required|alpha|min:3',
+	    'username'=>'required|alpha_num|min:3',
 	    'email'=>'required|email|unique:users',
-	    'password'=>'required|alpha_num|between:6,12|confirmed',
-	    'password_confirmation'=>'required|alpha_num|between:6,12'
+	    'password'=>'required|between:6,12|confirmed',
+	    'password_confirmation'=>'required|between:6,12'
     );
 
 	public function getAuthIdentifier()

@@ -41,5 +41,13 @@ body {
 
 .alert {
 	color: $color-red;
-	
+	width: 270px;
+}
+
+.errors-list {
+	width: 270px;
+	li {
+		color: $color-red;
+		padding-bottom: 3px;
+	}
 }
