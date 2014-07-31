@@ -14,6 +14,8 @@ ask
   - instagram how do u want?
   - two checkboxes
 
+ssh serveradmin%instathredsdev.com@instathredsdev.com
+
 db
 db189877_instathreds
 instadbp@ssword

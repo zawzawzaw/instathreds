@@ -33,7 +33,7 @@ class LoginController extends \BaseController {
 		    return Redirect::intended('/')->with('message', 'You are now logged in!');
 		} else {
 		    return Redirect::to('/')
-		        ->with('message', 'Your username/password combination was incorrect')
+		        ->with('login_message', 'Your username or password was incorrect.')
 		        ->withInput();
 		}	
 	}

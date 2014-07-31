@@ -9,8 +9,9 @@ $( document ).ready(function() {
 		$mobileMenuItems = $('.mobile-menu-items'),
 		$signupContainer = $('#signup'),
 		$loginContainer = $('#login'),
-		$signupLoginError = $('.alert'),
-		$sliderContainer = $('.slider');
+		$signupLoginMsg = $('.alert'),
+		$sliderContainer = $('.slider'),
+		signupLoginMsg = $signupLoginMsg.html();
 		
 
 	$window.load(function() { // makes sure the whole site is loaded
@@ -78,13 +79,14 @@ $( document ).ready(function() {
 
 	});
 
-	var errorMsg = $signupLoginError.html();
-
-	if(errorMsg) {
-		if(errorMsg == 'Your username/password combination was incorrect'){
+	if(signupLoginMsg) {
+		if(signupLoginMsg == 'Your username or password was incorrect.'){
 			$('#login-modal').modal('show');
 			$('#login-tab a:first').tab('show');
-		}else if(errorMsg== 'The following errors occurred') {
+		}else if(signupLoginMsg== 'The following errors occurred:') {
+			$('#login-modal').modal('show');
+			$('#login-tab a:last').tab('show');
+		}else if(signupLoginMsg=='Thanks for registering! You may now login.') {
 			$('#login-modal').modal('show');
 			$('#login-tab a:last').tab('show');
 		}

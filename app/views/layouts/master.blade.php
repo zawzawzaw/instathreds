@@ -258,18 +258,17 @@
                 
               <!-- LOGIN -->
                 <div class="tab-pane active" id="login">
+                @if(Session::has('login_message'))
+                    <p class="alert">{{ Session::get('login_message') }}</p>
+                @endif
+                @if(!isset($errors))
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+                @endif
                 {{ Form::open(array('url'=>'login', 'class'=>'form-login')) }}
-                    @if(Session::has('message'))
-                        <p class="alert">{{ Session::get('message') }}</p>
-                    @endif
-                    @if(!isset($errors))
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                    @endif
-                  
                     <div class="form-group">
                       {{ Form::text('username', null, array('class'=>'form-control username', 'placeholder'=>'User Name')) }}
                     </div>
@@ -302,18 +301,17 @@
 
                 <!-- SIGNUP -->
                 <div class="tab-pane" id="signup">
-                  {{ Form::open(array('url'=>'register', 'class'=>'form-signup')) }}
-                      @if(Session::has('message'))
-                          <p class="alert">{{ Session::get('message') }}</p>
-                      @endif
-                      @if(!$errors->isEmpty())
-                      <ul>
-                          @foreach($errors->all() as $error)
-                              <li>{{ $error }}</li>
-                          @endforeach
-                      </ul>
-                      @endif
-                   
+                  @if(Session::has('register_message'))
+                    <p class="alert">{{ Session::get('register_message') }}</p>
+                  @endif
+                  @if(!$errors->isEmpty())
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                  @endif
+                  {{ Form::open(array('url'=>'register', 'class'=>'form-signup')) }}                  
                       <div class="form-group">
                       {{ Form::text('username', null, array('class'=>'form-control desired-username', 'placeholder'=>'Desired Username')) }}
                       </div>
