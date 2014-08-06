@@ -19,8 +19,8 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      {{ HTML::script('//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js') }}
+      {{ HTML::script('//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js') }}
     <![endif]-->
   </head>
  
@@ -46,19 +46,19 @@
         </li>
         <li>
           <div class="menu-cart-mobile">
-            <a href=""><i class="fa fa-shopping-cart"></i><span>2 items in your cart<span></a>
+            <a href="#"><i class="fa fa-shopping-cart"></i><span>2 items in your cart<span></a>
           </div>
         </li>
-        <li><a href="">Make Your Own</a></li>
-        <li><a href="">Choose a Design</a></li>
-        <li><a href="">Stores</a></li>
-        <li><a href="">Blog</a></li>
-        <li><a href="">How To</a></li>
-        <li><a href="">Size Guide</a></li>
-        <li><a href="">Pricing</a></li>
-        <li><a href="">Bulk Orders</a></li>
-        <li><a href="">FAQs</a></li>
-        <li><a href="">Help</a></li>      
+        <li><a href="#">Make Your Own</a></li>
+        <li><a href="#">Choose a Design</a></li>
+        <li><a href="#">Stores</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">How To</a></li>
+        <li><a href="#">Size Guide</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Bulk Orders</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Help</a></li>      
       </ul>
     </nav>
 
@@ -75,11 +75,11 @@
                 <button class="button-search"><i class="fa fa-search"></i></button>
             </div>
             <div class="social">
-              <a href="" class="icon"><i class="fa fa-facebook"></i></a>
-              <a href="" class="icon"><i class="fa fa-instagram"></i></a>
-              <a href="" class="icon"><i class="fa fa-twitter"></i></a>
-              <a href="" class="icon"><i class="fa fa-pinterest"></i></a>
-              <a href="" class="icon"><i class="fa fa-youtube"></i></a>  
+              <a href="#" class="icon"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="icon"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="icon"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="icon"><i class="fa fa-pinterest"></i></a>
+              <a href="#" class="icon"><i class="fa fa-youtube"></i></a>  
             </div>
         </div>      
       </div>
@@ -89,7 +89,7 @@
       <div class="header-main">
         <div class="container">
           <div class="logo">
-            <a href=""><img src="images/logo-instathreds.png" alt="Logo" /></a>
+            <a href="#"><img src="images/logo-instathreds.png" alt="Logo" /></a>
           </div>
           <div class="mobile-menu burger slide" id="navToggle"  >
             <a href="#"><i class="fa fa-bars"></i></a>
@@ -98,8 +98,8 @@
           <div class="navigation-menu">
             <div class="menu-main">
               <ul>
-                <li><a href="">Make Your Own</a></li>
-                <li><a href="">Choose a Design</a></li>
+                <li><a href="#">Make Your Own</a></li>
+                <li><a href="#">Choose a Design</a></li>
                 <li>
                   <a data-toggle="dropdown" class="dropdown-toggle" href="#">Blog</a>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
@@ -168,11 +168,11 @@
               </li>
               <li>
                   <div class="social social-footer">
-                    <a href="" class="icon"><i class="fa fa-facebook"></i></a>
-                    <a href="" class="icon"><i class="fa fa-instagram"></i></a>
-                    <a href="" class="icon"><i class="fa fa-twitter"></i></a>
-                    <a href="" class="icon"><i class="fa fa-pinterest"></i></a>
-                    <a href="" class="icon"><i class="fa fa-youtube"></i></a>  
+                    <a href="#" class="icon"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="icon"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="icon"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="icon"><i class="fa fa-pinterest"></i></a>
+                    <a href="#" class="icon"><i class="fa fa-youtube"></i></a>  
                   </div>
               </li>
             </ul>
@@ -185,41 +185,41 @@
               <li>
                 <h5>Make your own Tshirt</h5>
                 <ul>
-                  <li><a href="">Do it Now</a></li>
-                  <li><a href="">How to</a></li>
-                  <li><a href="">FAQs</a></li>
+                  <li><a href="#">Do it Now</a></li>
+                  <li><a href="#">How to</a></li>
+                  <li><a href="#">FAQs</a></li>
                 </ul>
               </li>
               <li>
                 <h5>Choose a Design</h5>
                 <ul>
-                  <li><a href="">All Categories</a></li>
-                  <li><a href="">Featured</a></li>
-                  <li><a href="">His</a></li>
-                  <li><a href="">Hers</a></li>
+                  <li><a href="#">All Categories</a></li>
+                  <li><a href="#">Featured</a></li>
+                  <li><a href="#">His</a></li>
+                  <li><a href="#">Hers</a></li>
                 </ul>
               </li>
               <li>
                 <h5>Signup and Sell T-Shirts</h5>
                 <ul>
-                  <li><a href="">Calling all designers & artists</a></li>
-                  <li><a href="">Signup Now</a></li>
-                  <li><a href="">FAQs</a></li>
+                  <li><a href="#">Calling all designers & artists</a></li>
+                  <li><a href="#">Signup Now</a></li>
+                  <li><a href="#">FAQs</a></li>
                 </ul>
               </li>
               <li>
                 <h5>Visit Us</h5>
                 <ul>
-                  <li><a href="">Robina Store</a></li>
-                  <li><a href="">Carindale Store</a></li>
+                  <li><a href="#">Robina Store</a></li>
+                  <li><a href="#">Carindale Store</a></li>
                 </ul>
               </li>
               <li>
                 <h5>Order</h5>
                 <ul>
-                  <li><a href="">Bulk Order Contact us here</a></li>
-                  <li><a href="">Login</a></li>
-                  <li><a href="">Signup</a></li>
+                  <li><a href="#">Bulk Order Contact us here</a></li>
+                  <li><a href="#">Login</a></li>
+                  <li><a href="#">Signup</a></li>
                 </ul>
               </li>
                 

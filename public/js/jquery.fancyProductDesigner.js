@@ -144,11 +144,7 @@
 				rotationCursor: 'default'
 			});
 
-			// console.log('hello')
-
-
 			stage.setDimensions({width: options.dimensions.productStageWidth, height: options.dimensions.productStageHeight})
-
 
 			//modification tooltip
 			$modificationTooltip = $productContainer.append('<div class="fpd-modification-tooltip"></div>').children('.fpd-modification-tooltip')
@@ -206,9 +202,10 @@
 						padding: 7
 					});
 
-					// my edit (changing clipart preview)
+					// zza edit (to add clipart)
 					$('.fpd-toolbar').find('.currentClipArt').html('<img src="'+currentElement.source+'">');
 
+					// ???
 					$sidebarContent.find('.fpd-elements-dropdown').children('option[value="'+currentElement.id+'"]').prop('selected', true).parent().trigger('chosen:updated');
 
 					//toggle colorpicker
@@ -233,9 +230,11 @@
 							// 	}
 							// });
 	
+							// zza edit
 							$colorPicker.children('input').hide();
 							$colorlist.empty();
 							$.each(elemParams.colors, function(i, color){
+								// set color and listen for color changes
 								$colorlist.append('<li><span class="colorOptions" data-color="'+color+'" style="background: '+color+'; width: 23px; height: 23px; display: inline-block"></span></li>')
 									.children('li:last').click(function(evt) {
 
@@ -341,6 +340,8 @@
 			//create view array from DOM
 			var views = [];
 
+			// console.log($products);
+
 			for(var i=0; i < $products.length; ++i) {
 				//get other views
 				views = $($products.get(i)).children('.fpd-product');
@@ -410,7 +411,7 @@
 			//show edit elements navi
 			$sidebarNavi.find('li[data-target=".fpd-edit-elements"]').show();
 
-			//init tab
+			//zza edit init tab (select image tab)
 			$('#imageSelectTab a').click(function (e) {
 			  e.preventDefault()
 			  $(this).tab('show')
@@ -511,7 +512,7 @@
 			var param_access_token = window.location.hash;
 			param_access_token = param_access_token.replace("#access_token=", "");
 
-			// check if user can add photos from instagram
+			// zaw edit check if user can add photos from instagram
 			if(options.instagramAppId && options.instagramAppId.length > 0) {
 				var $inUserPhotos = $sidebarContent.find('.fpd-in-user-photos'),
 					$inUserPhotosList = $inUserPhotos.find('.fpd-in-user-photos-list'),
@@ -873,13 +874,14 @@
 
 			}).filter(':visible:first').click();
 
+			// zaw edit
 			function setcurrentObj(openIndex) {
 				var objects = stage.getObjects();
 			  		console.log(objects)
 			 		stage.setActiveObject(objects[openIndex]);	
 			}
 
-			//set active on shirt
+			// zaw edit set active on each sidebar tab open
 			$('#accordion').on('shown.bs.collapse', function (e) {
 			  	var openIndex = $(e.currentTarget).find('.in').data('index');
 			  	
@@ -1850,14 +1852,14 @@
 		*/
 		this.addProduct = function(views) {
 
-			//load product by click
+			//zaw edit //product selection drop down
 			$sidebarContent.find('.fpd-products ul').append('<li><a href="#">'+views[0].title+'</a></li>')
 			.children('li:last').click(function(evt) {
 				evt.preventDefault();
 				var $this = $(this),
 					index = $sidebarContent.find('.fpd-products ul li').index($this);
 
-				console.log(index);		
+				// console.log(index);		
 
 				thisClass.selectProduct(index);
 			}).data('views', views)

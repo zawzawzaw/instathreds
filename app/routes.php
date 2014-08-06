@@ -25,6 +25,11 @@ Route::get('logout', array(
 ));
 
 Route::resource('fblogin', 'FbloginController', array('as'=>'fblogin'));
+
 Route::resource('instalogin', 'IngloginController', array('as'=>'instalogin'));
 
 Route::resource('shirtbuilder', 'ShirtbuilderController', array('as'=>'shirtbuilder'));
+
+Route::get('admin', 'AdminController@index');
+
+Route::get('admin/users', 'AdminController@listUsers');

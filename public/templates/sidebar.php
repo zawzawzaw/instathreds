@@ -105,7 +105,7 @@ $saved_products_headline = 'Your Saved Products';
 					</div>
 
 					<div class="detail">
-						<input type="checkbox"> White Underbase <span>?</span><br>
+						<input type="checkbox" checked="checked"> White Underbase <span>?</span><br>
 						<input type="checkbox"> Upgrade to large print area <span>?</span>
 					</div>
 
@@ -226,8 +226,6 @@ $saved_products_headline = 'Your Saved Products';
 			</div>
 		</div>
 	  	
-		
-		
 		<!-- Facebook User Photos -->
 		<div class="fpd-fb-user-photos">
 			<h3><?php echo $fb_user_photos; ?></h3>
@@ -245,6 +243,7 @@ $saved_products_headline = 'Your Saved Products';
 			</div>
 			<ul class="fpd-fb-user-photos-list fpd-border-color fpd-clearfix"></ul>
 		</div>
+		
 		<!-- Saved products -->
 		<div class="fpd-saved-products">
 			<h3 class="fpd-border-color"><?php echo $saved_products_headline; ?></h3>

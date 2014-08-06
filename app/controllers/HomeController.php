@@ -30,10 +30,4 @@ class HomeController extends BaseController {
 
 		$this->layout->content = View::make('home.index')->with('username', $username);
 	}
-
-	public function showWelcome()
-	{
-		return View::make('hello');
-	}
-
 }
