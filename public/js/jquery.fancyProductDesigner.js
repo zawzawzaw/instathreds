@@ -893,17 +893,7 @@
 			  		_deselectElement();
 			  	}
 			});
-
-			// zaw edit trying to make it white
-			$('#collapseOne').collapse('show');
-
-			// var $colorlist = $('.fpd-color-picker').find('.color-list');
-			// $colorlist.find('span[data-color="#fff"]').parent().trigger('click');
-
-			// console.log(stage)
-			// console.log(stage._activeObject)
-			// console.log(stage.getActiveObject())
-
+			
 			//set active object
 			$sidebarContent.find('.fpd-elements-dropdown').change(function() {
 
