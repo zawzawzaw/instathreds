@@ -202,16 +202,30 @@
 						padding: 7
 					});
 
+					console.log(currentElement);
+
+					// zza edit (to open respective tab depends on user select)
+					if(currentElement.title=="Base") {
+						
+						$('#collapseOne').collapse('show');
+					}else if(currentElement._element!==undefined) {
+						
+						$('#collapseTwo').collapse('show');
+					}else {
+						
+						$('#collapseThird').collapse('show');
+					}
+
 					// zza edit (to add clipart)
 					$('.fpd-toolbar').find('.currentClipArt').html('<img src="'+currentElement.source+'">');
 
 					// ??? this choose product type from dropdown
 					$sidebarContent.find('.fpd-elements-dropdown').children('option[value="'+currentElement.id+'"]').prop('selected', true).parent().trigger('chosen:updated');
 
-					//toggle colorpicker
+					// toggle colorpicker
 					if(Array.isArray(elemParams.colors) && _elementIsColorizable(currentElement) != false) {
 						$colorPicker.children('input').val(elemParams.currentColor ? elemParams.currentColor : elemParams.colors[0]);
-						//color list
+						// color list
 						var $colorlist = $('.fpd-color-picker').find('.color-list');
 
 						// console.log($colorlist)
@@ -512,7 +526,7 @@
 			var param_access_token = window.location.hash;
 			param_access_token = param_access_token.replace("#access_token=", "");
 
-			// zaw edit check if user can add photos from instagram
+			// zza edit check if user can add photos from instagram
 			if(options.instagramAppId && options.instagramAppId.length > 0) {
 				var $inUserPhotos = $sidebarContent.find('.fpd-in-user-photos'),
 					$inUserPhotosList = $inUserPhotos.find('.fpd-in-user-photos-list'),
@@ -551,7 +565,7 @@
 
 										$.post(options.phpDirectory + 'get_image_data_url.php', { url: $img.data('picture') }, function(data) {
 
-											console.log(options)
+											// console.log(options)
 
 											if(data && data.error == undefined) {
 
@@ -874,14 +888,27 @@
 
 			}).filter(':visible:first').click();
 
-			// zaw edit
+			// zza edit (open one panel at a time)
+			// $('.panel-heading a').on('click',function(e){
+			//     if($(this).parents('.panel').children('.panel-collapse').hasClass('in')){
+			//         e.stopPropagation();
+			//     }
+			// });
+
+			// zza edit
 			function setcurrentObj(openIndex) {
 				var objects = stage.getObjects();
-			  		console.log(objects)
-			 		stage.setActiveObject(objects[openIndex]);	
+		  		var currentActiveObj = stage.getActiveObject();
+
+		  		if(currentActiveObj === null)
+		  			stage.setActiveObject(objects[openIndex]);
+		  		else {
+		  			// if base has not selected
+		  			if(currentActiveObj.title!=='Base') stage.setActiveObject(objects[openIndex]);
+		  		}		  			
 			}
 
-			// zaw edit set active on each sidebar tab open
+			// zza edit set active on each sidebar tab open
 			$('#accordion').on('shown.bs.collapse', function (e) {
 			  	var openIndex = $(e.currentTarget).find('.in').data('index');
 			  	
@@ -889,8 +916,10 @@
 			  	if(openIndex==0) {
 			  		setcurrentObj(openIndex);	
 			  	}else {
-			  		console.log('deselect')
-			  		_deselectElement();
+			  		var currentActiveObj = stage.getActiveObject();
+			  		if(currentActiveObj!== null) {
+			  			if(currentActiveObj.title==='Base')	_deselectElement();	
+			  		}			  		
 			  	}
 			});
 			
@@ -1852,7 +1881,7 @@
 		*/
 		this.addProduct = function(views) {
 
-			//zaw edit //product selection drop down
+			//zza edit //product selection drop down
 			$sidebarContent.find('.fpd-products ul').append('<li><a href="#">'+views[0].title+'</a></li>')
 			.children('li:last').click(function(evt) {
 				evt.preventDefault();

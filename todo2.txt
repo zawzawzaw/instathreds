@@ -22,3 +22,5 @@ instadbp@ssword
 
 ssh
 instaserverp@ssword
+
+must select one of image and text if there is one on click to image and text 
