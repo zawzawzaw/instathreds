@@ -70,13 +70,18 @@ $saved_products_headline = 'Your Saved Products';
 		<div class="panel-group" id="accordion">
 			<div class="panel panel-default">
 			    <div class="panel-heading">
-			        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+			        <a id="openSelectShirt" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
 			          <img src="images/fpd/icon-shirt.png">Select Shirt
 			        </a>
 			    </div>
 			    <div id="collapseOne" data-index="0" class="panel-collapse collapse">
 			      <div class="panel-body" style="height:250px;">
-			      <!-- Products -->
+					<div class="gender-select">
+						<label for="gender">Male</label><input type="radio" name="gender" value="male" checked>
+						<label for="gender">Female</label><input type="radio" name="gender" value="female">
+					</div>
+
+			      	<!-- Products -->
 					<div class="fpd-products">
 						<div class="select" style="margin-bottom:20px;">
 						  <a data-toggle="dropdown" class="dropdown" href="#">Shirt Type<b class="caret"></b></a>
@@ -105,8 +110,8 @@ $saved_products_headline = 'Your Saved Products';
 					</div>
 
 					<div class="detail">
-						<input type="checkbox" checked="checked"> White Underbase <span>?</span><br>
-						<input type="checkbox"> Upgrade to large print area <span>?</span>
+						<input type="checkbox" name="white_underbase"> White Underbase <span>?</span><br>
+						<input type="checkbox" name="printarea"> Upgrade to large print area <span>?</span>
 					</div>
 
 			      </div>
@@ -154,8 +159,10 @@ $saved_products_headline = 'Your Saved Products';
 											<ul class="fpd-clearfix"></ul>
 										</div>
 								  	</div>
+								</div>
 
-								  	<!-- Toolbar -->
+								<div id="imageselect">
+									<!-- Toolbar -->
 									<div class="fpd-toolbar">
 
 										<div class="currentClipArt">
@@ -188,6 +195,23 @@ $saved_products_headline = 'Your Saved Products';
 			    </div>
 			    <div id="collapseThird" data-index="2" class="panel-collapse collapse">
 			    	<div id="customText" class="panel-body">
+						<div class="fpd-toolbar font-toolbar">
+							<div class="fpd-fonts-dropdown-wrapper">
+								<select class="fpd-fonts-dropdown"></select>
+							</div>
+
+							<div class="fpd-customize-text">
+								<textarea value="" name="element_text" class="fpd-text-input fpd-textarea fpd-active"></textarea>
+								<div class="fpd-text-styles">
+									<button title="<?php echo $customize_text_align_left; ?>" class="fpd-align-left fpd-button fpd-tooltip"><span class="fa fa-align-left"></span></button>
+									<button title="<?php echo $customize_text_align_center; ?>" class="fpd-align-center fpd-button fpd-tooltip"><span class="fa fa-align-center"></span></button>
+									<button title="<?php echo $customize_text_align_right; ?>" class="fpd-align-right fpd-button fpd-tooltip"><span class="fa fa-align-right"></span></button>
+									<button title="<?php echo $customize_text_bold; ?>" class="fpd-bold fpd-button fpd-tooltip"><span class="fa fa-bold"></span></button>
+									<button title="<?php echo $customize_text_italic; ?>" class="fpd-italic fpd-button fpd-tooltip"><span class="fa fa-italic"></span></button>
+								</div>
+							</div>
+						</div>
+
 				    	<!-- Edit text -->
 						<div class="add-text fpd-custom-text">
 							<h6><?php echo $custom_text_headline; ?></h6>
@@ -196,8 +220,7 @@ $saved_products_headline = 'Your Saved Products';
 						</div>
 
 						<!-- Toolbar -->
-						<div class="fpd-toolbar">
-
+						<div class="fpd-toolbar custom-text-toolbar">
 							<div class="currentText">
 								<img src="images/fpd/icon-text.png" alt="temp">
 							</div>
@@ -212,6 +235,7 @@ $saved_products_headline = 'Your Saved Products';
 								<button title="<?php echo $customize_center_trash; ?>" class="fpd-trash fpd-button fpd-button-danger fpd-tooltip"><span class="remove-white-box"></span></button>
 							</div>
 						</div>
+
 					</div>
 			    </div>
 			</div>

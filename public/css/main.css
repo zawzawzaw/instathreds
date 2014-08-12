@@ -75,6 +75,10 @@ section.fpd-sidebar .logo h6{
 	margin-left:335px !important;
 }
 
+#accordion {
+	min-height: 800px;
+}
+
 #accordion .panel-heading {
     background:none !important;
     border:0px !important;
@@ -84,11 +88,12 @@ section.fpd-sidebar .logo h6{
     background:none !important;
     border:0px !important;
     box-shadow: none;
+    overflow: visible; /* zza edit */
 }
 
 #accordion .panel-body{
 	border:0px !important;
-	padding:10px 20px 10px 70px;
+	padding:0px 20px 10px 70px;
 } 
 
 #accordion .panel-heading a{
@@ -256,7 +261,11 @@ section.fpd-sidebar .logo h6{
 }
 
 .fpd-in-user-photos {
-	height: 205px;
+	/*height: 205px;*/
+}
+
+.fpd-in-user-photos-list {
+	height: auto!important;
 }
 
 .fpd-in-user-photos > ul > li  {
@@ -438,6 +447,11 @@ ul#imageSelectTab li a {
 	box-shadow: none;
 }
 
+
+.fpd-edit-elements .chosen-container {
+	max-width: 100%!important;
+}
+
 /*
 ////////////////////////////////
 ///////// textarea /////////////
@@ -455,13 +469,19 @@ ul#imageSelectTab li a {
 ////////////////////////////////////////
 */
 
-#customText .fpd-toolbar, #clipart .fpd-toolbar {
+#customText .custom-text-toolbar, #imageselect .fpd-toolbar {
 	background: #E8E8E8;
-	width: 230px;
-	height: 65px;
+	/*width: 230px;*/
+	min-height: 65px;
 }
 
-#customText .fpd-toolbar > div, #clipart .fpd-toolbar > div {
+#customText .font-toolbar {
+	background: none; /*remove background for font dropdown*/
+	display: inline-block!important;
+	width: 100%;
+}
+
+#customText .fpd-toolbar > div, #imageselect .fpd-toolbar > div {
 	margin: 5px 10px 0 0;
 	padding: 0 0 0 10px;
 	display: inline-block;
@@ -471,36 +491,48 @@ ul#imageSelectTab li a {
 	height: 85%;
 }
 
-#customText .fpd-toolbar > div {
-	margin: 10px 10px 0 0;
+#customText .font-toolbar > div {
+	border: none; /*remove border for font dropdown*/
+	/*margin: 0px!important;*/
+	padding: 0px;
+	width: 100%;
 }
 
-#customText label, #clipart label {
+#customText .fpd-toolbar > div {
+	margin: 5px 10px 10px 0;
+}
+
+#customText label, #imageselect label {
 	display: block;
 	font-weight: normal;
 }
 
-#customText .fpd-toolbar > .fpd-element-buttons, #clipart .fpd-toolbar > .fpd-element-buttons {
+#customText .fpd-toolbar > .fpd-element-buttons, #imageselect .fpd-toolbar > .fpd-element-buttons {
 	display: inline-block;
 	width: 60px;
 }
 
-#customText .fpd-toolbar .currentText, #clipart .fpd-toolbar .currentClipArt {
+#customText .fpd-toolbar .currentText, #imageselect .fpd-toolbar .currentClipArt {
 	width: 60px;
 	height: 90%;
+	padding: 6px 12px;
 }
 
-#customText .currentText img, #clipart .currentClipArt img {
+#customText .fpd-customize-text {
+	margin-bottom: 20px;
+}
+
+#customText .currentText img, #imageselect .currentClipArt img {
 	max-width: 100%;
 	max-height: 100%;
 }
 
-#customText .fpd-trash, #clipart .fpd-trash {
+#customText .fpd-trash, #imageselect .fpd-trash {
 	display: block;
 	margin: 0 auto;
 }
 
-#customText .fpd-button, #clipart .fpd-button {
+#customText .fpd-trash, #imageselect .fpd-button {
 	background: white;
 	border: 1px solid black;
 }
@@ -513,3 +545,23 @@ ul.color-list li {
 	display: inline-block;
 	margin-right: 6px;
 }
+
+/*
+//////////////////////////////////
+//////// gender select ///////////
+//////////////////////////////////
+*/
+
+.gender-select {
+	margin-bottom: 5px!important;
+}
+
+.gender-select label {
+	margin-right: 10px;
+}
+
+.gender-select input[type="radio"] {
+	margin-right: 20px;
+}
+
+

@@ -32,7 +32,8 @@
 			$fontsDropdown,
 			$patternWrapper,
 			$modificationTooltip,
-			$products,
+			$maleproducts,
+			$femaleproducts,
 			$designs,
 			$viewSelection,
 			$editorBox,
@@ -57,7 +58,8 @@
 
 
 		$elem = $(elem).addClass('fpd-container fpd-clearfix');
-		$products = $elem.children('.fpd-product').remove();
+		$maleproducts = $elem.children('.fpd-male-product').remove();
+		$femaleproducts = $elem.children('.fpd-female-product').remove();
 		$designs = $elem.children('.fpd-design');
 
 		//test if canvas is supported
@@ -155,6 +157,7 @@
 				'mouse:down': function(opts) {
 					if(opts.target == undefined) {
 						_deselectElement();
+						console.log('hi')
 					}
 				},
 				'object:moving': function(opts) {
@@ -206,13 +209,10 @@
 
 					// zza edit (to open respective tab depends on user select)
 					if(currentElement.title=="Base") {
-						
 						$('#collapseOne').collapse('show');
 					}else if(currentElement._element!==undefined) {
-						
 						$('#collapseTwo').collapse('show');
 					}else {
-						
 						$('#collapseThird').collapse('show');
 					}
 
@@ -256,6 +256,9 @@
 
 										color = $(this).children('span').data('color');
 
+										if(color=='#fff') $('input[name="white_underbase"]').prop('checked', false);
+										else $('input[name="white_underbase"]').prop('checked', true);
+										
 										_changeColor(currentElement, color);
 								});
 							});
@@ -354,14 +357,9 @@
 			//create view array from DOM
 			var views = [];
 
-			// console.log($products);
+			// console.log($maleproducts);
 
-			for(var i=0; i < $products.length; ++i) {
-				//get other views
-				views = $($products.get(i)).children('.fpd-product');
-				//get first view
-				views.splice(0,0,$products.get(i));
-
+			function createViewArr(views) {
 				var viewsArr = [];
 				views.each(function(i, view) {
 					var $view = $(view);
@@ -380,8 +378,42 @@
 
 					viewsArr.push(viewObj);
 				});
-				thisClass.addProduct(viewsArr);
+
+				return viewsArr;
 			}
+
+			$('#collapseOne').find('.gender-select').children('input').on('change', function(e){
+				if($(this).val()=='male') {
+					$sidebarContent.find('.fpd-products ul').html('');
+
+					for(var i=0; i < $maleproducts.length; ++i) {
+						//get other views
+						views = $($maleproducts.get(i)).children('.fpd-male-product');
+						//get first view
+						views.splice(0,0,$maleproducts.get(i));
+
+						viewsArr = createViewArr(views);
+						
+						thisClass.addProduct(viewsArr);
+					}
+
+				}else if($(this).val()=='female') {
+					$sidebarContent.find('.fpd-products ul').html('');
+
+					for(var i=0; i < $femaleproducts.length; ++i) {
+						//get other views
+						views = $($femaleproducts.get(i)).children('.fpd-female-product');
+						//get first view
+						views.splice(0,0,$femaleproducts.get(i));
+
+						viewsArr = createViewArr(views);
+
+						thisClass.addProduct(viewsArr);
+					}
+				}
+			});
+
+			$('#collapseOne').find('.gender-select').children('input').first().trigger('change');
 
 			//load all designs
 			if($designs.size() > 0) {
@@ -436,12 +468,15 @@
 				var $customText = $sidebarContent.find('.fpd-custom-text'),
 					placeholder = $customText.children('textarea').val();
 
+				// $customText.show();
+
 				$sidebarNavi.find('li[data-target=".fpd-custom-text"]').show();
 				$customText.children('.fpd-button-submit').click(function(evt) {
 					evt.preventDefault();
 					var text = $customText.children('textarea').val();
 					thisClass.addElement('text', text, text, options.customTextParameters, currentViewIndex);
 					$customText.children('textarea').removeClass('fpd-active').val(placeholder);
+					if(text) $customText.hide();
 				});
 
 				$customText.children('textarea').focusin(function() {
@@ -540,7 +575,7 @@
 				$inPhotos.children('.fpd-button-instagram').click(function(evt) {
 					evt.preventDefault();
 					// int instagram js sdk
-					window.location.href = "https://instagram.com/oauth/authorize/?display=touch&client_id="+options.instagramAppId+"&redirect_uri="+encodeURI('http://instathreds.dev/html/shirtbuilder/index.php')+"&response_type=token";
+					window.location.href = "https://instagram.com/oauth/authorize/?display=touch&client_id="+options.instagramAppId+"&redirect_uri="+encodeURI('http://instathreds.dev/shirtbuilder')+"&response_type=token";
 				});
 
 				if(param_access_token) {
@@ -585,6 +620,7 @@
 
 											}
 											else {
+												console.log('hi')
 												alert(data.error);
 											}
 
@@ -895,6 +931,9 @@
 			//     }
 			// });
 
+			// zza edit had to manually click on first tab so other tab close on object selection // weird issue
+			$('a#openSelectShirt').trigger('click');
+
 			// zza edit
 			function setcurrentObj(openIndex) {
 				var objects = stage.getObjects();
@@ -908,18 +947,73 @@
 		  		}		  			
 			}
 
+			// zza edit
+			function findandselectObj(openIndex) {
+				var objects = stage.getObjects();
+				var objectsLength = objects.length - 1; // including images like shadows, base and so on..
+	  			var setIndex = 0;
+
+	  			if(openIndex==1){
+	  				// image
+	  				for(i = objectsLength;i > 5; i--) {
+	  					if(objects[i]._element!==undefined) {
+	  						setIndex = i;
+	  						break;
+	  					}
+	  				}
+	  			}else if(openIndex==2){
+	  				// text
+	  				for(i = objectsLength;i > 5; i--) {
+	  					if(objects[i].text!==undefined) {
+	  						setIndex = i;
+	  						break;
+	  					}
+	  				}
+	  			}
+
+	  			return setIndex;
+			}
+
 			// zza edit set active on each sidebar tab open
 			$('#accordion').on('shown.bs.collapse', function (e) {
 			  	var openIndex = $(e.currentTarget).find('.in').data('index');
+
+			  	console.log('open index' + openIndex)
 			  	
 			  	// if first accordian open
 			  	if(openIndex==0) {
+			  		console.log('first');
 			  		setcurrentObj(openIndex);	
-			  	}else {
+			  	}else { // if image select
 			  		var currentActiveObj = stage.getActiveObject();
-			  		if(currentActiveObj!== null) {
-			  			if(currentActiveObj.title==='Base')	_deselectElement();	
-			  		}			  		
+			  		var objects = stage.getObjects();
+
+			  		if(currentActiveObj !== null) {
+			  			if(currentActiveObj.title==='Base')
+			  				_deselectElement();
+
+			  			var setIndex = findandselectObj(openIndex);
+
+			  			if(setIndex!==0){
+			  				console.log('copy')
+			  				console.log(objects[setIndex]);
+			  				setcurrentObj(setIndex);	
+			  			}else {
+			  				_deselectElement();
+			  			}
+
+			  		}else {
+			  			var setIndex = findandselectObj(openIndex);
+
+			  			if(setIndex!==0){
+			  				console.log('copy2')			  				
+			  				console.log(objects[setIndex]);
+			  				setcurrentObj(setIndex);
+
+			  			}else {
+			  				console.log('null');
+			  			}
+			  		}
 			  	}
 			});
 			
@@ -1888,8 +1982,6 @@
 				var $this = $(this),
 					index = $sidebarContent.find('.fpd-products ul li').index($this);
 
-				// console.log(index);		
-
 				thisClass.selectProduct(index);
 			}).data('views', views)
 			.children('img').load(function() {
@@ -1949,7 +2041,7 @@
 		*
 		*/
 		this.selectProduct = function(index) {
-			if(index == currentProductIndex) {	return false; }
+			// if(index == currentProductIndex) {	return false; }
 
 			currentProductIndex = index;
 			if(index < 0) { currentProductIndex = 0; }

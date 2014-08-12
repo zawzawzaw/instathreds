@@ -42,11 +42,8 @@
 	    	var yourDesigner = $('#clothing-designer').fancyProductDesigner({
 	    		editorMode: false,
 	    		fonts: ['Arial', 'Fearless', 'Helvetica', 'Times New Roman', 'Verdana', 'Geneva', 'Gorditas'],
-	    		elementParameters: {colors: ["#000","#fff"] },
 	    		customTextParameters: {colors: false, removable: true, resizable: true, draggable: true, rotatable: true, autoCenter: true, boundingBox: "Base"},
-	    		uploadedDesignsParameters: {draggable: true, removable: true, colors: '#000', autoCenter: true, boundingBox: "Base"},
-	    		facebookAppId: '484327941698435',
-	    		zoomFactor: 3
+	    		uploadedDesignsParameters: {draggable: true, removable: true, colors: '#000', autoCenter: true, boundingBox: "Base"}
 	    	}).data('fancy-product-designer');
 
 	    	//print button

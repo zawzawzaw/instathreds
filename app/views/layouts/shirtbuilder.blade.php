@@ -174,58 +174,58 @@
     <body>
     	<div id="main-container">
           	<div id="clothing-designer">
-          		<div class="fpd-product" title="Shirt Front" data-thumbnail="images/white_shirt/front/preview.png">
+          		<div class="fpd-male-product" title="Shirt Front" data-thumbnail="images/white_shirt/front/preview.png">
 	    			<img src="images/white_shirt/front/base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#000","#fff","#51bc18","#e83fd4","#006837","#29abe2","#ff2500","#fcee20"], "price": 20}' />
 			  		<img src="images/white_shirt/front/shadows.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 			  		<img src="images/white_shirt/front/body.png" title="Hightlights" data-parameters='{"x": 322, "y": 137}' />
 			  		
 
 			  		<!-- <span title="Any Text" data-parameters='{"boundingBox": "border", "x": 326, "y": 232, "zChangeable": true, "removable": true, "draggable": true, "rotatable": true, "resizable": true, "colors": "#000000"}' >Default Text</span> -->
-			  		<div class="fpd-product" title="Shirt Back" data-thumbnail="images/white_shirt/back/preview.png">
+			  		<div class="fpd-male-product" title="Shirt Back" data-thumbnail="images/white_shirt/back/preview.png">
 		    			<img src="images/white_shirt/back/base.png" title="Base" data-parameters='{"x": 317, "y": 329, "colors": "Base", "price": 20}' />
 		    			<img src="images/white_shirt/back/body.png" title="Hightlights" data-parameters='{"x": 333, "y": 119}' />
 				  		<img src="images/white_shirt/back/shadows.png" title="Shadow" data-parameters='{"x": 318, "y": 329}' />
 					</div>
 				</div>
-          		<div class="fpd-product" title="Sweater" data-thumbnail="images/sweater/preview.png">
+          		<div class="fpd-male-product" title="Sweater" data-thumbnail="images/sweater/preview.png">
 	    			<img src="images/sweater/basic.png" title="Base" data-parameters='{"x": 332, "y": 311, "colors": "#D5D5D5,#990000,#cccccc", "price": 20}' />
 			  		<img src="images/sweater/highlights.png" title="Hightlights" data-parameters='{"x": 332, "y": 311}' />
 			  		<img src="images/sweater/shadow.png" title="Shadow" data-parameters='{"x": 332, "y": 309}' />
 
-			  		<div class="fpd-product" title="Shirt Back" data-thumbnail="images/yellow_shirt/back/preview.png">
+			  		<div class="fpd-male-product" title="Shirt Back" data-thumbnail="images/yellow_shirt/back/preview.png">
 		    			<img src="images/yellow_shirt/back/base.png" title="Base" data-parameters='{"x": 317, "y": 329, "colors": "Base", "price": 20}' />
 		    			<img src="images/yellow_shirt/back/body.png" title="Hightlights" data-parameters='{"x": 333, "y": 119}' />
 				  		<img src="images/yellow_shirt/back/shadows.png" title="Shadow" data-parameters='{"x": 318, "y": 329}' />
 					</div>
 
 				</div>
-				<div class="fpd-product" title="Scoop Tee" data-thumbnail="images/scoop_tee/preview.png">
+				<div class="fpd-female-product" title="Scoop Tee" data-thumbnail="images/scoop_tee/preview.png">
 	    			<img src="images/scoop_tee/basic.png" title="Base" data-parameters='{"x": 314, "y": 323, "colors": "#98937f, #000000, #ffffff", "price": 15}' />
 			  		<img src="images/scoop_tee/highlights.png" title="Hightlights" data-parameters='{"x":308, "y": 316}' />
 			  		<img src="images/scoop_tee/shadows.png" title="Shadow" data-parameters='{"x": 308, "y": 316}' />
 			  		<img src="images/scoop_tee/label.png" title="Label" data-parameters='{"x": 314, "y": 140}' />
 				</div>
-				<div class="fpd-product" title="Hoodie" data-thumbnail="images/hoodie/preview.png">
+				<div class="fpd-male-product" title="Hoodie" data-thumbnail="images/hoodie/preview.png">
 	    			<img src="images/hoodie/basic.png" title="Base" data-parameters='{"x": 313, "y": 322, "colors": "#850b0b", "price": 40}' />
 			  		<img src="images/hoodie/highlights.png" title="Hightlights" data-parameters='{"x": 311, "y": 318}' />
 			  		<img src="images/hoodie/shadows.png" title="Shadow" data-parameters='{"x": 311, "y": 321}' />
 			  		<img src="images/hoodie/zip.png" title="Zip" data-parameters='{"x": 303, "y": 216}' />
 				</div>
-				<div class="fpd-product" title="Shirt" data-thumbnail="images/shirt/preview.png">
+				<div class="fpd-male-product" title="Shirt" data-thumbnail="images/shirt/preview.png">
 	    			<img src="images/shirt/basic.png" title="Base" data-parameters='{"x": 327, "y": 313, "colors": "#6ebed5", "price": 10}' />
 	    			<img src="images/shirt/collar_arms.png" title="Collars & Arms" data-parameters='{"x": 326, "y": 217, "colors": "#000000"}' />
 			  		<img src="images/shirt/highlights.png" title="Hightlights" data-parameters='{"x": 330, "y": 313}' />
 			  		<img src="images/shirt/shadow.png" title="Shadow" data-parameters='{"x": 327, "y": 312}' />
 			  		<!-- <span title="Any Text" data-parameters='{"boundingBox": "Base", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "colors": "#000000"}' >Default Text</span> -->
 				</div>
-				<div class="fpd-product" title="Short" data-thumbnail="images/shorts/preview.png">
+				<div class="fpd-male-product" title="Short" data-thumbnail="images/shorts/preview.png">
 	    			<img src="images/shorts/basic.png" title="Base" data-parameters='{"x": 317, "y": 332, "colors": "#81b5eb", "price": 15}' />
 			  		<img src="images/shorts/highlights.png" title="Hightlights" data-parameters='{"x": 318, "y": 331}' />
 			  		<img src="images/shorts/pullstrings.png" title="Pullstrings" data-parameters='{"x": 307, "y": 195, "colors": "#ffffff"}' />
 			  		<img src="images/shorts/midtones.png" title="Midtones" data-parameters='{"x": 317, "y": 332}' />
 			  		<img src="images/shorts/shadows.png" title="Shadow" data-parameters='{"x": 320, "y": 331}' />
 				</div>
-				<div class="fpd-product" title="Basecap" data-thumbnail="images/cap/preview.png">
+				<div class="fpd-male-product" title="Basecap" data-thumbnail="images/cap/preview.png">
 	    			<img src="images/cap/basic.png" title="Base" data-parameters='{"x": 318, "y": 311, "colors": "#ededed", "price": 5}' />
 			  		<img src="images/cap/highlights.png" title="Hightlights" data-parameters='{"x": 309, "y": 300}' />
 			  		<img src="images/cap/shadows.png" title="Shadows" data-parameters='{"x": 306, "y": 299}' />
