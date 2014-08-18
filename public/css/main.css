@@ -294,10 +294,14 @@ section.fpd-sidebar .logo h6{
 }
 
 /*
-/////////////////////////////////////////
-////////// header color fix /////////////
-/////////////////////////////////////////
+////////////////////
+////// COMMON //////
+////////////////////
 */
+
+.fpd-menu-bar {
+	display: none;
+}
 
 section.fpd-sidebar .logo h6 {
 	color: #828282;
@@ -341,7 +345,6 @@ ul#imageSelectTab li a {
 	padding: 0 5px;
 }
 
-
 .tab-pane {
 	display: none;
 }
@@ -351,14 +354,27 @@ ul#imageSelectTab li a {
 }
 
 /*
-////////////////////
-////hide menu bar///
-////////////////////
+///////////////////////////////////
+///////// select text tab /////////
+///////////////////////////////////
 */
-
-.fpd-menu-bar {
-	display: none;
+#accordion #customText {
+	padding: 0px 20px 0px 65px;
 }
+
+#customText .add-text {
+	margin-top: -27px;
+}
+
+#customText .add-text textarea {
+	width: 238px;
+	height: 50px;
+	margin-bottom: 0px;
+}
+
+
+
+
 
 /*
 ///////////////////////////
@@ -404,22 +420,23 @@ ul#imageSelectTab li a {
 	color: white;
 	font-size: 15px;
 	text-align: center;
-	margin: 0 auto;
 	display: block;
-	margin: 20px 0;
-	width: 100%;
+	margin: 10px auto;
+	width: 80%;
 }
 
 .custom-btn:hover {
-	color: white
+	background: #828282!important;
 	text-decoration: none;
 }
 
-/*
-////////////////////////////////////
-//////// instagram connect /////////
-////////////////////////////////////
-*/
+.add-to-cart-btn {
+	width: auto;
+	border: none;
+	margin: 21px 0;
+	padding: 6px 10px;
+	display: inline-block;
+}
 
 .fpd-button-instagram {
 	background: url(../images/in_connect.png) no-repeat;
@@ -453,19 +470,8 @@ ul#imageSelectTab li a {
 }
 
 /*
-////////////////////////////////
-///////// textarea /////////////
-////////////////////////////////
-*/
-
-.add-text textarea {
-	width: 238px;
-	margin-bottom: 0px;
-}
-
-/*
 ////////////////////////////////////////
-///////// clipart colour picker ////////
+///////////// tool bar  ////////////////
 ////////////////////////////////////////
 */
 
@@ -564,4 +570,15 @@ ul.color-list li {
 	margin-right: 20px;
 }
 
+/*
+/////////////////////////////////
+/////////// input qty ///////////
+/////////////////////////////////
+*/
 
+input[name="qty"] {
+	width: 40px;
+	height: 34px;
+	display: inline-block;
+	padding-left: 7px;
+}

@@ -246,8 +246,24 @@ $saved_products_headline = 'Your Saved Products';
 			        </a>
 			    </div>
 			    <div id="collapseFourth" data-index="3" class="panel-collapse collapse">
+			    	<div class="panel-body">
+						<div class="socialshare">
+							
+						</div>	
+						
+						<div class="add-to-cart">
+							<input type="text" name="qty" value="" placeholder="Qty">
+							<button class="custom-btn add-to-cart-btn">Add To Cart</button>
+						</div>
+					</div>
 			    </div>
 			</div>
+		</div>
+
+		<!-- Saved products -->
+		<div class="fpd-saved-products">
+			<h3 class="fpd-border-color"><?php echo $saved_products_headline; ?></h3>
+			<ul></ul>
 		</div>
 	  	
 		<!-- Facebook User Photos -->
@@ -267,12 +283,7 @@ $saved_products_headline = 'Your Saved Products';
 			</div>
 			<ul class="fpd-fb-user-photos-list fpd-border-color fpd-clearfix"></ul>
 		</div>
-		
-		<!-- Saved products -->
-		<div class="fpd-saved-products">
-			<h3 class="fpd-border-color"><?php echo $saved_products_headline; ?></h3>
-			<ul></ul>
-		</div>
+	
 	</div>
 
 </section>

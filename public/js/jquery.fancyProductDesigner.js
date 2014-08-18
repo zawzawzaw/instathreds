@@ -157,7 +157,7 @@
 				'mouse:down': function(opts) {
 					if(opts.target == undefined) {
 						_deselectElement();
-						console.log('hi')
+						$customText.show();
 					}
 				},
 				'object:moving': function(opts) {
@@ -291,6 +291,9 @@
 						if(elemParams.patternable) {
 							$patternWrapper.show();
 						}
+
+						// zza edit // hiding add text textarea
+						$customText.hide();
 					}
 
 					//toggle center buttons
@@ -477,6 +480,10 @@
 					thisClass.addElement('text', text, text, options.customTextParameters, currentViewIndex);
 					$customText.children('textarea').removeClass('fpd-active').val(placeholder);
 					if(text) $customText.hide();
+
+					// zza edit auto select whatever text added
+					var setIndex = findandselectObj(2);
+					setcurrentObj(setIndex);
 				});
 
 				$customText.children('textarea').focusin(function() {
@@ -977,17 +984,17 @@
 			// zza edit set active on each sidebar tab open
 			$('#accordion').on('shown.bs.collapse', function (e) {
 			  	var openIndex = $(e.currentTarget).find('.in').data('index');
+			  	var currentActiveObj = stage.getActiveObject();
+			  	var objects = stage.getObjects();
 
 			  	console.log('open index' + openIndex)
 			  	
 			  	// if first accordian open
 			  	if(openIndex==0) {
-			  		console.log('first');
+			  		// console.log('first');
 			  		setcurrentObj(openIndex);	
-			  	}else { // if image select
-			  		var currentActiveObj = stage.getActiveObject();
-			  		var objects = stage.getObjects();
-
+			  	}else if(openIndex==1) { // if image select
+			  			
 			  		if(currentActiveObj !== null) {
 			  			if(currentActiveObj.title==='Base')
 			  				_deselectElement();
@@ -995,9 +1002,10 @@
 			  			var setIndex = findandselectObj(openIndex);
 
 			  			if(setIndex!==0){
-			  				console.log('copy')
-			  				console.log(objects[setIndex]);
-			  				setcurrentObj(setIndex);	
+			  				console.log(currentActiveObj)
+			  				console.log(objects[setIndex])
+			  				if(currentActiveObj.title=='Base' || currentActiveObj._element.className!=objects[setIndex]._element.className)			  				
+			  					setcurrentObj(setIndex);	
 			  			}else {
 			  				_deselectElement();
 			  			}
@@ -1008,6 +1016,31 @@
 			  			if(setIndex!==0){
 			  				console.log('copy2')			  				
 			  				console.log(objects[setIndex]);
+			  				setcurrentObj(setIndex);
+
+			  			}else {
+			  				console.log('null');
+			  			}
+			  		}
+			  	}else { // if text select
+			  		if(currentActiveObj !== null) {
+			  			if(currentActiveObj.title==='Base')
+			  				_deselectElement();
+
+			  			var setIndex = findandselectObj(openIndex);
+
+			  			if(setIndex!==0){
+			  				console.log(currentActiveObj)
+			  				if(currentActiveObj.title=='Base' || currentActiveObj.text == undefined)
+			  					setcurrentObj(setIndex);
+			  			}else {
+			  				_deselectElement();
+			  			}
+
+			  		}else {
+			  			var setIndex = findandselectObj(openIndex);
+
+			  			if(setIndex!==0){
 			  				setcurrentObj(setIndex);
 
 			  			}else {
@@ -1593,7 +1626,7 @@
 
 		var _addSavedProduct = function(thumbnail, product) {
 
-			var $list = $sidebarContent.children('.fpd-saved-products').children('ul');
+			var $list = $sidebarContent.find('.fpd-saved-products').children('ul');
 
 			//create new list item
 			$list.append('<li><button><span>&times;</span></button><img src="'+thumbnail+'" /></li>')
