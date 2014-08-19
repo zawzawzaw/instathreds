@@ -129,9 +129,17 @@
 						_init();
 					}
 				);
+
+				
 			}
 		);
 
+		//RESPOND TO SCREEN RESIZE
+		$(window).resize(function() {
+			windowWidth = $(window).width();
+			productStageWidth = windowWidth - 335;
+			$('.fpd-product-container').css("width", productStageWidth);
+		});
 
 		//----------------------------------
 		// ------- PRIVATE METHODS ----------
