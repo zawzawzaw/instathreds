@@ -197,7 +197,6 @@
 		    			<img src="images/yellow_shirt/back/body.png" title="Hightlights" data-parameters='{"x": 333, "y": 119}' />
 				  		<img src="images/yellow_shirt/back/shadows.png" title="Shadow" data-parameters='{"x": 318, "y": 329}' />
 					</div>
-
 				</div>
 				<div class="fpd-female-product" title="Scoop Tee" data-thumbnail="images/scoop_tee/preview.png">
 	    			<img src="images/scoop_tee/basic.png" title="Base" data-parameters='{"x": 314, "y": 323, "colors": "#98937f, #000000, #ffffff", "price": 15}' />
