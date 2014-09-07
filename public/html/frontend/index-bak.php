@@ -134,7 +134,7 @@
           <h6><span>NEW FEATURED DESIGNS!</span> SHOP NOW</h6>  
         </div>
         <div class="banner hide-mobile">
-          <div id="slider-homepage" class="owl-carousel">
+          <div id="carousel">
             <div class="slide">
               <a href=""><img src="images/slider/image-banner2.jpg" /></a>
               <div class="captions">
@@ -144,13 +144,9 @@
             </div>
             <div class="slide">
               <a href=""><img src="images/slider/image-banner1.jpg" /></a>
-              <div class="captions">
-                <div class="text1">Make Your Own</div>
-                <div class="text2">BUILD FROM SCRATCH<br>OR UPLOAD YOUR OWN PHOTOS OR ARTWORK</div>
-              </div>
             </div>
           </div>
-          <div style="float:none;clear:both;display:none;">
+          <div style="float:none;clear:both;">
           <a href="#" id="prev-banner" class="left carousel-control">
             <i class="fa fa-angle-left"></i>
           </a>
@@ -444,7 +440,7 @@
     <script src="js/bootstrap/dropdown.js"></script>
     <script src="js/bootstrap/modal.js"></script>
     <script src="js/bootstrap/tab.js"></script>
-    <script src="js/vendor/owl.carousel.min.js"></script>
+    <script src="js/vendor/caroufredsel.js"></script>
     <script src="js/main.js"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed 

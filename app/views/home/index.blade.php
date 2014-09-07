@@ -9,15 +9,37 @@
         <div class="banner hide-mobile">
           <div id="carousel">
             <div class="slide">
-              <a href=""><img src="images/slider/image-banner2.jpg" /></a>
+              <a href=""><img src="images/slider/slider1.jpg" /></a>
               <div class="captions">
                 <div class="text1">Make Your Own</div>
                 <div class="text2">BUILD FROM SCRATCH<br>OR UPLOAD YOUR OWN PHOTOS OR ARTWORK</div>
               </div>
             </div>
             <div class="slide">
-              <a href=""><img src="images/slider/image-banner1.jpg" /></a>
+              <a href=""><img src="images/slider/slider2.jpg" /></a>
+              <div class="captions">
+                <div class="text1">CHOOSE A DESIGN</div>
+              </div>
             </div>
+            <div class="slide">
+              <a href=""><img src="images/slider/slider3.jpg" /></a>
+              <div class="captions">
+                <div class="text1">VISIT OUR STORES</div>
+              </div>
+            </div>
+            <div class="slide">
+              <a href=""><img src="images/slider/slider4.jpg" /></a>
+              <div class="captions">
+                <div class="text1">CALLING ALL DESIGNERS</div>
+              </div>
+            </div>
+            <div class="slide">
+              <a href=""><img src="images/slider/slider5.jpg" /></a>
+              <div class="captions">
+                <div class="text1">FEATURED DESIGNS</div>
+              </div>
+            </div>
+            
           </div>
           <div style="float:none;clear:both;">
           <a href="#" id="prev-banner" class="left carousel-control">
@@ -40,20 +62,20 @@
         </div> 
         <ul class="block-grid three-up mobile steps">
           <li>
-            <a href=""><img src="images/image-placeholder1.png"></a>
+            <a href=""><img src="images/howitworks1.jpg"></a>
             <div class="title step1">
               <a href="">Make Your Own T-Shirt</a>
             </div>
             
           </li>
           <li>
-            <a href=""><img src="images/image-placeholder2.png"></a>
+            <a href=""><img src="images/howitworks2.jpg"></a>
             <div class="title step2">
               <a href="">Choose a Design</a>
             </div>
           </li>
           <li>
-            <a href=""><img src="images/image-placeholder1.png"></a>
+            <a href=""><img src="images/howitworks3.jpg"></a>
             <div class="title step3">
               <a href="">Signup and Sell T-Shirts</a>
             </div>
@@ -111,7 +133,7 @@
           <h6>OTHER PROMOTIONAL AREA | <a href="">PROMO LINK</a></h6>  
         </div>
         <div class="banner promotion">
-          <a href=""><img src="images/slider/image-banner2.jpg" /></a>
+          <a href=""><img src="images/promo/promo1.png" /></a>
           <div class="captions">
             <div class="text1">Promo</div>
             <div class="text2">PROMO<br>DESCRIPTION<br>GOES HERE</div>
