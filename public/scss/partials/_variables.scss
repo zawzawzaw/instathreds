@@ -1,0 +1,162 @@
+$color-accent: #0381f4;
+$color-highlight: #fcfcfc;
+$color-light: #f0eceb;
+$color-midtone: #5d504f;
+$color-dark: #3d302f;
+$color-off-black: #231f20;
+$color-grey: #e5e5e5;
+$color-dark-grey: #2d2d2d;
+$color-midtone-light: #998482;
+$color-accent-alt: #ff1e00;
+$color-link:#fcfcfc;
+$color-green:#00DD78;
+$color-yellow:#FFBA0D;
+$color-blue:#0381F4;
+$color-orange:#FF9210;
+
+$typeface-third: "open-sans",sans-serif;
+$typeface-secondary: "open-sans-condensed",sans-serif;
+$typeface-primary: "museo-slab",serif;
+
+$font-weight-thin: 100;
+$font-weight-extra-light: 200;
+$font-weight-light: 300; 
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-demi-bold: 600;
+$font-weight-bold: 700;
+$font-weight-heavy: 800;
+$font-weight-black: 900;
+
+$font-size-xxx-large: 38px;
+$font-size-xx-large: 30px;
+$font-size-x-large: 24px;
+$font-size-large: 22px;
+$font-size-medium: 16px;
+$font-size-small: 14px;
+$font-size-x-small: 11px;
+$font-size-xx-small: 10px;
+$font-size-xxx-small: 9px;
+
+$one-column: 4.3%;
+$two-columns: 13%;
+$three-columns: 21.679%;
+$four-columns: 30.37%;
+$five-columns: 39.1%; 
+$six-columns: 47.8%;
+$seven-columns: 56.5%;
+$eight-columns: 65.2%;
+$nine-columns: 73.9%;
+$ten-columns: 82.6%; 
+$eleven-columns: 91.3%;
+$twelve-columns: 100%;
+
+$row-height: 15px;
+$column-width: 45px;
+$gutter-width: 40px;
+
+$border-break: 2px solid $color-light;
+
+$zindex-modal-background:  1040 !default;
+$zindex-modal:             1050 !default;
+
+
+/* Padding applied to the modal body */
+$modal-inner-padding:         15px !default;
+
+/* Padding applied to the modal title */
+$modal-title-padding:         15px !default;
+
+/* Modal title line-height */
+$modal-title-line-height:     1.6 !default;
+
+/* Background color of modal content area */
+$modal-content-bg:                             #fff !default;
+
+/* Modal content border color */
+$modal-content-border-color:                   rgba(0,0,0,.2) !default;
+
+/* Modal content border color **for IE8** */
+$modal-content-fallback-border-color:          #999 !default;
+
+/* Modal backdrop background color */
+$modal-backdrop-bg:           #000 !default;
+
+/* Modal backdrop opacity */
+$modal-backdrop-opacity:      .5 !default;
+
+/* Modal header border color */
+$modal-header-border-color:   #e5e5e5 !default;
+
+/* Modal footer border color */
+$modal-footer-border-color:   $modal-header-border-color !default;
+
+$modal-lg:                    900px !default;
+$modal-md:                    600px !default;
+$modal-sm:                    300px !default;
+
+
+//Shared nav styles
+$nav-link-padding:                          10px 15px !default;
+$nav-link-hover-bg:                         $color-grey !default;
+
+$nav-disabled-link-color:                   $color-grey !default;
+$nav-disabled-link-hover-color:             $color-grey !default;
+
+$nav-open-link-hover-color:                 #fff !default;
+
+//Tabs
+$nav-tabs-border-color:                     #ddd !default;
+
+$nav-tabs-link-hover-border-color:          $color-grey !default;
+
+$nav-tabs-active-link-hover-bg:             $color-grey !default;
+$nav-tabs-active-link-hover-color:          $color-grey !default;
+$nav-tabs-active-link-hover-border-color:   #ddd !default;
+
+$nav-tabs-justified-link-border-color:            #ddd !default;
+$nav-tabs-justified-active-link-border-color:     $color-grey !default;
+
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+//Deprecated `$screen-xs` as of v3.0.1
+$screen-xs:                  480px !default;
+
+//Deprecated `$screen-xs-min` as of v3.2.0
+$screen-xs-min:              $screen-xs !default;
+
+//Deprecated `$screen-phone` as of v3.0.1
+$screen-phone:               $screen-xs-min !default;
+
+// Small screen / tablet
+//Deprecated `$screen-sm` as of v3.0.1
+$screen-sm:                  768px !default;
+$screen-sm-min:              $screen-sm !default;
+//Deprecated `$screen-tablet` as of v3.0.1
+$screen-tablet:              $screen-sm-min !default;
+
+// Medium screen / desktop
+// Deprecated `$screen-md` as of v3.0.1
+$screen-md:                  992px !default;
+$screen-md-min:              $screen-md !default;
+// Deprecated `$screen-desktop` as of v3.0.1
+$screen-desktop:             $screen-md-min !default;
+
+// Large screen / wide desktop
+// Deprecated `$screen-lg` as of v3.0.1
+$screen-lg:                  1200px !default;
+$screen-lg-min:              $screen-lg !default;
+// Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-lg-desktop:          $screen-lg-min !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+
+
+

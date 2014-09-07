@@ -354,13 +354,15 @@
     
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+    <script src="js/vendor/jquery-2.1.1.js"></script>
     <script src="js/bootstrap/dropdown.js"></script>
     <script src="js/bootstrap/modal.js"></script>
     <script src="js/bootstrap/tab.js"></script>
-    <script src="js/vendor/caroufredsel.js"></script>
+    <script src="js/vendor/owl.carousel.min.js"></script>
     <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
     <script src="js/main.js"></script>
+
+
+
   </body>
 </html>
