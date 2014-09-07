@@ -60,7 +60,7 @@ $saved_products_headline = 'Your Saved Products';
 
 	<!-- Logo -->
 	<div class="logo">
-		<a href=""><img src="images/fpd/logo-instathreds.png"></a>
+		<a href="/"><img src="images/fpd/logo-instathreds.png"></a>
 		<h6>BUILD A SHIRT</h6>
 	</div>
 
@@ -249,9 +249,7 @@ $saved_products_headline = 'Your Saved Products';
 			    	<div class="panel-body">
 						<div class="socialshare">
 							
-						</div>
-
-						<span class="price badge badge-inverse"><span id="thsirt-price"></span> $</span>
+						</div>			
 						
 						<div class="add-to-cart">
 							<input type="text" name="qty" value="" placeholder="Qty">
@@ -263,7 +261,7 @@ $saved_products_headline = 'Your Saved Products';
 			<div class="panel panel-default">
 			    <div class="panel-heading">
 			        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFifth">
-			          	<img src="images/fpd/icon-cart.png">Save Image
+			          	<img src="images/fpd/icon-cart.png">Save Images
 			        </a>
 			    </div>
 			    <div id="collapseFifth" data-index="4" class="panel-collapse collapse">
@@ -275,6 +273,8 @@ $saved_products_headline = 'Your Saved Products';
 							<h6 class="fpd-border-color"><?php echo $saved_products_headline; ?></h6>
 							<ul></ul>
 						</div>
+
+						<button class="custom-btn fpd-save-product">Save Current Design</button>
 					</div>
 			    </div>
 			</div>

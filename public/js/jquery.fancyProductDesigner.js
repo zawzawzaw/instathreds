@@ -857,7 +857,7 @@
 
 				$sidebarNavi.find('li[data-target=".fpd-saved-products"]').show();
 
-				$menubar.find('.fpd-save-product').click(function(evt) {
+				$('.fpd-save-product').click(function(evt) {
 					evt.preventDefault();
 					_deselectElement();
 

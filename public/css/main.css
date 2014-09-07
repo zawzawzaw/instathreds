@@ -36,6 +36,9 @@ body{font-family: "open-sans",sans-serif;}
 .price {
 	font-size: 25px !important;
 	line-height: 26px !important;
+	position: absolute;
+	top: 15px;
+	right: 19px;
 }
 
 
@@ -261,7 +264,7 @@ section.fpd-sidebar .logo h6{
 }
 
 .fpd-saved-products ul {
-	margin-left: -34px;
+	margin-left: -20px;
 	margin-top: 30px;
 }
 
@@ -291,7 +294,7 @@ section.fpd-sidebar .logo h6{
 	position: relative;
 }
 
-.fpd-product-container > .fpd-product-stage{background:none;}
+.fpd-product-container > .fpd-product-stage{background:none; overflow: visible!important;}
 
 .fpd-designs > ul > li:nth-child(2n) {
 	border-right: none;
@@ -441,6 +444,14 @@ ul#imageSelectTab li a {
 	margin: 21px 0;
 	padding: 6px 10px;
 	display: inline-block;
+}
+
+.fpd-save-product {
+	/*width: auto;*/
+	border: none;
+	margin: 21px 0;
+	padding: 6px 10px;
+	display: block;
 }
 
 .fpd-button-instagram {
