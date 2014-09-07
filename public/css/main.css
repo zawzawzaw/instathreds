@@ -242,7 +242,7 @@ section.fpd-sidebar .logo h6{
 	overflow: hidden;
 }
 
-.fpd-designs > ul > li {
+.fpd-designs > ul > li, .fpd-saved-products > ul > li {
 	width: 33%;
 	height: 70px;
 	padding: 10px;
@@ -252,12 +252,17 @@ section.fpd-sidebar .logo h6{
 	position: relative;
 }
 
-.fpd-designs > ul > li > img {
+.fpd-designs > ul > li > img, .fpd-saved-products > ul > li > img {
 	max-width: 100%;
 	max-height: 100%;
 	display: block;
 	margin: 0 auto;
 	position: relative;
+}
+
+.fpd-saved-products ul {
+	margin-left: -34px;
+	margin-top: 30px;
 }
 
 .fpd-in-user-photos {

@@ -2362,6 +2362,7 @@
 
 			if(params.price) {
 				currentPrice += params.price;
+				console.log(params);
 				$elem.trigger('priceChange', [params.price, currentPrice]);
 			}
 

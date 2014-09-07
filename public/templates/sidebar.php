@@ -249,7 +249,9 @@ $saved_products_headline = 'Your Saved Products';
 			    	<div class="panel-body">
 						<div class="socialshare">
 							
-						</div>	
+						</div>
+
+						<span class="price badge badge-inverse"><span id="thsirt-price"></span> $</span>
 						
 						<div class="add-to-cart">
 							<input type="text" name="qty" value="" placeholder="Qty">
@@ -258,12 +260,24 @@ $saved_products_headline = 'Your Saved Products';
 					</div>
 			    </div>
 			</div>
-		</div>
+			<div class="panel panel-default">
+			    <div class="panel-heading">
+			        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFifth">
+			          	<img src="images/fpd/icon-cart.png">Save Image
+			        </a>
+			    </div>
+			    <div id="collapseFifth" data-index="4" class="panel-collapse collapse">
+			    	<div class="panel-body">
+						<!-- <span class="fpd-save-product fa fa-floppy-o fpd-main-color fpd-tooltip" title="<?php echo $save_product_tooltip; ?>"></span> -->
 
-		<!-- Saved products -->
-		<div class="fpd-saved-products">
-			<h3 class="fpd-border-color"><?php echo $saved_products_headline; ?></h3>
-			<ul></ul>
+						<!-- Saved products -->
+						<div class="fpd-saved-products">
+							<h6 class="fpd-border-color"><?php echo $saved_products_headline; ?></h6>
+							<ul></ul>
+						</div>
+					</div>
+			    </div>
+			</div>
 		</div>
 	  	
 		<!-- Facebook User Photos -->

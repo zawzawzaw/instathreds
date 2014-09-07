@@ -110,6 +110,7 @@
 			//event handler when the price is changing
 			$('#clothing-designer')
 			.bind('priceChange', function(evt, price, currentPrice) {
+				console.log(currentPrice)
 				$('#thsirt-price').text(currentPrice);
 			});
 
