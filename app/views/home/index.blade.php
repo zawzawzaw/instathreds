@@ -7,7 +7,7 @@
           <h6><span>NEW FEATURED DESIGNS!</span> SHOP NOW</h6>  
         </div>
         <div class="banner hide-mobile">
-          <div id="carousel">
+          <div id="slider-homepage" class="owl-carousel">
             <div class="slide">
               <a href=""><img src="images/slider/slider1.jpg" /></a>
               <div class="captions">
@@ -41,14 +41,7 @@
             </div>
             
           </div>
-          <div style="float:none;clear:both;">
-          <a href="#" id="prev-banner" class="left carousel-control">
-            <i class="fa fa-angle-left"></i>
-          </a>
-          <a href="#" id="next-banner" class="right carousel-control">
-            <i class="fa fa-angle-right"></i>
-          </a>
-          </div>
+          
         </div>
       </div>
     </section>

@@ -51,19 +51,20 @@ $( document ).ready(function() {
 
 	});
 
-    $sliderContainer.find('#carousel').carouFredSel({
+    $sliderContainer.find('#slider-homepage').owlCarousel({
 
-    	responsive  : true,
-    	auto : false,
-    	prev : "#prev-banner",
-		next : "#next-banner",
-		items		: {
-			visible		: 1,
-			width		: 1230,
-			height		: "35%"
-		}
+      navigation : true,
+      navigationText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      singleItem : true,
+      autoPlay : 5000
 
     });
+
+    
+
+
 
 	$signupContainer.children('form').find('button').on('click', function(e){
 		

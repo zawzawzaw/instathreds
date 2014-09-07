@@ -1,0 +1,154 @@
+/* ======== FORMS ============ */
+
+
+label, fieldset.options legend {
+    float: left;
+    padding: 0;
+    width: 25%;
+}
+fieldset.options legend {
+    margin-bottom: 0;
+}
+label, fieldset.options legend {
+    color: #333333;
+    display: block;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1;
+    margin: 0.5em 0;
+}
+
+abbr[title="Required"] {
+    border-bottom: 0 none;
+    color: #990000;
+    font-size:$font-size-small;;
+    font-weight: $font-weight-normal;
+    line-height: 0.1;
+}
+
+abbr {
+    -moz-font-feature-settings: "c2sc";
+    border: 0 none;
+    letter-spacing: 0.03125em;
+    line-height: 90%;
+}
+
+fieldset.options {
+    margin: 0;
+}
+fieldset {
+    border: 0 none;
+    margin: 1.5em 0;
+    padding: 0;
+}
+
+fieldset > div:first-of-type {
+    margin-top: 0;
+}
+fieldset div {
+    margin: 1em 0;
+}
+
+fieldset div em, fieldset div.submit, fieldset.options ul, label.check {
+    margin-left: 25%;
+}
+
+fieldset em {
+    color: #666666;
+    display: block;
+    font-size: $font-size-xx-small;
+    line-height: 1.1429;
+    margin: 0.5714em 0 0;
+}
+
+fieldset.options li {
+    list-style: none outside none;
+    margin-left: 0;
+}
+
+input.text, select, textarea {	
+	width:75%;
+	border:1px solid #C6C6C6;
+	font-family: $typeface-primary;
+    font-size: $font-size-small;
+	color: $color-midtone;
+	padding: 3px 4px;
+	background-color: #EEEEEE;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0.50em;
+    vertical-align: middle;
+	@include box-sizing(border-box);
+    @include border-radius(5px) 
+}
+
+input[type=text]:focus, 
+textarea:focus {
+	box-shadow: inset 0px 0px 5px rgba(18, 7, 6, 0.1); 
+}
+
+.radio, .checkbox {
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    min-height: 20px;
+    position: relative;
+}
+
+.checkbox span{
+    font-size:$font-size-x-small;
+    color:#606060;
+}
+
+.form-group {
+    display:block;
+    margin-bottom: 15px;
+}
+
+.form-control {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+.form-control:focus {
+    border-color: #66afe9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: 0 none;
+}
+.form-control::-moz-placeholder {
+    color: #777;
+    opacity: 1;
+}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #eee;
+    cursor: not-allowed;
+    opacity: 1;
+}
+textarea.form-control {
+    height: auto;
+}
+
+
+/* LOGIN/SIGNUP */
+
+.form-control.username{background:#FAFFBA;}
+.form-control.password{background:#FAFFBA;}
+.checkbox{float:left;}
+.lostpassword{float:right;display: block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    min-height: 20px;
+    position: relative;}
+.lostpassword a{font-size:$font-size-x-small;}
+
+
