@@ -138,129 +138,205 @@
     <!-- END BANNER/SLIDER -->
 
     <!-- CONTENT -->
-    <section class="content detailed-product">
+    <section class="content checkout">
       <div class="container">
-          <div class="row product-head">
-            <div class="gender">
-              <ul>
-                <li><a href="" class="active">HIS</a></li>
-                <li><a href="">HER</a></li>
-            </div>
-            <div class="breadcrumbs">
-              <ul>
-                <li><a href="">ALL CATEGORIES</a><span>></span></li>
-                <li><a href="">PIXEL PEOPLE</a><span>></span></li>
-                <li><a href="">BLOCKHEAD</a></li>
-              </ul>  
-            </div>
-          </div>
-
-          <div class="row product">
-            <div class="left">
-              <div class="front">
-                <img src="images/image-placeholder1.png" style="width:620px;">
-              </div>
-              <div class="back">
-                <img src="images/image-placeholder1.png">
-              </div>
-            </div>
-            <div class="right">
-              <h6 class="product-title">TSHIRT DESIGN TITLE WILL GO HERE</h6>
-              <div class="shirt-type">
-                <a data-toggle="dropdown" class="dropdown-toggle shirt-type" href="#">Shirt Type <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="">Round-Neck</a></li>
-                  <li><a href="">V-Neck</a></li>
-                  <li><a href="">Crew Neck</a></li>
-                  <li><a href="">Round-Neck</a></li>
-                </ul>
-              </div>
-              
-              <div class="shirt-size">
-                <a href="" class="active">S</a>
-                <a href="">M</a>
-                <a href="">L</a>
-                <a href="">XL</a>
-                <a href="">2XL</a>
-              </div>
-              <div class="shirt-color">
-                <h6>Select a colour</h6>
-                <ul class="color-list">
-                  <li><span class="colorOptions" data-color="#000" style="background: #000; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#fff" style="background: #fff; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#51bc18" style="background: #51bc18; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#e83fd4" style="background: #e83fd4; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#006837" style="background: #006837; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#29abe2" style="background: #29abe2; width: 23px; height: 23px; display: inline-block"></span></li>
-                </ul>  
-              </div>
-              <div class="shirt-view">
-                <a href="" class="active">FRONT</a>
-                <span>or</span>
-                <a href="">BACK</a>
-                <span class="price">$35</span>
-                  
-              </div>
-              <div class="shirt-quantity">
-                  <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4">
-                  <a href="#cart-modal" class="addtocart-link btn btn-primary">ADD TO CART</a>
-              </div>
-              <div class="share">
-                <h6>SHARE WITH FRIENDS</h6>  
-              </div>
-            </div>
-          </div>  
+        <h6 class="section-title"><i class="fa fa-lock"></i>SECURE CHECKOUT</h6>
+        <div class="row">
           
-         
-      </div>
-    </section>
+          <!-- left column  -->
+          <div class="eight column">
+            <div class="panel shipping">
+              <div class="heading">
+                <h6>SHIPPING OR COLLECTION</h6>
+                <p><a href="">Login</a> or <a href="">create an account</a> for faster checkout</p>  
+              </div>
 
-    <section class="more-products">
-      <div class="container">
-        <h6>ALSO IN PIXEL PEOPLE</h6>  
-        <div class="more-products-slider owl-carousel">
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
+              <!-- left column -->
+              <div class="left">
+                <h6>Contact Details</h6>
+                <div class="form-group">
+                  <input type="text" class="text form-control" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="text form-control" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="text form-control" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="text form-control" placeholder="Phone">
+                </div>
+                <div class="form-group">
+                  <input type="checkbox" id="newsletter" class="css-checkbox lrg" checked="checked"/>
+                  <label for="newsletter" name="newsletter" class="css-label lrg">Receive Instathreds email updates</label>
+                </div>
+
+
+              </div>
+              <!-- end of left column -->
+
+              <!-- right column -->
+              <div class="right">
+                <h6>I wish to collect my order from</h6>
+                <a href="" class="store-loc storeloc-link"><i class="fa fa-info-circle"></i>Store Location</a>
+                <div class="choose-store">
+                  <div class="left">
+                    <input type="checkbox" id="store-robina" class="css-checkbox lrg" checked="checked"/>
+                    <label for="store-robina" name="store-robina" class="css-label lrg">Robina Store</label>
+                  </div>
+                  <div class="right">
+                    <input type="checkbox" id="store-carindale" class="css-checkbox lrg" />
+                    <label for="store-carindale" name="store-carindale" class="css-label lrg">Carindale Store</label>
+                  </div>
+                </div>
+
+                <h6 style="margin-top:20px;">Shipping Address</h6>
+                <div class="form-group">
+                  <div class="select-style">
+                    <select>
+                      <option value="Australia">Australia</option>
+                      <option value="Philippines">Philippines</option>
+                      <option value="Indonesia">Indonesia</option>
+                      <option value="Singapore">Singapore</option>
+                      <option value="Myanmar">Myanmar</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="text form-control" placeholder="Address Line 1">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="text form-control" placeholder="Address Line 2(optional)">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="text form-control" placeholder="City or Suburb">
+                </div>
+                <div class="form-group">
+                  <div class="select-style">
+                    <select>
+                      <option value="" disabled selected>State, Region or Province</option>
+                      <option value="VIC">VIC</option>
+                      <option value="NSW">NSW</option>
+                      <option value="BRIS">BRIS</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="text form-control" placeholder="Zip or Post Code">
+                </div>
+                <h6 style="margin-top:20px;">Shipping Method</h6>
+                <div class="choose-method">
+                  <div class="form-group">
+                    <input type="checkbox" id="shipmethod-standard" class="css-checkbox lrg" checked="checked"/>
+                    <label for="shipmethod-standard" name="shipmethod-standard" class="css-label lrg">Standard (5-15 Business Days)</label>
+                  </div>
+                  <div class="form-group">
+                    <input type="checkbox" id="shipmethod-express" class="css-checkbox lrg" />
+                    <label for="shipmethod-standard" name="shipmethod-express" class="css-label lrg">Express (3-7 Business Days)</label>
+                  </div>
+                </div>
+              </div>
+              <!-- end of right column -->
+
+              <div class="separator-line"></div>
+
+              <div style="text-align:center;margin-bottom:20px;">
+                <a href="" class="btn btn-primary continuepayment" >CONTINUE PAYMENT</a>
+              </div>
+            </div>
+
+            <div class="panel payment">
+              <div class="heading">
+                <h6>PAYMENT</h6>
+              </div>
+            </div>
+
           </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
+          <!-- end of left column  -->
+          
+          <!-- right column  -->
+          <div class="four column">
+            <!-- order summary -->
+            <div class="panel ordersummary">
+              <div class="heading">
+                <h6>ORDER SUMMARY</h6>
+              </div>
+              <div class="panel-inside">
+                <table class="table-order">
+                  <tr>
+                    <td><a href=""><img src="images/image-placeholder1.png" style="width:30px;"></a></td>
+                    <td>
+                    <a href="">Space Scorpion<br>
+                    (1) Mens T-Shirt, XL, Arctic Bl...</a>
+                    </td>
+                    <td><p>$33.00</p></td>
+                  </tr>
+                  <tr>
+                    <td><a href=""><img src="images/image-placeholder1.png" style="width:30px;"></a></td>
+                    <td>
+                    <a href="">Space Scorpion<br>
+                    (1) Mens T-Shirt, XL, Arctic Bl...</a>
+                    </td>
+                    <td>$33.00</td>
+                  </tr>
+                  <tr>
+                    <td><a href=""><img src="images/image-placeholder1.png" style="width:30px;"></a></td>
+                    <td>
+                    <a href="">Space Scorpion<br>
+                    (1) Mens T-Shirt, XL, Arctic Bl...</a>
+                    </td>
+                    <td>$33.00</td>
+                  </tr>
+                </table>
+                <div class="separator-line"></div>
+                <div class="total">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <p>Subtotal:</p>    
+                        </td>
+                        <td>
+                          <p>$72.00</p>    
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>Shipping:</p>    
+                        </td>
+                        <td>
+                          <p>$12.00</p>    
+                        </td>
+                      </tr>  
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td>Total:</td>
+                        <td>$120.00</td>  
+                      </tr>
+                    </tfoot>
+                  </table>  
+                </div>
+              </div>
+            </div>
+            <!-- end of order summary -->
             
-        </div>
+            <!-- coupon -->
+            <div class="panel coupon">
+              <div class="coupon">
+                <h6>Enter your gift, coupon or store code</h6>
+                <input type="text" class="text coupon-input" placeholder="ENTER CODE">
+                <button class="btn btn-primary">APPLY</button>
+              </div>  
+            </div>
+            <!-- end of coupon -->
+            
+
+          </div>
+          <!-- end of right column  -->
+          
+        </div>  
+        
       </div>
     </section>
 
@@ -387,6 +463,75 @@
         </div>
       </div>
     </div>
+
+    <!-- STORE LOCATION MODAL -->
+    <div class="modal fade" id="store-modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            
+            <div class="wrap">
+              <h3 style="text-align:center;">STORE LOCATIONS</h3>
+              <div class="separator-line"></div>
+              <table>
+                <tr>
+                  <td>
+                    <h6>ROBINA</h6>
+                    <p>Robina Town Centre<br>
+                    Robina Town Centre Drive<br>
+                    (off Robina Parkway)<br>
+                    Robina QLD 4230</p>  
+                  </td>
+                  <td></td>
+                  <td>
+                    <h6>CARINDALE</h6>
+                    <p>Westfield Carindale<br>
+                    1151 Creek Road<br>
+                    Carindale QLD 4152</p>  
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>
+                    Mon: 9am – 5.30pm<br>
+                    Tues: 9am – 5.30pm<br>
+                    Wed: 9am – 5.30pm<br>
+                    Thurs: 9am – 9pm<br>
+                    Fri: 9am – 5.30pm<br>
+                    Sat: 9am – 5.30pm<br>
+                    Sun: 10am – 4pm</p>  
+                  </td>
+                  <td></td>
+                  <td>
+                    <p>
+                      Mon: 9am – 5.30pm<br>
+                      Tues: 9am – 5.30pm<br>
+                      Wed: 9am – 5.30pm<br>
+                      Thurs: 9am – 9pm<br>
+                      Fri: 9am – 5.30pm<br>
+                      Sat: 9am – 5pm<br>
+                      Sun: 10am – 5pm
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3">
+                    <p>
+                      e. <a href="mailto:info@instathreds.com">info@instathreds.com</a><br>
+                      p. 1300 469 453
+                    </p>  
+                  </td>
+                </tr>
+              </table>
+
+              
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <!-- LOGIN/SINGUP MODAL -->
     <div class="modal fade" id="login-modal">

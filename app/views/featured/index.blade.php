@@ -64,53 +64,71 @@
           <div class="content-right">
             <ul class="block-grid four-up mobile">
               <li>
-                <a href=""><img src="images/image-placeholder1.png"></a>
-                <a href="" class="title">Design Title Goes Here</a>
+                <a href=""><img src="images/products/thumbs/Pixel People-01.png"></a>
+                <a href="" class="title">Pixel People 1</a>
               </li>
               <li>
-                <a href=""><img src="images/image-placeholder2.png"></a>
-                <a href="" class="title">Design Title Goes Here</a>
+                <a href=""><img src="images/products/thumbs/Pixel People-02.png"></a>
+                <a href="" class="title">Pixel People 2</a>
               </li>
               <li>
-                <a href=""><img src="images/image-placeholder1.png"></a>
-                <a href="" class="title">Design Title Goes Here</a>
+                <a href=""><img src="images/products/thumbs/Pixel People-03.png"></a>
+                <a href="" class="title">Pixel People 3</a>
               </li>
               <li>
-                <a href=""><img src="images/image-placeholder2.png"></a>
-                <a href="" class="title">Design Title Goes Here</a>
+                <a href=""><img src="images/products/thumbs/Pixel People-04.png"></a>
+                <a href="" class="title">Pixel People 4</a>
               </li>
               <li>
-                <a href=""><img src="images/image-placeholder1.png"></a>
-                <a href="" class="title">Design Title Goes Here</a>
+                <a href=""><img src="images/products/thumbs/Pixel People-05.png"></a>
+                <a href="" class="title">Pixel People 5</a>
               </li>
               <li>
-                <a href=""><img src="images/image-placeholder2.png"></a>
-                <a href="" class="title">Design Title Goes Here</a>
+                <a href=""><img src="images/products/thumbs/Pixel People-06.png"></a>
+                <a href="" class="title">Pixel People 6</a>
               </li>
               <li>
-                <a href=""><img src="images/image-placeholder1.png"></a>
-                <a href="" class="title">Design Title Goes Here</a>
+                <a href=""><img src="images/products/thumbs/Pixel People-07.png"></a>
+                <a href="" class="title">Pixel People 6</a>
               </li>
               <li>
-                <a href=""><img src="images/image-placeholder2.png"></a>
-                <a href="" class="title">Design Title Goes Here</a>
+                <a href=""><img src="images/products/thumbs/Pixel People-08.png"></a>
+                <a href="" class="title">Pixel People 7</a>
               </li>
               <li>
-                <a href=""><img src="images/image-placeholder1.png"></a>
-                <a href="" class="title">Design Title Goes Here</a>
+                <a href=""><img src="images/products/thumbs/Pixel People-09.png"></a>
+                <a href="" class="title">Pixel People 9</a>
               </li>
               <li>
-                <a href=""><img src="images/image-placeholder2.png"></a>
-                <a href="" class="title">Design Title Goes Here</a>
+                <a href=""><img src="images/products/thumbs/Pixel People-10.png"></a>
+                <a href="" class="title">Pixel People 10</a>
               </li>
               <li>
-                <a href=""><img src="images/image-placeholder1.png"></a>
-                <a href="" class="title">Design Title Goes Here</a>
+                <a href=""><img src="images/products/thumbs/Pixel People-06.png"></a>
+                <a href="" class="title">Pixel People 6</a>
               </li>
               <li>
-                <a href=""><img src="images/image-placeholder2.png"></a>
-                <a href="" class="title">Design Title Goes Here</a>
+                <a href=""><img src="images/products/thumbs/Pixel People-07.png"></a>
+                <a href="" class="title">Pixel People 6</a>
               </li>
+              <li>
+                <a href=""><img src="images/products/thumbs/Pixel People-08.png"></a>
+                <a href="" class="title">Pixel People 7</a>
+              </li>
+               <li>
+                <a href=""><img src="images/products/thumbs/Pixel People-01.png"></a>
+                <a href="" class="title">Pixel People 1</a>
+              </li>
+              <li>
+                <a href=""><img src="images/products/thumbs/Pixel People-09.png"></a>
+                <a href="" class="title">Pixel People 9</a>
+              </li>
+              <li>
+                <a href=""><img src="images/products/thumbs/Pixel People-10.png"></a>
+                <a href="" class="title">Pixel People 10</a>
+              </li>
+
+              
             </ul>
 
             <ul class="pagination pagination-sm pagination-split float-right">
