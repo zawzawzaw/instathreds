@@ -202,35 +202,36 @@
         </div>
         <ul class="block-grid five-up mobile designs">
           <li>
-            <a href=""><img src="images/image-placeholder1.png"></a>
+            <a href=""><img src="images/products/thumbs/Pixel People-01.png"></a>
           </li>
           <li>
-            <a href=""><img src="images/image-placeholder2.png"></a>
+            <a href=""><img src="images/products/thumbs/Pixel People-02.png"></a>
           </li>
           <li>
-            <a href=""><img src="images/image-placeholder1.png"></a>
+            <a href=""><img src="images/products/thumbs/Pixel People-03.png"></a>
           </li>
           <li>
-            <a href=""><img src="images/image-placeholder2.png"></a>
+            <a href=""><img src="images/products/thumbs/Pixel People-04.png"></a>
           </li>
           <li>
-            <a href=""><img src="images/image-placeholder1.png"></a>
+            <a href=""><img src="images/products/thumbs/Pixel People-05.png"></a>
           </li>
           <li>
-            <a href=""><img src="images/image-placeholder2.png"></a>
+            <a href=""><img src="images/products/thumbs/Pixel People-06.png"></a>
           </li>
           <li>
-            <a href=""><img src="images/image-placeholder1.png"></a>
+            <a href=""><img src="images/products/thumbs/Pixel People-07.png"></a>
           </li>
           <li>
-            <a href=""><img src="images/image-placeholder2.png"></a>
+            <a href=""><img src="images/products/thumbs/Pixel People-08.png"></a>
           </li>
           <li>
-            <a href=""><img src="images/image-placeholder1.png"></a>
+            <a href=""><img src="images/products/thumbs/Pixel People-09.png"></a>
           </li>
           <li>
-            <a href=""><img src="images/image-placeholder2.png"></a>
+            <a href=""><img src="images/products/thumbs/Pixel People-10.png"></a>
           </li>
+          
         </ul>    
       </div>  
     </section>
