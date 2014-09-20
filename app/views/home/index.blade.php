@@ -55,9 +55,9 @@
         </div> 
         <ul class="block-grid three-up mobile steps">
           <li>
-            <a href=""><img src="images/howitworks1.jpg"></a>
+            <a href="/shirtbuilder"><img src="images/howitworks1.jpg"></a>
             <div class="title step1">
-              <a href="">Make Your Own T-Shirt</a>
+              <a href="/shirtbuilder">Make Your Own T-Shirt</a>
             </div>
             
           </li>
@@ -68,9 +68,9 @@
             </div>
           </li>
           <li>
-            <a href=""><img src="images/howitworks3.jpg"></a>
+            <a href="#login-modal" class="user-account-btn" data-id="signup"><img src="images/howitworks3.jpg"></a>
             <div class="title step3">
-              <a href="">Signup and Sell T-Shirts</a>
+              <a href="#login-modal" class="user-account-btn" data-id="signup">Signup and Sell T-Shirts</a>
             </div>
           </li>  
         </ul> 

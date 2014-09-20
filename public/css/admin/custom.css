@@ -1,0 +1,20 @@
+/* AUTHOR */
+
+#orders-detailed-table td:last-child,#orders-detailed-table th:last-child{text-align:right;}
+#users-table .profilepic,.profilepic{border-radius: 50px;margin-right: 5px;vertical-align: middle;width: 26px;}
+.profile-name .label {margin-left: 10px;vertical-align: middle;}
+
+#slider-table td:first-child{width:20%;}
+#slider-table td:nth-child(2){width:15%;}
+#slider-table td:nth-child(3){width:20%;}
+#slider-table td:nth-child(4){width:20%;}
+
+.filemanager .fm-title {font-size: 13px;margin-bottom: 5px;}
+.filemanager .thmb small.text-muted{display:block;line-height:1.5;}
+.filemanager .ckbox input{vertical-align:middle;}
+.filemanager .ckbox label{padding:0px 6px;margin-left:5px;vertical-align:middle;background:#d9534f;color:#fff;border-radius:2px;font-size:11px;}
+.filemanager-options .itemopt:hover{text-decoration:none;}
+.filemanager-options{overflow:hidden;}
+.pp_social {display:none;}
+
+.category-add{display:none;}

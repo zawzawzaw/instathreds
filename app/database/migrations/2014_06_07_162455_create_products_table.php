@@ -16,8 +16,9 @@ class CreateProductsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name', 30);
-			$table->decimal('original_price', 10);
-			$table->decimal('reduced_price', 10);
+			$table->integer("stock");
+			$table->decimal("price",10);
+			$table->integer("category_id");
 			$table->timestamps();
 		});
 	}

@@ -89,7 +89,7 @@
       <div class="header-main">
         <div class="container">
           <div class="logo">
-            <a href="#"><img src="images/logo-instathreds.png" alt="Logo" /></a>
+            <a href="/"><img src="images/logo-instathreds.png" alt="Logo" /></a>
           </div>
           <div class="mobile-menu burger slide" id="navToggle"  >
             <a href="#"><i class="fa fa-bars"></i></a>
@@ -98,7 +98,7 @@
           <div class="navigation-menu">
             <div class="menu-main">
               <ul>
-                <li><a href="#">Make Your Own</a></li>
+                <li><a href="/shirtbuilder">Make Your Own</a></li>
                 <li><a href="#">Choose a Design</a></li>
                 <li>
                   <a data-toggle="dropdown" class="dropdown-toggle" href="#">Blog</a>
@@ -185,7 +185,7 @@
               <li>
                 <h5>Make your own Tshirt</h5>
                 <ul>
-                  <li><a href="#">Do it Now</a></li>
+                  <li><a href="/shirtbuilder">Do it Now</a></li>
                   <li><a href="#">How to</a></li>
                   <li><a href="#">FAQs</a></li>
                 </ul>
@@ -203,7 +203,7 @@
                 <h5>Signup and Sell T-Shirts</h5>
                 <ul>
                   <li><a href="#">Calling all designers & artists</a></li>
-                  <li><a href="#">Signup Now</a></li>
+                  <li><a href="#login-modal" class="user-account-btn" data-id="signup">Signup Now</a></li>
                   <li><a href="#">FAQs</a></li>
                 </ul>
               </li>

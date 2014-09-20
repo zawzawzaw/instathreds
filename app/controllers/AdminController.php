@@ -25,7 +25,7 @@ class AdminController extends BaseController {
     {
     	$users = User::all();
 
-        $this->layout->content = View::make('admin.listusers', array('users' => $users));     
+        $this->layout->content = View::make('admin.users', array('users' => $users));     
     }
 
 }

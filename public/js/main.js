@@ -29,7 +29,8 @@ $( document ).ready(function() {
 
 	});
 
-	$mainNav.children('.menu-login').find('.user-account-btn').on('click', function(e){
+    // $mainNav.children('.menu-login').find
+	$('.user-account-btn').on('click', function(e){
 
 		e.preventDefault();
 
@@ -61,10 +62,6 @@ $( document ).ready(function() {
       autoPlay : 5000
 
     });
-
-    
-
-
 
 	$signupContainer.children('form').find('button').on('click', function(e){
 		

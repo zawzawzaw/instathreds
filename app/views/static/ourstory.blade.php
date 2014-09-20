@@ -1,4 +1,14 @@
 @section('content')
+	<!-- BANNER/SLIDER -->
+    <section class="slider">
+      <div class="container">
+        <div class="offers-bar">
+          <h6><span>NEW FEATURED DESIGNS!</span> SHOP NOW</h6>  
+        </div>
+      </div>
+    </section>
+    <!-- END BANNER/SLIDER -->
+
 	<!-- CONTENT -->
     <section class="content">
       <div class="container">
