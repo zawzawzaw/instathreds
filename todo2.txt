@@ -2,12 +2,12 @@ css fixes
   - select boxes (fixed)
   - tab (fixed)
 function needed
-  - shirt color change
+  - shirt color change (fixed)
   - image color change / remove (fixed)
-  - text color change / remove 
+  - text color change / remove (fixed)
   - resize uploaded image and instagram image (fixed)
   - zoom
-  - price
+  - price ()
   - smaller boundary area (fixed)
   - remove default text (fixed)
 ask
@@ -24,3 +24,13 @@ ssh
 instaserverp@ssword
 
 must select one of image and text if there is one on click to image and text 
+
+
+font
+undo
+male/female
+save
+cart
+stock?
+price
+share 

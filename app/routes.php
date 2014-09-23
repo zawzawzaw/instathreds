@@ -12,12 +12,12 @@
 */
 Route::pattern('id', '[0-9]+');
 
+# Front end
 Route::get('/', 'HomeController@index');
 
+// users registration / login
 Route::resource('register', 'RegisterController', array('only' => array('index', 'store')));
-
 Route::resource('login', 'LoginController', array('only' => array('index', 'store', 'destroy')));
-
 
 Route::get('logout', array(
   'uses' => 'LoginController@destroy',
@@ -25,15 +25,20 @@ Route::get('logout', array(
 ));
 
 Route::resource('fblogin', 'FbloginController', array('as'=>'fblogin'));
-
 Route::resource('instalogin', 'IngloginController', array('as'=>'instalogin'));
 
+// shirt builder
 Route::resource('shirtbuilder', 'ShirtbuilderController', array('as'=>'shirtbuilder'));
 
+// static pages
 Route::resource('featured', 'FeaturedController', array('as'=>'featured'));
-
-Route::get('admin', 'AdminController@index');
-
-Route::get('admin/users', 'AdminController@listUsers');
-
 Route::get('our-story', 'StaticController@ourstory');
+
+/* Back end */
+Route::get('admin', 'AdminController@index');
+Route::get('admin/users', 'UserController@index');
+Route::get('admin/designs', 'ProductController@index');
+Route::resource('admin/designs/category/{id}', 'CategoryController@index');
+
+
+

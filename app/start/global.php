@@ -50,7 +50,7 @@ App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
 	
-	return Response::view('errors.missing', array(), 404);
+	// return Response::view('errors.missing', array(), 404);
 });
 
 /*

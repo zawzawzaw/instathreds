@@ -18,14 +18,14 @@ class AdminController extends BaseController {
         $this->layout->content = View::make('admin.index');
     }
 
-     /**
-     * List all users.
-     */
-    public function listUsers()
+    /**
+    * list all designs
+    */
+    public function designs()
     {
-    	$users = User::all();
+        $categories = Category::all();
 
-        $this->layout->content = View::make('admin.users', array('users' => $users));     
+        $this->layout->content = View::make('admin.designs', array('categories' => $categories));     
     }
 
 }
