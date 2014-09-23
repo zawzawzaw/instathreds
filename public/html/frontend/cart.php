@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Instathreds</title>
 
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/screen.css">
 
     <!-- TYPEKIT -->
@@ -138,131 +138,93 @@
     <!-- END BANNER/SLIDER -->
 
     <!-- CONTENT -->
-    <section class="content detailed-product">
+    <section class="content cart">
       <div class="container">
-          <div class="row product-head">
-            <div class="gender">
-              <ul>
-                <li><a href="" class="active">HIS</a></li>
-                <li><a href="">HER</a></li>
-            </div>
-            <div class="breadcrumbs">
-              <ul>
-                <li><a href="">ALL CATEGORIES</a><span>></span></li>
-                <li><a href="">PIXEL PEOPLE</a><span>></span></li>
-                <li><a href="">BLOCKHEAD</a></li>
-              </ul>  
-            </div>
+        <h6 class="section-title">GOODIES IN YOUR CART</h6>
+        <table class="table-cart">
+          <thead>
+            <tr class="heading">
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Qty</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="" class="button-remove"><i class="fa fa-close"></i></a></td>
+              <td><a href="" class="product-image"><img src="images/image-placeholder1.png" style="width:150px;"></a></td>
+              <td><a href="">Space Scorpion</a></td>
+              <td>Mens T-Shirt, XL, Arctic Blue </td>
+              <td>$35</td>
+              <td><input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4">
+                  </td>
+              <td><strong>$70</strong></td>
+            </tr>
+            <tr>
+              <td><a href="" class="button-remove"><i class="fa fa-close"></i></a></td>
+              <td><a href="" class="product-image"><img src="images/image-placeholder1.png" style="width:150px;"></a></td>
+              <td><a href="">Space Scorpion</a></td>
+              <td>Mens T-Shirt, XL, Arctic Blue </td>
+              <td>$35</td>
+              <td><input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4">
+                  </td>
+              <td><strong>$70</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <!-- total -->
+        <div class="total-panel">
+          <div class="coupon">
+            <h6>Enter your gift, coupon or store code</h6>
+            <input type="text" class="text coupon-input" placeholder="ENTER CODE">
+            <button class="btn btn-primary">APPLY</button>
           </div>
-
-          <div class="row product">
-            <div class="left">
-              <div class="front">
-                <img src="images/image-placeholder1.png" style="width:620px;">
-              </div>
-              <div class="back">
-                <img src="images/image-placeholder1.png">
-              </div>
-            </div>
-            <div class="right">
-              <h6 class="product-title">TSHIRT DESIGN TITLE WILL GO HERE</h6>
-              <div class="shirt-type">
-                <a data-toggle="dropdown" class="dropdown-toggle shirt-type" href="#">Shirt Type <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="">Round-Neck</a></li>
-                  <li><a href="">V-Neck</a></li>
-                  <li><a href="">Crew Neck</a></li>
-                  <li><a href="">Round-Neck</a></li>
-                </ul>
-              </div>
-              
-              <div class="shirt-size">
-                <a href="" class="active">S</a>
-                <a href="">M</a>
-                <a href="">L</a>
-                <a href="">XL</a>
-                <a href="">2XL</a>
-              </div>
-              <div class="shirt-color">
-                <h6>Select a colour</h6>
-                <ul class="color-list">
-                  <li><span class="colorOptions" data-color="#000" style="background: #000; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#fff" style="background: #fff; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#51bc18" style="background: #51bc18; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#e83fd4" style="background: #e83fd4; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#006837" style="background: #006837; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#29abe2" style="background: #29abe2; width: 23px; height: 23px; display: inline-block"></span></li>
-                </ul>  
-              </div>
-              <div class="shirt-view">
-                <a href="" class="active">FRONT</a>
-                <span>or</span>
-                <a href="">BACK</a>
-                <span class="price">$35</span>
-                  
-              </div>
-              <div class="shirt-quantity">
-                  <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4">
-                  <a href="#cart-modal" class="addtocart-link btn btn-primary">ADD TO CART</a>
-              </div>
-              <div class="share">
-                <h6>SHARE WITH FRIENDS</h6>  
-              </div>
-            </div>
+          <div class="total">
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <p>Subtotal:</p>    
+                  </td>
+                  <td>
+                    <p>$72.00</p>    
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Shipping:</p>    
+                  </td>
+                  <td>
+                    <p>$12.00</p>    
+                  </td>
+                </tr>  
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td>Total:</td>
+                  <td>$120.00</td>  
+                </tr>
+              </tfoot>
+              </tr>  
+            </table>  
           </div>  
-          
+        </div>
+        <!-- end of total -->
+
+        <div class="controls">
+          <a href="" class="btn btn-primary">UPDATE CART</a>
+          <a href="" class="btn btn-primary">CHECKOUT</a>
+        </div>         
          
       </div>
     </section>
+    <!-- END OF CART SECTION-->
 
-    <section class="more-products">
-      <div class="container">
-        <h6>ALSO IN PIXEL PEOPLE</h6>  
-        <div class="more-products-slider owl-carousel">
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-            
-        </div>
-      </div>
-    </section>
 
 
     <!-- FOOTER -->
@@ -274,7 +236,7 @@
               <li>  
                 <div class="newsletter-signup">
                   <h6>SIGNUP FOR OUR NEWSLETTER</h6>
-                  <input type="text" class="text">
+                  <input type="text" class="coupon-input text">
                   <button class="btn btn-primary">JOIN</button>
                   
                 </div>
@@ -363,30 +325,6 @@
       </div>  
     </section>
     <!-- END FOOTER -->
-
-    <!-- LOGIN/SINGUP MODAL -->
-    <div class="modal fade" id="cart-modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            
-            <div class="cart-wrap">
-              <h6>WE’VE ADDED THIS TO YOUR CART</h6>
-              <img src="images/image-placeholder1.png" style="width:150px;height:100px;">
-              <div class="form-group">
-                <button class="btn btn-primary checkout">CHECKOUT NOW</button>
-                <div style="clear:both;">
-                <button class="btn continueshopping">CONTINUE SHOPPING</button>
-                <button class="btn viewcart">VIEW CART</button>
-                </div>  
-              </div>
-              
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- LOGIN/SINGUP MODAL -->
     <div class="modal fade" id="login-modal">

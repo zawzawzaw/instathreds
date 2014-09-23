@@ -138,129 +138,145 @@
     <!-- END BANNER/SLIDER -->
 
     <!-- CONTENT -->
-    <section class="content detailed-product">
+    <section class="content search">
       <div class="container">
-          <div class="row product-head">
-            <div class="gender">
-              <ul>
-                <li><a href="" class="active">HIS</a></li>
-                <li><a href="">HER</a></li>
-            </div>
-            <div class="breadcrumbs">
-              <ul>
-                <li><a href="">ALL CATEGORIES</a><span>></span></li>
-                <li><a href="">PIXEL PEOPLE</a><span>></span></li>
-                <li><a href="">BLOCKHEAD</a></li>
-              </ul>  
-            </div>
+        
+        <div class="row">
+          <div class="twelve column">
+            <h3 class="search-title">SHOP FOR EVERYTHING PIXEL <span>36 results for your search</span></h3>
           </div>
-
-          <div class="row product">
-            <div class="left">
-              <div class="front">
-                <img src="images/image-placeholder1.png" style="width:620px;">
-              </div>
-              <div class="back">
-                <img src="images/image-placeholder1.png">
-              </div>
-            </div>
-            <div class="right">
-              <h6 class="product-title">TSHIRT DESIGN TITLE WILL GO HERE</h6>
-              <div class="shirt-type">
-                <a data-toggle="dropdown" class="dropdown-toggle shirt-type" href="#">Shirt Type <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="">Round-Neck</a></li>
-                  <li><a href="">V-Neck</a></li>
-                  <li><a href="">Crew Neck</a></li>
-                  <li><a href="">Round-Neck</a></li>
-                </ul>
-              </div>
-              
-              <div class="shirt-size">
-                <a href="" class="active">S</a>
-                <a href="">M</a>
-                <a href="">L</a>
-                <a href="">XL</a>
-                <a href="">2XL</a>
-              </div>
-              <div class="shirt-color">
-                <h6>Select a colour</h6>
-                <ul class="color-list">
-                  <li><span class="colorOptions" data-color="#000" style="background: #000; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#fff" style="background: #fff; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#51bc18" style="background: #51bc18; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#e83fd4" style="background: #e83fd4; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#006837" style="background: #006837; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#29abe2" style="background: #29abe2; width: 23px; height: 23px; display: inline-block"></span></li>
-                </ul>  
-              </div>
-              <div class="shirt-view">
-                <a href="" class="active">FRONT</a>
-                <span>or</span>
-                <a href="">BACK</a>
-                <span class="price">$35</span>
-                  
-              </div>
-              <div class="shirt-quantity">
-                  <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4">
-                  <a href="#cart-modal" class="addtocart-link btn btn-primary">ADD TO CART</a>
-              </div>
-              <div class="share">
-                <h6>SHARE WITH FRIENDS</h6>  
-              </div>
-            </div>
-          </div>  
-          
-         
-      </div>
-    </section>
-
-    <section class="more-products">
-      <div class="container">
-        <h6>ALSO IN PIXEL PEOPLE</h6>  
-        <div class="more-products-slider owl-carousel">
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href=""><img src="images/image-placeholder1.png" style="width:198px;height:198px;"></a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-            
         </div>
+
+        <div class="row">
+
+        <div class="three column">
+          <div class="sidebar">  
+            <div class="separator-line"></div>
+            <h5 class="title blue"><a href="">MAKE YOUR OWN</a></h5>
+            <div class="separator-line"></div>
+            <div class="menu-sidebar">
+              <h5>CHOOSE A DESIGN</h5>
+              <ul>
+                <li class="active"><a href="">Trending</a></li>
+                <li><a href="">Featured</a></li>
+                <li><a href="">His</a></li>
+                <li><a href="">Hers</a></li>
+              </ul>
+            </div>
+            <div class="separator-line"></div>
+            <div class="menu-sidebar">
+              <ul>
+                <li><a href="">Abstract</a></li>
+                <li><a href="">Animals</a></li>
+                <li><a href="">Back in Stock</a></li>
+                <li><a href="">Bikes</a></li>
+                <li><a href="">Comics</a></li>
+                <li><a href="">Creativity</a></li>
+                <li><a href="">Cute</a></li>
+                <li><a href="">Dinosaurs</a></li>
+                <li><a href="">Fantasy</a></li>
+                <li><a href="">Film</a></li>
+                <li><a href="">Food</a></li>
+                <li><a href="">Funny</a></li>
+                <li><a href="">Gaming</a></li>
+                <li><a href="">Historical</a></li>
+                <li><a href="">Ironic</a></li>
+                <li><a href="">Literary</a></li>
+                <li><a href="">Luv</a></li>
+                <li><a href="">Monsters</a></li>
+                <li><a href="">Music</a></li>
+                <li><a href="">Nature</a></li>
+                <li><a href="">Nerdy</a></li>
+                <li><a href="">Patterns</a></li>
+                <li><a href="">Political</a></li>
+                <li><a href="">Pop Culture</a></li>
+                <li><a href="">Religion</a></li>
+                <li><a href="">Robots</a></li>
+                <li><a href="">Slogans</a></li>
+                <li><a href="">Space</a></li>
+                <li><a href="">Sports</a></li>
+                <li><a href="">Typography</a></li>
+                <li><a href="">Violent</a></li>
+                <li><a href="">WTF</a></li>
+                <li><a href="">Zombies</a></li>
+              </ul>
+            </div>
+
+
+          </div>
+        </div>
+        <div class="nine column">
+          <div class="content-right">
+            <ul class="block-grid four-up mobile">
+              <li>
+                <a href=""><img src="images/image-placeholder1.png"></a>
+                <a href="" class="title">Design Title Goes Here</a>
+              </li>
+              <li>
+                <a href=""><img src="images/image-placeholder2.png"></a>
+                <a href="" class="title">Design Title Goes Here</a>
+              </li>
+              <li>
+                <a href=""><img src="images/image-placeholder1.png"></a>
+                <a href="" class="title">Design Title Goes Here</a>
+              </li>
+              <li>
+                <a href=""><img src="images/image-placeholder2.png"></a>
+                <a href="" class="title">Design Title Goes Here</a>
+              </li>
+              <li>
+                <a href=""><img src="images/image-placeholder1.png"></a>
+                <a href="" class="title">Design Title Goes Here</a>
+              </li>
+              <li>
+                <a href=""><img src="images/image-placeholder2.png"></a>
+                <a href="" class="title">Design Title Goes Here</a>
+              </li>
+              <li>
+                <a href=""><img src="images/image-placeholder1.png"></a>
+                <a href="" class="title">Design Title Goes Here</a>
+              </li>
+              <li>
+                <a href=""><img src="images/image-placeholder2.png"></a>
+                <a href="" class="title">Design Title Goes Here</a>
+              </li>
+              <li>
+                <a href=""><img src="images/image-placeholder1.png"></a>
+                <a href="" class="title">Design Title Goes Here</a>
+              </li>
+              <li>
+                <a href=""><img src="images/image-placeholder2.png"></a>
+                <a href="" class="title">Design Title Goes Here</a>
+              </li>
+              <li>
+                <a href=""><img src="images/image-placeholder1.png"></a>
+                <a href="" class="title">Design Title Goes Here</a>
+              </li>
+              <li>
+                <a href=""><img src="images/image-placeholder2.png"></a>
+                <a href="" class="title">Design Title Goes Here</a>
+              </li>
+            </ul>
+
+            <div class="control">
+            <a href="#top" class="backtop">Back to top</a>
+
+            <ul class="pagination pagination-sm pagination-split float-right">
+              <li class="disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+              <li><a href="#">1</a></li>
+              <li class="active"><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+            </ul>
+
+
+
+          </div>
+        </div>
+        </div>  
+
       </div>
     </section>
 
@@ -365,30 +381,6 @@
     <!-- END FOOTER -->
 
     <!-- LOGIN/SINGUP MODAL -->
-    <div class="modal fade" id="cart-modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            
-            <div class="cart-wrap">
-              <h6>WE’VE ADDED THIS TO YOUR CART</h6>
-              <img src="images/image-placeholder1.png" style="width:150px;height:100px;">
-              <div class="form-group">
-                <button class="btn btn-primary checkout">CHECKOUT NOW</button>
-                <div style="clear:both;">
-                <button class="btn continueshopping">CONTINUE SHOPPING</button>
-                <button class="btn viewcart">VIEW CART</button>
-                </div>  
-              </div>
-              
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- LOGIN/SINGUP MODAL -->
     <div class="modal fade" id="login-modal">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -475,12 +467,13 @@
     </div>
     
 
-    
-    <script src="js/vendor/jquery-2.1.1.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
     <script src="js/bootstrap/dropdown.js"></script>
     <script src="js/bootstrap/modal.js"></script>
     <script src="js/bootstrap/tab.js"></script>
-    <script src="js/vendor/owl.carousel.min.js"></script>
+    <script src="js/vendor/caroufredsel.js"></script>
     <script src="js/main.js"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed 

@@ -28,6 +28,15 @@ $( document ).ready(function() {
 		$('#login-tab a:last').tab('show');	
 	});	
 
+	$(".addtocart-link").on("click",function(){
+		$('#cart-modal').modal('show')
+	});
+
+	$(".storeloc-link").on("click",function(e){
+		e.preventDefault();
+		$('#store-modal').modal('show')
+	});
+
 
 	//OWL CAROUSEL HOMEPAGE
 	$("#slider-homepage").owlCarousel({
@@ -37,30 +46,17 @@ $( document ).ready(function() {
       slideSpeed : 300,
       paginationSpeed : 400,
       singleItem : true
+    });
 
-      // "singleItem:true" is a shortcut for:
-      // items : 1, 
-      // itemsDesktop : false,
-      // itemsDesktopSmall : false,
-      // itemsTablet: false,
-      // itemsMobile : false
-
+    $(".more-products-slider").owlCarousel({
+      navigation : true,
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      items : 5
     });
 	
 
 
-	//BANNER CAROUSEL
-    $('#carousel').carouFredSel({
-    	responsive  : true,
-    	auto : false,
-    	prev : "#prev-banner",
-		next : "#next-banner",
-		items		: {
-			visible		: 1,
-			width		: 1230,
-			height		: "35%"
-		}
-    });
 
     //WINDOW ON RESIZE
     $(window).resize(function() {

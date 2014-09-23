@@ -30,8 +30,9 @@
 }
 .btn:hover,
 .btn:focus {
-  color: #333;
+  color: #999;
   text-decoration: none;
+  background:#000;
 }
 .btn:active,
 .btn.active {
@@ -509,5 +510,16 @@ input[type="button"].btn-block {
     padding: 0;
     position: absolute;
     width: 1px;
+}
+
+.caret {
+display: inline-block;
+width: 0;
+height: 0;
+margin-left: 2px;
+vertical-align: middle;
+border-top: 7px solid;
+border-right: 7px solid transparent;
+border-left: 7px solid transparent;
 }
 

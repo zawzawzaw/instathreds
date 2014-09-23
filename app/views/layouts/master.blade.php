@@ -75,11 +75,11 @@
                 <button class="button-search"><i class="fa fa-search"></i></button>
             </div>
             <div class="social">
-              <a href="#" class="icon"><i class="fa fa-facebook"></i></a>
-              <a href="#" class="icon"><i class="fa fa-instagram"></i></a>
-              <a href="#" class="icon"><i class="fa fa-twitter"></i></a>
-              <a href="#" class="icon"><i class="fa fa-pinterest"></i></a>
-              <a href="#" class="icon"><i class="fa fa-youtube"></i></a>  
+              <a href="https://facebook.com/instathreds" target="_blank" class="icon"><i class="fa fa-facebook"></i></a>
+              <a href="https://instagram.com/instathreds" target="_blank" class="icon"><i class="fa fa-instagram"></i></a>
+              <a href="https://twitter.com/instathreds" target="_blank" class="icon"><i class="fa fa-twitter"></i></a>
+              <a href="https://pinterest.com/instathreds" target="_blank" class="icon"><i class="fa fa-pinterest"></i></a>
+              <a href="#" class="icon"><i class="fa fa-youtube"></i></a>   
             </div>
         </div>      
       </div>
@@ -90,6 +90,7 @@
         <div class="container">
           <div class="logo">
             <a href="/"><img src="images/logo-instathreds.png" alt="Logo" /></a>
+            <a href="http://www.instathredsdev.com"><img src="images/logo-instathreds.png" alt="Logo" /></a>
           </div>
           <div class="mobile-menu burger slide" id="navToggle"  >
             <a href="#"><i class="fa fa-bars"></i></a>
@@ -100,6 +101,8 @@
               <ul>
                 <li><a href="/shirtbuilder">Make Your Own</a></li>
                 <li><a href="#">Choose a Design</a></li>
+                <li><a href="http://instathredsdev.com/shirtbuilder">Make Your Own</a></li>
+                <li><a href="http://instathredsdev.com/featured">Choose a Design</a></li>
                 <li>
                   <a data-toggle="dropdown" class="dropdown-toggle" href="#">Blog</a>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
@@ -110,7 +113,7 @@
                     <li role="presentation"><a href="http://twitter.com/fat" tabindex="-1" role="menuitem">Separated link</a></li>
                   </ul>
                 </li>
-                <li><a href="">Stores</a></li>
+                <li><a href="http://instathredsdev.com/our-story">Stores</a></li>
               </ul>
             </div>
             <div class="menu-cart">
@@ -168,10 +171,10 @@
               </li>
               <li>
                   <div class="social social-footer">
-                    <a href="#" class="icon"><i class="fa fa-facebook"></i></a>
-                    <a href="#" class="icon"><i class="fa fa-instagram"></i></a>
-                    <a href="#" class="icon"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="icon"><i class="fa fa-pinterest"></i></a>
+                    <a href="https://facebook.com/instathreds" target="_blank" class="icon"><i class="fa fa-facebook"></i></a>
+                    <a href="https://instagram.com/instathreds" target="_blank" class="icon"><i class="fa fa-instagram"></i></a>
+                    <a href="https://twitter.com/instathreds" target="_blank" class="icon"><i class="fa fa-twitter"></i></a>
+                    <a href="https://pinterest.com/instathreds" target="_blank" class="icon"><i class="fa fa-pinterest"></i></a>
                     <a href="#" class="icon"><i class="fa fa-youtube"></i></a>  
                   </div>
               </li>

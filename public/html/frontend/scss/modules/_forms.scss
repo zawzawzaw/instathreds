@@ -66,26 +66,42 @@ fieldset.options li {
     margin-left: 0;
 }
 
-input.text, select, textarea {	
+input[type="text"], select, textarea {	
 	width:75%;
-	border:1px solid #C6C6C6;
+	border:1px solid #CCC;
 	font-family: $typeface-primary;
     font-size: $font-size-small;
 	color: $color-midtone;
 	padding: 3px 4px;
-	background-color: #EEEEEE;
+	background-color: #ffffff;
     line-height: 1.5;
     margin: 0;
     padding: 0.50em;
     vertical-align: middle;
 	@include box-sizing(border-box);
-    @include border-radius(5px) 
+    @include border-radius(4px);
+
 }
 
-input[type=text]:focus, 
-textarea:focus {
-	box-shadow: inset 0px 0px 5px rgba(18, 7, 6, 0.1); 
+
+/* PLACEHOLDER */
+::-webkit-input-placeholder {
+   color: $color-midtone;
 }
+
+:-moz-placeholder { /* Firefox 18- */
+   color: $color-midtone;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: $color-midtone; 
+}
+
+:-ms-input-placeholder {  
+   color: $color-midtone; 
+}
+
+
 
 .radio, .checkbox {
     display: block;
@@ -110,8 +126,7 @@ textarea:focus {
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-    color: #555;
+    color: $color-midtone;
     display: block;
     font-size: 14px;
     height: 34px;
@@ -122,7 +137,7 @@ textarea:focus {
 }
 .form-control:focus {
     border-color: #66afe9;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 2px rgba(102, 175, 233, 0.6);*/
     outline: 0 none;
 }
 .form-control::-moz-placeholder {
@@ -152,3 +167,93 @@ textarea.form-control {
 .lostpassword a{font-size:$font-size-x-small;}
 
 
+
+/*SELECT STYLE*/
+.select-style {
+    border: 1px solid #ccc;
+    width: 290px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor:pointer;
+    background: #FFFFFF url("../images/select-arrow.png") no-repeat 95% 50%;
+}
+
+.select-style select {
+    padding: 5px 8px;
+    cursor:pointer;
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+
+
+
+/* CHECKBOX*/
+label {
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+input[type=checkbox].css-checkbox {
+    position: absolute; 
+    overflow: hidden; 
+    clip: rect(0 0 0 0); 
+    height:1px; 
+    width:1px; 
+    margin:-1px; 
+    padding:0;
+    border:0;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+    padding-left:20px;
+    height:15px; 
+    display:inline-block;
+    line-height:15px;
+    background-repeat:no-repeat;
+    background-position: 0 0;
+    font-size:15px;
+    vertical-align:middle;
+    cursor:pointer;
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+    background-position: 0 -15px;
+}
+
+.css-label{
+    width:100%;
+}
+
+input[type=checkbox].css-checkbox.lrg + label.css-label.lrg {
+    padding-left:22px;
+    height:20px; 
+    display:inline-block;
+    line-height:20px;
+    background-repeat:no-repeat;
+    background-position: 0 0;
+    font-size:15px;
+    vertical-align:middle;
+    cursor:pointer;
+    background-image:url(../images/checkbox.png);
+}
+
+input[type=checkbox].css-checkbox.lrg:checked + label.css-label.lrg{
+    background-position: 0 -20px;
+}
+
+
+/* SHIPPING */
+.panel.shipping .form-control{width:100%;}
+.panel.shipping .continuepayment{width:270px;}
