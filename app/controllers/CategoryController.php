@@ -29,24 +29,6 @@ class CategoryController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
-		$validator = Validator::make(Input::all(), Category::$rules);
-
-		if($validator->passes()) {
-			$category = new Category();
-			$category->name = Input::get('name');
-			$category->save();
-
-			return Response::json(array(
-				'success' => true,
-				'last_insert_id' => $category->id
-			), 200);
-		}
-
-		return Response::json(array(
-	        'error' => true,
-	        'message' => array($validator->messages()->all());
-	        ), 200);
 
 	}
 
@@ -59,6 +41,27 @@ class CategoryController extends \BaseController {
 	public function store()
 	{
 		//
+		$validator = Validator::make(Input::all(), Category::$rules);
+
+		if($validator->passes()) {
+			$category = new Category();
+			$category->name = Input::get('name');
+			$category->save();
+
+			return Redirect::to('admin/designs');
+
+			// return Response::json(array(
+			// 	'success' => true,
+			// 	'last_insert_id' => $category->id
+			// ), 200);
+		}
+
+		// return Response::json(array(
+	 //        'error' => true,
+	 //        'message' => array($validator->messages()->all());
+	 //        ), 200);
+
+		return Redirect::to('admin/designs')->with('errors', $validator->messages()->all());
 	}
 
 

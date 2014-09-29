@@ -31,14 +31,20 @@ Route::resource('instalogin', 'IngloginController', array('as'=>'instalogin'));
 Route::resource('shirtbuilder', 'ShirtbuilderController', array('as'=>'shirtbuilder'));
 
 // static pages
-Route::resource('featured', 'FeaturedController', array('as'=>'featured'));
 Route::get('our-story', 'StaticController@ourstory');
 
 /* Back end */
 Route::get('admin', 'AdminController@index');
 Route::get('admin/users', 'UserController@index');
-Route::get('admin/designs', 'ProductController@index');
-Route::resource('admin/designs/category/{id}', 'CategoryController@index');
+Route::get('admin/uploadfile', 'AdminController@uploadfile');
+Route::resource('admin/designs', 'ProductController');
+Route::resource('admin/categories', 'CategoryController', array('as'=>'categories'));
 
+/* Front end */
+Route::resource('featured', 'FeaturedController', array('as'=>'featured'));
+Route::get('product/{title}/{id}', array(
+  'uses' => 'SingleproductController@index',
+  'as' => 'product'
+));
 
 

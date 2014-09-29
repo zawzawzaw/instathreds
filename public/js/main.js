@@ -63,6 +63,13 @@ $( document ).ready(function() {
 
     });
 
+    $(".more-products-slider").owlCarousel({
+      navigation : true,
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      items : 5
+    });
+
 	$signupContainer.children('form').find('button').on('click', function(e){
 		
 		e.preventDefault();

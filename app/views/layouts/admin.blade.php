@@ -11,7 +11,13 @@
 
   {{ HTML::style('css/admin/style.default.css') }}
   {{ HTML::style('css/admin/jquery.datatables.css') }}
+  {{ HTML::style('css/admin/bootstrap-fileupload.min.css') }}
+  {{ HTML::style('css/admin/bootstrap-timepicker.min.css') }}
+  {{ HTML::style('css/admin/jquery.tagsinput.css') }}
+  {{ HTML::style('css/admin/colorpicker.css') }}
+  {{ HTML::style('css/admin/dropzone.css') }}
   {{ HTML::style('css/admin/prettyPhoto.css') }}
+  {{ HTML::style('css/admin/uploadifive.css') }}
   {{ HTML::style('css/admin/custom.css') }}
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->

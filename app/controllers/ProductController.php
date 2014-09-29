@@ -18,20 +18,21 @@ class ProductController extends \BaseController {
 	public function index()
 	{
 		//
+		//
+		if (Auth::check())
+		{
+		    $username = Auth::user()->username;
+		}else {
+			$username = '';
+		}
+
 		$categories = Category::all();
-		$query    = Product::with(["category"]);
-	    $category = Input::get("category");
-
-	    if($category)
-	    {
-	    	$query->where("category_id", $category);
-	    }
-
-	    $result = $query->get();
+	    $products = Product::paginate(8);
 
 		$this->layout->content = View::make('products.index')
+			->with('username', $username)
 			->with('categories', $categories)
-			->with('result', $result);
+			->with('products', $products);
 	}
 
 
@@ -43,6 +44,8 @@ class ProductController extends \BaseController {
 	public function create()
 	{
 		//
+		$timestamp = time();
+		$this->layout->content = View::make('products.create')->with('timestamp', $timestamp);
 	}
 
 
@@ -53,7 +56,7 @@ class ProductController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		
 	}
 
 
@@ -66,6 +69,15 @@ class ProductController extends \BaseController {
 	public function show($id)
 	{
 		//
+		$categories = Category::all();
+
+		$products = Product::where("category_id", $id)->paginate(8);
+
+	    // $users = Paginator::make($data->items, $data->totalItems, 1);
+
+	    $this->layout->content = View::make('products.index')
+			->with('categories', $categories)
+			->with('products', $products);
 	}
 
 

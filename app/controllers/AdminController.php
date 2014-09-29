@@ -18,14 +18,9 @@ class AdminController extends BaseController {
         $this->layout->content = View::make('admin.index');
     }
 
-    /**
-    * list all designs
-    */
-    public function designs()
+    public function uploadfiles()
     {
-        $categories = Category::all();
 
-        $this->layout->content = View::make('admin.designs', array('categories' => $categories));     
     }
 
 }

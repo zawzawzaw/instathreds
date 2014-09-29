@@ -16,4 +16,9 @@ class Product extends Eloquent {
 	public function category() {
 		return $this->belongsTo('Category');
 	}
+
+	public static function slug($title) {
+		$slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $title);
+        return urlencode(strtolower($slug));
+    }
 }

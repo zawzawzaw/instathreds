@@ -1,3 +1,17 @@
+@section('sidebar')
+ <h5 class="sidebartitle">Navigation</h5>
+  <ul class="nav nav-pills nav-stacked nav-bracket">
+    <li class=""><a href="{{ URL::to('admin') }}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+    <li><a href="#"><span class="pull-right badge badge-success">12</span><i class="fa fa-pencil-square-o"></i> <span>Orders</span></a></li>
+    <li><a href="{{ URL::to('admin/users') }}"><i class="fa fa-users"></i> <span>Users</span></a></li>
+    <li class="active"><a href="{{ URL::to('admin/designs') }}"><span class="pull-right badge badge-success">23</span><i class="fa fa-photo"></i> <span>Designs in Store</span></a></li>
+    <li><a href="#"><i class="fa fa-suitcase"></i> <span>Stock Art</span></a></li>
+    <li><a href="#"><i class="fa fa-file-o"></i> <span>Pages</span></a></li>
+    <li><a href="#"><i class="fa fa-sliders"></i> <span>Slider</span></a></li>
+    <li><a href="#"><i class="fa fa-cogs"></i> <span>Settings</span></a></li>
+  </ul>
+@stop
+
 @section('content')
 <div class="mainpanel">
     
@@ -15,7 +29,7 @@
 			    <div class="btn-group">
 			      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 			        {{ HTML::image('images/admin/photos/loggeduser.png', '') }}
-			        Karlo Estrada
+			        {{ $username }}
 			        <span class="caret"></span>
 			      </button>
 			      <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
@@ -58,296 +72,36 @@
       	<div class="row">
 	        <div class="col-sm-9">
 	          	<div class="row filemanager">
-		            <div class="col-xs-6 col-sm-4 col-md-3 image">
-		              <div class="thmb">
-		                <div class="ckbox ckbox-default">
-		                  <input type="checkbox" id="check1" value="1" />
-		                  <label for="check1">Feature this!</label>
-		                </div>
-		                <div class="thmb-prev">
-		                  <a href="images/admin/photos/image-sample1.jpg" data-rel="prettyPhoto">
-		                  	{{ HTML::image('images/admin/photos/image-sample1-thumb.jpg', '', array('class'=>'img-responsive')) }}		                    
-		                  </a>
-		                </div>
-		                <h5 class="fm-title"><a href="">Kingdom Come</a></h5>
-		                <small class="text-muted">by karloestrada</small>
-		                <small class="text-muted">Sales: 29</small>
-		                <small class="text-muted">Category: Funny, Education</small>
-		              </div><!-- thmb -->
-		            </div><!-- col-xs-6 -->
-
-		            <div class="col-xs-6 col-sm-4 col-md-3 image">
-		              <div class="thmb">
-		                <div class="ckbox ckbox-default">
-		                  <input type="checkbox" id="check2" value="1" />
-		                  <label for="check2">Feature this!</label>
-		                </div>
-		                <div class="thmb-prev">
-		                  <a href="images/admin/photos/image-sample1.jpg" data-rel="prettyPhoto">
-		                  	{{ HTML::image('images/admin/photos/image-sample1-thumb.jpg', '', array('class'=>'img-responsive')) }}		                    
-		                  </a>
-		                </div>
-		                <h5 class="fm-title"><a href="">Kingdom Come</a></h5>
-		                <small class="text-muted">by karloestrada</small>
-		                <small class="text-muted">Sales: 29</small>
-		                <small class="text-muted">Category: Funny, Education</small>
-		              </div><!-- thmb -->
-		            </div><!-- col-xs-6 -->
-
-		            <div class="col-xs-6 col-sm-4 col-md-3 image">
-		              <div class="thmb">
-		                <div class="ckbox ckbox-default">
-		                  <input type="checkbox" id="check3" value="1" />
-		                  <label for="check3">Feature this!</label>
-		                </div>
-		                <div class="thmb-prev">
-		                  <a href="images/admin/photos/image-sample1.jpg" data-rel="prettyPhoto">
-		                  	{{ HTML::image('images/admin/photos/image-sample1-thumb.jpg', '', array('class'=>'img-responsive')) }}		                    
-		                  </a>
-		                </div>
-		                <h5 class="fm-title"><a href="">Kingdom Come</a></h5>
-		                <small class="text-muted">by karloestrada</small>
-		                <small class="text-muted">Sales: 29</small>
-		                <small class="text-muted">Category: Funny, Education</small>
-		              </div><!-- thmb -->
-		            </div><!-- col-xs-6 -->
-
-		            <div class="col-xs-6 col-sm-4 col-md-3 image">
-		              <div class="thmb">
-		                <div class="ckbox ckbox-default">
-		                  <input type="checkbox" id="check4" value="1" />
-		                  <label for="check4">Feature this!</label>
-		                </div>
-		                <div class="thmb-prev">
-		                  <a href="images/admin/photos/image-sample1.jpg" data-rel="prettyPhoto">
-		                  	{{ HTML::image('images/admin/photos/image-sample1-thumb.jpg', '', array('class'=>'img-responsive')) }}		                    
-		                  </a>
-		                </div>
-		                <h5 class="fm-title"><a href="">Kingdom Come</a></h5>
-		                <small class="text-muted">by karloestrada</small>
-		                <small class="text-muted">Sales: 29</small>
-		                <small class="text-muted">Category: Funny, Education</small>
-		              </div><!-- thmb -->
-		            </div><!-- col-xs-6 -->
-
-		            <div class="col-xs-6 col-sm-4 col-md-3 image">
-		              <div class="thmb">
-		                <div class="ckbox ckbox-default">
-		                  <input type="checkbox" id="check5" value="1" />
-		                  <label for="check5">Feature this!</label>
-		                </div>
-		                <div class="thmb-prev">
-		                  <a href="images/admin/photos/image-sample1.jpg" data-rel="prettyPhoto">
-		                  	{{ HTML::image('images/admin/photos/image-sample1-thumb.jpg', '', array('class'=>'img-responsive')) }}		                    
-		                  </a>
-		                </div>
-		                <h5 class="fm-title"><a href="">Kingdom Come</a></h5>
-		                <small class="text-muted">by karloestrada</small>
-		                <small class="text-muted">Sales: 29</small>
-		                <small class="text-muted">Category: Funny, Education</small>
-		              </div><!-- thmb -->
-		            </div><!-- col-xs-6 -->
-
-		            <div class="col-xs-6 col-sm-4 col-md-3 image">
-		              <div class="thmb">
-		                <div class="ckbox ckbox-default">
-		                  <input type="checkbox" id="check6" value="1" />
-		                  <label for="check6">Feature this!</label>
-		                </div>
-		                <div class="thmb-prev">
-		                  <a href="images/admin/photos/image-sample1.jpg" data-rel="prettyPhoto">
-		                  	{{ HTML::image('images/admin/photos/image-sample1-thumb.jpg', '', array('class'=>'img-responsive')) }}		                    
-		                  </a>
-		                </div>
-		                <h5 class="fm-title"><a href="">Kingdom Come</a></h5>
-		                <small class="text-muted">by karloestrada</small>
-		                <small class="text-muted">Sales: 29</small>
-		                <small class="text-muted">Category: Funny, Education</small>
-		              </div><!-- thmb -->
-		            </div><!-- col-xs-6 -->
-
-		            <div class="col-xs-6 col-sm-4 col-md-3 image">
-		              <div class="thmb">
-		                <div class="ckbox ckbox-default">
-		                  <input type="checkbox" id="check7" value="1" />
-		                  <label for="check7">Feature this!</label>
-		                </div>
-		                <div class="thmb-prev">
-		                  <a href="images/admin/photos/image-sample1.jpg" data-rel="prettyPhoto">
-		                  	{{ HTML::image('images/admin/photos/image-sample1-thumb.jpg', '', array('class'=>'img-responsive')) }}		                    
-		                  </a>
-		                </div>
-		                <h5 class="fm-title"><a href="">Kingdom Come</a></h5>
-		                <small class="text-muted">by karloestrada</small>
-		                <small class="text-muted">Sales: 29</small>
-		                <small class="text-muted">Category: Funny, Education</small>
-		              </div><!-- thmb -->
-		            </div><!-- col-xs-6 -->
-
-		            <div class="col-xs-6 col-sm-4 col-md-3 image">
-		              <div class="thmb">
-		                <div class="ckbox ckbox-default">
-		                  <input type="checkbox" id="check8" value="1" />
-		                  <label for="check8">Feature this!</label>
-		                </div>
-		                <div class="thmb-prev">
-		                  <a href="images/admin/photos/image-sample1.jpg" data-rel="prettyPhoto">
-		                  	{{ HTML::image('images/admin/photos/image-sample1-thumb.jpg', '', array('class'=>'img-responsive')) }}		                    
-		                  </a>
-		                </div>
-		                <h5 class="fm-title"><a href="">Kingdom Come</a></h5>
-		                <small class="text-muted">by karloestrada</small>
-		                <small class="text-muted">Sales: 29</small>
-		                <small class="text-muted">Category: Funny, Education</small>
-		              </div><!-- thmb -->
-		            </div><!-- col-xs-6 -->
-
-		            <div class="col-xs-6 col-sm-4 col-md-3 image">
-		              <div class="thmb">
-		                <div class="ckbox ckbox-default">
-		                  <input type="checkbox" id="check9" value="1" />
-		                  <label for="check9">Feature this!</label>
-		                </div>
-		                <div class="thmb-prev">
-		                  <a href="images/admin/photos/image-sample1.jpg" data-rel="prettyPhoto">
-		                  	{{ HTML::image('images/admin/photos/image-sample1-thumb.jpg', '', array('class'=>'img-responsive')) }}		                    
-		                  </a>
-		                </div>
-		                <h5 class="fm-title"><a href="">Kingdom Come</a></h5>
-		                <small class="text-muted">by karloestrada</small>
-		                <small class="text-muted">Sales: 29</small>
-		                <small class="text-muted">Category: Funny, Education</small>
-		              </div><!-- thmb -->
-		            </div><!-- col-xs-6 -->
-
-		            <div class="col-xs-6 col-sm-4 col-md-3 image">
-		              <div class="thmb">
-		                <div class="ckbox ckbox-default">
-		                  <input type="checkbox" id="check10" value="1" />
-		                  <label for="check10">Feature this!</label>
-		                </div>
-		                <div class="thmb-prev">
-		                  <a href="images/admin/photos/image-sample1.jpg" data-rel="prettyPhoto">
-		                  	{{ HTML::image('images/admin/photos/image-sample1-thumb.jpg', '', array('class'=>'img-responsive')) }}		                    
-		                  </a>
-		                </div>
-		                <h5 class="fm-title"><a href="">Kingdom Come</a></h5>
-		                <small class="text-muted">by karloestrada</small>
-		                <small class="text-muted">Sales: 29</small>
-		                <small class="text-muted">Category: Funny, Education</small>
-		              </div><!-- thmb -->
-		            </div><!-- col-xs-6 -->
-
-		            <div class="col-xs-6 col-sm-4 col-md-3 image">
-		              <div class="thmb">
-		                <div class="ckbox ckbox-default">
-		                  <input type="checkbox" id="check11" value="1" />
-		                  <label for="check11">Feature this!</label>
-		                </div>
-		                <div class="thmb-prev">
-		                  <a href="images/admin/photos/image-sample1.jpg" data-rel="prettyPhoto">
-		                  	{{ HTML::image('images/admin/photos/image-sample1-thumb.jpg', '', array('class'=>'img-responsive')) }}		                    
-		                  </a>
-		                </div>
-		                <h5 class="fm-title"><a href="">Kingdom Come</a></h5>
-		                <small class="text-muted">by karloestrada</small>
-		                <small class="text-muted">Sales: 29</small>
-		                <small class="text-muted">Category: Funny, Education</small>
-		              </div><!-- thmb -->
-		            </div><!-- col-xs-6 -->
-
-		            <div class="col-xs-6 col-sm-4 col-md-3 image">
-		              <div class="thmb">
-		                <div class="ckbox ckbox-default">
-		                  <input type="checkbox" id="check12" value="1" />
-		                  <label for="check12">Feature this!</label>
-		                </div>
-		                <div class="thmb-prev">
-		                  <a href="images/admin/photos/image-sample1.jpg" data-rel="prettyPhoto">
-		                  	{{ HTML::image('images/admin/photos/image-sample1-thumb.jpg', '', array('class'=>'img-responsive')) }}		                    
-		                  </a>
-		                </div>
-		                <h5 class="fm-title"><a href="">Kingdom Come</a></h5>
-		                <small class="text-muted">by karloestrada</small>
-		                <small class="text-muted">Sales: 29</small>
-		                <small class="text-muted">Category: Funny, Education</small>
-		              </div><!-- thmb -->
-		            </div><!-- col-xs-6 -->
-
-		            <div class="col-xs-6 col-sm-4 col-md-3 image">
-		              <div class="thmb">
-		                <div class="ckbox ckbox-default">
-		                  <input type="checkbox" id="check13" value="1" />
-		                  <label for="check13">Feature this!</label>
-		                </div>
-		                <div class="thmb-prev">
-		                  <a href="images/admin/photos/image-sample1.jpg" data-rel="prettyPhoto">
-		                  	{{ HTML::image('images/admin/photos/image-sample1-thumb.jpg', '', array('class'=>'img-responsive')) }}		                    
-		                  </a>
-		                </div>
-		                <h5 class="fm-title"><a href="">Kingdom Come</a></h5>
-		                <small class="text-muted">by karloestrada</small>
-		                <small class="text-muted">Sales: 29</small>
-		                <small class="text-muted">Category: Funny, Education</small>
-		              </div><!-- thmb -->
-		            </div><!-- col-xs-6 -->
-
-		            <div class="col-xs-6 col-sm-4 col-md-3 image">
-		              <div class="thmb">
-		                <div class="ckbox ckbox-default">
-		                  <input type="checkbox" id="check14" value="1" />
-		                  <label for="check14">Feature this!</label>
-		                </div>
-		                <div class="thmb-prev">
-		                  <a href="images/admin/photos/image-sample1.jpg" data-rel="prettyPhoto">
-		                  	{{ HTML::image('images/admin/photos/image-sample1-thumb.jpg', '', array('class'=>'img-responsive')) }}		                    
-		                  </a>
-		                </div>
-		                <h5 class="fm-title"><a href="">Kingdom Come</a></h5>
-		                <small class="text-muted">by karloestrada</small>
-		                <small class="text-muted">Sales: 29</small>
-		                <small class="text-muted">Category: Funny, Education</small>
-		              </div><!-- thmb -->
-		            </div><!-- col-xs-6 -->
-
-		            <div class="col-xs-6 col-sm-4 col-md-3 image">
-		              <div class="thmb">
-		                <div class="ckbox ckbox-default">
-		                  <input type="checkbox" id="check15" value="1" />
-		                  <label for="check15">Feature this!</label>
-		                </div>
-		                <div class="thmb-prev">
-		                  <a href="images/admin/photos/image-sample1.jpg" data-rel="prettyPhoto">
-		                  	{{ HTML::image('images/admin/photos/image-sample1-thumb.jpg', '', array('class'=>'img-responsive')) }}		                    
-		                  </a>
-		                </div>
-		                <h5 class="fm-title"><a href="">Kingdom Come</a></h5>
-		                <small class="text-muted">by karloestrada</small>
-		                <small class="text-muted">Sales: 29</small>
-		                <small class="text-muted">Category: Funny, Education</small>
-		              </div><!-- thmb -->
-		            </div><!-- col-xs-6 -->
-
-		            <div class="col-xs-6 col-sm-4 col-md-3 image">
-		              <div class="thmb">
-		                <div class="ckbox ckbox-default">
-		                  <input type="checkbox" id="check16" value="1" />
-		                  <label for="check16">Feature this!</label>
-		                </div>
-		                <div class="thmb-prev">
-		                  <a href="images/admin/photos/image-sample1.jpg" data-rel="prettyPhoto">
-		                  	{{ HTML::image('images/admin/photos/image-sample1-thumb.jpg', '', array('class'=>'img-responsive')) }}		                    
-		                  </a>
-		                </div>
-		                <h5 class="fm-title"><a href="">Kingdom Come</a></h5>
-		                <small class="text-muted">by karloestrada</small>
-		                <small class="text-muted">Sales: 29</small>
-		                <small class="text-muted">Category: Funny, Education</small>
-		              </div><!-- thmb -->
-		            </div><!-- col-xs-6 -->		            		           
+	          	@if($products->count() > 0)
+	          		@foreach($products as $product)
+			            <div class="col-xs-6 col-sm-4 col-md-3 image">
+			              <div class="thmb">
+			                <div class="ckbox ckbox-default">
+			                  <input type="checkbox" id="check1" value="1" />
+			                  <label for="check1">Feature this!</label>
+			                </div>
+			                <div class="thmb-prev">
+			                  <a href="{{ $product->image }}" data-rel="prettyPhoto">
+			                  	{{ HTML::image('images/products/thumbs/'.$product->image, '', array('class'=>'img-responsive')) }}		                    
+			                  </a>
+			                </div>
+			                <h5 class="fm-title"><a href="">{{ $product->title }}</a></h5>
+			                <small class="text-muted">by karloestrada</small>
+			                <small class="text-muted">Sales: 29</small>
+			                <small class="text-muted">Category: {{ $product->category_id }}</small>
+			              </div><!-- thmb -->
+			            </div><!-- col-xs-6 -->
+		            @endforeach
+		        @else
+		        	<div class="col-xs-6 col-sm-4 col-md-3 image">
+						<p>No product found!</p>
+					</div>
+		        @endif
 	          	</div><!-- row -->
+				
+				{{ $products->links() }}
 
-	          	<ul class="pagination">
+	          	<!-- <ul class="pagination">
 		            <li class="disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>
 		            <li><a href="#">1</a></li>
 		            <li class="active"><a href="#">2</a></li>
@@ -355,45 +109,33 @@
 		            <li><a href="#">4</a></li>
 		            <li><a href="#">5</a></li>
 		            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-	          	</ul>
+	          	</ul> -->
 	        </div><!-- col-sm-9 -->
 
 	        <div class="col-sm-3">
 	          	<div class="fm-sidebar">
+
+	          		<a href="{{ URL::to('admin/designs/create') }}"><button class="btn btn-primary btn-block" data-toggle="modal" data-target=".bs-example-modal">Upload File</button></a>
+            		<div class="mb30"></div>
 	            
 	            	<h5 class="subtitle">Categories <a href="" class="category-add-link pull-right">+ Add Category</a></h5>
 
 		            <div class="form-group category-add">
-		              	<input type="text" style="margin-bottom:5px;" class="form-control input-sm" placeholder="New Category">
-		              	<button class="btn btn-primary btn-sm pull-right">Add</button>
+			            {{ Form::open(array('url'=>'admin/categories', 'class'=>'form-signup')) }}
+			              	<!-- <input type="text" style="margin-bottom:5px;" class="form-control input-sm" placeholder="New Category"> -->
+
+			              	{{ Form::text('name', null, array('class'=>'form-control input-sm', 'placeholder'=>'New Category', 'style' => 'margin-bottom:5px;')) }}
+			              	{{ Form::submit('Add', array('class'=>'btn btn-primary btn-sm pull-right'))}}
+			              	
+			              	<!-- <button type="submit" class="btn btn-primary btn-sm pull-right">Add</button> -->
+			            {{ Form::close() }}
 		            </div>
 		            <div class="clearfix mb10"></div>
 
 		            <ul class="folder-list">
 		            	@foreach($categories as $category)
-							<li><a href=""><i class="fa fa-folder-o"></i>{{ $category->name }}</a></li>
+							<li><a href="{{ URL::to('admin/designs', $category->id) }}"><i class="fa fa-folder-o"></i>{{ $category->name }}</a></li>
 		            	@endforeach
-						<!-- <li><a href=""><i class="fa fa-folder-o"></i> Inspirational</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Animals & Pets</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Artistic</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Business</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Careers & Professions</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Charity / Non-Profit</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Education</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Entertainment</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Families</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Food & Drink</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Funny & Humorous</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Geek</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Global</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Health</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> obbies & Recreation</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Languages</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Occasions</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Politics</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Religion</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Sexuality</a></li>
-						<li><a href=""><i class="fa fa-folder-o"></i> Sports</a></li> -->
 		            </ul>	           	          	        
 	            
 	          	</div>

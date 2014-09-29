@@ -28,7 +28,9 @@
   
     <!-- PRELOADER -->
     <div id="preloader">
-        <div id="status"><img src="images/preloader.gif"></div>
+        <div id="status">
+          {{ HTML::image('images/preloader.gif') }}
+        </div>
     </div>
 
     <nav class="mobile-menu-items">
@@ -41,7 +43,10 @@
         </li>
         <li>
           <a href="login-mobile.php">
-            <img class="img-userprofile" src="images/userprofile.png" width="100">Login/Signup
+            <!-- <img class="img-userprofile" src="images/userprofile.png" width="100"> -->
+            {{ HTML::image('images/userprofile.png', '', array('class'=>'img-userprofile')) }}
+            
+            Login/Signup
           </a>  
         </li>
         <li>
@@ -89,8 +94,8 @@
       <div class="header-main">
         <div class="container">
           <div class="logo">
-            <a href="/"><img src="images/logo-instathreds.png" alt="Logo" /></a>
-            <a href="http://www.instathredsdev.com"><img src="images/logo-instathreds.png" alt="Logo" /></a>
+            <a href="/">{{ HTML::image('images/logo-instathreds.png', 'logo') }}</a>
+            <!-- <a href="http://www.instathredsdev.com"><img src="images/logo-instathreds.png" alt="Logo" /></a> -->
           </div>
           <div class="mobile-menu burger slide" id="navToggle"  >
             <a href="#"><i class="fa fa-bars"></i></a>
@@ -99,8 +104,6 @@
           <div class="navigation-menu">
             <div class="menu-main">
               <ul>
-                <li><a href="/shirtbuilder">Make Your Own</a></li>
-                <li><a href="#">Choose a Design</a></li>
                 <li><a href="http://instathredsdev.com/shirtbuilder">Make Your Own</a></li>
                 <li><a href="http://instathredsdev.com/featured">Choose a Design</a></li>
                 <li>
@@ -355,15 +358,13 @@
       </div>
     </div>
     
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/vendor/jquery-2.1.1.js"></script>
-    <script src="js/bootstrap/dropdown.js"></script>
-    <script src="js/bootstrap/modal.js"></script>
-    <script src="js/bootstrap/tab.js"></script>
-    <script src="js/vendor/owl.carousel.min.js"></script>
-    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
-    <script src="js/main.js"></script>
+    {{ HTML::script('js/vendor/jquery-2.1.1.js') }}
+    {{ HTML::script('js/bootstrap/dropdown.js') }}
+    {{ HTML::script('js/bootstrap/modal.js') }}
+    {{ HTML::script('js/bootstrap/tab.js') }}
+    {{ HTML::script('js/vendor/owl.carousel.min.js') }}
+    {{ HTML::script('//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js') }}
+    {{ HTML::script('js/main.js') }}
 
 
 
