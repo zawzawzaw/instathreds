@@ -44,8 +44,9 @@ class ProductController extends \BaseController {
 	public function create()
 	{
 		//
-		$timestamp = time();
-		$this->layout->content = View::make('products.create')->with('timestamp', $timestamp);
+		$categories = Category::all();
+
+		$this->layout->content = View::make('products.create')->with('categories', $categories);
 	}
 
 
@@ -56,7 +57,33 @@ class ProductController extends \BaseController {
 	 */
 	public function store()
 	{
-		
+
+
+
+		$validator = Validator::make(Input::all(), Product::$rules);
+ 
+	    if ($validator->passes()) {
+
+	        # validation has passed, save user in DB
+
+	    	$product = new Product;
+		    $product->category_id = Input::get('category_id');
+		    $product->title = Input::get('title');
+		    $product->description = Input::get('description');
+		    $product->price = Input::get('price');
+		    $product->availability = 1;
+		    $product->stock = Input::get('stock');
+		    $product->image = Input::get('image');
+		    $product->save();
+		 
+		    return Redirect::to('/admin/designs')->with('message', 'Product successfully added');
+
+	    } else {
+	        # validation has failed, display error messages
+	    	// print_r($validator); exit();
+
+	    	return Redirect::to('/admin/designs/create')->with('message', 'The following errors occurred:')->withErrors($validator)->withInput();
+	    }
 	}
 
 

@@ -68,6 +68,14 @@
 			<li><a href="designs-store-pending.html" class="itemopt"><span class="label label-danger" style="margin-right:5px;">23</span>  Pending Designs</a></li>
 		</ul>
 
+		<div class="row">
+			<ul>
+		        @foreach($errors->all() as $error)
+		            <li>{{ $error }}</li>
+		        @endforeach
+		    </ul>
+		</div>
+
 	      
       	<div class="row">
 	        <div class="col-sm-9">
