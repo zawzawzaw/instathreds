@@ -55,19 +55,25 @@
         </div>
         
         <div class="contentpanel">
-
+          <form method="POST" action="/admin/designs" class="form-horizontal">
           <div class="row">
             <div class="col-sm-9">
 
               <!-- CREATE A SLIDE FORM -->
               <div class="panel panel-default">
+                
+
                 <div class="panel-heading">
                   <h4 class="panel-title">ADD A DESIGN</h4>
                 </div>
-                <div class="panel-body">
-
-                  <form class="form-horizontal">
-
+                <div class="panel-body"> 
+                    <div class="row">
+                      <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>               
                     <div class="form-group">
                       <label class="col-sm-3 control-label">File Upload</label>
                       <div class="col-sm-6">
@@ -78,9 +84,10 @@
                               <span class="fileupload-preview"></span>
                             </div>
                             <span class="btn btn-default btn-file">
-                              <!-- <span class="fileupload-new">Select file</span> -->
+                              <span class="fileupload-new">Select file</span>
                               <span class="fileupload-exists">Change</span>
-                              <input id="file_upload" name="file_upload" type="file" />
+                              <input id="file_upload" name="product_image" type="file" />
+                              <input type="hidden" name="image" />
                             </span>
                             <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
                           </div>
@@ -91,23 +98,45 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Title</label>
                       <div class="col-sm-6">
-                        <input type="text" placeholder="Enter your Title Image" class="form-control" />
+                        <input type="text" name="title" placeholder="Enter your product title" class="form-control" />
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Description</label>
+                      <div class="col-sm-6">
+                        <input type="text" name="description" placeholder="Enter your product description" class="form-control" />
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Price</label>
+                      <div class="col-sm-6">
+                        <input type="text" name="price" placeholder="Enter your product price" class="form-control" />
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Stock</label>
+                      <div class="col-sm-6">
+                        <input type="text" name="stock" placeholder="Enter your product stock" class="form-control" />
                       </div>
                     </div>
                     
 
-                  </form>
+                  
                 </div><!-- panel-body -->
 
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <button class="btn btn-primary">Submit</button>&nbsp;
+                            {{ Form::token() }} 
+                            <input type="submit" class="btn btn-primary" />&nbsp;
                             <button class="btn btn-default">Cancel</button>
                         </div>
                     </div>
                 </div><!-- panel-footer -->
-
+                
               </div><!-- panel -->
 
             </div>
@@ -115,7 +144,7 @@
               
               <div class="fm-sidebar">
                 
-                <h5 class="subtitle">Categories <a href="" class="category-add-link pull-right">+ Add Category</a></h5>
+                <h5 class="subtitle">Categories <!-- <a href="" class="category-add-link pull-right">+ Add Category</a> --></h5>
                 <div class="form-group category-add">
                     <input type="text" style="margin-bottom:5px;" class="form-control input-sm" placeholder="New Category">
                     <button class="btn btn-primary btn-sm pull-right">Add</button>
@@ -123,19 +152,21 @@
                 <div class="clearfix mb10"></div>
 
                 <ul class="folder-list">
-                    <li>
-                        <div class="ckbox ckbox-default">
-                            <input type="checkbox" id="check1" value="0">
-                            <label for="check1">Accessories</label>
-                        </div>
-                    </li>
+                    @foreach($categories as $category)
+                      <li>
+                          <div class="ckbox ckbox-default">
+                              <input type="checkbox" name="category_id" value="{{ $category->id }}">
+                              <label for="check1">{{ $category->name }}</label>
+                          </div>
+                      </li>
+                    @endforeach
+                    
                 </ul>  
               
-              </div>
-            
-
+              </div>          
             </div>
           </div>
+          </form>  
 
 
           
@@ -236,18 +267,21 @@ jQuery(document).ready(function(){
 
     // File Upload
     $uploadBtn = $('#file_upload');
+    $uploadResponse = $('.fileupload-preview')
 
     $uploadBtn.uploadifive({
         'auto'      : true,
         'fileType'     : 'image/*',
         'fileSizeLimit' : '10MB',
         'buttonText'   : '',
-        'uploadScript' : admn_url + 'uploadfiles',
+        'uploadScript' : "{{ route('admin.uploadfiles') }}",
         'onError'      : function(errorType) {
-            $uploadBtn.uploadifive('cancel', $('.uploadifive-queue-item').first().data('file'));
-            $uploadResponse.text(errorType).css('color','red');
+            // $uploadBtn.uploadifive('cancel', $('.uploadifive-queue-item').first().data('file'));
+            // $uploadResponse.text(errorType).css('color','red');
         },
         'onUploadComplete' : function(file, data) {
+            console.log(data);
+
             var data = data.split("||").concat();
 
             // if(data == 'small'){
@@ -262,19 +296,20 @@ jQuery(document).ready(function(){
 
             //     $uploadBtn.uploadifive('cancel', $('.uploadifive-queue-item').first().data('file'));
             // }else {
-            //     var shortText = jQuery.trim(data[1]).substring(0, 20).trim(this) + "...";
-            //     console.log(data[1])
-            //     console.log(shortText)
 
-            //     $(':hidden[name=uploaded_file]').val(data[0]);              
-            //     $('#uploaded_file-error').hide();
-
-
-            //     $uploadResponse.text('Attached image: ' + shortText).css({ 'opacity': '1', 'right' : '0', 'margin-right': '35px' });
-            //     // $('.uploadifive-button').text('Attached image: ' + data[1]).css('color','black');
-
-            //     $('.complete').hide();
             // }
+
+            // $('#uploaded_file-error').hide();
+
+            var shortText = jQuery.trim(data[1]).substring(0, 20).trim(this) + "...";
+            console.log(data[0])
+            console.log(data[1])
+            console.log(shortText)
+
+            $(':hidden[name=image]').val(data[0]);            
+
+            $uploadResponse.text(shortText);
+
         }
     });
 

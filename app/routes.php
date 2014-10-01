@@ -36,7 +36,10 @@ Route::get('our-story', 'StaticController@ourstory');
 /* Back end */
 Route::get('admin', 'AdminController@index');
 Route::get('admin/users', 'UserController@index');
-Route::get('admin/uploadfile', 'AdminController@uploadfile');
+Route::post('admin/uploadfiles', array(
+  'uses' => 'AdminController@uploadfiles',
+  'as' => 'admin.uploadfiles'
+));
 Route::resource('admin/designs', 'ProductController');
 Route::resource('admin/categories', 'CategoryController', array('as'=>'categories'));
 
