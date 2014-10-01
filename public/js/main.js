@@ -218,34 +218,18 @@ $( document ).ready(function() {
 	function changecolor(color,alpha){
 		var canvas = document.getElementById("canvas"), // shared instance
 		//var canvas = document.createElement("canvas")
-		context = $('#canvas')[0].getContext("2d");
+		context = canvas.getContext("2d");
 		image = document.getElementById("testimage");
 		canvas.width = image.width;
 		canvas.height = image.height;
 		
-		context.clearRect(0, 0, image.width, image.height);
-		context.globalAlpha = alpha;
-		context.drawImage(image, 0, 0, canvas.width, canvas.height);
-
-
-		var imageData = context.getImageData(0,0,picwidth, picheight);
-		var pixels = imageData.data;
-		var numPixels = pixels.length;
-
-		context.clearRect(0, 0, can.width, can.height);
-
-		for (var i = 0; i < numPixels; i++) {
-		    if (pixels[i*4+3] <= 128) pixels[i*4+3] = 0;
-		}
-		context.putImageData(imageData, 0, 0);
-		
+	    
 	    //alert(color);
-	    //
-       	//context.drawImage(image, 0, 0, canvas.width, canvas.height);
-		
-       	
+	    context.clearRect(0, 0, image.width, image.height);
+        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
 	    //desaturate
-	    /*
+	    
 	    var imageData = context.getImageData(0, 0, image.width, image.height),
             pixels = imageData.data,
             i, l, r, g, b, a, average;
@@ -263,9 +247,9 @@ $( document ).ready(function() {
             average = (r + g + b) / 3 >>> 0; // quick floor
             pixels[i] = pixels[i + 1] = pixels[i + 2] = average;
         }
-    	*/
+    
 
-        //context.putImageData(imageData, 0, 0);
+        context.putImageData(imageData, 0, 0);
 
         //colorize
         
@@ -273,12 +257,11 @@ $( document ).ready(function() {
         context.globalAlpha = alpha;
         context.fillStyle = color;
         context.fillRect(0, 0, canvas.width, canvas.height);
-        context.fill();
         // reset
         context.globalCompositeOperation = "source-over";
         context.globalAlpha = 1.0;
 
-        //canvas.toDataURL("image/png", 1);
+        canvas.toDataURL("image/png", 1);
 		
         
 	}

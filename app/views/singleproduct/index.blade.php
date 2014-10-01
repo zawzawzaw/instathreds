@@ -30,10 +30,10 @@
           <div class="row product">
             <div class="left">
               <div class="front">
-                {{ HTML::image('images/shirt-templates/shirt-women-round-front-shadow.png', 'a picture', array('class' => 'shadow')) }}
+                {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-front-shadow.png', 'a picture', array('class' => 'shadow')) }}
                 <canvas id="canvas" width="263" height="327"></canvas>
-                {{ HTML::image('images/shirt-templates/shirt-women-round-front-base.png', 'a picture', array('class' => 'base','id'=>'testimage')) }}
-                {{ HTML::image('images/shirt-templates/shirt-women-round-front.jpg', 'a picture', array('class' => 'body')) }}
+                {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-front-base.png', 'a picture', array('class' => 'base','id'=>'testimage')) }}
+                {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-front-background.jpg', 'a picture', array('class' => 'body')) }}
                 <!-- <img src="images/image-placeholder1.png" style="width:620px;"> -->
                 <!-- {{ HTML::image('images/products/thumbs/'.$product->image, '',array('style'=>'width:100%')) }} -->
               </div>
