@@ -30,8 +30,12 @@
           <div class="row product">
             <div class="left">
               <div class="front">
+                {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-front-shadow.png', 'a picture', array('class' => 'shadow')) }}
+                <canvas id="canvas" width="263" height="327"></canvas>
+                {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-front-base.png', 'a picture', array('class' => 'base','id'=>'testimage')) }}
+                {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-front-background.jpg', 'a picture', array('class' => 'body')) }}
                 <!-- <img src="images/image-placeholder1.png" style="width:620px;"> -->
-                {{ HTML::image('images/products/thumbs/'.$product->image, '',array('style'=>'width:100%')) }}
+                <!-- {{ HTML::image('images/products/thumbs/'.$product->image, '',array('style'=>'width:100%')) }} -->
               </div>
               <div class="back">
               	{{ HTML::image('images/products/thumbs/'.$product->image, '',array('style'=>'width:100%')) }}
@@ -59,12 +63,8 @@
               <div class="shirt-color">
                 <h6>Select a colour</h6>
                 <ul class="color-list">
-                  <li><span class="colorOptions" data-color="#000" style="background: #000; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#fff" style="background: #fff; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#51bc18" style="background: #51bc18; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#e83fd4" style="background: #e83fd4; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#006837" style="background: #006837; width: 23px; height: 23px; display: inline-block"></span></li>
-                  <li><span class="colorOptions" data-color="#29abe2" style="background: #29abe2; width: 23px; height: 23px; display: inline-block"></span></li>
+                  <li><span class="color-option" id="black" data-color="#000000"></span></li>
+                  <li><span class="color-option" id="pink" data-color="#e83fd4"></span></li>
                 </ul>  
               </div>
               <div class="shirt-view">

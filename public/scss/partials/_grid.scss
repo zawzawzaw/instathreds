@@ -138,11 +138,12 @@ body { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; width: 100%; 
 
 .push-two, .push-three, .push-four, .push-five, .push-six, .push-seven, .push-eight, .push-nine, .push-ten { left: auto; }
 .pull-two, .pull-three, .pull-four, .pull-five, .pull-six, .pull-seven, .pull-eight, .pull-nine, .pull-ten { right: auto; }
-
 }
 
 .show-mobile{display:none;}
 .hide-mobile{display:block;}
+
+.content{min-height:500px;}
 
 /* --------------------------------------------------
 :: Block Grids
