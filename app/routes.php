@@ -44,7 +44,7 @@ Route::resource('admin/designs', 'ProductController');
 Route::resource('admin/categories', 'CategoryController', array('as'=>'categories'));
 
 /* Front end */
-Route::resource('featured', 'FeaturedController', array('as'=>'featured'));
+Route::resource('store', 'FeaturedController', array('as'=>'featured'));
 Route::get('product/{title}/{id}', array(
   'uses' => 'SingleproductController@index',
   'as' => 'product'
