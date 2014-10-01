@@ -155,8 +155,8 @@
                     @foreach($categories as $category)
                       <li>
                           <div class="ckbox ckbox-default">
-                              <input type="checkbox" name="category_id" value="{{ $category->id }}">
-                              <label for="check1">{{ $category->name }}</label>
+                              <input type="checkbox" name="category_id" class="choose-category" value="{{ $category->id }}">
+                              <label class="choose-category" for="check1">{{ $category->name }}</label>
                           </div>
                       </li>
                     @endforeach
@@ -313,7 +313,9 @@ jQuery(document).ready(function(){
         }
     });
 
-
+    $('.choose-category').on('click', function(e){
+      $(this).prev('input').trigger('click');
+    })
 
   
 });
