@@ -167,6 +167,125 @@ $( document ).ready(function() {
 		}
 	}
 
+	/* COLOR OPTION FOR DETAILED SHIRT*/
+	$('.color-option').click(function(){
+	    //$('.base').css('background-color', $(this).attr('id'));
+	    hexcolor = $(this).attr('data-color');
+		//hexToRgb(hexcolor);
+		changecolor(hexcolor,'1');
+	});
+
+	//colorchange();
+
+	function hexToRgb(hex) {
+	    var bigint = parseInt(hex, 16);
+	    var r = (bigint >> 16) & 255;
+	    var g = (bigint >> 8) & 255;
+	    var b = bigint & 255;
+
+	    colorchange(r,g,b);
+
+	}
+
+	
+
+	function colorchange(red,green,blue) {
+    	var canvas = document.getElementById("canvas"),
+	    ctx = canvas.getContext("2d"),
+	    image = document.getElementById("testimage");
+
+		ctx.clearRect(0, 0, 263, 327);
+		ctx.drawImage(image,0,0);
+		var imgd = ctx.getImageData(0, 0, 263, 327),
+		    pix = imgd.data,
+		    uniqueColor = [81,188,24]; // Blue for an example, can change this value to be anything.
+
+		// Loops through all of the pixels and modifies the components.
+		for (var i = 0, n = pix.length; i <n; i += 4) {
+			pix[i] = red;   // Red component
+			pix[i+1] = green; // Blue component
+			pix[i+2] = blue; // Green component
+			//pix[i+3] = 0;
+			r = pix[i];
+			g = pix[i + 1];
+			b = pix[i + 2];	
+			average = (r + g + b) / 3 >>> 0; // quick floor
+        	pix[i] = pix[i + 1] = pix[i + 2] = average;
+		}
+		ctx.putImageData(imgd, 0, 0);
+	}
+
+	function changecolor(color,alpha){
+		var canvas = document.getElementById("canvas"), // shared instance
+		//var canvas = document.createElement("canvas")
+		context = $('#canvas')[0].getContext("2d");
+		image = document.getElementById("testimage");
+		canvas.width = image.width;
+		canvas.height = image.height;
+		
+		context.clearRect(0, 0, image.width, image.height);
+		context.globalAlpha = alpha;
+		context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+
+		var imageData = context.getImageData(0,0,picwidth, picheight);
+		var pixels = imageData.data;
+		var numPixels = pixels.length;
+
+		context.clearRect(0, 0, can.width, can.height);
+
+		for (var i = 0; i < numPixels; i++) {
+		    if (pixels[i*4+3] <= 128) pixels[i*4+3] = 0;
+		}
+		context.putImageData(imageData, 0, 0);
+		
+	    //alert(color);
+	    //
+       	//context.drawImage(image, 0, 0, canvas.width, canvas.height);
+		
+       	
+	    //desaturate
+	    /*
+	    var imageData = context.getImageData(0, 0, image.width, image.height),
+            pixels = imageData.data,
+            i, l, r, g, b, a, average;
+
+        for (i = 0, l = pixels.length; i < l; i += 4) {
+            a = pixels[i + 3];
+            if (a === 0) {
+                continue;
+            } // skip if pixel is transparent
+
+            r = pixels[i];
+            g = pixels[i + 1];
+            b = pixels[i + 2];
+
+            average = (r + g + b) / 3 >>> 0; // quick floor
+            pixels[i] = pixels[i + 1] = pixels[i + 2] = average;
+        }
+    	*/
+
+        //context.putImageData(imageData, 0, 0);
+
+        //colorize
+        
+        context.globalCompositeOperation = "source-atop";
+        context.globalAlpha = alpha;
+        context.fillStyle = color;
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.fill();
+        // reset
+        context.globalCompositeOperation = "source-over";
+        context.globalAlpha = 1.0;
+
+        //canvas.toDataURL("image/png", 1);
+		
+        
+	}
+
+	
+	 
+
 
 
 });
