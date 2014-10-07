@@ -7,6 +7,7 @@ class SingleproductController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+	
 	# set template
 	protected $layout = "layouts.master";
 
@@ -18,8 +19,17 @@ class SingleproductController extends \BaseController {
 
 		$product = Product::find($id);
 
+		$colours = Product::find($id)->colour;
+
+		$category = Category::find($product->category_id);
+
+		$related_products = Product::where("category_id", $product->category_id)->paginate(12);
+
 		$this->layout->content = View::make('singleproduct.index')
-			->with('product', $product);
+			->with('product', $product)
+			->with('category', $category)
+			->with('colours', $colours)
+			->with('related_products', $related_products);
 
 	}
 

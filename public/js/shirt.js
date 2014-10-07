@@ -89,7 +89,7 @@ function loadimage(imagebody,imagebase,imageshadow,base_x,base_y,color){
         context3.clearRect(0, 0, canvas3.width, canvas3.height);
         context3.drawImage(img3,0,0,canvas3.width, canvas3.height);
         context3.globalCompositeOperation = "source-atop";
-        context3.globalAlpha = 255;
+        context3.globalAlpha = 0.5;
         //context3.fillStyle = '#ffffff';
         //context3.fillRect(0, 0, canvas3.width, canvas3.height);
         var w = img3.width; var h = img3.height;

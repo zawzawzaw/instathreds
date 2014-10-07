@@ -29,7 +29,7 @@
                     <div class="btn-group">
                       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                         {{ HTML::image('images/admin/photos/loggeduser.png', '') }}
-                        Karlo Estrada
+                        {{ $username }}
                         <span class="caret"></span>
                       </button>
                       <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
@@ -48,8 +48,9 @@
             <div class="breadcrumb-wrapper">
                 <span class="label">You are here:</span>
                 <ol class="breadcrumb">
-                    <li><a href="{{ URL::to('admin') }}">Home</a></li>
-                    <li class="active">Designs in Store</li>
+                    <li><a href="{{ route('admin') }}">Home</a></li>
+                    <li><a href="{{ route('admin.designs.index') }}">Designs in Store</a></li>
+                    <li class="active">Upload Design</li>
                 </ol>
             </div>
         </div>
@@ -73,9 +74,10 @@
                                 <li>{{ $error }}</li>
                             @endforeach
                         </ul>
-                    </div>               
+                    </div>       
+
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">File Upload</label>
+                      <label class="col-sm-3 control-label">Upload Design</label>
                       <div class="col-sm-6">
                         <div class="fileupload fileupload-new" data-provides="fileupload">
                           <div class="input-append">
@@ -88,6 +90,27 @@
                               <span class="fileupload-exists">Change</span>
                               <input id="file_upload" name="product_image" type="file" />
                               <input type="hidden" name="image" />
+                            </span>
+                            <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Upload Design Thumbnail</label>
+                      <div class="col-sm-6">
+                        <div class="fileupload fileupload-new" data-provides="fileupload">
+                          <div class="input-append">
+                            <div class="uneditable-input">
+                              <i class="glyphicon glyphicon-file fileupload-exists"></i>
+                              <span class="fileupload-preview-2"></span>
+                            </div>
+                            <span class="btn btn-default btn-file">
+                              <span class="fileupload-new">Select file</span>
+                              <span class="fileupload-exists">Change</span>
+                              <input id="file_upload_2" name="product_image_2" type="file" />
+                              <input type="hidden" name="thumbnail_image" />
                             </span>
                             <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
                           </div>
@@ -266,8 +289,8 @@ jQuery(document).ready(function(){
     jQuery('#timepicker3').timepicker({minuteStep: 15});
 
     // File Upload
-    $uploadBtn = $('#file_upload');
-    $uploadResponse = $('.fileupload-preview')
+    var $uploadBtn = $('#file_upload');
+    var $uploadResponse = $('.fileupload-preview')
 
     $uploadBtn.uploadifive({
         'auto'      : true,
@@ -306,9 +329,58 @@ jQuery(document).ready(function(){
             console.log(data[1])
             console.log(shortText)
 
-            $(':hidden[name=image]').val(data[0]);            
+            $(':hidden[name=image]').val(data[0]);
 
             $uploadResponse.text(shortText);
+
+        }
+    });
+
+    // File Upload
+    var $uploadBtn2 = $('#file_upload_2');
+    var $uploadResponse2 = $('.fileupload-preview-2')
+
+    $uploadBtn2.uploadifive({
+        'auto'      : true,
+        'fileType'     : 'image/*',
+        'fileSizeLimit' : '10MB',
+        'buttonText'   : '',
+        'formData'         : {'type' : 'thumbnail'},
+        'uploadScript' : "{{ route('admin.uploadfiles') }}",
+        'onError'      : function(errorType) {
+            // $uploadBtn.uploadifive('cancel', $('.uploadifive-queue-item').first().data('file'));
+            // $uploadResponse.text(errorType).css('color','red');
+        },
+        'onUploadComplete' : function(file, data) {
+            console.log(data);
+
+            var data = data.split("||").concat();
+
+            // if(data == 'small'){
+            //     $uploadResponse.text('');
+            //     $uploadResponse.text('Image is too small').css('color','red');
+
+            //     $uploadBtn.uploadifive('cancel', $('.uploadifive-queue-item').first().data('file'));
+            // }
+            // else if(data == 'large'){
+            //     $uploadResponse.text('');
+            //     $uploadResponse.text('Image is too big').css('color','red');
+
+            //     $uploadBtn.uploadifive('cancel', $('.uploadifive-queue-item').first().data('file'));
+            // }else {
+
+            // }
+
+            // $('#uploaded_file-error').hide();
+
+            var shortText = jQuery.trim(data[1]).substring(0, 20).trim(this) + "...";
+            console.log(data[0])
+            console.log(data[1])
+            console.log(shortText)
+
+            $(':hidden[name=thumbnail_image]').val(data[0]);
+
+            $uploadResponse2.text(shortText);
 
         }
     });

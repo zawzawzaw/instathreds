@@ -10,6 +10,10 @@ class ProductController extends \BaseController {
 	    $this->beforeFilter('admin');
 	}
 
+	public function colours() {
+		return $this->hasMany('colours');
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -17,7 +21,6 @@ class ProductController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
 		//
 		if (Auth::check())
 		{
@@ -28,6 +31,8 @@ class ProductController extends \BaseController {
 
 		$categories = Category::all();
 	    $products = Product::paginate(8);
+
+	    // return $products;
 
 		$this->layout->content = View::make('products.index')
 			->with('username', $username)
@@ -44,9 +49,18 @@ class ProductController extends \BaseController {
 	public function create()
 	{
 		//
+		if (Auth::check())
+		{
+		    $username = Auth::user()->username;
+		}else {
+			$username = '';
+		}
+
 		$categories = Category::all();
 
-		$this->layout->content = View::make('products.create')->with('categories', $categories);
+		$this->layout->content = View::make('products.create')
+			->with('username', $username)
+			->with('categories', $categories);
 	}
 
 
@@ -57,9 +71,6 @@ class ProductController extends \BaseController {
 	 */
 	public function store()
 	{
-
-
-
 		$validator = Validator::make(Input::all(), Product::$rules);
  
 	    if ($validator->passes()) {
@@ -74,6 +85,7 @@ class ProductController extends \BaseController {
 		    $product->availability = 1;
 		    $product->stock = Input::get('stock');
 		    $product->image = Input::get('image');
+		    $product->thumbnail_image = Input::get('thumbnail_image');
 		    $product->save();
 		 
 		    return Redirect::to('/admin/designs')->with('message', 'Product successfully added');
@@ -96,13 +108,19 @@ class ProductController extends \BaseController {
 	public function show($id)
 	{
 		//
+		if (Auth::check())
+		{
+		    $username = Auth::user()->username;
+		}else {
+			$username = '';
+		}
+
 		$categories = Category::all();
 
 		$products = Product::where("category_id", $id)->paginate(8);
 
-	    // $users = Paginator::make($data->items, $data->totalItems, 1);
-
 	    $this->layout->content = View::make('products.index')
+			->with('username', $username)
 			->with('categories', $categories)
 			->with('products', $products);
 	}
@@ -129,6 +147,20 @@ class ProductController extends \BaseController {
 	public function update($id)
 	{
 		//
+		if (Request::ajax())
+		{
+			$update_data = Input::get('featured');
+
+			$product = Product::find($id);
+			$product->featured = filter_var($update_data, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+
+			$product->save();
+
+		}else {
+			return 'umm.. interesting!';
+		}
+
+		return $id;
 	}
 
 
