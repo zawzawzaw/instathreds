@@ -19,10 +19,17 @@ class AdminController extends BaseController {
     }
 
     public function uploadfiles()
-    {            
+    {
+        $type = Input::get('type');
+
         if (Input::hasFile('Filedata')) {
             $file            = Input::file('Filedata');
-            $destinationPath = public_path() . "/images/products/thumbs/";
+            
+            if($type=='thumbnail')
+                $destinationPath = public_path() . "/images/products/thumbs/";
+            else
+                $destinationPath = public_path() . "/images/products/";
+
             $orgFilename        = $file->getClientOriginalName();
             $filename        = str_random(6) . '_' . $file->getClientOriginalName();
             $uploadSuccess   = $file->move($destinationPath, $filename);

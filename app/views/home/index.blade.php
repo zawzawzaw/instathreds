@@ -1,4 +1,4 @@
-@section('content')
+@section('slider')
 	<!-- <p class="welcome">{{{ !empty($username) ? 'Welcome ' . $username . ',' : '' }}}</p> -->
 	<!-- BANNER/SLIDER -->
     <section class="slider">
@@ -9,32 +9,32 @@
         <div class="banner hide-mobile">
           <div id="slider-homepage" class="owl-carousel">
             <div class="slide">
-              <a href=""><img src="images/slider/slider1.jpg" /></a>
+              <a href="{{ route('shirtbuilder.index') }}"><img src="images/slider/slider1.jpg" /></a>
               <div class="captions">
                 <div class="text1">Make Your Own</div>
                 <div class="text2">BUILD FROM SCRATCH<br>OR UPLOAD YOUR OWN PHOTOS OR ARTWORK</div>
               </div>
             </div>
             <div class="slide">
-              <a href=""><img src="images/slider/slider2.jpg" /></a>
+              <a href="{{ route('store.index') }}"><img src="images/slider/slider2.jpg" /></a>
               <div class="captions">
                 <div class="text1">CHOOSE A DESIGN</div>
               </div>
             </div>
             <div class="slide">
-              <a href=""><img src="images/slider/slider3.jpg" /></a>
+              <a href="{{ route('store.index') }}"><img src="images/slider/slider3.jpg" /></a>
               <div class="captions">
                 <div class="text1">VISIT OUR STORES</div>
               </div>
             </div>
             <div class="slide">
-              <a href=""><img src="images/slider/slider4.jpg" /></a>
+              <a href="{{ route('store.index') }}"><img src="images/slider/slider4.jpg" /></a>
               <div class="captions">
                 <div class="text1">CALLING ALL DESIGNERS</div>
               </div>
             </div>
             <div class="slide">
-              <a href=""><img src="images/slider/slider5.jpg" /></a>
+              <a href="{{ route('store.featured') }}"><img src="images/slider/slider5.jpg" /></a>
               <div class="captions">
                 <div class="text1">FEATURED DESIGNS</div>
               </div>
@@ -46,7 +46,9 @@
       </div>
     </section>
     <!-- END BANNER/SLIDER -->
+@stop
 
+@section('howitworks')
     <!-- HOW IT WORKS -->
     <section class="howitworks">
       <div class="container">
@@ -55,16 +57,16 @@
         </div> 
         <ul class="block-grid three-up mobile steps">
           <li>
-            <a href="/shirtbuilder"><img src="images/howitworks1.jpg"></a>
+            <a href="{{ route('shirtbuilder.index') }}"><img src="images/howitworks1.jpg"></a>
             <div class="title step1">
-              <a href="/shirtbuilder">Make Your Own T-Shirt</a>
+              <a href="{{ route('shirtbuilder.index') }}">Make Your Own T-Shirt</a>
             </div>
             
           </li>
           <li>
-            <a href=""><img src="images/howitworks2.jpg"></a>
+            <a href="{{ route('store.index') }}"><img src="images/howitworks2.jpg"></a>
             <div class="title step2">
-              <a href="">Choose a Design</a>
+              <a href="{{ route('store.index') }}">Choose a Design</a>
             </div>
           </li>
           <li>
@@ -76,19 +78,24 @@
         </ul> 
       </div>  
     </section>
+@stop
 
+@section('recentdesigns')
     <!-- RECENT DESIGNS -->
     <section class="recentdesigns">
       <div class="container">
         <div class="section-bar">
-          <h6 class="hide-mobile">CHECK OUT THESE RECENT DESIGNS | <a href="">VIEW ALL</a> | <a href="">CATEGORIES</a></h6>  
-          <h6 class="show-mobile">RECENT DESIGNS<br><a href="">VIEW ALL</a> | <a href="">CATEGORIES</a></h6>  
+          <h6 class="hide-mobile">CHECK OUT THESE RECENT DESIGNS | <a href="{{ route('store.index') }}">VIEW ALL</a> | <a href="{{ route('store.index') }}">CATEGORIES</a></h6>  
+          <h6 class="show-mobile">RECENT DESIGNS<br><a href="{{ route('store.index') }}">VIEW ALL</a> | <a href="{{ route('store.index') }}">CATEGORIES</a></h6>  
         </div>
         <ul class="block-grid five-up mobile designs">
-          <li>
-            <a href=""><img src="images/products/thumbs/Pixel People-01.png"></a>
-          </li>
-          <li>
+          @foreach($products as $product)
+            <li>
+              <a href="{{ URL::to('product', array(Product::slug($product->title), $product->id)) }}">{{ HTML::image('images/products/thumbs/'.$product->image) }}</a>
+            </li>
+          @endforeach
+          
+          <!-- <li>
             <a href=""><img src="images/products/thumbs/Pixel People-02.png"></a>
           </li>
           <li>
@@ -114,7 +121,7 @@
           </li>
           <li>
             <a href=""><img src="images/products/thumbs/Pixel People-10.png"></a>
-          </li>
+          </li> -->
         </ul>    
       </div>  
     </section>
@@ -126,7 +133,7 @@
           <h6>OTHER PROMOTIONAL AREA | <a href="">PROMO LINK</a></h6>  
         </div>
         <div class="banner promotion">
-          <a href=""><img src="images/promo/promo1.png" /></a>
+          <a href="">{{ HTML::image('images/promo/promo1.png') }}</a>
           <div class="captions">
             <div class="text1">Promo</div>
             <div class="text2">PROMO<br>DESCRIPTION<br>GOES HERE</div>

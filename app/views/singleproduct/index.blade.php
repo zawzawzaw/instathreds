@@ -20,9 +20,9 @@
             </div>
             <div class="breadcrumbs">
               <ul>
-                <li><a href="">ALL CATEGORIES</a><span>></span></li>
-                <li><a href="">PIXEL PEOPLE</a><span>></span></li>
-                <li><a href="">BLOCKHEAD</a></li>
+                <li><a href="{{ route('store.index') }}">ALL CATEGORIES</a><span>></span></li>
+                <li><a href="{{ URL::to('store', array($category->name, $category->id)) }}">{{ Str::upper($category->name) }}</a><span>></span></li>
+                <li><a href="javascript:void(0);">{{ Str::upper($product->title) }}</a></li>
               </ul>  
             </div>
           </div>
@@ -42,28 +42,28 @@
               </div>
             </div>
             <div class="right">
-              <h6 class="product-title">{{ $product->title }}</h6>
-              <div class="shirt-type">
-                <a data-toggle="dropdown" class="dropdown-toggle shirt-type" href="#">Shirt Type <span class="caret"></span></a>
+              <h6 class="product-title">{{ Str::upper($product->title) }}</h6>
+              <div class="shirt-type shirt-type-select">
+                <a data-toggle="dropdown" class="dropdown-toggle shirt-type" href="#"><span class="selected-type">Shirt Type</span> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="">Round-Neck</a></li>
-                  <li><a href="">V-Neck</a></li>
-                  <li><a href="">Crew Neck</a></li>
-                  <li><a href="">Round-Neck</a></li>
+                  <li><a href="javascript:void(0);">Round-Neck</a></li>
+                  <li><a href="javascript:void(0);">V-Neck</a></li>
+                  <li><a href="javascript:void(0);">Crew Neck</a></li>
+                  <li><a href="javascript:void(0);">Round-Neck</a></li>
                 </ul>
               </div>
               
               <div class="shirt-size">
-                <a href="" class="active">S</a>
-                <a href="">M</a>
-                <a href="">L</a>
-                <a href="">XL</a>
-                <a href="">2XL</a>
+                <a href="javascript:void(0);" class="active">S</a>
+                <a href="javascript:void(0);">M</a>
+                <a href="javascript:void(0);">L</a>
+                <a href="javascript:void(0);">XL</a>
+                <a href="javascript:void(0);">2XL</a>
               </div>
               <div class="shirt-color">
                 <h6>Select a colour</h6>
                 <ul class="color-list">
-                  <li><span class="color-option" id="black" data-color="#000000"></span></li>
+                  <li><span class="color-option active" id="black" data-color="#000000"></span></li>
                   <li><span class="color-option" id="pink" data-color="#e83fd4"></span></li>
                 </ul>  
               </div>
@@ -92,8 +92,13 @@
       <div class="container">
         <h6>ALSO IN PIXEL PEOPLE</h6>  
         <div class="more-products-slider owl-carousel">
+          @foreach($related_products as $related_product)
           <div class="item">
-
+            <a href="{{ URL::to('product', array(Product::slug($related_product->title), $related_product->id)) }}">{{ HTML::image('images/products/thumbs/'.$related_product->image, '', array('style'=>'width:198px;height:198px;')) }}</a>
+            <a href="{{ URL::to('product', array(Product::slug($related_product->title), $related_product->id)) }}" class="product-title">{{ $product->title }}</a>
+          </div>
+          @endforeach
+          <!-- <div class="item">
             <a href="">{{ HTML::image('images/image-placeholder1.png', '',array('style'=>'width:198px;height:198px;')) }}</a>
             <a href="" class="product-title">Design title goes here</a>
           </div>
@@ -128,13 +133,88 @@
           <div class="item">
             <a href="">{{ HTML::image('images/image-placeholder1.png', '',array('style'=>'width:198px;height:198px;')) }}</a>
             <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href="">{{ HTML::image('images/image-placeholder1.png', '',array('style'=>'width:198px;height:198px;')) }}</a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
+          </div> -->
             
         </div>
       </div>
     </section>
+
+    {{ HTML::script('js/admin/jquery-1.10.2.min.js') }}
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        var makeRequest = function(Data, URL, Method) {
+
+            var request = $.ajax({
+              url: URL,
+              type: Method,
+              data: Data,
+                dataType: "JSON",
+              success: function(response) {
+                  // if success remove current item
+                  // console.log(response);
+              },
+                  error: function( error ){
+                      // Log any error.
+                      console.log( "ERROR:", error );
+                  }
+          });
+
+          return request;
+        };
+
+        var addToCartJSON = {
+          'id': '{{ $product->id }}', 
+          'title': '{{ $product->title }}',
+          'price' : '{{ $product->price }}',
+          'qty' : 1,
+          'attr' : {
+            'size' : 'M',
+            'color' : 'Black'
+          }
+        };
+
+        var request;
+        $('.addtocart-link').on('click', function(e){
+          addToCartJSON.qty = $('.qty').val();
+          addToCartJSON.attr.size = $('.shirt-size .active').text();
+          addToCartJSON.attr.color = $('.color-list .active').data('color');
+          addToCartJSON.attr.shirt_type = $('.selected-type').text();
+
+          // console.log(addToCartJSON);
+
+          // abort any pending request
+          if (request) {
+              request.abort();
+          }
+
+          request = makeRequest(addToCartJSON, "{{ route('cart.store') }}" , "POST");
+
+          request.done(function(){
+            var result = jQuery.parseJSON(request.responseText);
+
+            console.log(result)
+                       
+            if(result)
+              window.location = "{{ route('cart.index') }}";
+
+          });     
+
+        });
+
+        $('.shirt-size a').on('click', function(e){
+          $('.shirt-size .active').removeClass('active');
+          $(this).addClass('active');
+        });
+
+        $('.color-list li span').on('click', function(e){
+          $('.color-list .active').removeClass('active');
+          $(this).addClass('active');
+        });
+
+        $('.shirt-type-select .dropdown-menu a').on('click', function(e){
+          $('span.selected-type').text($(this).text());
+        });
+      })
+    </script>
 @stop

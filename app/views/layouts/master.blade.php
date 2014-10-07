@@ -51,12 +51,12 @@
         </li>
         <li>
           <div class="menu-cart-mobile">
-            <a href="#"><i class="fa fa-shopping-cart"></i><span>2 items in your cart<span></a>
+            <a href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart"></i><span>2 items in your cart<span></a>
           </div>
         </li>
-        <li><a href="#">Make Your Own</a></li>
-        <li><a href="#">Choose a Design</a></li>
-        <li><a href="#">Stores</a></li>
+        <li><a href="{{ route('shirtbuilder.index') }}">Make Your Own</a></li>
+        <li><a href="{{ route('store.featured') }}">Choose a Design</a></li>
+        <li><a href="{{ route('store.index') }}">Stores</a></li>
         <li><a href="#">Blog</a></li>
         <li><a href="#">How To</a></li>
         <li><a href="#">Size Guide</a></li>
@@ -104,8 +104,8 @@
           <div class="navigation-menu">
             <div class="menu-main">
               <ul>
-                <li><a href="http://instathredsdev.com/shirtbuilder">Make Your Own</a></li>
-                <li><a href="http://instathredsdev.com/featured">Choose a Design</a></li>
+                <li><a href="{{ route('shirtbuilder.index') }}">Make Your Own</a></li>
+                <li><a href="{{ route('store.featured') }}">Choose a Design</a></li>
                 <li>
                   <a data-toggle="dropdown" class="dropdown-toggle" href="#">Blog</a>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
@@ -116,11 +116,11 @@
                     <li role="presentation"><a href="http://twitter.com/fat" tabindex="-1" role="menuitem">Separated link</a></li>
                   </ul>
                 </li>
-                <li><a href="http://instathredsdev.com/our-story">Stores</a></li>
+                <li><a href="{{ route('store.index') }}">Stores</a></li>
               </ul>
             </div>
             <div class="menu-cart">
-              <a href=""><i class="fa fa-shopping-cart"></i><span>2<span></a>
+              <a href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart"></i><span>{{ Cart::count() }}<span></a>
             </div>
             <div class="menu-login">
               <ul>
@@ -144,6 +144,10 @@
              
     <section class="main-content">
           @yield('content')
+        
+          @yield('slider')
+          @yield('howitworks')
+          @yield('recentdesigns')
     </section>             
 
      <!-- FOOTER -->
@@ -191,7 +195,7 @@
               <li>
                 <h5>Make your own Tshirt</h5>
                 <ul>
-                  <li><a href="/shirtbuilder">Do it Now</a></li>
+                  <li><a href="{{ route('shirtbuilder.index') }}">Do it Now</a></li>
                   <li><a href="#">How to</a></li>
                   <li><a href="#">FAQs</a></li>
                 </ul>
@@ -199,8 +203,8 @@
               <li>
                 <h5>Choose a Design</h5>
                 <ul>
-                  <li><a href="#">All Categories</a></li>
-                  <li><a href="#">Featured</a></li>
+                  <li><a href="{{ route('store.index') }}">All Categories</a></li>
+                  <li><a href="{{ route('store.featured') }}">Featured</a></li>
                   <li><a href="#">His</a></li>
                   <li><a href="#">Hers</a></li>
                 </ul>
@@ -236,7 +240,7 @@
         <div class="row">
           <div class="twelve column">
             <p>
-              &copy; Copyright InstaThreds P/L 2014 | all rights reserved | <a href="">Privacy Policy</a> | <a href="">Terms of Use</a> | <a href="">Help</a>
+              &copy; Copyright InstaThreds P/L 2014 | all rights reserved | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Help</a>
             </p>
           </div>
         </div>
@@ -298,8 +302,8 @@
                     <h3 class="divider-word"><span>OR</span></h3>
 
                     <div class="form-group social-login">
-                      <a href="{{ URL::to('/fblogin') }}" class="facebook-login"><img src="{{ asset('images/button-facebook-login.png') }}"></a>
-                      <a href="{{ URL::to('/instalogin') }}" class="instagram-login"><img src="{{ asset('images/button-instagram-signup.png') }}"></a>
+                      <a href="{{ route('fblogin.index') }}" class="facebook-login"><img src="{{ asset('images/button-facebook-login.png') }}"></a>
+                      <a href="{{ route('instalogin.index') }}" class="instagram-login"><img src="{{ asset('images/button-instagram-signup.png') }}"></a>
                     </div>
 
                 {{ Form::close() }}
@@ -342,8 +346,8 @@
                       </div>
                       <h3 class="divider-word"><span>OR</span></h3> 
                       <div class="form-group social-login">
-                        <a href="{{ URL::to('/fblogin') }}" class="facebook-login"><img src="{{ asset('images/button-facebook-login.png') }}"></a>
-                        <a href="{{ URL::to('/instalogin') }}" class="instagram-login"><img src="{{ asset('images/button-instagram-signup.png') }}"></a>
+                        <a href="{{ route('fblogin.index') }}" class="facebook-login"><img src="{{ asset('images/button-facebook-login.png') }}"></a>
+                        <a href="{{ route('instalogin.index') }}" class="instagram-login"><img src="{{ asset('images/button-instagram-signup.png') }}"></a>
                       </div>
                   {{ Form::close() }}
                 </div>

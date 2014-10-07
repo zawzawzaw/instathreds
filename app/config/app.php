@@ -107,7 +107,8 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
-		'Artdarek\OAuth\OAuthServiceProvider'
+		'Artdarek\OAuth\OAuthServiceProvider',
+		'Gloudemans\Shoppingcart\ShoppingcartServiceProvider'
 
 	),
 
@@ -174,7 +175,8 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-		'OAuth' => 'Artdarek\OAuth\Facade\OAuth',
+		'OAuth' 		  => 'Artdarek\OAuth\Facade\OAuth',
+		'Cart'            => 'Gloudemans\Shoppingcart\Facades\Cart',
 		
 	),
 

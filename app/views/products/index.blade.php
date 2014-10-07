@@ -85,12 +85,12 @@
 			            <div class="col-xs-6 col-sm-4 col-md-3 image">
 			              <div class="thmb">
 			                <div class="ckbox ckbox-default">
-			                  <input type="checkbox" id="check1" value="1" />
-			                  <label for="check1">Feature this!</label>
+			                  <input type="checkbox" name="featured" class="featured-this" value="{{ $product->id }}" @if($product->featured) checked="checked" @endif />
+			                  <label for="featured">Feature this!</label>
 			                </div>
 			                <div class="thmb-prev">
 			                  <a href="{{ $product->image }}" data-rel="prettyPhoto">
-			                  	{{ HTML::image('images/products/thumbs/'.$product->image, '', array('class'=>'img-responsive')) }}		                    
+			                  	{{ HTML::image('images/products/thumbs/'.$product->thumbnail_image, '', array('class'=>'img-responsive')) }}		                    
 			                  </a>
 			                </div>
 			                <h5 class="fm-title"><a href="">{{ $product->title }}</a></h5>
@@ -123,7 +123,7 @@
 	        <div class="col-sm-3">
 	          	<div class="fm-sidebar">
 
-	          		<a href="{{ URL::to('admin/designs/create') }}"><button class="btn btn-primary btn-block" data-toggle="modal" data-target=".bs-example-modal">Upload File</button></a>
+	          		<a href="{{ route('admin.designs.create') }}"><button class="btn btn-primary btn-block" data-toggle="modal" data-target=".bs-example-modal">Upload Design</button></a>
             		<div class="mb30"></div>
 	            
 	            	<h5 class="subtitle">Categories <a href="" class="category-add-link pull-right">+ Add Category</a></h5>
@@ -164,7 +164,7 @@
 {{ HTML::script('js/admin/custom.js') }}
 
 <script>
-	jQuery(document).ready(function(){
+jQuery(document).ready(function(){
 
 	jQuery('.category-add-link').click(function(e){
 	  e.preventDefault();
@@ -250,6 +250,66 @@
 
 	jQuery("a[rel^='prettyPhoto']").prettyPhoto();
 
+	var makeRequest = function(Data, URL, Method) {
+
+    	var request = $.ajax({
+		    url: URL,
+		    type: Method,
+		    data: Data,
+        	dataType: "JSON",
+		    success: function(response) {
+		        // if success remove current item
+		        // console.log(response);
+		    },
+            error: function( error ){
+                // Log any error.
+                console.log( "ERROR:", error );
+            }
+		});
+
+		return request;
+	};
+
+	var request;
+	// feature product
+	jQuery('label[for="featured"]').on('click', function(e){
+
+		e.preventDefault();
+
+		// abort any pending request
+    	if (request) {
+	        request.abort();
+	    }
+
+		var featured_prod_id = $(this).prev('input').trigger('click').val();
+
+		if ($(this).prev('input').is(':checked')) {
+			var requestJsonData = { featured : true };
+		}else {
+			var requestJsonData = { featured : false };
+		}	
+
+		request = makeRequest(requestJsonData, "/admin/designs/"+featured_prod_id, "PUT");
+
+        request.done(function(){
+        	console.log(request);
+
+        	var result = jQuery.parseJSON(request.responseText);
+        	
+        	// if(result.message.code==200) {
+        	// 	window.location.reload();
+        	// }else {
+        	// 	console.log(result.message);
+        	// }
+        	console.log(result);
+
+        });	    
+		
 	});
+
+});
+	
+	
+
 </script>
 @stop

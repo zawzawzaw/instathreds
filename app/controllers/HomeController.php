@@ -28,6 +28,12 @@ class HomeController extends BaseController {
 			$username = '';
 		}
 
-		$this->layout->content = View::make('home.index')->with('username', $username);
+		$categories = Category::all();
+	    $products = Product::paginate(10);
+
+		$this->layout->content = View::make('home.index')
+		->with('username', $username)
+		->with('categories', $categories)
+		->with('products', $products);
 	}
 }
