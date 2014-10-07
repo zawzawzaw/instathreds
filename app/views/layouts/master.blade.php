@@ -359,12 +359,14 @@
     </div>
     
     {{ HTML::script('js/vendor/jquery-2.1.1.js') }}
+    {{ HTML::script('js/fabric.js') }}
     {{ HTML::script('js/bootstrap/dropdown.js') }}
     {{ HTML::script('js/bootstrap/modal.js') }}
     {{ HTML::script('js/bootstrap/tab.js') }}
     {{ HTML::script('js/vendor/owl.carousel.min.js') }}
     {{ HTML::script('//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js') }}
     {{ HTML::script('js/main.js') }}
+    {{ HTML::script('js/shirt.js') }}
 
 
 

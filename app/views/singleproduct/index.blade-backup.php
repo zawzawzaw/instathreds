@@ -33,20 +33,14 @@
               <!-- MENS-STANDARD -->
               <div class="shirt-template active" id="mens-standard">
                 <div class="front">
-                  <!--{{ HTML::image('images/shirt-templates/mens-standard/mens-standard-front-base.png', '', array('class' => 'base')) }} -->
-                  <canvas class="canvas-template" 
-                  data-shadow=" http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-front-shadow.png" 
-                  data-base=" http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-front-base.png" 
-                  data-body=" http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-front-background.png" 
-                  data-product=" http://instathreds.dev/images/products/Game Over Space Scorpion.png" 
-                  data-x="25" 
-                  data-y="55"></canvas>
+                  {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-front-shadow.png', '', array('class' => 'shadow')) }}
                   
-                  <div class="preloader">
-                  {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
-                  </div>
-                  
-                  <img id="canvas-final" src="">
+                  {{ HTML::image('images/products/Game Over Space Scorpion.png', '', array('class' => 'product')) }}
+                  <canvas class="canvas-product"></canvas>
+                  <canvas class="canvas-productbig"></canvas>
+                  <canvas class="canvas-front"></canvas>
+                  {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-front-base.png', '',  array('class' => 'base')) }}
+                  {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-front-background.png','', array('class' => 'body')) }}
                 </div>
                 <div class="back">
                   {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-back-shadow.png', '', array('class' => 'shadow')) }}

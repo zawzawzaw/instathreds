@@ -15,11 +15,9 @@ $( document ).ready(function() {
 		
 
 	$window.load(function() { // makes sure the whole site is loaded
-
 		$preLoader.children("#status").fadeOut(); // will first fade out the loading animation
 		$preLoader.delay(350).fadeOut("slow"); // will fade out the white DIV that covers the website.
 		$mobileMenuItems.css("height", windowHeight);
-
 	});
 
     $window.resize(function() {
@@ -167,39 +165,5 @@ $( document ).ready(function() {
 		}
 	}
 
-	/* COLOR OPTION FOR DETAILED SHIRT*/
-	$('.color-option').click(function(){
-	    hexcolor = $(this).attr('data-color');
-		changecolor(hexcolor,'1');
-	});
-
 	
-
-	function changecolor(color,alpha){
-		var canvas = document.getElementById("canvas"), // shared instance
-		//var canvas = document.createElement("canvas")
-		context = canvas.getContext("2d");
-		image = document.getElementById("testimage");
-		canvas.width = image.width;
-		canvas.height = image.height;
-		
-	    context.clearRect(0, 0, image.width, image.height);
-        context.drawImage(image, 0, 0, canvas.width, canvas.height);
-
-        //colorize
-        context.globalCompositeOperation = "source-atop";
-        context.globalAlpha = alpha;
-        context.fillStyle = color;
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        // reset
-        context.globalCompositeOperation = "source-over";
-        context.globalAlpha = 1.0;
-        
-	}
-
-	
-	 
-
-
-
 });
