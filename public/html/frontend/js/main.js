@@ -29,7 +29,7 @@ $( document ).ready(function() {
 	});	
 
 	$(".addtocart-link").on("click",function(){
-		$('#cart-modal').modal('show')
+		// $('#cart-modal').modal('show')
 	});
 
 	$(".storeloc-link").on("click",function(e){

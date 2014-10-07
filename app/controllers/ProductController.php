@@ -10,6 +10,10 @@ class ProductController extends \BaseController {
 	    $this->beforeFilter('admin');
 	}
 
+	public function colours() {
+		return $this->hasMany('colours');
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
