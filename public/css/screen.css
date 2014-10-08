@@ -922,24 +922,67 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 .product { position: relative; margin-top: 20px; display: block; }
 
 .product .left { float: left; position: relative; display: block; margin-right: 20px; width: 630px; }
+@media (max-width: 480px) { .product .left { width: 100%; } }
 
-.product .right { position: relative; display: block; text-align: left; float: left; }
+.product .right { position: relative; display: block; text-align: left; float: right; width: 320px; }
 
-.product .front { height: 520px; }
+.product .shirt-template { display: none; }
 
-.product .front img { max-width: 100%; }
+.product .shirt-template.active { display: block; }
 
-.product .back { width: 715px; height: 520px; display: none; }
+.product .shirt-template .front { height: auto; }
 
-.product .back img { max-width: 100%; height: 100%; }
+.product .shirt-template .front img { max-width: 100%; }
 
-.product img.body { z-index: 1; }
+.product .shirt-template .back { height: auto; display: none; }
 
-.product img.base { z-index: 1; position: absolute; top: 51px; left: 21px; opacity: 0; }
+.product .shirt-template .back img { max-width: 100%; }
 
-.product img.shadow { z-index: 4; position: absolute; top: 51px; left: 21px; opacity: 0.5; }
+.product .shirt-template .product { z-index: 5; position: absolute; width: 100%; opacity: 0; }
 
-.product #canvas { z-index: 3; position: absolute; top: 51px; left: 21px; }
+#canvas-final { position: relative; max-width: 100%; border: 0px; outline: 0; display: none; }
+
+.canvas-template { display: none; width: 630px; height: 460px; }
+
+.product .shirt-template .preloader { position: absolute; max-width: 100%; top: 150px; border: 0px; left: 50%; }
+
+/*MENS STANDARD*/
+#mens-standard .front img.body { z-index: 1; }
+
+#mens-standard .front img.base { z-index: 1; position: absolute; top: 51px; left: 21px; opacity: 0; }
+
+#mens-standard .front img.shadow { z-index: 4; position: absolute; top: 51px; left: 21px; opacity: 0.5; }
+
+#mens-standard .front .canvas-template { position: relative; z-index: 1; width: 630px; height: 460px; }
+
+#mens-standard .back img.body { z-index: 1; }
+
+#mens-standard .back img.base { z-index: 1; position: absolute; top: 55px; left: 28px; opacity: 0; }
+
+#mens-standard .back img.shadow { z-index: 4; position: absolute; top: 46px; left: 20px; opacity: 0.5; }
+
+#mens-standard .back .canvas-back { z-index: 3; position: absolute; top: 55px; left: 28px; }
+
+/*MENS STAPLE*/
+#mens-staple { display: none; }
+
+#mens-staple .front img.body { z-index: 1; }
+
+#mens-staple .front img.base { z-index: 1; position: absolute; top: 51px; left: 21px; opacity: 0; }
+
+#mens-staple .front img.shadow { z-index: 4; position: absolute; top: 51px; left: 21px; opacity: 0.5; }
+
+#mens-staple .front .canvas-front { z-index: 3; position: absolute; top: 51px; left: 21px; }
+
+#mens-staple .front .canvas-product { z-index: 5; position: absolute; top: 51px; left: 21px; }
+
+#mens-staple .back img.body { z-index: 1; }
+
+#mens-staple .back img.base { z-index: 1; position: absolute; top: 46px; left: 19px; opacity: 0; }
+
+#mens-staple .back img.shadow { z-index: 4; position: absolute; top: 46px; left: 19px; opacity: 0.5; }
+
+#mens-staple .back .canvas-back { z-index: 3; position: absolute; top: 46px; left: 19px; }
 
 .product .product-title { font-size: 18px; }
 
@@ -949,9 +992,13 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 
 .product .dropdown-toggle.shirt-type .caret { float: right; margin-top: 6px; }
 
-.product .shirt-type .dropdown-menu { left: 0px; margin-top: 1px; }
+.product .shirt-type .dropdown-menu { left: 0px; margin-top: 1px; min-width: 300px; }
 
 .product .shirt-type .dropdown-menu:before { border: none; }
+
+.product .shirt-type .dropdown-menu li a { text-align: left; }
+
+.product .shirt-type .dropdown-menu li a:hover { border: 0px; }
 
 .product .shirt-size { position: relative; display: block; margin-bottom: 20px; }
 

@@ -29,27 +29,83 @@
 
           <div class="row product">
             <div class="left">
-              <div class="front">
-                {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-front-shadow.png', 'a picture', array('class' => 'shadow')) }}
-                <canvas id="canvas" width="263" height="327"></canvas>
-                {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-front-base.png', 'a picture', array('class' => 'base','id'=>'testimage')) }}
-                {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-front-background.jpg', 'a picture', array('class' => 'body')) }}
-                <!-- <img src="images/image-placeholder1.png" style="width:620px;"> -->
-                <!-- {{ HTML::image('images/products/thumbs/'.$product->image, '',array('style'=>'width:100%')) }} -->
+              
+              <!-- MENS-STANDARD -->
+              <div class="shirt-template active" id="mens-standard">
+                <!--
+                <div style="display:none;">
+                {{ HTML::image('images/shirt-templates/mens-lowdown/mens-standard-front-background.png') }}
+                {{ HTML::image('images/shirt-templates/mens-lowdown/mens-standard-front-base.png') }}
+                {{ HTML::image('images/shirt-templates/mens-lowdown/mens-standard-front-shadow.png') }}
+                {{ HTML::image('images/shirt-templates/mens-lowdown/mens-standard-back-background.png') }}
+                {{ HTML::image('images/shirt-templates/mens-lowdown/mens-standard-back-base.png') }}
+                {{ HTML::image('images/shirt-templates/mens-lowdown/mens-standard-back-shadow.png') }}
+                {{ HTML::image('images/products/gamescorpion.png') }}
+                </div>
+                -->
+                <canvas class="canvas-template" 
+                data-shadow="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-front-shadow.png" 
+                data-base="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-front-base.png" 
+                data-body="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-front-background.png" 
+                data-product="http://instathreds.dev/images/products/gamescorpion.png" 
+                data-x="25" 
+                data-y="55">
+                </canvas>
+                <canvas class="canvas-template back" 
+                data-shadow="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-back-shadow.png" 
+                data-base="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-back-base.png" 
+                data-body="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-back-background.png" 
+                data-product="http://instathreds.dev/images/products/gamescorpion.png" 
+                data-x="28" 
+                data-y="54">
+                </canvas>
+                <div class="preloader">
+                {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
+                </div>
+                <img id="canvas-final" src="">
               </div>
-              <div class="back">
-              	{{ HTML::image('images/products/thumbs/'.$product->image, '',array('style'=>'width:100%')) }}
+
+
+              <!-- MENS-LOWDOWN -->
+              <div class="shirt-template" id="mens-lowdown">
+                
+                <canvas class="canvas-template" 
+                data-shadow="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-front-shadow.png" 
+                data-base="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-front-base.png" 
+                data-body="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-front-background.png" 
+                data-product="http://instathreds.dev/images/products/gamescorpion.png" 
+                data-x="26" 
+                data-y="60">
+                </canvas>
+                <canvas class="canvas-template back" 
+                data-shadow="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-back-shadow.png" 
+                data-base="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-back-base.png" 
+                data-body="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-back-background.png" 
+                data-product="http://instathreds.dev/images/products/gamescorpion.png" 
+                data-x="37" 
+                data-y="66">
+                </canvas>
+                <div class="preloader">
+                {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
+                </div>
+                <img id="canvas-final" src="">
               </div>
+
+
+
+
+
             </div>
             <div class="right">
               <h6 class="product-title">{{ Str::upper($product->title) }}</h6>
               <div class="shirt-type shirt-type-select">
                 <a data-toggle="dropdown" class="dropdown-toggle shirt-type" href="#"><span class="selected-type">Shirt Type</span> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="javascript:void(0);">Round-Neck</a></li>
-                  <li><a href="javascript:void(0);">V-Neck</a></li>
-                  <li><a href="javascript:void(0);">Crew Neck</a></li>
-                  <li><a href="javascript:void(0);">Round-Neck</a></li>
+                  <li><a href="" data-shirt="mens-standard">Standard</a></li>
+                  <li><a href="" data-shirt="mens-staple">Staple</a></li>
+                  <li><a href="" data-shirt="mens-lowdown">Lowdown</a></li>
+                  <li><a href="" data-shirt="mens-barnard">Barnard</a></li>
+                  <li><a href="" data-shirt="mens-tall">Tall</a></li>
                 </ul>
               </div>
               
@@ -74,9 +130,9 @@
                 </ul>  
               </div>
               <div class="shirt-view">
-                <a href="" class="active">FRONT</a>
+                <a href="" class="active front">FRONT</a>
                 <span>or</span>
-                <a href="">BACK</a>
+                <a href="" class="back">BACK</a>
                 <span class="price">${{ $product->price }}</span>
                   
               </div>
