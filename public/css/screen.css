@@ -926,6 +926,10 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 
 .product .right { position: relative; display: block; text-align: left; float: right; width: 320px; }
 
+.product .shirt-template { display: none; }
+
+.product .shirt-template.active { display: block; }
+
 .product .shirt-template .front { height: auto; }
 
 .product .shirt-template .front img { max-width: 100%; }
@@ -938,9 +942,9 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 
 #canvas-final { position: relative; max-width: 100%; border: 0px; outline: 0; display: none; }
 
-.canvas-template { display: none; }
+.canvas-template { display: none; width: 630px; height: 460px; }
 
-.product .shirt-template .preloader { position: absolute; max-width: 100%; top: 150px; border: 0px; }
+.product .shirt-template .preloader { position: absolute; max-width: 100%; top: 150px; border: 0px; left: 50%; }
 
 /*MENS STANDARD*/
 #mens-standard .front img.body { z-index: 1; }

@@ -1,20 +1,26 @@
 $( document ).ready(function() {
 
-
 /*GET SHIRT INFO*/
-body = $('.canvas-template').attr('data-body');
-base = $('.canvas-template').attr('data-base');
-base_x = $('.canvas-template').attr('data-x');
-base_y = $('.canvas-template').attr('data-y');
-shadow = $('.canvas-template').attr('data-shadow');
-product = $('.canvas-template').attr('data-product');
+var shirt = $(".shirt-template.active .canvas-template");
+body = shirt.attr('data-body');
+base = shirt.attr('data-base');
+base_x = shirt.attr('data-x');
+base_y = shirt.attr('data-y');
+shadow = shirt.attr('data-shadow');
+design = shirt.attr('data-product');
 color = '#000000'; //default is white
-    
 
 /*LOAD THE SHIRT TEMPLATE*/
-loadimage(body,base,shadow,base_x,base_y,color);    
+loadimage(body,base,shadow,design,base_x,base_y,color);    
 
-function loadimage(imagebody,imagebase,imageshadow,base_x,base_y,color){
+function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,color){
+    
+    //reset the image
+    $('.shirt-template.active #canvas-final').hide();
+        
+    //show the preloader
+    $('.shirt-template.active .preloader').show();
+        
 
     //SHIRTBACKGROUND
     var img1 = new Image();
@@ -25,26 +31,27 @@ function loadimage(imagebody,imagebase,imageshadow,base_x,base_y,color){
         canvas1.height = img1.height;
         
         var w = img1.width; var h = img1.height;
-        
         context1.drawImage(img1,0,0);
-        var imagedata = context1.getImageData(0,0,w,h);    
-        context1.putImageData(imagedata,0,0);
+        //var imagedata = context1.getImageData(0,0,w,h);    
+        //context1.putImageData(imagedata,0,0);
+        
 
 
-        var newcanvas = $(".shirt-template.active .front .canvas-template")[0];
+        var newcanvas = $(".shirt-template.active .canvas-template")[0];
         var newcontext = newcanvas.getContext('2d');   
         newcanvas.width = '630';
         newcanvas.height = '460';
         setTimeout(function() {
+            
+            
             newcontext.drawImage(canvas1,0,0,630,460);
             //document.getElementById('canvas-final').src = newcanvas.toDataURL();
-        }, 1000);
+        }, 3000);
         //document.getElementById('canvas-final').src = canvas1.toDataURL();
     };
     img1.src = imagebody;
 
     //SHIRTBASE + COLOR
-    
     var canvas2 = document.createElement('canvas');
     var context2 = canvas2.getContext('2d');  
         
@@ -53,25 +60,24 @@ function loadimage(imagebody,imagebase,imageshadow,base_x,base_y,color){
         canvas2.width = img2.width;
         canvas2.height = img2.height;
         context2.clearRect(0, 0, canvas2.width, canvas2.height);
+
         context2.drawImage(img2,0,0);
         context2.globalCompositeOperation = "source-atop";
-        context2.globalAlpha = 0.5;
+        context2.globalAlpha = 1;
         context2.fillStyle = color;
         context2.fillRect(0, 0, canvas2.width, canvas2.height);
         var w = img2.width; var h = img2.height;
+        //var imagedata2 = context2.getImageData(0,0,w,h);    
+        //context2.putImageData(imagedata2,0,0);
+    
         
-        var imagedata2 = context2.getImageData(0,0,w,h);    
-        context2.putImageData(imagedata2,0,0);
-        
-        var newcanvas = $(".shirt-template.active .front .canvas-template")[0];
+        var newcanvas = $(".shirt-template.active .canvas-template")[0];
         var newcontext = newcanvas.getContext('2d');
         newcanvas.width = '630';
         newcanvas.height = '460';   
         setTimeout(function() {
             newcontext.drawImage(canvas2,base_x,base_y);
-        }, 2000);
-        //THIS ONE CONVERTS CANVAS TO IMAGE FILE
-        //document.getElementById('canvas-final').src = newcanvas.toDataURL();
+        }, 3000);
     };
     img2.src = imagebase;
     
@@ -81,36 +87,68 @@ function loadimage(imagebody,imagebase,imageshadow,base_x,base_y,color){
     
     var canvas3 = document.createElement('canvas');
     var context3 = canvas3.getContext('2d');  
-        
     var img3 = new Image();
     img3.onload = function() { 
         canvas3.width = img3.width;
         canvas3.height = img3.height;
         context3.clearRect(0, 0, canvas3.width, canvas3.height);
+        var w = img3.width; var h = img3.height;
         context3.drawImage(img3,0,0,canvas3.width, canvas3.height);
         context3.globalCompositeOperation = "source-atop";
         context3.globalAlpha = 0.5;
-        //context3.fillStyle = '#ffffff';
-        //context3.fillRect(0, 0, canvas3.width, canvas3.height);
-        var w = img3.width; var h = img3.height;
+            
+        //var imagedata3 = context3.getImageData(0,0,w,h);    
+        //context3.putImageData(imagedata3,0,0);
         
-        var imagedata3 = context3.getImageData(0,0,w,h);    
-        context3.putImageData(imagedata3,0,0);
-        
-        var newcanvas = $(".shirt-template.active .front .canvas-template")[0];
+        var newcanvas = $(".shirt-template.active .canvas-template")[0];
         var newcontext = newcanvas.getContext('2d');
         newcanvas.width = '630';
         newcanvas.height = '460';   
         
         setTimeout(function() {
             newcontext.drawImage(canvas3,base_x,base_y);
-            $(".preloader").hide();
-            document.getElementById('canvas-final').src = newcanvas.toDataURL();
-            $("#canvas-final").fadeIn("slow");
-        }, 2000);
+        }, 3000);
         
     };
     img3.src = imageshadow;
+    
+    
+    //SHIRT DESIGN
+    var canvas4 = document.createElement('canvas');
+    var context4 = canvas4.getContext('2d');  
+    var img4 = new Image();
+    img4.onload = function() { 
+        canvas4.width = 630;
+        canvas4.height = 460;
+        context4.clearRect(0, 0, canvas4.width, canvas4.height);
+
+        var result = ScaleImage(img4.width, img4.height, 630, 460, true);
+
+        x = canvas4.width - result.width;
+        context4.drawImage(img4, x, result.targettop, result.width, result.height);
+        var resultsmall = ScaleImage(img4.width, img4.height, canvas2.width-90, canvas2.height-90, true);
+        xposition = (canvas2.width - resultsmall.width)/2 ;
+        yposition = (canvas2.height - resultsmall.height)/2;
+        context2.drawImage(img4,xposition,yposition,resultsmall.width, resultsmall.height);
+        
+        //var w = newWidth; var h = newHeight;
+        //var imagedata4 = context4.getImageData(0,0,w,h);    
+        //context4.putImageData(imagedata4,0,0);
+        
+        var newcanvas = $(".shirt-template.active .canvas-template")[0];
+        var newcontext = newcanvas.getContext('2d');
+        newcanvas.width = '630';
+        newcanvas.height = '460';   
+        
+        setTimeout(function() {
+            newcontext.drawImage(canvas4,0,0);
+            $(".preloader").hide();
+            $(".shirt-template.active #canvas-final")[0].src = newcanvas.toDataURL();
+            $(".shirt-template.active #canvas-final").fadeIn("slow");
+        }, 3000);
+        
+    };
+    img4.src = imagedesign;
     
 }
 
@@ -128,70 +166,7 @@ function loadimage(imagebody,imagebase,imageshadow,base_x,base_y,color){
     });
 
 
-    function changecolor(color,alpha){
-        //var canvas = document.getElementById("canvas"), // shared instance
-        var canvas1 = $(".shirt-template.active .canvas-front")[0]; // shared instance
-        var canvas2 = $(".shirt-template.active .canvas-back")[0];// shared instance
-                
-
-        context1 = canvas1.getContext("2d");
-        context2 = canvas2.getContext("2d");
-        
-        
-        //image = document.getElementById("base");
-        image1 = $(".shirt-template.active .front .base")[0];
-        canvas1.width = image1.width;
-        canvas1.height = image1.height;
-        context1.clearRect(0, 0, image1.width, image1.height);
-        context1.drawImage(image1, 0, 0, canvas1.width, canvas1.height);
-        context1.globalCompositeOperation = "source-atop";
-        context1.globalAlpha = alpha;
-        context1.fillStyle = color;
-        context1.fillRect(0, 0, canvas1.width, canvas1.height);
-
-        
-        image2 = $(".shirt-template.active .back .base")[0];
-        canvas2.width = image2.width;
-        canvas2.height = image2.height;
-        context2.clearRect(0, 0, image2.width, image2.height);
-        context2.drawImage(image2, 0, 0, canvas2.width, canvas2.height);
-        context2.globalCompositeOperation = "source-atop";
-        context2.globalAlpha = alpha;
-        context2.fillStyle = color;
-        context2.fillRect(0, 0, canvas2.width, canvas2.height);
-        
-    }
-
-    function placeproduct(){
-        var canvas = $(".shirt-template.active .front .canvas-product")[0];// shared instance
-        var screen = $(".shirt-template.active .front .body")[0];// shared instance
-        base = $(".shirt-template.active .front .base")[0];
-        
-        $(".shirt-template.active .front .canvas-product").css("width", base.width);
-        $(".shirt-template.active .front .canvas-product").css("height", base.height);
-        
-        var image = new Image();
-        image.src = 'http://instathreds.dev/images/products/Game%20Over%20Space%20Scorpion.png';
-        
-        image.onload = function () {
-            var cxt = canvas.getContext('2d');
-            var cxt2 = screen.getContext('2d');
-            
-            newHeight = Math.floor(canvas.height * (0.61));
-            newWidth = Math.floor(canvas.width / canvas.height * newHeight);
-
-            x = canvas.width / 2 - newWidth / 2;
-            y = canvas.height / 2 - newHeight / 2;
-
-            cxt.drawImage(image,
-                 x,
-                 y,
-                 newWidth,
-                 newHeight
-            );
-        };
-    }
-    */
+   
 
     /* SHIRT STYLE DROPDOWN */
     $(".shirt-type .dropdown-menu li a").click(function(e){
@@ -199,41 +174,119 @@ function loadimage(imagebody,imagebase,imageshadow,base_x,base_y,color){
         var selText = $(this).text();
         $(this).parents().find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
 
+        //reset front and back button
+        $(".shirt-view a").removeClass("active");
+        $(".shirt-view .front").addClass("active");
+
+
+        //reset the image
+        $('.shirt-template.active #canvas-final').hide();
+    
         
         shirt_type = $(this).attr('data-shirt');
         $('.shirt-template.active').hide();
         $('.shirt-template.active').removeClass("active");
         $('#'+shirt_type).show();
+        $('#'+shirt_type).show();
         $('#'+shirt_type).addClass("active");
         
-        placeproduct();
+        
+        var shirt = $(".shirt-template.active .canvas-template");
+        body = shirt.attr('data-body');
+        base = shirt.attr('data-base');
+        base_x = shirt.attr('data-x');
+        base_y = shirt.attr('data-y');
+        shadow = shirt.attr('data-shadow');
+        design = shirt.attr('data-product');
+        color = '#000000'; //default is white
 
-        /*
-        if(shirt_type == 'mens-staple'){
-            $('.shirt-template.active').hide();
-            $('.shirt-template.active').removeClass("active");
-            $('#mens-staple').show();
-            $('#mens-staple').addClass("active");
-        }
-        */
+        loadimage(body,base,shadow,design,base_x,base_y,color);    
 
     });
 
+    //FRONT BUTTON
     $(".shirt-view .front").click(function(e){
-        e.preventDefault(); 
-        $(".shirt-template .front").show();
-        $(".shirt-template .back").hide();
+        e.preventDefault();
+
+        $(".shirt-view a").removeClass("active");
+        $(".shirt-view .front").addClass("active");
+
+
+        var shirt = $(".shirt-template.active .canvas-template");
+        body = shirt.attr('data-body');
+        base = shirt.attr('data-base');
+        base_x = shirt.attr('data-x');
+        base_y = shirt.attr('data-y');
+        shadow = shirt.attr('data-shadow');
+        design = shirt.attr('data-product');
+        color = '#000000'; //default is white
+
+        loadimage(body,base,shadow,design,base_x,base_y,color); 
+
     });
 
+    //BACK BUTTON
     $(".shirt-view .back").click(function(e){
         e.preventDefault(); 
-        $(".shirt-template .front").hide();
-        $(".shirt-template .back").show();
+        $(".shirt-view a").removeClass("active");
+        $(".shirt-view .back").addClass("active");
+
+
+        var shirt = $(".shirt-template.active .canvas-template.back");
+        body = shirt.attr('data-body');
+        base = shirt.attr('data-base');
+        base_x = shirt.attr('data-x');
+        base_y = shirt.attr('data-y');
+        shadow = shirt.attr('data-shadow');
+        design = shirt.attr('data-product');
+        color = '#000000'; //default is white
+
+        loadimage(body,base,shadow,design,base_x,base_y,color); 
+
     });
 
 
-     
+//SCALE IMAGE FUNCTION     
+function ScaleImage(srcwidth, srcheight, targetwidth, targetheight, fLetterBox) {
 
+    var result = { width: 0, height: 0, fScaleToTargetWidth: true };
+
+    if ((srcwidth <= 0) || (srcheight <= 0) || (targetwidth <= 0) || (targetheight <= 0)) {
+        return result;
+    }
+
+    // scale to the target width
+    var scaleX1 = targetwidth;
+    var scaleY1 = (srcheight * targetwidth) / srcwidth;
+
+    // scale to the target height
+    var scaleX2 = (srcwidth * targetheight) / srcheight;
+    var scaleY2 = targetheight;
+
+    // now figure out which one we should use
+    var fScaleOnWidth = (scaleX2 > targetwidth);
+    if (fScaleOnWidth) {
+        fScaleOnWidth = fLetterBox;
+    }
+    else {
+       fScaleOnWidth = !fLetterBox;
+    }
+
+    if (fScaleOnWidth) {
+        result.width = Math.floor(scaleX1);
+        result.height = Math.floor(scaleY1);
+        result.fScaleToTargetWidth = true;
+    }
+    else {
+        result.width = Math.floor(scaleX2);
+        result.height = Math.floor(scaleY2);
+        result.fScaleToTargetWidth = false;
+    }
+    result.targetleft = Math.floor((targetwidth - result.width) / 2);
+    result.targettop = Math.floor((targetheight - result.height) / 2);
+
+    return result;
+}
 
 
     

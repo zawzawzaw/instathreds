@@ -1238,14 +1238,16 @@ h3.divider-word span {
 @include mobile-only{width:100%;}
 }
 .product .right{position:relative;display:block;text-align:left;float:right;width:320px;}
+.product .shirt-template{display:none;}
+.product .shirt-template.active{display:block;}
 .product .shirt-template .front{height:auto;}
 .product .shirt-template .front img{max-width:100%;}
 .product .shirt-template .back{height:auto;display:none;}
 .product .shirt-template .back img{max-width:100%;}
 .product .shirt-template .product{z-index:5;position:absolute;width:100%;opacity:0;}
 #canvas-final{position:relative;max-width:100%;border:0px;outline:0;display:none;}
-.canvas-template{display:none;}
-.product .shirt-template .preloader{position:absolute;max-width:100%;top:150px;border:0px;}
+.canvas-template{display:none;width:630px;height:460px;}
+.product .shirt-template .preloader{position:absolute;max-width:100%;top:150px;border:0px;left:50%;}
 
 
 /*MENS STANDARD*/
