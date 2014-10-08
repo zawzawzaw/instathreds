@@ -67,10 +67,9 @@
                   @foreach($colours as $colour)
                     <li><span class="color-option active" id="{{ $colour->name }}" data-color="{{ $colour->hex_value }}"></span></li>
                   @endforeach
-                  <!-- <li><span class="color-option active" id="black" data-color="#000000"></span></li>
-                  <li><span class="color-option" id="pink" data-color="#e83fd4"></span></li>   -->
                 @else
-                  <li><span class="color-option active" id="white" data-color="#ffffff"></span></li>
+                  <li><span class="color-option active" id="black" data-color="#000000"></span></li>
+                  <li><span class="color-option" id="pink" data-color="#e83fd4"></span></li>  
                 @endif
                 </ul>  
               </div>
