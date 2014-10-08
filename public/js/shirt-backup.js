@@ -1,6 +1,5 @@
 $( document ).ready(function() {
 
-
 /*GET SHIRT INFO*/
 var shirt = $(".shirt-template.active .canvas-template");
 body = shirt.attr('data-body');
@@ -11,98 +10,16 @@ shadow = shirt.attr('data-shadow');
 design = shirt.attr('data-product');
 color = '#000000'; //default is white
 
-
 /*LOAD THE SHIRT TEMPLATE*/
-loadimage(body,base,shadow,design,base_x,base_y,color); 
+loadimage(body,base,shadow,design,base_x,base_y,color);    
 
-
-function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,color){
-
-    var loader = new PxLoader(), 
-    bodyImg = loader.addImage(imagebody), 
-    baseImg = loader.addImage(imagebase), 
-    shadowImg = loader.addImage(imageshadow),
-    designImg = loader.addImage(imagedesign);
-
-    loader.addCompletionListener(function(e) {
-
-        //reset the image
-        $('.shirt-template.active #canvas-final').hide();
-            
-        //show the preloader
-        $('.shirt-template.active .preloader').show();
-
-        var canvas = document.createElement('canvas');
-        var context = canvas.getContext('2d');
-        canvas.width = 630;
-        canvas.height = 460;
-        context.drawImage(bodyImg,0,0,630,460);
-        
-
-        var canvas2 = document.createElement('canvas');
-        var context2 = canvas2.getContext('2d');
-        canvas2.width = baseImg.width;
-        canvas2.height = baseImg.height;
-        context2.clearRect(0, 0, canvas2.width, canvas2.height);
-        context2.drawImage(baseImg,0,0);
-        context2.globalCompositeOperation = "source-atop";
-        context2.globalAlpha = 1;
-        context2.fillStyle = color;
-        context2.fillRect(0, 0, canvas2.width, canvas2.height);
-
-        context2.drawImage(shadowImg,0,0,canvas2.width, canvas2.height);
-
-        
-        var canvas3 = document.createElement('canvas');
-        var context3 = canvas3.getContext('2d');  
-        canvas3.width = 630;
-        canvas3.height = 460;
-
-        var result = ScaleImage(designImg.width, designImg.height, 630, 460, true);
-        x = canvas3.width - result.width;
-        context3.drawImage(designImg, x, result.targettop, result.width, result.height);
-        
-        //var resultsmall = ScaleImage(img4.width, img4.height, canvas2.width-90, canvas2.height-90, true);
-        //xposition = (canvas2.width - resultsmall.width)/2 ;
-        //yposition = (canvas2.height - resultsmall.height)/2;
-        //context2.drawImage(img4,xposition,yposition,resultsmall.width, resultsmall.height);
-
-        var newcanvas = $(".shirt-template.active .canvas-template")[0];
-        var newcontext = newcanvas.getContext('2d');
-        newcanvas.width = '630';
-        newcanvas.height = '460';   
-        
-        newcontext.drawImage(canvas,0,0,630,460);
-        newcontext.drawImage(canvas2,base_x,base_y);
-        newcontext.drawImage(canvas3,0,0);
-
-        $(".preloader").hide();
-        $(".shirt-template.active #canvas-final")[0].src = newcanvas.toDataURL('image/jpeg');
-        $(".shirt-template.active #canvas-final").fadeIn("slow"); 
-         
-    }); 
-
-    // begin downloading images 
-    loader.start();
-
-    
-    
-}
-
-
-
-/*LOAD THE SHIRT TEMPLATE*/
-
-//loadimage(body,base,shadow,design,base_x,base_y,color);    
-
-/*
 function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,color){
     
     //reset the image
     $('.shirt-template.active #canvas-final').hide();
         
     //show the preloader
-    $('.shirt-template.active .preloader').show();
+    //$('.shirt-template.active .preloader').show();
         
 
     //SHIRTBACKGROUND
@@ -236,7 +153,7 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
 }
 
 
-*/
+
 
 
 /* -------------------------------- 
@@ -252,7 +169,6 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
    
 
     /* SHIRT STYLE DROPDOWN */
-
     $(".shirt-type .dropdown-menu li a").click(function(e){
         e.preventDefault(); 
         var selText = $(this).text();
@@ -284,7 +200,7 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
         design = shirt.attr('data-product');
         color = '#000000'; //default is white
 
-        loadimage(body,base,shadow,design,base_x,base_y,color); 
+        loadimage(body,base,shadow,design,base_x,base_y,color);    
 
     });
 
@@ -328,7 +244,6 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
         loadimage(body,base,shadow,design,base_x,base_y,color); 
 
     });
-
 
 
 //SCALE IMAGE FUNCTION     
@@ -375,7 +290,7 @@ function ScaleImage(srcwidth, srcheight, targetwidth, targetheight, fLetterBox) 
 
 
     
-     
+       
 
 
 });

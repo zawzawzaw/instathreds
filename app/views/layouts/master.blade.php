@@ -369,6 +369,9 @@
     {{ HTML::script('js/bootstrap/tab.js') }}
     {{ HTML::script('js/vendor/owl.carousel.min.js') }}
     {{ HTML::script('//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js') }}
+    {{ HTML::script('js/PxLoader.js') }}
+    {{ HTML::script('js/PxLoaderImage.js') }}
+
     {{ HTML::script('js/main.js') }}
     {{ HTML::script('js/shirt.js') }}
 

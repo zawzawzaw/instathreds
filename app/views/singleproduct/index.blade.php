@@ -32,22 +32,12 @@
               
               <!-- MENS-STANDARD -->
               <div class="shirt-template active" id="mens-standard">
-                <!--
-                <div style="display:none;">
-                {{ HTML::image('images/shirt-templates/mens-lowdown/mens-standard-front-background.png') }}
-                {{ HTML::image('images/shirt-templates/mens-lowdown/mens-standard-front-base.png') }}
-                {{ HTML::image('images/shirt-templates/mens-lowdown/mens-standard-front-shadow.png') }}
-                {{ HTML::image('images/shirt-templates/mens-lowdown/mens-standard-back-background.png') }}
-                {{ HTML::image('images/shirt-templates/mens-lowdown/mens-standard-back-base.png') }}
-                {{ HTML::image('images/shirt-templates/mens-lowdown/mens-standard-back-shadow.png') }}
-                {{ HTML::image('images/products/gamescorpion.png') }}
-                </div>
-                -->
+                
                 <canvas class="canvas-template" 
                 data-shadow="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-front-shadow.png" 
                 data-base="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-front-base.png" 
                 data-body="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-front-background.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}" 
+                data-product="http://instathreds.dev/images/products/gamescorpion.png" 
                 data-x="25" 
                 data-y="55">
                 </canvas>
@@ -73,7 +63,7 @@
                 data-shadow="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-front-shadow.png" 
                 data-base="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-front-base.png" 
                 data-body="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-front-background.png" 
-                data-product="http://instathreds.dev/images/products/gamescorpion.png" 
+                data-product="http://instathreds.dev/images/products/test.jpg" 
                 data-x="26" 
                 data-y="60">
                 </canvas>
@@ -81,7 +71,7 @@
                 data-shadow="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-back-shadow.png" 
                 data-base="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-back-base.png" 
                 data-body="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-back-background.png" 
-                data-product="{{ public_path().'/images/products/'.$product->image }}" 
+                data-product="http://instathreds.dev/images/products/test.jpg" 
                 data-x="37" 
                 data-y="66">
                 </canvas>
