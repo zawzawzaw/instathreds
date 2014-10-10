@@ -29,14 +29,19 @@
 
           <div class="row product">
             <div class="left">
+
+            <?php
+            if (!extension_loaded('imagick'))
+    echo 'imagick not installed';
+            ?>
+
               
               <!-- MENS-STANDARD -->
               <div class="shirt-template active" id="mens-standard">
-                
                 <canvas class="canvas-template" 
                 data-shadow="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-front-shadow.png" 
                 data-base="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-front-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-front-background.png" 
+                data-body="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-front-body.png" 
                 data-product="http://instathreds.dev/images/products/gamescorpion.png" 
                 data-x="25" 
                 data-y="55">
@@ -44,7 +49,7 @@
                 <canvas class="canvas-template back" 
                 data-shadow="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-back-shadow.png" 
                 data-base="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-back-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-back-background.png" 
+                data-body="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-back-body.png" 
                 data-product="http://instathreds.dev/images/products/gamescorpion.png" 
                 data-x="28" 
                 data-y="54">
@@ -58,11 +63,10 @@
 
               <!-- MENS-LOWDOWN -->
               <div class="shirt-template" id="mens-lowdown">
-                
                 <canvas class="canvas-template" 
                 data-shadow="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-front-shadow.png" 
                 data-base="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-front-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-front-background.png" 
+                data-body="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-front-body.png" 
                 data-product="http://instathreds.dev/images/products/test.jpg" 
                 data-x="26" 
                 data-y="60">
@@ -70,10 +74,34 @@
                 <canvas class="canvas-template back" 
                 data-shadow="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-back-shadow.png" 
                 data-base="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-back-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-back-background.png" 
+                data-body="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-back-body.png" 
                 data-product="http://instathreds.dev/images/products/test.jpg" 
                 data-x="37" 
                 data-y="66">
+                </canvas>
+                <div class="preloader">
+                {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
+                </div>
+                <img id="canvas-final" src="">
+              </div>
+
+              <!-- MENS-BARNARD -->
+              <div class="shirt-template" id="mens-barnard">
+                <canvas class="canvas-template" 
+                data-shadow="http://instathreds.dev/images/shirt-templates/mens-barnard/mens-barnard-front-shadow.png" 
+                data-base="http://instathreds.dev/images/shirt-templates/mens-barnard/mens-barnard-front-base.png" 
+                data-body="http://instathreds.dev/images/shirt-templates/mens-barnard/mens-barnard-front-body.png" 
+                data-product="http://instathreds.dev/images/products/test.jpg" 
+                data-x="32" 
+                data-y="54">
+                </canvas>
+                <canvas class="canvas-template back" 
+                data-shadow="http://instathreds.dev/images/shirt-templates/mens-barnard/mens-barnard-back-shadow.png" 
+                data-base="http://instathreds.dev/images/shirt-templates/mens-barnard/mens-barnard-back-base.png" 
+                data-body="http://instathreds.dev/images/shirt-templates/mens-barnard/mens-barnard-back-body.png" 
+                data-product="http://instathreds.dev/images/products/test.jpg" 
+                data-x="37" 
+                data-y="57">
                 </canvas>
                 <div class="preloader">
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
