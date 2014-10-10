@@ -93,7 +93,7 @@
 			                  	{{ HTML::image('images/products/thumbs/'.$product->thumbnail_image, '', array('class'=>'img-responsive')) }}		                    
 			                  </a>
 			                </div>
-			                <h5 class="fm-title"><a href="">{{ $product->title }}</a></h5>
+			                <h5 class="fm-title"><a href="{{ '/admin/designs/'.$product->id.'/edit' }}">{{ $product->title }}</a></h5>
 			                <small class="text-muted">by karloestrada</small>
 			                <small class="text-muted">Sales: 29</small>
 			                <small class="text-muted">Category: {{ $product->category_id }}</small>

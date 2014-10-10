@@ -135,6 +135,7 @@ class ProductController extends \BaseController {
 	public function edit($id)
 	{
 		//
+		return View::make('products.edit');
 	}
 
 
