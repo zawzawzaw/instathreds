@@ -36,7 +36,10 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
         var context = canvas.getContext('2d');
         canvas.width = 630;
         canvas.height = 460;
-        context.drawImage(bodyImg,0,0,630,460);
+        // Fill the path
+        context.fillStyle = "#f3f3f4";
+        context.fillRect(0,0,630,460);
+        context.drawImage(bodyImg,0,0,bodyImg.width,bodyImg.height);
         
 
         var canvas2 = document.createElement('canvas');
@@ -62,10 +65,13 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
         x = canvas3.width - result.width;
         context3.drawImage(designImg, x, result.targettop, result.width, result.height);
         
-        //var resultsmall = ScaleImage(img4.width, img4.height, canvas2.width-90, canvas2.height-90, true);
+        var resultsmall = ScaleImage(designImg.width, designImg.height, baseImg.width-130, baseImg.height-130, true);
         //xposition = (canvas2.width - resultsmall.width)/2 ;
         //yposition = (canvas2.height - resultsmall.height)/2;
-        //context2.drawImage(img4,xposition,yposition,resultsmall.width, resultsmall.height);
+        xposition = (baseImg.width - resultsmall.width)/2 ;
+        yposition = (baseImg.height - resultsmall.height)/2;
+        
+        context2.drawImage(designImg,xposition,yposition,resultsmall.width, resultsmall.height);
 
         var newcanvas = $(".shirt-template.active .canvas-template")[0];
         var newcontext = newcanvas.getContext('2d');
@@ -84,159 +90,8 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
 
     // begin downloading images 
     loader.start();
-
-    
-    
 }
 
-
-
-/*LOAD THE SHIRT TEMPLATE*/
-
-//loadimage(body,base,shadow,design,base_x,base_y,color);    
-
-/*
-function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,color){
-    
-    //reset the image
-    $('.shirt-template.active #canvas-final').hide();
-        
-    //show the preloader
-    $('.shirt-template.active .preloader').show();
-        
-
-    //SHIRTBACKGROUND
-    var img1 = new Image();
-    img1.onload = function() { 
-        var canvas1 = document.createElement('canvas');
-        var context1 = canvas1.getContext('2d');  
-        canvas1.width = img1.width;
-        canvas1.height = img1.height;
-        
-        var w = img1.width; var h = img1.height;
-        context1.drawImage(img1,0,0);
-        //var imagedata = context1.getImageData(0,0,w,h);    
-        //context1.putImageData(imagedata,0,0);
-        
-
-
-        var newcanvas = $(".shirt-template.active .canvas-template")[0];
-        var newcontext = newcanvas.getContext('2d');   
-        newcanvas.width = '630';
-        newcanvas.height = '460';
-        setTimeout(function() {
-            
-            
-            newcontext.drawImage(canvas1,0,0,630,460);
-            //document.getElementById('canvas-final').src = newcanvas.toDataURL();
-        }, 1000);
-        //document.getElementById('canvas-final').src = canvas1.toDataURL();
-    };
-    img1.src = imagebody;
-
-    //SHIRTBASE + COLOR
-    var canvas2 = document.createElement('canvas');
-    var context2 = canvas2.getContext('2d');  
-        
-    var img2 = new Image();
-    img2.onload = function() { 
-        canvas2.width = img2.width;
-        canvas2.height = img2.height;
-        context2.clearRect(0, 0, canvas2.width, canvas2.height);
-
-        context2.drawImage(img2,0,0);
-        context2.globalCompositeOperation = "source-atop";
-        context2.globalAlpha = 1;
-        context2.fillStyle = color;
-        context2.fillRect(0, 0, canvas2.width, canvas2.height);
-        var w = img2.width; var h = img2.height;
-        //var imagedata2 = context2.getImageData(0,0,w,h);    
-        //context2.putImageData(imagedata2,0,0);
-    
-        
-        var newcanvas = $(".shirt-template.active .canvas-template")[0];
-        var newcontext = newcanvas.getContext('2d');
-        newcanvas.width = '630';
-        newcanvas.height = '460';   
-        setTimeout(function() {
-            newcontext.drawImage(canvas2,base_x,base_y);
-        }, 1000);
-    };
-    img2.src = imagebase;
-    
-    
-
-    //SHIRT SHADOW
-    
-    var canvas3 = document.createElement('canvas');
-    var context3 = canvas3.getContext('2d');  
-    var img3 = new Image();
-    img3.onload = function() { 
-        canvas3.width = img3.width;
-        canvas3.height = img3.height;
-        context3.clearRect(0, 0, canvas3.width, canvas3.height);
-        var w = img3.width; var h = img3.height;
-        context3.drawImage(img3,0,0,canvas3.width, canvas3.height);
-        context3.globalCompositeOperation = "source-atop";
-        context3.globalAlpha = 0.5;
-            
-        //var imagedata3 = context3.getImageData(0,0,w,h);    
-        //context3.putImageData(imagedata3,0,0);
-        
-        var newcanvas = $(".shirt-template.active .canvas-template")[0];
-        var newcontext = newcanvas.getContext('2d');
-        newcanvas.width = '630';
-        newcanvas.height = '460';   
-        
-        setTimeout(function() {
-            newcontext.drawImage(canvas3,base_x,base_y);
-        }, 1000);
-        
-    };
-    img3.src = imageshadow;
-    
-    
-    //SHIRT DESIGN
-    var canvas4 = document.createElement('canvas');
-    var context4 = canvas4.getContext('2d');  
-    var img4 = new Image();
-    img4.onload = function() { 
-        canvas4.width = 630;
-        canvas4.height = 460;
-        context4.clearRect(0, 0, canvas4.width, canvas4.height);
-
-        var result = ScaleImage(img4.width, img4.height, 630, 460, true);
-
-        x = canvas4.width - result.width;
-        context4.drawImage(img4, x, result.targettop, result.width, result.height);
-        var resultsmall = ScaleImage(img4.width, img4.height, canvas2.width-90, canvas2.height-90, true);
-        xposition = (canvas2.width - resultsmall.width)/2 ;
-        yposition = (canvas2.height - resultsmall.height)/2;
-        context2.drawImage(img4,xposition,yposition,resultsmall.width, resultsmall.height);
-        
-        //var w = newWidth; var h = newHeight;
-        //var imagedata4 = context4.getImageData(0,0,w,h);    
-        //context4.putImageData(imagedata4,0,0);
-        
-        var newcanvas = $(".shirt-template.active .canvas-template")[0];
-        var newcontext = newcanvas.getContext('2d');
-        newcanvas.width = '630';
-        newcanvas.height = '460';   
-        
-        setTimeout(function() {
-            newcontext.drawImage(canvas4,0,0);
-            $(".preloader").hide();
-            $(".shirt-template.active #canvas-final")[0].src = newcanvas.toDataURL('image/jpeg');
-            $(".shirt-template.active #canvas-final").fadeIn("slow");
-        }, 1000);
-        
-    };
-    img4.src = imagedesign;
-    
-}
-
-
-*/
 
 
 /* -------------------------------- 
