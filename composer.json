@@ -21,6 +21,9 @@
 			"app/tests/TestCase.php"
 		]
 	},
+	"suggest": {
+    	"ext-imagick": "PHP Image Magick"
+    },
 	"scripts": {
 		"post-install-cmd": [
 			"php artisan clear-compiled",

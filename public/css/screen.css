@@ -903,9 +903,9 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 
 .gender ul li a.active { background: #231f20; padding: 10px 15px; font-size: 16px; color: #ffffff; font-weight: bold; display: block; border: 0px; }
 
-.gender ul li a { background: #BFBFBF; padding: 5px 15px; font-size: 16px; color: #ffffff; font-weight: bold; display: block; border: 5px solid #ffffff; }
+.gender ul li a { transition: all 0s ease 0s !important; -webkit-transition: all 0s ease 0s !important; background: #BFBFBF; padding: 5px 15px; font-size: 16px; color: #ffffff; font-weight: bold; display: block; border: 5px solid #ffffff; }
 
-.gender ul li a:hover { text-decoration: none !important; }
+.gender ul li a:hover { text-decoration: none !important; transition: all 0s ease 0s !important; -webkit-transition: all 0s ease 0s !important; }
 
 .breadcrumbs { position: relative; float: right; margin-top: 13px; }
 
@@ -1000,6 +1000,12 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 
 .product .shirt-type .dropdown-menu li a:hover { border: 0px; }
 
+#womens-type { display: none; }
+
+#mens-type { display: block; }
+
+#kids-type { display: none; }
+
 .product .shirt-size { position: relative; display: block; margin-bottom: 20px; }
 
 .product .shirt-size a { border: 1px solid #0381f4; padding: 7px 10px; -webkit-border-radius: 5px; border-radius: 5px; background-clip: padding-box; /* stops bg color from leaking outside the border: */ font-family: "museo-slab", serif; font-size: 18px; }
@@ -1043,6 +1049,10 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 .product .shirt-quantity input[type="number"] { width: 40px; text-align: center; padding: 6px; }
 
 .product .shirt-quantity input[type=number]::-webkit-inner-spin-button, .product .shirt-quantity input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+.product .shirt-back-checkbox { position: relative; display: none; }
+
+.product .shirt-back-checkbox input { float: left; margin-right: 5px; margin-top: 3px; }
 
 .table-cart input[type="number"] { width: 40px; text-align: center; }
 

@@ -1223,8 +1223,12 @@ h3.divider-word span {
 .gender ul{list-style:none;margin:0px;padding:0px;}
 .gender ul li{float:left;}
 .gender ul li a.active{background:$color-off-black;padding:10px 15px;font-size:$font-size-medium;color:$color-white;font-weight:bold;display:block;border:0px;}
-.gender ul li a{background:#BFBFBF;padding:5px 15px;font-size:$font-size-medium;color:$color-white;font-weight:bold;display:block;border:5px solid #ffffff;}
-.gender ul li a:hover{text-decoration:none !important;}
+.gender ul li a{
+	transition: all 0s ease 0s !important;
+	-webkit-transition: all 0s ease 0s !important;
+	background:#BFBFBF;padding:5px 15px;font-size:$font-size-medium;color:$color-white;font-weight:bold;display:block;border:5px solid #ffffff;}
+.gender ul li a:hover{text-decoration:none !important;transition: all 0s ease 0s !important;
+	-webkit-transition: all 0s ease 0s !important;}
 
 .breadcrumbs{position:relative;float:right;margin-top:13px;}
 .breadcrumbs ul {list-style:none;margin:0px;padding:0px;}
@@ -1281,6 +1285,9 @@ h3.divider-word span {
 .product .shirt-type .dropdown-menu:before{border:none;}
 .product .shirt-type .dropdown-menu li a{text-align:left;}
 .product .shirt-type .dropdown-menu li a:hover{border:0px;}
+#womens-type{display:none;}
+#mens-type{display:block;}
+#kids-type{display:none;}
 
 
 
@@ -1318,6 +1325,11 @@ h3.divider-word span {
   -webkit-appearance: none; 
   margin: 0; 
 }
+
+
+.product .shirt-back-checkbox{position:relative;display:none;}
+.product .shirt-back-checkbox input{float:left;margin-right: 5px;margin-top: 3px;}
+
 
 .table-cart input[type="number"]{width:40px;text-align:center;}
 .table-cart input[type=number]::-webkit-inner-spin-button, 
