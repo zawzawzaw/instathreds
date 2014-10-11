@@ -69,7 +69,7 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
         //xposition = (canvas2.width - resultsmall.width)/2 ;
         //yposition = (canvas2.height - resultsmall.height)/2;
         xposition = (baseImg.width - resultsmall.width)/2 ;
-        yposition = (baseImg.height - resultsmall.height)/2;
+        yposition = ((baseImg.height - resultsmall.height)/2)-20;
         
         context2.drawImage(designImg,xposition,yposition,resultsmall.width, resultsmall.height);
 
@@ -126,7 +126,6 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
         $('.shirt-template.active').hide();
         $('.shirt-template.active').removeClass("active");
         $('#'+shirt_type).show();
-        $('#'+shirt_type).show();
         $('#'+shirt_type).addClass("active");
         
         
@@ -150,6 +149,8 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
         $(".shirt-view a").removeClass("active");
         $(".shirt-view .front").addClass("active");
 
+        $(".shirt-back-checkbox").hide();
+
 
         var shirt = $(".shirt-template.active .canvas-template");
         body = shirt.attr('data-body');
@@ -170,6 +171,7 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
         $(".shirt-view a").removeClass("active");
         $(".shirt-view .back").addClass("active");
 
+        $(".shirt-back-checkbox").show();
 
         var shirt = $(".shirt-template.active .canvas-template.back");
         body = shirt.attr('data-body');
@@ -182,6 +184,59 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
 
         loadimage(body,base,shadow,design,base_x,base_y,color); 
 
+    });
+
+
+     //GENDER TABS
+    $(".gender li a").click(function(e){
+        
+        e.preventDefault();
+        gender = $(this).attr("id");
+        $(".gender li a.active").removeClass("active");
+        $(this).addClass("active");
+
+        //reset front and back button
+        $(".shirt-view a").removeClass("active");
+        $(".shirt-view .front").addClass("active");
+
+
+        if(gender == 'womens'){
+            shirt = $("#womens-standard .canvas-template");
+            $(".shirt-type-select").hide();
+            $('.shirt-template.active').hide();
+            $('.shirt-template.active').removeClass("active");
+            $("#womens-type").show();
+            $("#womens-standard").show();
+            $("#womens-standard").addClass("active");
+        }else if(gender == 'mens'){
+            shirt = $("#mens-standard .canvas-template");
+            $(".shirt-type-select").hide();
+            $('.shirt-template.active').hide();
+            $('.shirt-template.active').removeClass("active");
+            $("#mens-type").show();
+            $("#mens-standard").show()
+            $("#mens-standard").addClass("active");
+        }else if(gender == 'kids'){
+            shirt = $("#kids-tee .canvas-template");
+            $(".shirt-type-select").hide();
+            $('.shirt-template.active').hide();
+            $('.shirt-template.active').removeClass("active");
+            $("#kids-type").show();
+            $("#kids-tee").show();
+            $("#kids-tee").addClass("active");
+        }
+
+        
+        //var shirt = $(".shirt-template.active .canvas-template");
+        body = shirt.attr('data-body');
+        base = shirt.attr('data-base');
+        base_x = shirt.attr('data-x');
+        base_y = shirt.attr('data-y');
+        shadow = shirt.attr('data-shadow');
+        design = shirt.attr('data-product');
+        color = '#000000'; //default is white
+
+        loadimage(body,base,shadow,design,base_x,base_y,color); 
     });
 
 

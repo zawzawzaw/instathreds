@@ -29,49 +29,32 @@
 
           <div class="row product">
             <div class="left">
-              
-              <!-- MENS-STANDARD -->
-              <div class="shirt-template active" id="mens-standard">
-                <div class="front">
-                  {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-front-shadow.png', '', array('class' => 'shadow')) }}
-                  
-                  {{ HTML::image('images/products/Game Over Space Scorpion.png', '', array('class' => 'product')) }}
-                  <canvas class="canvas-product"></canvas>
-                  <canvas class="canvas-productbig"></canvas>
-                  <canvas class="canvas-front"></canvas>
-                  {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-front-base.png', '',  array('class' => 'base')) }}
-                  {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-front-background.png','', array('class' => 'body')) }}
-                </div>
-                <div class="back">
-                  {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-back-shadow.png', '', array('class' => 'shadow')) }}
-                  {{ HTML::image('images/products/Game Over Space Scorpion.png', '', array('class' => 'product')) }}
-                  <canvas class="canvas-product"></canvas>
-                  <canvas class="canvas-productbig"></canvas>
-                  <canvas class="canvas-back"></canvas>
-                  {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-back-base.png', '', array('class' => 'base')) }}
-                  {{ HTML::image('images/shirt-templates/mens-standard/mens-standard-back-background.png','', array('class' => 'body')) }}
-                </div>
-              </div>
+              <!-- image magick way-->
+              <?php
+            $img = Image::canvas(630, 460, '#cccccc');
+            
+            // create a new Image instance for inserting
+            $design = Image::make('http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-front-body.png');
+            $img->insert($design, 'center');
+            $img->resize(460, null, function ($constraint) {
+              $constraint->aspectRatio();
+            });
+            
+            // create a new Image instance for inserting
+            $base = Image::make('http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-front-base.png');
+            // get Imagick instance
+            $imagick = $base->getCore();
 
-              <!-- MENS-STAPLE -->
-              <div class="shirt-template" id="mens-staple">
-                <div class="front">
-                  {{ HTML::image('images/shirt-templates/mens-staple/mens-staple-front-shadow.png', '', array('class' => 'shadow')) }}
-                  {{ HTML::image('images/products/Game Over Space Scorpion.png', '', array('class' => 'product')) }}
-                  <canvas class="canvas-product"></canvas>
-                  <canvas class="canvas-front" width="263" height="327"></canvas>
-                  {{ HTML::image('images/shirt-templates/mens-staple/mens-staple-front-base.png', '',  array('class' => 'base')) }}
-                  {{ HTML::image('images/shirt-templates/mens-staple/mens-staple-front-background.png','', array('class' => 'body')) }}
-                </div>
-                <div class="back">
-                  {{ HTML::image('images/shirt-templates/mens-staple/mens-staple-back-shadow.png', '', array('class' => 'shadow')) }}
-                  {{ HTML::image('images/products/Game Over Space Scorpion.png', '', array('class' => 'product')) }}
-                  <canvas class="canvas-product"></canvas>
-                  <canvas class="canvas-back" width="263" height="327"></canvas>
-                  {{ HTML::image('images/shirt-templates/mens-staple/mens-staple-back-base.png', '', array('class' => 'base')) }}
-                  {{ HTML::image('images/shirt-templates/mens-staple/mens-staple-back-background.png','', array('class' => 'body')) }}
-                </div>
-              </div>
+            // apply Imagick function
+            $imagick->colorizeImage("#ff02f7",1);
+
+
+            $img->insert($base, 'center');
+            
+
+            $path = 'images/test.jpg';
+            $img->save($path);
+            ?>
 
 
 
