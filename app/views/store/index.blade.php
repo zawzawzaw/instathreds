@@ -50,7 +50,7 @@
               <ul class="block-grid four-up mobile">
                 @foreach($products as $product)
                   <li>
-                    <a href="{{ URL::to('product', array(Product::slug($product->title), $product->id)) }}">{{ HTML::image('images/products/thumbs/'.$product->image) }}</a>
+                    <a href="{{ URL::to('product', array(Product::slug($product->title), $product->id)) }}">{{ HTML::image('images/products/thumbs/'.$product->thumbnail_image) }}</a>
                     <a href="{{ URL::to('product', array(Product::slug($product->title), $product->id)) }}" class="title">{{ $product->title }}</a>
                   </li>
                 @endforeach            

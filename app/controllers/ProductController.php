@@ -10,10 +10,6 @@ class ProductController extends \BaseController {
 	    $this->beforeFilter('admin');
 	}
 
-	public function colours() {
-		return $this->hasMany('colours');
-	}
-
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -30,9 +26,9 @@ class ProductController extends \BaseController {
 		}
 
 		$categories = Category::all();
-	    $products = Product::paginate(8);
+	    // $products = Product::paginate(8);
 
-	    // return $products;
+	    $products = Product::with('category')->paginate(8);
 
 		$this->layout->content = View::make('products.index')
 			->with('username', $username)
@@ -81,9 +77,7 @@ class ProductController extends \BaseController {
 		    $product->category_id = Input::get('category_id');
 		    $product->title = Input::get('title');
 		    $product->description = Input::get('description');
-		    $product->price = Input::get('price');
 		    $product->availability = 1;
-		    $product->stock = Input::get('stock');
 		    $product->image = Input::get('image');
 		    $product->thumbnail_image = Input::get('thumbnail_image');
 		    $product->save();
@@ -135,7 +129,21 @@ class ProductController extends \BaseController {
 	public function edit($id)
 	{
 		//
-		return View::make('products.edit');
+		if (Auth::check())
+		{
+		    $username = Auth::user()->username;
+		}else {
+			$username = '';
+		}
+
+		$categories = Category::all();
+
+		$product = Product::find($id);
+
+		$this->layout->content = View::make('products.edit')
+			->with('username', $username)
+			->with('categories', $categories)
+			->with('product', $product);
 	}
 
 
@@ -158,10 +166,34 @@ class ProductController extends \BaseController {
 			$product->save();
 
 		}else {
-			return 'umm.. interesting!';
+			$validator = Validator::make(Input::all(), Product::$rules);
+ 
+		    if ($validator->passes()) {
+
+		        # validation has passed, save user in DB
+
+		    	$product = Product::find($id);
+			    $product->category_id = Input::get('category_id');
+			    $product->title = Input::get('title');
+			    $product->description = Input::get('description');
+			    // $product->price = Input::get('price');
+			    $product->availability = 1;
+			    // $product->stock = Input::get('stock');
+			    $product->image = Input::get('image');
+			    $product->thumbnail_image = Input::get('thumbnail_image');
+			    $product->save();
+			 
+			    return Redirect::to('/admin/designs/'.$id.'/edit')->with('message', 'Product successfully updated');
+
+		    } else {
+		        # validation has failed, display error messages
+		    	// print_r($validator); exit();
+
+		    	return Redirect::to('/admin/designs/'.$id.'/edit')->with('message', 'The following errors occurred:')->withErrors($validator)->withInput();
+		    }
 		}
 
-		return $id;
+		return Redirect::to('/admin/designs/'.$id.'/edit')->with('message', 'Something went wrong. Please try again later.');
 	}
 
 

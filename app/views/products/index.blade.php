@@ -69,11 +69,21 @@
 		</ul>
 
 		<div class="row">
+			<div class="col-md-12">
+			@if(isset($errors) && !empty($errors))
 			<ul>
 		        @foreach($errors->all() as $error)
 		            <li>{{ $error }}</li>
 		        @endforeach
 		    </ul>
+		    @endif
+
+		    @if (Session::has('message'))
+			  <div class="message alert">
+			    <p>{{ Session::get('message') }}</p>
+			  </div>
+			@endif
+		    </div>
 		</div>
 
 	      
@@ -89,14 +99,14 @@
 			                  <label for="featured">Feature this!</label>
 			                </div>
 			                <div class="thmb-prev">
-			                  <a href="{{ $product->image }}" data-rel="prettyPhoto">
+			                  <a href="{{ '/images/products/'.$product->image }}" data-rel="prettyPhoto">
 			                  	{{ HTML::image('images/products/thumbs/'.$product->thumbnail_image, '', array('class'=>'img-responsive')) }}		                    
 			                  </a>
 			                </div>
 			                <h5 class="fm-title"><a href="{{ '/admin/designs/'.$product->id.'/edit' }}">{{ $product->title }}</a></h5>
 			                <small class="text-muted">by karloestrada</small>
-			                <small class="text-muted">Sales: 29</small>
-			                <small class="text-muted">Category: {{ $product->category_id }}</small>
+			                <small class="text-muted">Sales: 0</small>
+			                <small class="text-muted">Category: {{ $product->category->name }}</small>
 			              </div><!-- thmb -->
 			            </div><!-- col-xs-6 -->
 		            @endforeach

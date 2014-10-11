@@ -77,7 +77,7 @@
                     </div>       
 
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Upload Design</label>
+                      <label class="col-sm-3 control-label">Upload Design (PNG)</label>
                       <div class="col-sm-6">
                         <div class="fileupload fileupload-new" data-provides="fileupload">
                           <div class="input-append">
@@ -133,6 +133,13 @@
                     </div>
 
                     <div class="form-group">
+                      <label class="col-sm-3 control-label">Designer Name</label>
+                      <div class="col-sm-6">
+                        <input type="text" name="designer_name" placeholder="Enter design name" class="form-control" />
+                      </div>
+                    </div>
+
+                    <!-- <div class="form-group">
                       <label class="col-sm-3 control-label">Price</label>
                       <div class="col-sm-6">
                         <input type="text" name="price" placeholder="Enter your product price" class="form-control" />
@@ -144,7 +151,7 @@
                       <div class="col-sm-6">
                         <input type="text" name="stock" placeholder="Enter your product stock" class="form-control" />
                       </div>
-                    </div>
+                    </div> -->
                     
 
                   

@@ -56,7 +56,8 @@
         </div>
         
         <div class="contentpanel">
-          <form method="POST" action="/admin/designs" class="form-horizontal">
+        	{{ Form::open(array('url' => '/admin/designs/'.$product->id, 'method' => 'put', 'class' => 'form-horizontal')) }}
+          <!-- <form method="PUT" action="/admin/designs" class="form-horizontal"> -->
           <div class="row">
             <div class="col-sm-9">
 
@@ -65,31 +66,40 @@
                 
 
                 <div class="panel-heading">
-                  <h4 class="panel-title">ADD A DESIGN</h4>
+                  <h4 class="panel-title">EDIT DESIGN</h4>
                 </div>
                 <div class="panel-body"> 
                     <div class="row">
-                      <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+                    	<div class="col-md-12">
+	                      	<ul>
+	                            @foreach($errors->all() as $error)
+	                                <li>{{ $error }}</li>
+	                            @endforeach
+	                        </ul>
+	                     	
+							@if (Session::has('message'))
+							  <div class="message alert">
+							    <p>{{ Session::get('message') }}</p>
+							  </div>
+							@endif
+					    </div>
                     </div>       
 
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Upload Design</label>
+                      <label class="col-sm-3 control-label">Upload Design (PNG)</label>
                       <div class="col-sm-6">
                         <div class="fileupload fileupload-new" data-provides="fileupload">
                           <div class="input-append">
                             <div class="uneditable-input">
                               <i class="glyphicon glyphicon-file fileupload-exists"></i>
-                              <span class="fileupload-preview"></span>
+                              <span class="fileupload-preview">{{ $product->image }}</span>
                             </div>
                             <span class="btn btn-default btn-file">
-                              <span class="fileupload-new">Select file</span>
+                              <span class="fileupload-new">Change</span>
                               <span class="fileupload-exists">Change</span>
                               <input id="file_upload" name="product_image" type="file" />
-                              <input type="hidden" name="image" />
+                              <input type="hidden" name="id" value="{{ $product->id }}" />
+                              <input type="hidden" name="image" value="{{ $product->image }}" />
                             </span>
                             <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
                           </div>
@@ -104,13 +114,13 @@
                           <div class="input-append">
                             <div class="uneditable-input">
                               <i class="glyphicon glyphicon-file fileupload-exists"></i>
-                              <span class="fileupload-preview-2"></span>
+                              <span class="fileupload-preview-2">{{ $product->thumbnail_image }}</span>
                             </div>
                             <span class="btn btn-default btn-file">
-                              <span class="fileupload-new">Select file</span>
+                              <span class="fileupload-new">Change</span>
                               <span class="fileupload-exists">Change</span>
                               <input id="file_upload_2" name="product_image_2" type="file" />
-                              <input type="hidden" name="thumbnail_image" />
+                              <input type="hidden" name="thumbnail_image" value="{{ $product->thumbnail_image }}" />
                             </span>
                             <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
                           </div>
@@ -121,30 +131,30 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Title</label>
                       <div class="col-sm-6">
-                        <input type="text" name="title" placeholder="Enter your product title" class="form-control" />
+                        <input type="text" name="title" placeholder="Enter your product title" class="form-control" value="{{ $product->title }}" />
                       </div>
                     </div>
 
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Description</label>
                       <div class="col-sm-6">
-                        <input type="text" name="description" placeholder="Enter your product description" class="form-control" />
+                        <input type="text" name="description" placeholder="Enter your product description" class="form-control" value="{{ $product->description }}" />
                       </div>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                       <label class="col-sm-3 control-label">Price</label>
                       <div class="col-sm-6">
-                        <input type="text" name="price" placeholder="Enter your product price" class="form-control" />
+                        <input type="text" name="price" placeholder="Enter your product price" class="form-control" value="{{ $product->price }}" />
                       </div>
                     </div>
 
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Stock</label>
                       <div class="col-sm-6">
-                        <input type="text" name="stock" placeholder="Enter your product stock" class="form-control" />
+                        <input type="text" name="stock" placeholder="Enter your product stock" class="form-control" value="{{ $product->stock }}" />
                       </div>
-                    </div>
+                    </div> -->
                     
 
                   
@@ -155,7 +165,7 @@
                         <div class="col-sm-6 col-sm-offset-3">
                             {{ Form::token() }} 
                             <input type="submit" class="btn btn-primary" />&nbsp;
-                            <button class="btn btn-default">Cancel</button>
+                            <a href="{{ route('admin.designs.index') }}"><button class="btn btn-default">Cancel</button></a>
                         </div>
                     </div>
                 </div><!-- panel-footer -->
@@ -176,12 +186,12 @@
 
                 <ul class="folder-list">
                     @foreach($categories as $category)
-                      <li>
-                          <div class="ckbox ckbox-default">
-                              <input type="checkbox" name="category_id" class="choose-category" value="{{ $category->id }}">
-                              <label class="choose-category" for="check1">{{ $category->name }}</label>
-                          </div>
-                      </li>
+                  	<li>
+                      	<div class="ckbox ckbox-default">
+                          	<input type="checkbox" name="category_id" class="choose-category" value="{{ $category->id }}" @if($product->category_id==$category->id) checked="checked" @endif>
+                          	<label class="choose-category" for="check1">{{ $category->name }}</label>
+                      	</div>
+                  	</li>
                     @endforeach
                     
                 </ul>  
@@ -189,11 +199,7 @@
               </div>          
             </div>
           </div>
-          </form>  
-
-
-          
-          
+          {{ Form::close() }}
           
         </div><!-- contentpanel -->
     
@@ -307,23 +313,6 @@ jQuery(document).ready(function(){
 
             var data = data.split("||").concat();
 
-            // if(data == 'small'){
-            //     $uploadResponse.text('');
-            //     $uploadResponse.text('Image is too small').css('color','red');
-
-            //     $uploadBtn.uploadifive('cancel', $('.uploadifive-queue-item').first().data('file'));
-            // }
-            // else if(data == 'large'){
-            //     $uploadResponse.text('');
-            //     $uploadResponse.text('Image is too big').css('color','red');
-
-            //     $uploadBtn.uploadifive('cancel', $('.uploadifive-queue-item').first().data('file'));
-            // }else {
-
-            // }
-
-            // $('#uploaded_file-error').hide();
-
             var shortText = jQuery.trim(data[1]).substring(0, 20).trim(this) + "...";
             console.log(data[0])
             console.log(data[1])
@@ -355,23 +344,6 @@ jQuery(document).ready(function(){
             console.log(data);
 
             var data = data.split("||").concat();
-
-            // if(data == 'small'){
-            //     $uploadResponse.text('');
-            //     $uploadResponse.text('Image is too small').css('color','red');
-
-            //     $uploadBtn.uploadifive('cancel', $('.uploadifive-queue-item').first().data('file'));
-            // }
-            // else if(data == 'large'){
-            //     $uploadResponse.text('');
-            //     $uploadResponse.text('Image is too big').css('color','red');
-
-            //     $uploadBtn.uploadifive('cancel', $('.uploadifive-queue-item').first().data('file'));
-            // }else {
-
-            // }
-
-            // $('#uploaded_file-error').hide();
 
             var shortText = jQuery.trim(data[1]).substring(0, 20).trim(this) + "...";
             console.log(data[0])

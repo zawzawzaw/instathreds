@@ -8,7 +8,7 @@ class Product extends Eloquent {
 		'category_id' => 'required|integer',
 		'title' => 'required|min:2',
 		'description' => 'required|min:2',
-		'price' => 'required|numeric',
+		// 'price' => 'required|numeric',
 		'availability' => 'integer',
 		'image' => 'required'
 	);

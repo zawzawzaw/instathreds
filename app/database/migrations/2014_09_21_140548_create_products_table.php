@@ -18,9 +18,9 @@ class CreateProductsTable extends Migration {
 			$table->integer("category_id")->unsigned();
 			$table->string("title");
 			$table->text("description");
-			$table->decimal("price", 6, 2);
+			//$table->decimal("price", 6, 2);
 			$table->boolean("availability")->default(1);
-			$table->integer("stock");
+			// $table->integer("stock");
 			$table->string("image");
 			$table->timestamps();
 		});
