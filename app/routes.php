@@ -77,6 +77,16 @@ Route::get('product/{title}/{id}', array(
   'as' => 'product'
 ));
 
+Route::post('singleproduct/getcolors', array(
+  'uses' => 'SingleproductController@getcolors',
+  'as' => 'singleproduct.getcolors'
+));
+
+Route::post('singleproduct/getsizes', array(
+  'uses' => 'SingleproductController@getsizes',
+  'as' => 'singleproduct.getsizes'
+));
+
 Route::resource('cart', 'CartController');
 
 Route::get('our-story', array(

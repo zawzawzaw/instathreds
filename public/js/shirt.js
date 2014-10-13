@@ -147,6 +147,34 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
 
     });
 
+    // colour
+
+    $(".color-option").on('click', function(e){
+        e.preventDefault();
+
+        $('.color-option').removeClass('active');
+        $(this).addClass('active');
+
+        //reset front and back button
+        $(".shirt-view a").removeClass("active");
+        $(".shirt-view .front").addClass("active");
+
+        //reset the image
+        $('.shirt-template.active #canvas-final').hide();
+        
+        var shirt = $(".shirt-template.active .canvas-template");
+        body = shirt.attr('data-body');
+        base = shirt.attr('data-base');
+        base_x = shirt.attr('data-x');
+        base_y = shirt.attr('data-y');
+        shadow = shirt.attr('data-shadow');
+        design = shirt.attr('data-product');
+        color = $(this).data('color');
+
+        loadimage(body,base,shadow,design,base_x,base_y,color);
+
+    });
+
     //FRONT BUTTON
     $(".shirt-view .front").click(function(e){
         e.preventDefault();
@@ -218,6 +246,8 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
             $(".shirt-type").removeClass("active-type");
             $("#womens-type").addClass("active-type");
 
+            var autoSelectedType = $('.active-type').children('.dropdown-menu').find('a').first().text();
+            $('.active-type').children('.shirt-type').html(autoSelectedType + '<span class="caret"></span>');
 
         }else if(gender == 'mens'){
             shirt = $("#mens-standard .canvas-template");
@@ -233,6 +263,9 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
             $(".shirt-type").removeClass("active-type");
             $("#mens-type").addClass("active-type");
 
+            var autoSelectedType = $('.active-type').children('.dropdown-menu').find('a').first().text();
+            $('.active-type').children('.shirt-type').html(autoSelectedType + '<span class="caret"></span>');
+
         }else if(gender == 'kids'){
             shirt = $("#kids-tee .canvas-template");
             $(".shirt-type-select").hide();
@@ -245,6 +278,9 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
             //////
             $(".shirt-type").removeClass("active-type");
             $("#kids-type").addClass("active-type");
+
+            var autoSelectedType = $('.active-type').children('.dropdown-menu').find('a').first().text();
+            $('.active-type').children('.shirt-type').html(autoSelectedType + '<span class="caret"></span>');
         }
 
         
@@ -258,6 +294,119 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
         color = '#000000'; //default is white
 
         loadimage(body,base,shadow,design,base_x,base_y,color); 
+    });
+
+    var makeRequest = function(Data, URL, Method) {
+
+        var request = $.ajax({
+            url: URL,
+            type: "POST",
+            data: Data,
+            dataType: "JSON",
+            success: function(response) {
+                // if success remove current item
+                // console.log(response);
+            },
+            error: function( error ){
+                // Log any error.
+                console.log( "ERROR:", error );
+            }
+        });
+
+        return request;
+    };
+
+    var request;
+    $('.shirt-type-select .dropdown-menu a').on('click', function(e){
+
+        e.preventDefault();
+
+        $('span.selected-type').text($(this).text());
+
+        // abort any pending request
+        if (request) {
+            request.abort();
+        }
+
+        var shirtTypeID = $(this).data('id');
+
+        var requestJsonData = { id : shirtTypeID };
+
+        request = makeRequest(requestJsonData, "/singleproduct/getcolors", "POST");
+
+        request.done(function(){
+            console.log(request);
+
+            var result = jQuery.parseJSON(request.responseText);
+            
+            console.log(result);
+
+            $('.color-list').html('');
+            $.each(result, function(i, v){
+                var active_by_default_color_li = '<li><span class="color-option active" id="'+v.name+'" data-color="'+v.hex_value+'" style="background-color: '+v.hex_value+'"></span></li>';
+                var color_li = '<li><span class="color-option" id="'+v.name+'" data-color="'+v.hex_value+'" style="background-color: '+v.hex_value+'"></span></li>';
+
+                if(i==0)
+                    $('.color-list').append(active_by_default_color_li);
+                else
+                    $('.color-list').append(color_li);
+            });
+
+            $(".color-option").on('click', function(e){
+                e.preventDefault();
+
+                $('.color-option').removeClass('active');
+                $(this).addClass('active');
+
+                //reset front and back button
+                $(".shirt-view a").removeClass("active");
+                $(".shirt-view .front").addClass("active");
+
+                //reset the image
+                $('.shirt-template.active #canvas-final').hide();
+                
+                var shirt = $(".shirt-template.active .canvas-template");
+                body = shirt.attr('data-body');
+                base = shirt.attr('data-base');
+                base_x = shirt.attr('data-x');
+                base_y = shirt.attr('data-y');
+                shadow = shirt.attr('data-shadow');
+                design = shirt.attr('data-product');
+                color = $(this).data('color');
+
+                loadimage(body,base,shadow,design,base_x,base_y,color);
+
+            });
+
+        });
+
+        request2 = makeRequest(requestJsonData, "/singleproduct/getsizes", "POST");
+
+        request2.done(function(){
+            console.log(request2);
+
+            var result = jQuery.parseJSON(request2.responseText);
+            
+            console.log(result);
+
+            $('.shirt-size').html('');
+            $.each(result, function(i, v){
+                var active_by_default_size_anchor = '<a href="javascript:void(0);" class="active">'+v.title+'</a>';
+                var size_anchor = '<a href="javascript:void(0);">'+v.title+'</a>';
+
+                if(i==0)
+                    $('.shirt-size').append(active_by_default_size_anchor);
+                else
+                    $('.shirt-size').append(size_anchor);
+            });
+
+            $('.shirt-size a').on('click', function(e){
+              $('.shirt-size .active').removeClass('active');
+              $(this).addClass('active');
+            });
+
+        });     
+        
     });
 
 

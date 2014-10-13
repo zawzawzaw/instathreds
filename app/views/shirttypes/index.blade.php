@@ -131,10 +131,10 @@
 	        <div class="col-sm-3">
 	          	<div class="fm-sidebar">
 
-	          		<a href="{{ route('admin.shirttypes.create') }}"><button class="btn btn-primary btn-block" data-toggle="modal" data-target=".bs-example-modal">Add Shirt Type</button></a>
+	          		<!-- <a href="{{ route('admin.shirttypes.create') }}"><button class="btn btn-primary btn-block" data-toggle="modal" data-target=".bs-example-modal">Add Shirt Type</button></a> -->
             		<div class="mb30"></div>
 	            
-	            	<h5 class="subtitle">Types<a href="" class="category-add-link pull-right">+ Add Types</a></h5>
+	            	<h5 class="subtitle">Types<!-- <a href="" class="category-add-link pull-right">+ Add Types</a> --></h5>
 
 		            <div class="form-group category-add">
 			            {{ Form::open(array('url'=>'admin/genders', 'class'=>'form-signup')) }}

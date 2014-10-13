@@ -2,7 +2,7 @@
 
 class Shirttype extends Eloquent {
 
-	protected $fillable = array('gender_id', 'title', 'price');
+	protected $fillable = array('title', 'price');
 
 	public static $rules = array(
 		'gender_id' => 'required|integer',

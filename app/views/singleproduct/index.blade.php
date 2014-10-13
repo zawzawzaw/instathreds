@@ -30,33 +30,38 @@
 
           <div class="row product">
             <div class="left">
+
+                @foreach($all_shirttypes as $all_shirttype)
+                    
+                    <div class="shirt-template active" id="<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>">
+                        <canvas class="canvas-template" 
+                            data-shadow="http://instathreds.dev/images/shirt-templates/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>-front-shadow.png" 
+                            data-base="http://instathreds.dev/images/shirt-templates/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>-front-base.png" 
+                            data-body="http://instathreds.dev/images/shirt-templates/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>-front-body.png" 
+                            data-product="{{ asset('images/products/'.$product->image) }}" 
+                            data-x="25" 
+                            data-y="55">
+                        </canvas>
+                        <canvas class="canvas-template back" 
+                            data-shadow="http://instathreds.dev/images/shirt-templates/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>-back-shadow.png" 
+                            data-base="http://instathreds.dev/images/shirt-templates/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>-back-base.png" 
+                            data-body="http://instathreds.dev/images/shirt-templates/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>-back-body.png" 
+                            data-product="{{ asset('images/products/'.$product->image) }}" 
+                            data-x="28" 
+                            data-y="54">
+                        </canvas>
+                        <div class="preloader">
+                            {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
+                        </div>
+                        <img id="canvas-final" src="">
+                     </div>
+                @endforeach
               
               <!-- MENS-STANDARD -->
-              <div class="shirt-template active" id="mens-standard">
-                <canvas class="canvas-template" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-front-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-front-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-front-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}" 
-                data-x="25" 
-                data-y="55">
-                </canvas>
-                <canvas class="canvas-template back" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-back-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-back-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/mens-standard/mens-standard-back-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}" 
-                data-x="28" 
-                data-y="54">
-                </canvas>
-                <div class="preloader">
-                {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
-                </div>
-                <img id="canvas-final" src="">
-              </div>
+              
 
               <!-- MENS-STAPLE -->
-              <div class="shirt-template" id="mens-staple">
+              <!-- <div class="shirt-template" id="mens-staple">
                 <canvas class="canvas-template" 
                 data-shadow="http://instathreds.dev/images/shirt-templates/mens-staple/mens-staple-front-shadow.png" 
                 data-base="http://instathreds.dev/images/shirt-templates/mens-staple/mens-staple-front-base.png" 
@@ -77,17 +82,17 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div>
+              </div> -->
 
               <!-- MENS-LOWDOWN -->
-              <div class="shirt-template" id="mens-lowdown">
+              <!-- <div class="shirt-template" id="mens-lowdown">
                 <canvas class="canvas-template" 
                 data-shadow="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-front-shadow.png" 
                 data-base="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-front-base.png" 
                 data-body="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-front-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}" 
                 data-x="26" 
-                data-y="60">
+                data-y="60"> 
                 </canvas>
                 <canvas class="canvas-template back" 
                 data-shadow="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-back-shadow.png" 
@@ -101,10 +106,10 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div>
+              </div> -->
 
               <!-- MENS-BARNARD -->
-              <div class="shirt-template" id="mens-barnard">
+              <!-- <div class="shirt-template" id="mens-barnard">
                 <canvas class="canvas-template" 
                 data-shadow="http://instathreds.dev/images/shirt-templates/mens-barnard/mens-barnard-front-shadow.png" 
                 data-base="http://instathreds.dev/images/shirt-templates/mens-barnard/mens-barnard-front-base.png" 
@@ -125,10 +130,10 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div>
+              </div> -->
 
               <!-- MENS-TALL -->
-              <div class="shirt-template" id="mens-tall">
+              <!-- <div class="shirt-template" id="mens-tall">
                 <canvas class="canvas-template" 
                 data-shadow="http://instathreds.dev/images/shirt-templates/mens-tall/mens-tall-front-shadow.png" 
                 data-base="http://instathreds.dev/images/shirt-templates/mens-tall/mens-tall-front-base.png" 
@@ -149,10 +154,10 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div>
+              </div> -->
 
               <!-- WOMENS-STANDARD -->
-              <div class="shirt-template" id="womens-standard">
+              <!-- <div class="shirt-template" id="womens-standard">
                 <canvas class="canvas-template" 
                 data-shadow="http://instathreds.dev/images/shirt-templates/womens-standard/womens-standard-front-shadow.png" 
                 data-base="http://instathreds.dev/images/shirt-templates/womens-standard/womens-standard-front-base.png" 
@@ -173,10 +178,10 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div>
+              </div> -->
 
               <!-- WOMENS-TANKTEE -->
-              <div class="shirt-template" id="womens-tanktee">
+              <!-- <div class="shirt-template" id="womens-tanktee">
                 <canvas class="canvas-template" 
                 data-shadow="http://instathreds.dev/images/shirt-templates/womens-tanktee/womens-tanktee-front-shadow.png" 
                 data-base="http://instathreds.dev/images/shirt-templates/womens-tanktee/womens-tanktee-front-base.png" 
@@ -197,10 +202,10 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div>
+              </div> -->
 
               <!-- WOMENS-MALI -->
-              <div class="shirt-template" id="womens-mali">
+              <!-- <div class="shirt-template" id="womens-mali">
                 <canvas class="canvas-template" 
                 data-shadow="http://instathreds.dev/images/shirt-templates/womens-mali/womens-mali-front-shadow.png" 
                 data-base="http://instathreds.dev/images/shirt-templates/womens-mali/womens-mali-front-base.png" 
@@ -221,10 +226,10 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div>
+              </div> -->
 
               <!-- WOMENS-DASHRACERBACK -->
-              <div class="shirt-template" id="womens-dashracerback">
+              <!-- <div class="shirt-template" id="womens-dashracerback">
                 <canvas class="canvas-template" 
                 data-shadow="http://instathreds.dev/images/shirt-templates/womens-dashracerback/womens-dashracerback-front-shadow.png" 
                 data-base="http://instathreds.dev/images/shirt-templates/womens-dashracerback/womens-dashracerback-front-base.png" 
@@ -245,10 +250,10 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div>
+              </div> -->
 
               <!-- KIDS TEE -->
-              <div class="shirt-template" id="kids-tee">
+              <!-- <div class="shirt-template" id="kids-tee">
                 <canvas class="canvas-template" 
                 data-shadow="http://instathreds.dev/images/shirt-templates/kids-tee/kids-tee-front-shadow.png" 
                 data-base="http://instathreds.dev/images/shirt-templates/kids-tee/kids-tee-front-base.png" 
@@ -269,10 +274,10 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div>
+              </div> -->
 
               <!-- KIDS MINI -->
-              <div class="shirt-template" id="kids-mini">
+              <!-- <div class="shirt-template" id="kids-mini">
                 <canvas class="canvas-template" 
                 data-shadow="http://instathreds.dev/images/shirt-templates/kids-mini/kids-mini-front-shadow.png" 
                 data-base="http://instathreds.dev/images/shirt-templates/kids-mini/kids-mini-front-base.png" 
@@ -293,57 +298,69 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div>
+              </div> -->
 
             </div>
             <div class="right">
               <h6 class="product-title">{{ Str::upper($product->title) }}</h6>
+
               <div class="shirt-type shirt-type-select active-type" id="mens-type">
                 <a data-toggle="dropdown" class="dropdown-toggle shirt-type" href="#"><span class="selected-type">Shirt Type</span> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="javascript:void(0);" data-shirt="mens-standard">Standard</a></li>
-                  <li><a href="javascript:void(0);" data-shirt="mens-staple">Staple</a></li>
-                  <li><a href="javascript:void(0);" data-shirt="mens-lowdown">Lowdown</a></li>
-                  <li><a href="javascript:void(0);" data-shirt="mens-barnard">Barnard</a></li>
-                  <li><a href="javascript:void(0);" data-shirt="mens-tall">Tall</a></li>
+                @if($men_shirttypes->count() > 0)
+                  @foreach($men_shirttypes as $index => $men_shirttype)
+                    <li><a href="javascript:void(0);" data-shirt="mens-{{ Str::lower($men_shirttype->title) }}"  data-id="{{ $men_shirttype->id }}">{{ $men_shirttype->title }}</a></li>
+                  @endforeach
+                @endif
+                    <!-- <li><a href="javascript:void(0);" data-shirt="mens-staple">Staple</a></li>
+                    <li><a href="javascript:void(0);" data-shirt="mens-lowdown">Lowdown</a></li>
+                    <li><a href="javascript:void(0);" data-shirt="mens-barnard">Barnard</a></li>
+                    <li><a href="javascript:void(0);" data-shirt="mens-tall">Tall</a></li> -->
                 </ul>
               </div>
 
               <div class="shirt-type shirt-type-select" id="womens-type">
                 <a data-toggle="dropdown" class="dropdown-toggle shirt-type" href="#"><span class="selected-type">Shirt Type</span> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="javascript:void(0);" data-shirt="womens-standard">Standard</a></li>
+                    @if($women_shirttypes->count() > 0)
+                      @foreach($women_shirttypes as $index => $women_shirttype)
+                        <li><a href="javascript:void(0);" data-shirt="womens-<?php echo strtolower(str_replace(" ", "",$women_shirttype->title)); ?>"  data-id="{{ $women_shirttype->id }}">{{ $women_shirttype->title }}</a></li>
+                      @endforeach
+                    @endif
+                  <!-- <li><a href="javascript:void(0);" data-shirt="womens-standard">Standard</a></li>
                   <li><a href="javascript:void(0);" data-shirt="womens-tanktee">Tank Tee</a></li>
                   <li><a href="javascript:void(0);" data-shirt="womens-mali">Mali</a></li>
-                  <li><a href="javascript:void(0);" data-shirt="womens-dashracerback">Dash Racerback</a></li>
+                  <li><a href="javascript:void(0);" data-shirt="womens-dashracerback">Dash Racerback</a></li> -->
                 </ul>
               </div>
 
               <div class="shirt-type shirt-type-select" id="kids-type">
                 <a data-toggle="dropdown" class="dropdown-toggle shirt-type" href="#"><span class="selected-type">Shirt Type</span> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="javascript:void(0);" data-shirt="kids-tee">Kids Tee</a></li>
-                  <li><a href="javascript:void(0);" data-shirt="kids-mini">Kids Mini</a></li>
+                    @if($kid_shirttypes->count() > 0)
+                      @foreach($kid_shirttypes as $index => $kid_shirttype)
+                        <li><a href="javascript:void(0);" data-shirt="kids-{{ Str::lower($kid_shirttype->title) }}"  data-id="{{ $kid_shirttype->id }}">{{ $kid_shirttype->title }}</a></li>
+                      @endforeach
+                    @endif
+                  <!-- <li><a href="javascript:void(0);" data-shirt="kids-tee">Kids Tee</a></li>
+                  <li><a href="javascript:void(0);" data-shirt="kids-mini">Kids Mini</a></li> -->
                 </ul>
               </div>
               
               <div class="shirt-size">
-                @if($sizes->count() > 0)
-                  @foreach($sizes as $index => $size)
-                    <a href="javascript:void(0);" @if($index==1) class="active" @endif>{{ $size->title }}</a>
+                @if($men_standard_sizes->count() > 0)
+                  @foreach($men_standard_sizes as $index => $men_standard_size)
+                    <a href="javascript:void(0);" @if($index==1) class="active" @endif>{{ $men_standard_size->title }}</a>
                   @endforeach
                 @endif
               </div>
               <div class="shirt-color">
                 <h6>Select a colour</h6>
                 <ul class="color-list">
-                @if($colours->count() > 0)
-                  @foreach($colours as $colour)
-                    <li><span class="color-option active" id="{{ $colour->name }}" data-color="{{ $colour->hex_value }}"></span></li>
+                @if($men_standard_colours->count() > 0)
+                  @foreach($men_standard_colours as $index => $men_standard_colour)
+                    <li><span class="color-option @if($index==0)active@endif" id="{{ $men_standard_colour->name }}" data-color="{{ $men_standard_colour->hex_value }}" style="background-color: {{ $men_standard_colour->hex_value }}"></span></li>
                   @endforeach
-                @else
-                  <li><span class="color-option active" id="black" data-color="#000000"></span></li>
-                  <li><span class="color-option" id="pink" data-color="#e83fd4"></span></li>  
                 @endif
                 </ul>  
               </div>
@@ -351,10 +368,10 @@
                 <a href="" class="active front">FRONT</a>
                 <span>or</span>
                 <a href="" class="back">BACK</a>
-                <span class="price">${{ $shirttype->price }}</span>
+                <span class="price">${{ $men_standard_shirttype->price }}</span>
               </div>
               <div class="shirt-back-checkbox">
-                <input type="checkbox"><p>Do you want a print at the back of the shirt?</p>
+                <input type="checkbox" name="print_back"><p>Do you want a print at the back of the shirt?</p>
               </div>
               <div class="shirt-quantity">
                   <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4">
@@ -473,7 +490,7 @@
         var addToCartJSON = {
           'id': '{{ $product->id }}', 
           'title': '{{ $product->title }}',
-          'price' : '{{ $product->price }}',
+          'price' : $('.price').text(),
           'qty' : 1,
           'attr' : {
             'size' : 'M',
@@ -481,23 +498,40 @@
           }
         };
 
+
+        $('.shirt-back-checkbox').children('input[name="print_back"]').on('click', function(e) {
+            if ($(this).is(':checked')) {
+                var includedBackPrintPrice = parseInt($('.price').text().replace("$", "")) + 6;
+                $('.price').text('$'+parseFloat(includedBackPrintPrice).toFixed(2)); // fixed for all shirt type back print may be added into table later
+            }else {
+                var excludedBackPrintPrice = parseInt($('.price').text().replace("$", "")) - 6;
+                $('.price').text('$'+parseFloat(excludedBackPrintPrice).toFixed(2)); // fixed for all shirt type back print may be added into table later
+            }
+        });
+        
         var request;
         $('.addtocart-link').on('click', function(e){
           addToCartJSON.qty = $('.qty').val();
+          addToCartJSON.price = $('.price').text();
           addToCartJSON.attr.size = $('.shirt-size .active').text();
           addToCartJSON.attr.color = $('.color-list .active').data('color');
           addToCartJSON.attr.shirt_type = $('.active-type').find('.shirt-type').text();
           addToCartJSON.attr.image = $('.final-product-image').children('img').attr('src');
 
-          console.log(addToCartJSON);
+          if($('.shirt-back-checkbox').children('input[name="print_back"]').is(':checked')) {
+            addToCartJSON.attr.print_back = true;
+          }else {
+            addToCartJSON.attr.print_back = false;
+          }
 
+          console.log(addToCartJSON);
 
           // abort any pending request
           if (request) {
               request.abort();
           }
 
-          request = makeRequest(addToCartJSON, "{{ route('cart.store') }}" , "POST");
+          // request = makeRequest(addToCartJSON, "{{ route('cart.store') }}" , "POST");
 
           request.done(function(){
             var result = jQuery.parseJSON(request.responseText);
@@ -518,14 +552,6 @@
           $(this).addClass('active');
         });
 
-        $('.color-list li span').on('click', function(e){
-          $('.color-list .active').removeClass('active');
-          $(this).addClass('active');
-        });
-
-        $('.shirt-type-select .dropdown-menu a').on('click', function(e){
-          $('span.selected-type').text($(this).text());
-        });
-      })
+    })
     </script>
 @stop
