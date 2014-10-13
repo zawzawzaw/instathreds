@@ -165,5 +165,25 @@ $( document ).ready(function() {
 		}
 	}
 
+	//ACCOUNT NAV
+	//Add Hover effect to menus
+	$('.menu-account-nav').hover(function() {
+	  	$(".avatar-frame").css('background','#fff'); 
+	  	$(this).parent().find('.dropdown-target').show();
+	}, function() {
+	 	$(".avatar-frame").css('background','none');
+	  	$(this).parent().find('.dropdown-target').hide();
+	});
+
+
+	//TABLE
+	$('#orders-table').dataTable( {
+	  "iDisplayLength": 25,
+      "sPaginationType": "full_numbers",
+      "bFilter": false,
+      "bLengthChange": false
+      
+    });
+
 	
 });
