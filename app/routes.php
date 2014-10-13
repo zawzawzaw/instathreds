@@ -66,4 +66,5 @@ Route::post('admin/uploadfiles', array(
 ));
 Route::resource('admin/designs', 'ProductController');
 Route::resource('admin/categories', 'CategoryController');
+Route::resource('admin/shirttypes', 'ShirttypeController');
 

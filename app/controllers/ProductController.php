@@ -179,6 +179,7 @@ class ProductController extends \BaseController {
 			    // $product->price = Input::get('price');
 			    $product->availability = 1;
 			    // $product->stock = Input::get('stock');
+			    $product->designer_name = Input::get('designer_name');
 			    $product->image = Input::get('image');
 			    $product->thumbnail_image = Input::get('thumbnail_image');
 			    $product->save();

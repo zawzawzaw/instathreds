@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateColoursTable extends Migration {
+class CreateSizesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -13,15 +13,14 @@ class CreateColoursTable extends Migration {
 	public function up()
 	{
 		//
-		Schema::create('colours', function($table){
+		Schema::create('sizes', function($table){
 			$table->increments('id');
 			$table->integer("shirttype_id")->unsigned();
-			$table->string("name");
-			$table->text("hex_value");
+			$table->string("title");
 			$table->timestamps();
 		});
 
-		Schema::table('colours', function($table) {
+		Schema::table('sizes', function($table) {
 		    $table->foreign('shirttype_id')->references('id')->on('shirttypes');
 		});
 	}
@@ -34,8 +33,8 @@ class CreateColoursTable extends Migration {
 	public function down()
 	{
 		//
-		Schema::table('colours', function($table){
-			$table->drop('colours');
+		Schema::table('sizes', function($table){
+			$table->drop('sizes');
 		});
 	}
 

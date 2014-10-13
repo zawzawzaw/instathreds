@@ -35,7 +35,7 @@
               			<td><a href="javascript:void(0);" class="button-remove"><i class="fa fa-close">X</i></a></td>
 		              	<td>
 			              	<a href="{{ URL::to('product', array(Product::slug($row->product->title), $row->product->id)) }}" class="product-image">
-				              	{{ HTML::image('images/products/'.$row->product->thumbnail_image, 'product image', array('style' => 'width:150px;')) }}
+                        <img src="{{ $row->options->image }}" alt="product image" style="width:150px;" alt="">
 			              	</a>
 	              		</td>
 		              	<td><a href="{{ URL::to('product', array(Product::slug($row->product->title), $row->product->id)) }}">{{ $row->product->title }}</a></td>

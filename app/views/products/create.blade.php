@@ -121,21 +121,21 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Title</label>
                       <div class="col-sm-6">
-                        <input type="text" name="title" placeholder="Enter your product title" class="form-control" />
+                        <input type="text" name="title" placeholder="Enter your design title" class="form-control" />
                       </div>
                     </div>
 
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Description</label>
                       <div class="col-sm-6">
-                        <input type="text" name="description" placeholder="Enter your product description" class="form-control" />
+                        <input type="text" name="description" placeholder="Enter your design description" class="form-control" />
                       </div>
                     </div>
 
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Designer Name</label>
                       <div class="col-sm-6">
-                        <input type="text" name="designer_name" placeholder="Enter design name" class="form-control" />
+                        <input type="text" name="designer_name" placeholder="Enter designer name" class="form-control" />
                       </div>
                     </div>
 

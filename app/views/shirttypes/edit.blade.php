@@ -44,20 +44,20 @@
         </div><!-- headerbar -->
         
         <div class="pageheader">
-            <h2><i class="fa fa-home"></i> Designs in Store<span style="display:none;"></span></h2>
+            <h2><i class="fa fa-home"></i>Type of Shirt in Store<span style="display:none;"></span></h2>
             <div class="breadcrumb-wrapper">
                 <span class="label">You are here:</span>
                 <ol class="breadcrumb">
                     <li><a href="{{ route('admin') }}">Home</a></li>
-                    <li><a href="{{ route('admin.designs.index') }}">Designs in Store</a></li>
-                    <li class="active">Upload Design</li>
+                    <li><a href="{{ route('admin.shirttypes.index') }}">Type of Shirt in Store</a></li>
+                    <li class="active">Upload Type of Shirt</li>
                 </ol>
             </div>
         </div>
         
         <div class="contentpanel">
-        	{{ Form::open(array('url' => '/admin/designs/'.$product->id, 'method' => 'put', 'class' => 'form-horizontal')) }}
-          <!-- <form method="PUT" action="/admin/designs" class="form-horizontal"> -->
+        	{{ Form::open(array('url' => '/admin/shirttypes/'.$shirttype->id, 'method' => 'put', 'class' => 'form-horizontal')) }}
+          <!-- <form method="PUT" action="/admin/shirttypes" class="form-horizontal"> -->
           <div class="row">
             <div class="col-sm-9">
 
@@ -66,7 +66,7 @@
                 
 
                 <div class="panel-heading">
-                  <h4 class="panel-title">EDIT DESIGN</h4>
+                  <h4 class="panel-title">EDIT TYPE OF SHIRT</h4>
                 </div>
                 <div class="panel-body"> 
                     <div class="row">
@@ -77,29 +77,29 @@
 	                            @endforeach
 	                        </ul>
 	                     	
-							@if (Session::has('message'))
-							  <div class="message alert">
-							    <p>{{ Session::get('message') }}</p>
-							  </div>
-							@endif
-					    </div>
+            							@if (Session::has('message'))
+            							  <div class="message alert">
+            							    <p>{{ Session::get('message') }}</p>
+            							  </div>
+            							@endif
+            					    </div>
                     </div>       
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                       <label class="col-sm-3 control-label">Upload Design (PNG)</label>
                       <div class="col-sm-6">
                         <div class="fileupload fileupload-new" data-provides="fileupload">
                           <div class="input-append">
                             <div class="uneditable-input">
                               <i class="glyphicon glyphicon-file fileupload-exists"></i>
-                              <span class="fileupload-preview">{{ $product->image }}</span>
+                              <span class="fileupload-preview">{{ $shirttype->image }}</span>
                             </div>
                             <span class="btn btn-default btn-file">
                               <span class="fileupload-new">Change</span>
                               <span class="fileupload-exists">Change</span>
                               <input id="file_upload" name="product_image" type="file" />
-                              <input type="hidden" name="id" value="{{ $product->id }}" />
-                              <input type="hidden" name="image" value="{{ $product->image }}" />
+                              <input type="hidden" name="id" value="{{ $shirttype->id }}" />
+                              <input type="hidden" name="image" value="{{ $shirttype->image }}" />
                             </span>
                             <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
                           </div>
@@ -114,52 +114,107 @@
                           <div class="input-append">
                             <div class="uneditable-input">
                               <i class="glyphicon glyphicon-file fileupload-exists"></i>
-                              <span class="fileupload-preview-2">{{ $product->thumbnail_image }}</span>
+                              <span class="fileupload-preview-2">{{ $shirttype->thumbnail_image }}</span>
                             </div>
                             <span class="btn btn-default btn-file">
                               <span class="fileupload-new">Change</span>
                               <span class="fileupload-exists">Change</span>
                               <input id="file_upload_2" name="product_image_2" type="file" />
-                              <input type="hidden" name="thumbnail_image" value="{{ $product->thumbnail_image }}" />
+                              <input type="hidden" name="thumbnail_image" value="{{ $shirttype->thumbnail_image }}" />
                             </span>
                             <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Title</label>
                       <div class="col-sm-6">
-                        <input type="text" name="title" placeholder="Enter your design title" class="form-control" value="{{ $product->title }}" />
+                        <input type="text" name="title" placeholder="Enter shirt type" class="form-control" value="{{ $shirttype->title }}" />
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Description</label>
+                      <label class="col-sm-3 control-label">Price</label>
                       <div class="col-sm-6">
-                        <input type="text" name="description" placeholder="Enter your design description" class="form-control" value="{{ $product->description }}" />
+                        <input type="text" name="price" placeholder="Enter price for shirt type" class="form-control" value="{{ $shirttype->price }}" />
                       </div>
                     </div>
 
+					@if($colours->count() > 0)
+		                  @foreach($colours as $index => $colour)
+			                <div class="form-group">
+			                  <label class="col-sm-3 control-label">Colour {{ $index + 1 }}</label>
+			                  <div class="col-sm-6">
+                            <input type="hidden" name="colour_{{ $index + 1 }}_id" value="{{ $colour->id }}">
+				                    <input type="text" name="colour_{{ $index + 1 }}" placeholder="Enter colour for shirt type" class="colour-input form-control" value="{{ $colour->hex_value }}" />
+			                  </div>
+			                </div>
+                    	@endforeach  
+	                @endif
+
+                  <div class="colour-input-to-clone" style="display:none;">
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Designer Name</label>
+                      <label class="col-sm-3 control-label">Colour</label>
                       <div class="col-sm-6">
-                        <input type="text" name="designer_name" placeholder="Enter designer name" class="form-control" value="{{ $product->designer_name }}" />
+                          <input type="text" disabled="disabled" name="colour" placeholder="Enter colour for shirt type" class="form-control" value="" />
                       </div>
                     </div>
+                  </div>
+
+	                <div class="clones-color" style="margin-bottom: 15px;"></div>
+
+	                <div class="form-group">
+	                	<div class="col-sm-6 col-sm-offset-3">
+	                		<a href="javascript:void(0);" class="addMoreColor">Add Colours +</a>
+	                	</div>
+	                </div>
+
+                  <input type="hidden" name="colour_imports">
+
+	                @if($sizes->count() > 0)
+		                  @foreach($sizes as $index => $size)
+			                <div class="form-group">
+			                  <label class="col-sm-3 control-label">Size {{ $index + 1 }}</label>
+			                  <div class="col-sm-6">
+                          <input type="hidden" name="size_{{ $index + 1 }}_id" value="{{ $size->id }}">
+			                    <input type="text" name="size_{{ $index + 1 }}" placeholder="Enter size for shirt type" class="size-input form-control" value="{{ $size->title }}" />
+			                  </div>
+			                </div>
+                    	@endforeach  
+	                @endif
+
+                  <div class="size-input-to-clone" style="display:none;">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Size</label>
+                        <div class="col-sm-6">
+                          <input type="text" disabled="disabled" name="size" placeholder="Enter size for shirt type" class="form-control" value="" />
+                        </div>
+                      </div>
+                  </div>
+
+				          <div class="clones-size" style="margin-bottom: 15px;"></div>
+
+	                <div class="form-group">
+	                	<div class="col-sm-6 col-sm-offset-3">
+	                		<a href="javascript:void(0);" class="addMoreSize">Add Sizes +</a>
+	                	</div>
+	                </div>
+
+                  <input type="hidden" name="size_imports">
 
                     <!-- <div class="form-group">
                       <label class="col-sm-3 control-label">Price</label>
                       <div class="col-sm-6">
-                        <input type="text" name="price" placeholder="Enter your product price" class="form-control" value="{{ $product->price }}" />
+                        <input type="text" name="price" placeholder="Enter your product price" class="form-control" value="{{ $shirttype->price }}" />
                       </div>
                     </div>
 
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Stock</label>
                       <div class="col-sm-6">
-                        <input type="text" name="stock" placeholder="Enter your product stock" class="form-control" value="{{ $product->stock }}" />
+                        <input type="text" name="stock" placeholder="Enter your product stock" class="form-control" value="{{ $shirttype->stock }}" />
                       </div>
                     </div> -->
                     
@@ -171,8 +226,8 @@
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3">
                             {{ Form::token() }} 
-                            <input type="submit" class="btn btn-primary" />&nbsp;
-                            <a href="{{ route('admin.designs.index') }}"><button class="btn btn-default">Cancel</button></a>
+                            <input type="submit" class="submit-btn btn btn-primary" />&nbsp;
+                            <a href="{{ route('admin.shirttypes.index') }}"><button class="btn btn-default">Cancel</button></a>
                         </div>
                     </div>
                 </div><!-- panel-footer -->
@@ -184,7 +239,7 @@
               
               <div class="fm-sidebar">
                 
-                <h5 class="subtitle">Categories <!-- <a href="" class="category-add-link pull-right">+ Add Category</a> --></h5>
+                <h5 class="subtitle">Types <!-- <a href="" class="category-add-link pull-right">+ Add Category</a> --></h5>
                 <div class="form-group category-add">
                     <input type="text" style="margin-bottom:5px;" class="form-control input-sm" placeholder="New Category">
                     <button class="btn btn-primary btn-sm pull-right">Add</button>
@@ -192,11 +247,11 @@
                 <div class="clearfix mb10"></div>
 
                 <ul class="folder-list">
-                    @foreach($categories as $category)
+                    @foreach($genders as $gender)
                   	<li>
                       	<div class="ckbox ckbox-default">
-                          	<input type="checkbox" name="category_id" class="choose-category" value="{{ $category->id }}" @if($product->category_id==$category->id) checked="checked" @endif>
-                          	<label class="choose-category" for="check1">{{ $category->name }}</label>
+                          	<input type="checkbox" name="gender_id" class="choose-category" value="{{ $gender->id }}" @if($shirttype->gender_id==$gender->id) checked="checked" @endif>
+                          	<label class="choose-category" for="check1">{{ $gender->title }}</label>
                       	</div>
                   	</li>
                     @endforeach
@@ -301,73 +356,119 @@ jQuery(document).ready(function(){
     jQuery('#timepicker2').timepicker({showMeridian: false});
     jQuery('#timepicker3').timepicker({minuteStep: 15});
 
-    // File Upload
-    var $uploadBtn = $('#file_upload');
-    var $uploadResponse = $('.fileupload-preview')
+    // // File Upload
+    // var $uploadBtn = $('#file_upload');
+    // var $uploadResponse = $('.fileupload-preview')
 
-    $uploadBtn.uploadifive({
-        'auto'      : true,
-        'fileType'     : 'image/*',
-        'fileSizeLimit' : '10MB',
-        'buttonText'   : '',
-        'uploadScript' : "{{ route('admin.uploadfiles') }}",
-        'onError'      : function(errorType) {
-            // $uploadBtn.uploadifive('cancel', $('.uploadifive-queue-item').first().data('file'));
-            // $uploadResponse.text(errorType).css('color','red');
-        },
-        'onUploadComplete' : function(file, data) {
-            console.log(data);
+    // $uploadBtn.uploadifive({
+    //     'auto'      : true,
+    //     'fileType'     : 'image/*',
+    //     'fileSizeLimit' : '10MB',
+    //     'buttonText'   : '',
+    //     'uploadScript' : "{{ route('admin.uploadfiles') }}",
+    //     'onError'      : function(errorType) {
+    //         // $uploadBtn.uploadifive('cancel', $('.uploadifive-queue-item').first().data('file'));
+    //         // $uploadResponse.text(errorType).css('color','red');
+    //     },
+    //     'onUploadComplete' : function(file, data) {
+    //         console.log(data);
 
-            var data = data.split("||").concat();
+    //         var data = data.split("||").concat();
 
-            var shortText = jQuery.trim(data[1]).substring(0, 20).trim(this) + "...";
-            console.log(data[0])
-            console.log(data[1])
-            console.log(shortText)
+    //         var shortText = jQuery.trim(data[1]).substring(0, 20).trim(this) + "...";
+    //         console.log(data[0])
+    //         console.log(data[1])
+    //         console.log(shortText)
 
-            $(':hidden[name=image]').val(data[0]);
+    //         $(':hidden[name=image]').val(data[0]);
 
-            $uploadResponse.text(shortText);
+    //         $uploadResponse.text(shortText);
 
-        }
-    });
+    //     }
+    // });
 
-    // File Upload
-    var $uploadBtn2 = $('#file_upload_2');
-    var $uploadResponse2 = $('.fileupload-preview-2')
+    // // File Upload
+    // var $uploadBtn2 = $('#file_upload_2');
+    // var $uploadResponse2 = $('.fileupload-preview-2')
 
-    $uploadBtn2.uploadifive({
-        'auto'      : true,
-        'fileType'     : 'image/*',
-        'fileSizeLimit' : '10MB',
-        'buttonText'   : '',
-        'formData'         : {'type' : 'thumbnail'},
-        'uploadScript' : "{{ route('admin.uploadfiles') }}",
-        'onError'      : function(errorType) {
-            // $uploadBtn.uploadifive('cancel', $('.uploadifive-queue-item').first().data('file'));
-            // $uploadResponse.text(errorType).css('color','red');
-        },
-        'onUploadComplete' : function(file, data) {
-            console.log(data);
+    // $uploadBtn2.uploadifive({
+    //     'auto'      : true,
+    //     'fileType'     : 'image/*',
+    //     'fileSizeLimit' : '10MB',
+    //     'buttonText'   : '',
+    //     'formData'         : {'type' : 'thumbnail'},
+    //     'uploadScript' : "{{ route('admin.uploadfiles') }}",
+    //     'onError'      : function(errorType) {
+    //         // $uploadBtn.uploadifive('cancel', $('.uploadifive-queue-item').first().data('file'));
+    //         // $uploadResponse.text(errorType).css('color','red');
+    //     },
+    //     'onUploadComplete' : function(file, data) {
+    //         console.log(data);
 
-            var data = data.split("||").concat();
+    //         var data = data.split("||").concat();
 
-            var shortText = jQuery.trim(data[1]).substring(0, 20).trim(this) + "...";
-            console.log(data[0])
-            console.log(data[1])
-            console.log(shortText)
+    //         var shortText = jQuery.trim(data[1]).substring(0, 20).trim(this) + "...";
+    //         console.log(data[0])
+    //         console.log(data[1])
+    //         console.log(shortText)
 
-            $(':hidden[name=thumbnail_image]').val(data[0]);
+    //         $(':hidden[name=thumbnail_image]').val(data[0]);
 
-            $uploadResponse2.text(shortText);
+    //         $uploadResponse2.text(shortText);
 
-        }
-    });
+    //     }
+    // });
 
     $('.choose-category').on('click', function(e){
       $(this).prev('input').trigger('click');
     })
 
+    $('.addMoreColor').on('click', function(e){
+      // var newColourInput = $(this).parent().parent().prev().prev('.form-group').clone();
+    	var newColourInput = $('.colour-input-to-clone').children().clone();
+
+      newColourInput.find('input').addClass('colour-input').attr('disabled', false);
+
+    	$('.clones-color').append(newColourInput);
+
+    	newColourInput.find('.control-label').text('Colour ' + parseInt($('.colour-input').length));
+    	newColourInput.find('input').attr('name','colour_' + parseInt($('.colour-input').length)).val('');
+
+    });
+
+    $('.addMoreSize').on('click', function(e){
+      // var newSizeInput = $(this).parent().parent().prev().prev('.form-group').clone();
+    	var newSizeInput = $('.size-input-to-clone').children().clone();
+
+      newSizeInput.find('input').addClass('size-input').attr('disabled', false);
+
+    	$('.clones-size').append(newSizeInput);
+
+    	newSizeInput.find('.control-label').text('Size ' + parseInt($('.size-input').length));
+    	newSizeInput.find('input').attr('name','size_' + parseInt($('.size-input').length)).val('');
+
+    });
+
+    $('.submit-btn').on('click', function(e){
+      e.preventDefault();
+
+      var colourInputs = [];
+      var sizeInputs = [];
+      
+      $('.colour-input').each(function(index, eachColorInput){
+        colourInputs.push($(eachColorInput).attr('name'));
+      });
+
+      $('.size-input').each(function(index, eachSizeInput){
+        sizeInputs.push($(eachSizeInput).attr('name'));
+      });
+
+      $('input[name="colour_imports"]').val(colourInputs.join());
+      $('input[name="size_imports"]').val(sizeInputs.join());
+
+      $(this).closest('form').submit();
+
+    });
   
 });
 </script>

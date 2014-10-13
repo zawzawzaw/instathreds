@@ -61,8 +61,9 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
         canvas3.width = 630;
         canvas3.height = 460;
 
-        var result = ScaleImage(designImg.width, designImg.height, 630, 460, true);
-        x = canvas3.width - result.width;
+        // var result = ScaleImage(designImg.width, designImg.height, 630, 460, true);
+        var result = ScaleImage(designImg.width, designImg.height, baseImg.width-30, baseImg.height-30, true);
+        x = canvas3.width - result.width - 45;
         context3.drawImage(designImg, x, result.targettop, result.width, result.height);
         
         var resultsmall = ScaleImage(designImg.width, designImg.height, baseImg.width-130, baseImg.height-130, true);
@@ -83,7 +84,11 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
         newcontext.drawImage(canvas3,0,0);
 
         $(".preloader").hide();
-        $(".shirt-template.active #canvas-final")[0].src = newcanvas.toDataURL('image/jpeg');
+        var finalProduct = newcanvas.toDataURL('image/jpeg');
+
+        $(".shirt-template.active #canvas-final")[0].src = finalProduct;
+        $(".final-product-image").html('<img src="'+finalProduct+'" style="width:150px;height:100px;">');
+
         $(".shirt-template.active #canvas-final").fadeIn("slow"); 
          
     }); 
@@ -208,6 +213,12 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
             $("#womens-type").show();
             $("#womens-standard").show();
             $("#womens-standard").addClass("active");
+
+            ///////
+            $(".shirt-type").removeClass("active-type");
+            $("#womens-type").addClass("active-type");
+
+
         }else if(gender == 'mens'){
             shirt = $("#mens-standard .canvas-template");
             $(".shirt-type-select").hide();
@@ -216,6 +227,12 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
             $("#mens-type").show();
             $("#mens-standard").show()
             $("#mens-standard").addClass("active");
+
+
+            ///////
+            $(".shirt-type").removeClass("active-type");
+            $("#mens-type").addClass("active-type");
+
         }else if(gender == 'kids'){
             shirt = $("#kids-tee .canvas-template");
             $(".shirt-type-select").hide();
@@ -224,6 +241,10 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
             $("#kids-type").show();
             $("#kids-tee").show();
             $("#kids-tee").addClass("active");
+
+            //////
+            $(".shirt-type").removeClass("active-type");
+            $("#kids-type").addClass("active-type");
         }
 
         

@@ -44,12 +44,12 @@
     </div><!-- headerbar -->
     
     <div class="pageheader">
-		<h2><i class="fa fa-home"></i> Designs in Store<span style="display:none;"></span></h2>
+		<h2><i class="fa fa-home"></i> Type of Shirt in Store<span style="display:none;"></span></h2>
 		<div class="breadcrumb-wrapper">
 			<span class="label">You are here:</span>
 			<ol class="breadcrumb">
 				<li><a href="{{ URL::to('admin') }}">Home</a></li>
-				<li class="active">Designs in Store</li>
+				<li class="active">Type of Shirt in Store</li>
 			</ol>
 		</div>
     </div>
@@ -90,23 +90,21 @@
       	<div class="row">
 	        <div class="col-sm-9">
 	          	<div class="row filemanager">
-	          	@if($products->count() > 0)
-	          		@foreach($products as $product)
+	          	@if($shirttypes->count() > 0)
+	          		@foreach($shirttypes as $shirttype)
 			            <div class="col-xs-6 col-sm-4 col-md-3 image">
 			              <div class="thmb">
 			                <div class="ckbox ckbox-default">
-			                  <input type="checkbox" name="featured" class="featured-this" value="{{ $product->id }}" @if($product->featured) checked="checked" @endif />
-			                  <label for="featured">Feature this!</label>
+			                  <!-- <input type="checkbox" name="featured" class="featured-this" value="{{ $shirttype->id }}" @if($shirttype->featured) checked="checked" @endif />
+			                  <label for="featured">Feature this!</label> -->
 			                </div>
 			                <div class="thmb-prev">
-			                  <a href="{{ '/images/products/'.$product->image }}" data-rel="prettyPhoto">
-			                  	{{ HTML::image('images/products/thumbs/'.$product->thumbnail_image, '', array('class'=>'img-responsive')) }}		                    
+			                  <a href="{{ '/images/shirt-templates/'.$shirttype->image }}" data-rel="prettyPhoto">
+			                  	{{ HTML::image('images/shirt-templates/'.$shirttype->gender->title.'-'.$shirttype->title.'/'.$shirttype->gender->title.'-'.$shirttype->title.'-front-body.png', '', array('style'=>'height: 160px;', 'class'=>'img-responsive')) }}		                    
 			                  </a>
 			                </div>
-			                <h5 class="fm-title"><a href="{{ '/admin/designs/'.$product->id.'/edit' }}">{{ $product->title }}</a></h5>
-			                <small class="text-muted">by {{ $product->designer_name }}</small>
-			                <small class="text-muted">Sales: 0</small>
-			                <small class="text-muted">Category: {{ $product->category->name }}</small>
+			                <h5 class="fm-title"><a href="{{ '/admin/shirttypes/'.$shirttype->id.'/edit' }}">{{ $shirttype->title }}</a></h5>
+			                <small class="text-muted">Type: {{ $shirttype->gender->title }}</small>
 			              </div><!-- thmb -->
 			            </div><!-- col-xs-6 -->
 		            @endforeach
@@ -117,7 +115,7 @@
 		        @endif
 	          	</div><!-- row -->
 				
-				{{ $products->links() }}
+				{{ $shirttypes->links() }}
 
 	          	<!-- <ul class="pagination">
 		            <li class="disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>
@@ -133,13 +131,13 @@
 	        <div class="col-sm-3">
 	          	<div class="fm-sidebar">
 
-	          		<a href="{{ route('admin.designs.create') }}"><button class="btn btn-primary btn-block" data-toggle="modal" data-target=".bs-example-modal">Upload Design</button></a>
+	          		<a href="{{ route('admin.shirttypes.create') }}"><button class="btn btn-primary btn-block" data-toggle="modal" data-target=".bs-example-modal">Add Shirt Type</button></a>
             		<div class="mb30"></div>
 	            
-	            	<h5 class="subtitle">Categories <a href="" class="category-add-link pull-right">+ Add Category</a></h5>
+	            	<h5 class="subtitle">Types<a href="" class="category-add-link pull-right">+ Add Types</a></h5>
 
 		            <div class="form-group category-add">
-			            {{ Form::open(array('url'=>'admin/categories', 'class'=>'form-signup')) }}
+			            {{ Form::open(array('url'=>'admin/genders', 'class'=>'form-signup')) }}
 			              	<!-- <input type="text" style="margin-bottom:5px;" class="form-control input-sm" placeholder="New Category"> -->
 
 			              	{{ Form::text('name', null, array('class'=>'form-control input-sm', 'placeholder'=>'New Category', 'style' => 'margin-bottom:5px;')) }}
@@ -151,8 +149,8 @@
 		            <div class="clearfix mb10"></div>
 
 		            <ul class="folder-list">
-		            	@foreach($categories as $category)
-							<li><a href="{{ URL::to('admin/designs', $category->id) }}"><i class="fa fa-folder-o"></i>{{ $category->name }}</a></li>
+		            	@foreach($genders as $gender)
+							<li><a href="{{ URL::to('admin/shirttypes', $gender->id) }}"><i class="fa fa-folder-o"></i>{{ $gender->title }}</a></li>
 		            	@endforeach
 		            </ul>	           	          	        
 	            
@@ -259,63 +257,6 @@ jQuery(document).ready(function(){
 	});
 
 	jQuery("a[rel^='prettyPhoto']").prettyPhoto();
-
-	var makeRequest = function(Data, URL, Method) {
-
-    	var request = $.ajax({
-		    url: URL,
-		    type: Method,
-		    data: Data,
-        	dataType: "JSON",
-		    success: function(response) {
-		        // if success remove current item
-		        // console.log(response);
-		    },
-            error: function( error ){
-                // Log any error.
-                console.log( "ERROR:", error );
-            }
-		});
-
-		return request;
-	};
-
-	var request;
-	// feature product
-	jQuery('label[for="featured"]').on('click', function(e){
-
-		e.preventDefault();
-
-		// abort any pending request
-    	if (request) {
-	        request.abort();
-	    }
-
-		var featured_prod_id = $(this).prev('input').trigger('click').val();
-
-		if ($(this).prev('input').is(':checked')) {
-			var requestJsonData = { featured : true };
-		}else {
-			var requestJsonData = { featured : false };
-		}	
-
-		request = makeRequest(requestJsonData, "/admin/designs/"+featured_prod_id, "PUT");
-
-        request.done(function(){
-        	console.log(request);
-
-        	var result = jQuery.parseJSON(request.responseText);
-        	
-        	// if(result.message.code==200) {
-        	// 	window.location.reload();
-        	// }else {
-        	// 	console.log(result.message);
-        	// }
-        	console.log(result);
-
-        });	    
-		
-	});
 
 });
 	

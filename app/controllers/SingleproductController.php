@@ -19,17 +19,21 @@ class SingleproductController extends \BaseController {
 
 		$product = Product::find($id);
 
-		$colours = Product::find($id)->colour;
-
 		$category = Category::find($product->category_id);
+
+		$shirttype = Shirttype::find(1);
+		$colours = Shirttype::find(1)->colour;
+		$sizes = Shirttype::find(1)->size;
 
 		$related_products = Product::where("category_id", $product->category_id)->paginate(12);
 
 		$this->layout->content = View::make('singleproduct.index')
 			->with('product', $product)
 			->with('category', $category)
+			->with('related_products', $related_products)
+			->with('shirttype', $shirttype)
 			->with('colours', $colours)
-			->with('related_products', $related_products);
+			->with('sizes', $sizes);
 
 	}
 
