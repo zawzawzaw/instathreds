@@ -122,31 +122,18 @@
             <div class="menu-cart">
               <a href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart"></i><span>{{ Cart::count() }}<span></a>
             </div>
-            @if(!Auth::check())
             <div class="menu-login">
               <ul>
+                @if(!Auth::check())   
                   <li><a href="#login-modal" class="user-account-btn login-link" data-id="login">Login</a></li>
                   <li><a href="#login-modal" class="user-account-btn signup-link" data-id="signup">Signup</a></li>
+                  <!-- <li>{{ HTML::link('login', 'Login') }}</li>
+                  <li>{{ HTML::link('register', 'Register') }}</li> -->
+                @else
+                  <li><a href="{{ route('login.destroy') }}">Logout</a></li>
+                @endif
               </ul>  
             </div>
-            @else
-            <div class="menu-account-nav">
-              <a href="/people/karloestrada" class="account-dropdown-trigger top-level">
-                <div class="avatar-frame">
-                  <img alt="karloestrada" height="30" src="//assets0.redbubble.net/assets/rb-default-avatar.30x30-27c8350283cdf9743226fd500e260b69.png" width="30">
-                  <i class="fa fa-caret-down"></i>
-                </div>
-              </a>
-              <div class="dropdown dropdown-target">
-                <ul>
-                <li><a href="{{ URL::route('account-settings') }}">Account Settings</a></li>
-                <li><a href="{{ URL::route('account-order-history') }}">Order History</a></li>
-                <li class="nav-signout-link"><a href="{{ route('login.destroy') }}" rel="nofollow">Sign Out</a></li>
-                </ul>
-              </div>
-            </div>
-            @endif
-
           </div>
         </div>
         
@@ -376,6 +363,7 @@
     </div>
     
     {{ HTML::script('js/vendor/jquery-2.1.1.js') }}
+    {{ HTML::script('js/fabric.js') }}
     {{ HTML::script('js/bootstrap/dropdown.js') }}
     {{ HTML::script('js/bootstrap/modal.js') }}
     {{ HTML::script('js/bootstrap/tab.js') }}
@@ -383,7 +371,6 @@
     {{ HTML::script('//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js') }}
     {{ HTML::script('js/PxLoader.js') }}
     {{ HTML::script('js/PxLoaderImage.js') }}
-    {{ HTML::script('js/vendor/jquery.datatables.min.js') }}
 
     {{ HTML::script('js/main.js') }}
     {{ HTML::script('js/shirt.js') }}

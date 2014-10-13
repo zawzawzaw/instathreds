@@ -24,6 +24,40 @@ Route::get('logout', array(
   'as' => 'login.destroy'
 ));
 
+# ACCOUNT 
+Route::get('account/settings', array(
+  'uses' => 'AccountController@index',
+  'as' => 'account-settings'
+));
+
+Route::get('account/settings/portrait', array(
+  'uses' => 'AccountController@portrait',
+  'as' => 'account-portrait'
+));
+
+Route::get('account/settings/orderhistory', array(
+  'uses' => 'AccountController@orderhistory',
+  'as' => 'account-order-history'
+));
+
+Route::get('account/settings/payment', array(
+  'uses' => 'AccountController@payment',
+  'as' => 'account-payment'
+));
+
+Route::get('account/settings/password', array(
+  'uses' => 'AccountController@password',
+  'as' => 'account-password'
+));
+
+Route::get('account/settings/cancel', array(
+  'uses' => 'AccountController@cancel',
+  'as' => 'account-cancel'
+));
+
+
+
+
 Route::resource('fblogin', 'FbloginController');
 Route::resource('instalogin', 'IngloginController');
 

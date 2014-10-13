@@ -10,6 +10,7 @@
 .header{
 	@extend .block-position;
 	overflow:visible;
+	z-index:9;
 }
 
 .header-top{
@@ -64,6 +65,9 @@
 .header-main .logo a:hover{
 	border:0px !important;
 }
+
+/*MAIN CONTENT*/
+.main-content{z-index:1;}
 
 /* MENUS */
 .header-main .navigation-menu{
@@ -147,6 +151,17 @@
 	float:left;
 	padding: 30px 0 25px;
 }
+
+.menu-account-nav{float:left;padding:20px 10px 20px;position:relative;}
+.menu-account-nav .avatar-frame{padding:5px 8px;}
+.menu-account-nav .avatar-frame:hover{background:#fff;}
+.menu-account-nav .avatar-frame i{vertical-align:middle;margin:-17px 0 0 5px;}
+.menu-account-nav .dropdown{position:absolute;top:60px;right:10px;width:160px;display:none;}
+.menu-account-nav .dropdown ul{background:#ffffff;list-style:none;margin:0px;}
+.menu-account-nav .dropdown ul li a{margin:0px;clear: both;color: #0381f4 !important;display: block;font-weight: 400;line-height: 1.42857;
+padding: 7px 20px;font-family:$typeface-primary;}
+.menu-account-nav .dropdown ul li a:hover{background-color: #0381F4;color:#fff !Important;border:none;}
+
 
 
 /*MOBILE MENU*/
@@ -1465,5 +1480,132 @@ h3.divider-word span {
 .store-loc i{margin-right:7px;font-size:13px;color:$color-blue !important;}
 .store-loc:hover{border-bottom:0px !important;text-decoration:none;}
 
+/* ACCOUNT */
+.content.account{display:block;}
+.content.account .four{width:33.37%}
+.content.account .column:last-child{margin-left:0.4%;}
+.content.account .panel{background:#f4f4f4;}
+.content.account .panel.detail{display:block;}
+.content.account .panel.detail .left{width:47.5%;float:left;@extend .block-position;margin-right:5%;}
+.content.account .panel.detail .right{width:47.5%;@extend .block-position;}
+
+.content.account .panel.detail .left{
+	@include mobile-only{width:100% !important;}
+}
+.content.account .panel.detail .right{
+	@include mobile-only{width:100% !important;}
+}
+.content.account .panel.detail .form-control{width:100%;}
+.content.account .panel.detail .continuepayment{width:270px;}
 
 
+.menu-account{position:relative;display:block;margin-top:-10px;}
+.menu-account ul{list-style:none;margin:0px;}
+.menu-account ul li{display:block;clear:both;border-bottom:1px solid #e2e2e2;} 
+.menu-account ul li a i{margin-right:7px;color:$color-off-black;}
+.menu-account ul li a{font-weight:400;padding:10px 10px 10px 7px;display:block;font-size:$font-size-small;color:$color-dark-grey;}
+.menu-account ul li a.active{background:#dfe9f3;}
+.menu-account ul li a:hover{border:none;}
+.menu-account ul li:last-child{border:none;}
+
+
+
+.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+.clearfix:after{clear:both;}
+.hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;}
+.input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.btn-file{overflow:hidden;position:relative;vertical-align:middle;}.btn-file>input{position:absolute;top:0;right:0;margin:0;opacity:0;filter:alpha(opacity=0);transform:translate(-300px, 0) scale(4);font-size:23px;direction:ltr;cursor:pointer;}
+.fileupload .uneditable-input{display:inline-block;margin-bottom:0px;vertical-align:middle;cursor:text;background: #fff;}
+.fileupload .thumbnail{overflow:hidden;display:inline-block;margin-bottom:5px;vertical-align:middle;text-align:center;}.fileupload .thumbnail>img{display:inline-block;vertical-align:middle;max-height:100%;}
+.fileupload .btn{vertical-align:middle; line-height: 21px; margin-left: -5px; }
+.fileupload-exists .fileupload-new,.fileupload-new .fileupload-exists{display:none;}
+.fileupload-inline .fileupload-controls{display:inline;}
+.fileupload-new .input-append .btn-file{-webkit-border-radius:0 2px 2px 0;-moz-border-radius:0 2px 2px 0;border-radius:0 2px 2px 0;}
+.thumbnail-borderless .thumbnail{border:none;padding:0;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;}
+.fileupload-new.thumbnail-borderless .thumbnail{border:1px solid #ddd;}
+.control-group.warning .fileupload .uneditable-input{color:#a47e3c;border-color:#a47e3c;}
+.control-group.warning .fileupload .fileupload-preview{color:#a47e3c;}
+.control-group.warning .fileupload .thumbnail{border-color:#a47e3c;}
+.control-group.error .fileupload .uneditable-input{color:#b94a48;border-color:#b94a48;}
+.control-group.error .fileupload .fileupload-preview{color:#b94a48;}
+.control-group.error .fileupload .thumbnail{border-color:#b94a48;}
+.control-group.success .fileupload .uneditable-input{color:#468847;border-color:#468847;}
+.control-group.success .fileupload .fileupload-preview{color:#468847;}
+.control-group.success .fileupload .thumbnail{border-color:#468847;}
+.uneditable-input {
+   border: 1px solid #ccc; height: 35px; padding: 6px 10px; width: 200px; overflow: hidden;
+   -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }
+.uneditable-input .glyphicon { float: left; margin-right: 5px; vertical-align: middle; margin-top: 2px; opacity: 0.5; }
+.fileupload-preview { width: 400px; display: block; color: #666; }
+
+/*TABLES*/
+#orders-table th{text-align:left;}
+/***** TABLES *****/
+/******************/
+
+.dataTables_length .chosen-container {
+    min-width: 75px;
+}
+
+.dataTables_length .chosen-container-single .chosen-single {
+    padding-right: 0;
+}
+
+.table-action {
+    text-align: center;
+}
+
+.table-action-hide a {
+    opacity: 0;
+}
+
+.table-action a,
+.table-action-hide a {
+    display: inline-block;
+    margin-right: 5px;
+    color: #666;
+}
+
+.table-action a:hover,
+.table-action-hide a:hover {
+    color: #333;
+}
+
+.table-action a:last-child,
+.table-action-hide a:last-child {
+    margin-right: 0;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+.table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
+}
+.table > caption + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > th,
+.table > thead:first-child > tr:first-child > th,
+.table > caption + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > td,
+.table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+.table > tbody + tbody {
+  border-top: 2px solid #ddd;
+}
+.table .table {
+  background-color: #fff;
+}

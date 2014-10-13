@@ -1374,10 +1374,10 @@ h3.divider-word span {
 .content.checkout .panel .left{width:47.5%;float:left;@extend .block-position;margin-right:5%;}
 .content.checkout .panel .right{width:47.5%;@extend .block-position;}
 
-.panel.shipping .left{
+.content.checkout .panel.shipping .left{
 	@include mobile-only{width:100% !important;}
 }
-.panel.shipping .right{
+.content.checkout .panel.shipping .right{
 	@include mobile-only{width:100% !important;}
 }
 
@@ -1409,3 +1409,18 @@ h3.divider-word span {
 
 
 
+/* ACCOUNT */
+.content.account{display:block;}
+.content.account .four{width:33.37%}
+.content.account .column:last-child{margin-left:0.4%;}
+.content.account .panel{background:#f4f4f4;}
+.content.account .panel.detail{display:block;}
+.content.account .panel.detail .left{width:47.5%;float:left;@extend .block-position;margin-right:5%;}
+.content.account .panel.detail .right{width:47.5%;@extend .block-position;}
+
+.content.account .panel.detail .left{
+	@include mobile-only{width:100% !important;}
+}
+.content.account .panel.detail .right{
+	@include mobile-only{width:100% !important;}
+}
