@@ -53,15 +53,15 @@
             
             <div class="collect">
             	<a href="" class="store-loc storeloc-link"><i class="fa fa-info-circle"></i>Store Location</a>
-	            <div class="choose-store" style="margin-bottom: 20px;">
+	            <div class="choose-store" style="margin:20px 0 0;">
 	              <div class="left">
-	                <input type="checkbox" name="store_location" id="store-robina" class="css-checkbox lrg" checked="checked" value="Robina Store" />
-	                <label for="store-robina" class="css-label lrg">Robina Store</label>
+	                <input type="radio" name="store-location" value="robina-store" style="display: inline-block;margin-left: 1px;">
+                  <h6 style="display: inline-block;width:auto;padding-left: 10px;">Robina Store</h6>
 	              </div>
 	              <div class="right">
-	                <input type="checkbox" name="store_location" id="store-carindale" class="css-checkbox lrg" value="Carindale Store" />
-	                <label for="store-carindale" class="css-label lrg">Carindale Store</label>
-	              </div>
+	                <input type="radio" name="store-location" value="carindale-store" style="display: inline-block;margin-left: 1px;">
+                  <h6 style="display: inline-block;width:auto;padding-left: 10px;">Carindale Store</h6>
+                </div>
 	            </div>
             </div>
 
@@ -103,25 +103,27 @@
 	            <h6 style="margin-top:20px;">Shipping Method</h6>
 	            <div class="choose-method">
 	              <div class="form-group">
-	                <input type="checkbox" name="shipping_method" id="shipmethod-standard" class="css-checkbox lrg" checked="checked"/>
-	                <label for="shipping_method" class="css-label lrg">Standard (5-15 Business Days)</label>
-	              </div>
-	              <div class="form-group">
-	                <input type="checkbox" name="shipping_method" id="shipmethod-express" class="css-checkbox lrg" />
-	                <label for="shipping_method" class="css-label lrg">Express (3-7 Business Days)</label>
-	              </div>
+	                <input type="radio" name="shipmethod-standard" value="shipmethod-standard" style="display: inline-block;margin-left: 1px;">
+                  <h6 style="display: inline-block;width: 262px;padding-left:5px;">Standard (5-15 Business Days)</h6>
+                </div>
+                <div>
+                  <input type="radio" name="shipmethod-express" value="shipmethod-express" style="display: inline-block;margin-left: 1px;">
+                  <h6 style="display: inline-block;width: 262px;padding-left:5px;">Express (3-7 Business Days)</h6>
+                </div>
+
 	            </div>
 
             </div>
           </div>
           <!-- end of right column -->
 
-          <div class="separator-line"></div>
+          <!-- <div class="separator-line"></div>-->
 
           <div style="text-align:center;margin-bottom:20px;">
             <!-- <a href="" class="btn btn-primary continuepayment" >CONTINUE PAYMENT</a> -->
+            <!--
             {{ Form::submit('CONTINUE PAYMENT', array('class'=>'btn btn-primary continuepayment'))}}
-
+            -->
 		  	<!--<script
 			    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
 			    data-key="{{ Config::get('stripe.stripe.public') }}"
@@ -136,8 +138,67 @@
 
         <div class="panel payment">
           <div class="heading">
-            <h6>PAYMENT</h6>
+            <h6>ENTER YOUR PAYMENT DETAILS</h6>
           </div>
+            
+            <form class="creditcard-form">
+          
+              
+            <fieldset id="cc_fields">
+              <div class="cc-card-number-wrap">
+                <label for="card_number">
+                  Card Number<span class="cc-required-indicator">*</span>
+                </label>
+                <input type="text" autocomplete="off" class="card-number form-control" placeholder="Card number">
+              </div>
+
+              <div class="cc-card-cvv-wrap">
+                <label for="card_number">
+                  CVV<span class="cc-required-indicator">*</span>
+                </label>
+                <input type="text" size="4" autocomplete="off" class="card-number form-control" placeholder="Security Code">
+              </div>
+
+              <div class="cc-card-name-wrap">
+                <label for="card_number">
+                  Name on the card<span class="cc-required-indicator">*</span>
+                </label>
+                <input type="text" autocomplete="off" class="card-number form-control" placeholder="Card Name">
+              </div>
+
+              <div class="cc-card-expiration-wrap">
+                <label for="card_exp_month">
+                  Expiration(MM/YY)<span class="cc-required-indicator">*</span>
+                </label>
+                <div class="select-style">
+                  <select id="card_exp_month" class="card-expiry-month">
+                  <option value="1">01</option><option value="2">02</option><option value="3">03</option><option value="4">04</option><option value="5">05</option><option value="6">06</option><option value="7">07</option><option value="8">08</option><option value="9">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>     </select>
+                </div>
+                <span class="exp-divider"> / </span>
+                <div class="select-style">
+                  <select id="card_exp_year" class="card-expiry-year">
+                  <option value="2014">14</option><option value="2015">15</option><option value="2016">16</option><option value="2017">17</option><option value="2018">18</option><option value="2019">19</option><option value="2020">20</option><option value="2021">21</option><option value="2022">22</option><option value="2023">23</option><option value="2024">24</option>      </select>
+                </div>
+              </div>
+
+            </fieldset>
+
+            <div class="separator-line"></div>
+            <div class="purchase-wrap">
+              <p class="lead">
+                This is a one-time payment. Let's do this!  
+              </p>  
+            {{ Form::submit('PURCHASE NOW', array('class'=>'btn btn-primary purchase'))}}
+              <p class="secure-payment"><i class="fa fa-lock"></i> Super-secure 128-bit SSL encrypted payment.</p>
+              <div class="payment-logos">
+        Secure credit card payments by {{ HTML::image('images/stripe.png', '', array('class' => 'stripe-logo')) }}
+        </div>
+            </div>
+
+
+            </form>
+
+          
         </div>
 
       </div>
