@@ -350,8 +350,6 @@
 									}
 								}
 							}
-
-							console.log(currentBoundingObject)
 						}
 					}
 
@@ -393,6 +391,7 @@
 				return viewsArr;
 			}
 
+			// zza edit
 			$('#collapseOne').find('.gender-select').children('input').on('change', function(e){
 				if($(this).val()=='male') {
 					$sidebarContent.find('.fpd-products ul').html('');
@@ -470,9 +469,42 @@
 
 			//zza edit init tab (select image tab)
 			$('#imageSelectTab a').click(function (e) {
-			  e.preventDefault()
-			  $(this).tab('show')
-			})
+			  	e.preventDefault();
+			  	$(this).tab('show');
+			});
+
+			var addToCartJSON = {
+	          	'id': '000000', 
+	          	'title': 'shirtbuilder product',
+	          	'price' : '',
+	          	'qty' : '',
+	          	'attr' : {
+	            	'size' : '',
+		            'color' : ''
+	          	}
+	        };
+
+			//zza edit add to cart
+			$('.add-to-cart-btn').on('click', function(){
+				
+
+				var dataUrl = thisClass.getProductDataURL();
+
+				addToCartJSON.qty = $('input[name="qty"]').val();
+				addToCartJSON.price = $('#thsirt-price').text().replace("$", "");
+				addToCartJSON.attr.size = $('.size-selected').text();
+				addToCartJSON.attr.color = $('.color-list .active').data('color');
+				addToCartJSON.attr.shirt_type = $('.active-type').find('.shirt-type').text();
+				addToCartJSON.attr.image = dataUrl;
+
+				console.log(addToCartJSON);
+
+				if($('.shirt-back-checkbox').children('input[name="print_back"]').is(':checked')) {
+					addToCartJSON.attr.print_back = true;
+				}else {
+					addToCartJSON.attr.print_back = false;
+				}
+			});
 
 			//check if custom text is supported
 			if(options.customTexts) {

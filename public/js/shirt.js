@@ -11,6 +11,8 @@ shadow = shirt.attr('data-shadow');
 design = shirt.attr('data-product');
 color = '#000000'; //default is white
 
+console.log(shirt)
+console.log(base)
 
 /*LOAD THE SHIRT TEMPLATE*/
 loadimage(body,base,shadow,design,base_x,base_y,color); 

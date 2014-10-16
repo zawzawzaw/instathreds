@@ -31,49 +31,46 @@
           <div class="row product">
             <div class="left">
 
-                @foreach($all_shirttypes as $all_shirttype)
-                    
-                    <div class="shirt-template active" id="<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>">
-                        <canvas class="canvas-template" 
-                            data-shadow="{{ URL::to('/') }}/images/shirt-templates/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>-front-shadow.png" 
-                            data-base="{{ URL::to('/') }}/images/shirt-templates/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>-front-base.png" 
-                            data-body="{{ URL::to('/') }}/images/shirt-templates/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>-front-body.png" 
-                            data-product="{{ asset('images/products/'.$product->image) }}" 
-                            data-x="25" 
-                            data-y="55">
-                        </canvas>
-                        <canvas class="canvas-template back" 
-                            data-shadow="{{ URL::to('/') }}/images/shirt-templates/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>-back-shadow.png" 
-                            data-base="{{ URL::to('/') }}/images/shirt-templates/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>-back-base.png" 
-                            data-body="{{ URL::to('/') }}/images/shirt-templates/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>/<?php echo strtolower(str_replace(" ", "",$all_shirttype->gender->title)) . '-' . strtolower(str_replace(" ", "",$all_shirttype->title)); ?>-back-body.png" 
-                            data-product="{{ asset('images/products/'.$product->image) }}" 
-                            data-x="28" 
-                            data-y="54">
-                        </canvas>
-                        <div class="preloader">
-                            {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
-                        </div>
-                        <img id="canvas-final" src="">
-                     </div>
-                @endforeach
-              
+              <!-- MENS-STANDARD -->
+                <div class="shirt-template active" id="mens-standard">
+                    <canvas class="canvas-template" 
+                    data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-standard/mens-standard-front-shadow.png" 
+                    data-base="{{ URL::to('/') }}/images/shirt-templates/mens-standard/mens-standard-front-base.png" 
+                    data-body="{{ URL::to('/') }}/images/shirt-templates/mens-standard/mens-standard-front-body.png" 
+                    data-product="{{ asset('images/products/'.$product->image) }}" 
+                    data-x="25" 
+                    data-y="55">
+                    </canvas>
+                    <canvas class="canvas-template back" 
+                    data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-standard/mens-standard-back-shadow.png" 
+                    data-base="{{ URL::to('/') }}/images/shirt-templates/mens-standard/mens-standard-back-base.png" 
+                    data-body="{{ URL::to('/') }}/images/shirt-templates/mens-standard/mens-standard-back-body.png" 
+                    data-product="{{ asset('images/products/'.$product->image) }}" 
+                    data-x="28" 
+                    data-y="54">
+                    </canvas>
+                    <div class="preloader">
+                    {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
+                    </div>
+                    <img id="canvas-final" src="">
+                </div>
               <!-- MENS-STANDARD -->
               
 
               <!-- MENS-STAPLE -->
-              <!-- <div class="shirt-template" id="mens-staple">
+              <div class="shirt-template" id="mens-staple">
                 <canvas class="canvas-template" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/mens-staple/mens-staple-front-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/mens-staple/mens-staple-front-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/mens-staple/mens-staple-front-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-staple/mens-staple-front-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/mens-staple/mens-staple-front-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/mens-staple/mens-staple-front-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}" 
                 data-x="23" 
                 data-y="50">
                 </canvas>
                 <canvas class="canvas-template back" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/mens-staple/mens-staple-back-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/mens-staple/mens-staple-back-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/mens-staple/mens-staple-back-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-staple/mens-staple-back-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/mens-staple/mens-staple-back-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/mens-staple/mens-staple-back-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}" 
                 data-x="30" 
                 data-y="58">
@@ -82,22 +79,22 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div> -->
+              </div>
 
               <!-- MENS-LOWDOWN -->
-              <!-- <div class="shirt-template" id="mens-lowdown">
+              <div class="shirt-template" id="mens-lowdown">
                 <canvas class="canvas-template" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-front-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-front-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-front-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-lowdown/mens-lowdown-front-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/mens-lowdown/mens-lowdown-front-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/mens-lowdown/mens-lowdown-front-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}" 
                 data-x="26" 
                 data-y="60"> 
                 </canvas>
                 <canvas class="canvas-template back" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-back-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-back-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/mens-lowdown/mens-lowdown-back-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-lowdown/mens-lowdown-back-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/mens-lowdown/mens-lowdown-back-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/mens-lowdown/mens-lowdown-back-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}"
                 data-x="37" 
                 data-y="66">
@@ -106,22 +103,22 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div> -->
+              </div>
 
               <!-- MENS-BARNARD -->
-              <!-- <div class="shirt-template" id="mens-barnard">
+              <div class="shirt-template" id="mens-barnard">
                 <canvas class="canvas-template" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/mens-barnard/mens-barnard-front-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/mens-barnard/mens-barnard-front-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/mens-barnard/mens-barnard-front-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-barnard/mens-barnard-front-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/mens-barnard/mens-barnard-front-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/mens-barnard/mens-barnard-front-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}"
                 data-x="32" 
                 data-y="54">
                 </canvas>
                 <canvas class="canvas-template back" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/mens-barnard/mens-barnard-back-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/mens-barnard/mens-barnard-back-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/mens-barnard/mens-barnard-back-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-barnard/mens-barnard-back-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/mens-barnard/mens-barnard-back-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/mens-barnard/mens-barnard-back-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}"
                 data-x="37" 
                 data-y="57">
@@ -130,22 +127,22 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div> -->
+              </div>
 
               <!-- MENS-TALL -->
-              <!-- <div class="shirt-template" id="mens-tall">
+              <div class="shirt-template" id="mens-tall">
                 <canvas class="canvas-template" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/mens-tall/mens-tall-front-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/mens-tall/mens-tall-front-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/mens-tall/mens-tall-front-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-tall/mens-tall-front-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/mens-tall/mens-tall-front-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/mens-tall/mens-tall-front-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}"
                 data-x="28" 
                 data-y="49">
                 </canvas>
                 <canvas class="canvas-template back" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/mens-tall/mens-tall-back-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/mens-tall/mens-tall-back-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/mens-tall/mens-tall-back-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-tall/mens-tall-back-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/mens-tall/mens-tall-back-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/mens-tall/mens-tall-back-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}"
                 data-x="31" 
                 data-y="52">
@@ -154,22 +151,22 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div> -->
+              </div>
 
               <!-- WOMENS-STANDARD -->
-              <!-- <div class="shirt-template" id="womens-standard">
+              <div class="shirt-template" id="womens-standard">
                 <canvas class="canvas-template" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/womens-standard/womens-standard-front-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/womens-standard/womens-standard-front-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/womens-standard/womens-standard-front-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/womens-standard/womens-standard-front-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/womens-standard/womens-standard-front-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/womens-standard/womens-standard-front-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}" 
                 data-x="18" 
                 data-y="58">
                 </canvas>
                 <canvas class="canvas-template back" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/womens-standard/womens-standard-back-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/womens-standard/womens-standard-back-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/womens-standard/womens-standard-back-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/womens-standard/womens-standard-back-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/womens-standard/womens-standard-back-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/womens-standard/womens-standard-back-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}" 
                 data-x="24" 
                 data-y="56">
@@ -178,22 +175,22 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div> -->
+              </div>
 
               <!-- WOMENS-TANKTEE -->
-              <!-- <div class="shirt-template" id="womens-tanktee">
+              <div class="shirt-template" id="womens-tanktee">
                 <canvas class="canvas-template" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/womens-tanktee/womens-tanktee-front-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/womens-tanktee/womens-tanktee-front-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/womens-tanktee/womens-tanktee-front-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/womens-tanktee/womens-tanktee-front-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/womens-tanktee/womens-tanktee-front-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/womens-tanktee/womens-tanktee-front-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}" 
                 data-x="28" 
                 data-y="55">
                 </canvas>
                 <canvas class="canvas-template back" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/womens-tanktee/womens-tanktee-back-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/womens-tanktee/womens-tanktee-back-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/womens-tanktee/womens-tanktee-back-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/womens-tanktee/womens-tanktee-back-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/womens-tanktee/womens-tanktee-back-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/womens-tanktee/womens-tanktee-back-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}" 
                 data-x="35" 
                 data-y="73">
@@ -202,22 +199,22 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div> -->
+              </div>
 
               <!-- WOMENS-MALI -->
-              <!-- <div class="shirt-template" id="womens-mali">
+              <div class="shirt-template" id="womens-mali">
                 <canvas class="canvas-template" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/womens-mali/womens-mali-front-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/womens-mali/womens-mali-front-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/womens-mali/womens-mali-front-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/womens-mali/womens-mali-front-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/womens-mali/womens-mali-front-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/womens-mali/womens-mali-front-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}" 
                 data-x="17" 
                 data-y="58">
                 </canvas>
                 <canvas class="canvas-template back" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/womens-mali/womens-mali-back-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/womens-mali/womens-mali-back-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/womens-mali/womens-mali-back-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/womens-mali/womens-mali-back-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/womens-mali/womens-mali-back-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/womens-mali/womens-mali-back-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}" 
                 data-x="22" 
                 data-y="58">
@@ -226,22 +223,22 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div> -->
+              </div>
 
               <!-- WOMENS-DASHRACERBACK -->
-              <!-- <div class="shirt-template" id="womens-dashracerback">
+              <div class="shirt-template" id="womens-dashracerback">
                 <canvas class="canvas-template" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/womens-dashracerback/womens-dashracerback-front-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/womens-dashracerback/womens-dashracerback-front-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/womens-dashracerback/womens-dashracerback-front-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/womens-dashracerback/womens-dashracerback-front-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/womens-dashracerback/womens-dashracerback-front-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/womens-dashracerback/womens-dashracerback-front-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}" 
                 data-x="27" 
                 data-y="61">
                 </canvas>
                 <canvas class="canvas-template back" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/womens-dashracerback/womens-dashracerback-back-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/womens-dashracerback/womens-dashracerback-back-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/womens-dashracerback/womens-dashracerback-back-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/womens-dashracerback/womens-dashracerback-back-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/womens-dashracerback/womens-dashracerback-back-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/womens-dashracerback/womens-dashracerback-back-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}" 
                 data-x="33" 
                 data-y="59">
@@ -250,22 +247,22 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div> -->
+              </div>
 
               <!-- KIDS TEE -->
-              <!-- <div class="shirt-template" id="kids-tee">
+              <div class="shirt-template" id="kids-tee">
                 <canvas class="canvas-template" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/kids-tee/kids-tee-front-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/kids-tee/kids-tee-front-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/kids-tee/kids-tee-front-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/kids-tee/kids-tee-front-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/kids-tee/kids-tee-front-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/kids-tee/kids-tee-front-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}" 
                 data-x="10" 
                 data-y="55">
                 </canvas>
                 <canvas class="canvas-template back" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/kids-tee/kids-tee-back-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/kids-tee/kids-tee-back-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/kids-tee/kids-tee-back-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/kids-tee/kids-tee-back-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/kids-tee/kids-tee-back-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/kids-tee/kids-tee-back-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}" 
                 data-x="16" 
                 data-y="59">
@@ -274,22 +271,22 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div> -->
+              </div>
 
               <!-- KIDS MINI -->
-              <!-- <div class="shirt-template" id="kids-mini">
+              <div class="shirt-template" id="kids-mini">
                 <canvas class="canvas-template" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/kids-mini/kids-mini-front-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/kids-mini/kids-mini-front-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/kids-mini/kids-mini-front-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/kids-mini/kids-mini-front-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/kids-mini/kids-mini-front-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/kids-mini/kids-mini-front-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}" 
                 data-x="3" 
                 data-y="42">
                 </canvas>
                 <canvas class="canvas-template back" 
-                data-shadow="http://instathreds.dev/images/shirt-templates/kids-mini/kids-mini-back-shadow.png" 
-                data-base="http://instathreds.dev/images/shirt-templates/kids-mini/kids-mini-back-base.png" 
-                data-body="http://instathreds.dev/images/shirt-templates/kids-mini/kids-mini-back-body.png" 
+                data-shadow="{{ URL::to('/') }}/images/shirt-templates/kids-mini/kids-mini-back-shadow.png" 
+                data-base="{{ URL::to('/') }}/images/shirt-templates/kids-mini/kids-mini-back-base.png" 
+                data-body="{{ URL::to('/') }}/images/shirt-templates/kids-mini/kids-mini-back-body.png" 
                 data-product="{{ asset('images/products/'.$product->image) }}" 
                 data-x="4" 
                 data-y="33">
@@ -298,7 +295,7 @@
                 {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
                 </div>
                 <img id="canvas-final" src="">
-              </div> -->
+              </div>
 
             </div>
             <div class="right">
