@@ -131,6 +131,9 @@ class CheckoutController extends \BaseController {
 			}
 			// Maybe add an entry to your DB that the charge was successful, or at least Log the charge or errors
 			// Stripe charge was successfull, continue by redirecting to a page with a thank you message
+
+			Cart::destroy();
+
 			return Redirect::to('checkout/thankyou');
 
 	    } else {

@@ -49,17 +49,17 @@
 
           <!-- right column -->
           <div class="right" style="min-height: 270px;">
-            <input type="radio" name="redemption_type" value="collection" style="display: inline-block;margin-left: 1px;"><h6 style="display: inline-block;width: 262px;padding-left: 10px;">I wish to collect my order from</h6>
+            <input type="radio" name="redemption_type" checked="checked" value="collection" style="display: inline-block;margin-left: 1px;"><h6 style="display: inline-block;width: 262px;padding-left: 10px;">I wish to collect my order from</h6>
             
             <div class="collect">
             	<a href="" class="store-loc storeloc-link"><i class="fa fa-info-circle"></i>Store Location</a>
 	            <div class="choose-store" style="margin:20px 0 0;">
 	              <div class="left">
-	                <input type="radio" name="store-location" value="robina-store" style="display: inline-block;margin-left: 1px;">
+	                <input type="radio" name="store_location" checked="checked" value="robina-store" style="display: inline-block;margin-left: 1px;">
                   <h6 style="display: inline-block;width:auto;padding-left: 10px;">Robina Store</h6>
 	              </div>
 	              <div class="right">
-	                <input type="radio" name="store-location" value="carindale-store" style="display: inline-block;margin-left: 1px;">
+	                <input type="radio" name="store_location" value="carindale-store" style="display: inline-block;margin-left: 1px;">
                   <h6 style="display: inline-block;width:auto;padding-left: 10px;">Carindale Store</h6>
                 </div>
 	            </div>
@@ -134,36 +134,32 @@
 		  	</script>-->
           </div>
         </div>
-        {{ Form::close() }}
 
         <div class="panel payment">
           <div class="heading">
             <h6>ENTER YOUR PAYMENT DETAILS</h6>
-          </div>
-            
-            <form class="creditcard-form">
-          
+          </div>          
               
             <fieldset id="cc_fields">
               <div class="cc-card-number-wrap">
                 <label for="card_number">
                   Card Number<span class="cc-required-indicator">*</span>
                 </label>
-                <input type="text" autocomplete="off" class="card-number form-control" placeholder="Card number">
+                <input type="text" name="number" autocomplete="off" class="card-number form-control" placeholder="Card number">
               </div>
 
               <div class="cc-card-cvv-wrap">
                 <label for="card_number">
                   CVV<span class="cc-required-indicator">*</span>
                 </label>
-                <input type="text" size="4" autocomplete="off" class="card-number form-control" placeholder="Security Code">
+                <input type="text" name="cvc" size="4" autocomplete="off" class="card-number form-control" placeholder="Security Code">
               </div>
 
               <div class="cc-card-name-wrap">
                 <label for="card_number">
                   Name on the card<span class="cc-required-indicator">*</span>
                 </label>
-                <input type="text" autocomplete="off" class="card-number form-control" placeholder="Card Name">
+                <input type="text" name="card_name" autocomplete="off" class="card-number form-control" placeholder="Card Name">
               </div>
 
               <div class="cc-card-expiration-wrap">
@@ -171,13 +167,15 @@
                   Expiration(MM/YY)<span class="cc-required-indicator">*</span>
                 </label>
                 <div class="select-style">
-                  <select id="card_exp_month" class="card-expiry-month">
-                  <option value="1">01</option><option value="2">02</option><option value="3">03</option><option value="4">04</option><option value="5">05</option><option value="6">06</option><option value="7">07</option><option value="8">08</option><option value="9">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>     </select>
+                  <select id="card_exp_month" name="exp_month" class="card-expiry-month">
+                  	<option value="1">01</option><option value="2">02</option><option value="3">03</option><option value="4">04</option><option value="5">05</option><option value="6">06</option><option value="7">07</option><option value="8">08</option><option value="9">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>     
+                  </select>
                 </div>
                 <span class="exp-divider"> / </span>
                 <div class="select-style">
-                  <select id="card_exp_year" class="card-expiry-year">
-                  <option value="2014">14</option><option value="2015">15</option><option value="2016">16</option><option value="2017">17</option><option value="2018">18</option><option value="2019">19</option><option value="2020">20</option><option value="2021">21</option><option value="2022">22</option><option value="2023">23</option><option value="2024">24</option>      </select>
+                  <select id="card_exp_year" name="exp_year" class="card-expiry-year">
+                  	<option value="2014">14</option><option value="2015">15</option><option value="2016">16</option><option value="2017">17</option><option value="2018">18</option><option value="2019">19</option><option value="2020">20</option><option value="2021">21</option><option value="2022">22</option><option value="2023">23</option><option value="2024">24</option>      
+                  </select>
                 </div>
               </div>
 
@@ -188,7 +186,7 @@
               <p class="lead">
                 This is a one-time payment. Let's do this!  
               </p>  
-            {{ Form::submit('PURCHASE NOW', array('class'=>'btn btn-primary purchase'))}}
+            	{{ Form::submit('PURCHASE NOW', array('class'=>'btn btn-primary purchase'))}}
               <p class="secure-payment"><i class="fa fa-lock"></i> Super-secure 128-bit SSL encrypted payment.</p>
               <div class="payment-logos">
         Secure credit card payments by {{ HTML::image('images/stripe.png', '', array('class' => 'stripe-logo')) }}
@@ -196,7 +194,7 @@
             </div>
 
 
-            </form>
+            {{ Form::close() }}
 
           
         </div>
@@ -265,7 +263,7 @@
                       <p>Shipping:</p>    
                     </td>
                     <td>
-                      <p class="shipping">$0.00</p>    
+                      <p class="shipping-price">$0.00</p>    
                     </td>
                   </tr>  
                 </tbody>
@@ -317,6 +315,7 @@
 	});	
 
 	var $totalPrice = $('.total-price');
+	var $shippingPrice = $('.shipping-price');
 
 	$("input[type=radio][name='redemption_type']").on('change', function(e){
 		if(this.value=='collection') {
@@ -334,6 +333,7 @@
 			newTotalPrice = parseFloat('{{ Cart::total() }}') + shippingCost;
 
 			$totalPrice.text( '$' + newTotalPrice.toFixed(2) );
+			$shippingPrice.text( '$' + shippingCost );
 		}
 	});
 
@@ -344,6 +344,7 @@
 		newTotalPrice = parseFloat('{{ Cart::total() }}') + shippingCost;
 
 		$totalPrice.text( '$' + newTotalPrice.toFixed(2) );
+		$shippingPrice.text( '$' + shippingCost );
 
 	});
 </script>
