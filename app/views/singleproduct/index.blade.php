@@ -305,7 +305,7 @@
               <h6 class="product-title">{{ Str::upper($product->title) }}</h6>
 
               <div class="shirt-type shirt-type-select active-type" id="mens-type">
-                <a data-toggle="dropdown" class="dropdown-toggle shirt-type" href="#"><span class="selected-type">Shirt Type</span> <span class="caret"></span></a>
+                <a data-toggle="dropdown" class="dropdown-toggle shirt-type" href="#"><span class="selected-type">{{ $men_shirttypes[0]->title }}</span> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                 @if($men_shirttypes->count() > 0)
                   @foreach($men_shirttypes as $index => $men_shirttype)
@@ -449,7 +449,7 @@
               <div class="final-product-image"></div>
               <!-- <img src="images/image-placeholder1.png" style="width:150px;height:100px;"> -->
               <div class="form-group">
-                <button class="btn btn-primary checkout">CHECKOUT NOW</button>
+                <a href="{{ route('checkout') }}"><button class="btn btn-primary checkout">CHECKOUT NOW</button></a>
                 <div style="clear:both;">
                 <a href="{{ route('store.index') }}"><button class="btn continueshopping">CONTINUE SHOPPING</button></a>
                 <a href="{{ route('cart.index') }}"><button class="btn viewcart">VIEW CART</button></a>
@@ -464,6 +464,7 @@
     </div>
 
     {{ HTML::script('js/admin/jquery-1.10.2.min.js') }}
+    {{ HTML::script('js/shirt.js') }}
     <script type="text/javascript">
       $(document).ready(function(){
 
@@ -512,7 +513,7 @@
         var request;
         $('.addtocart-link').on('click', function(e){
           addToCartJSON.qty = $('.qty').val();
-          addToCartJSON.price = $('.price').text();
+          addToCartJSON.price = $('.price').text().replace("$", "");
           addToCartJSON.attr.size = $('.shirt-size .active').text();
           addToCartJSON.attr.color = $('.color-list .active').data('color');
           addToCartJSON.attr.shirt_type = $('.active-type').find('.shirt-type').text();
@@ -531,7 +532,7 @@
               request.abort();
           }
 
-          // request = makeRequest(addToCartJSON, "{{ route('cart.store') }}" , "POST");
+          request = makeRequest(addToCartJSON, "{{ route('cart.store') }}" , "POST");
 
           request.done(function(){
             var result = jQuery.parseJSON(request.responseText);

@@ -40,7 +40,7 @@
 	              		</td>
 		              	<td><a href="{{ URL::to('product', array(Product::slug($row->product->title), $row->product->id)) }}">{{ $row->product->title }}</a></td>
 		              <td>{{ $row->product->description }}</td>
-		              <td>${{ $row->product->price }}</td>
+		              <td>${{ $row->price }}</td>
 		              <td>
 		              	<div class="update-cart-input">
 						    <input type="number" step="1" min="1" name="quantity" value="{{ $row->qty }}" title="Qty" class="input-text qty text" size="4">
@@ -101,7 +101,7 @@
 
         <div class="controls">
           <a href="javascript:void(0);" class="update-cart btn btn-primary">UPDATE CART</a>
-          <a href="javascript:void(0);" class="btn btn-primary">CHECKOUT</a>
+          <a href="{{ route('checkout') }}" class="btn btn-primary">CHECKOUT</a>
         </div> 
         @endif        
          

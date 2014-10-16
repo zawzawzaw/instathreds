@@ -23,6 +23,7 @@ $( document ).ready(function() {
 	});
 
 	$(".signup-link").on("click",function(){
+		console.log('hi')
 		$('#login-modal').modal('show')
 		var id = $(this).attr("data-id");
 		$('#login-tab a:last').tab('show');	

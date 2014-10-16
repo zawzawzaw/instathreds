@@ -56,8 +56,6 @@ Route::get('account/settings/cancel', array(
 ));
 
 
-
-
 Route::resource('fblogin', 'FbloginController');
 Route::resource('instalogin', 'IngloginController');
 
@@ -88,6 +86,21 @@ Route::post('singleproduct/getsizes', array(
 ));
 
 Route::resource('cart', 'CartController');
+
+Route::get('checkout', array(
+  'uses' => 'CheckoutController@index',
+  'as' => 'checkout'
+));
+
+Route::post('checkout/confirmorder', array(
+  'uses' => 'CheckoutController@confirmorder',
+  'as' => 'checkout.confirmorder'
+));
+
+Route::get('checkout/thankyou', array(
+  'uses' => 'CheckoutController@thankyou',
+  'as' => 'thank-you'
+));
 
 Route::get('our-story', array(
   'uses' => 'StaticController@ourstory',

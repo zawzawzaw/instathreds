@@ -386,9 +386,6 @@
     {{ HTML::script('js/vendor/jquery.datatables.min.js') }}
 
     {{ HTML::script('js/main.js') }}
-    {{ HTML::script('js/shirt.js') }}
-
-
 
   </body>
 </html>

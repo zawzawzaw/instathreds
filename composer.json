@@ -9,7 +9,9 @@
 		"artdarek/oauth-4-laravel": "dev-master",
 		"fzaninotto/faker": "v1.4.0",
 		"gloudemans/shoppingcart": "~1.2",
-		"intervention/image": "2.*"
+		"intervention/image": "2.*",
+		"paypal/merchant-sdk-php":"*",
+		"stripe/stripe-php": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
