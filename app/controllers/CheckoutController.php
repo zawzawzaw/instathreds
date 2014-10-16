@@ -28,7 +28,7 @@ class CheckoutController extends \BaseController {
 		    $user_id = Auth::user()->id;
 		    $user = User::find($user_id);
 		}else {
-			$user = [];
+			$user = "";
 		}
 
 		$this->layout->content = View::make('checkout.index')
