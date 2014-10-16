@@ -1441,6 +1441,16 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 
 .menu-account ul li:last-child { border: none; }
 
+.content.thankyou { min-height: 500px; }
+
+.thankyou-wrap { margin-top: 100px; }
+
+.thankyou-wrap h1.headline { text-align: center; }
+
+.thankyou-wrap h4.ordernumber { text-align: center; }
+
+.thankyou-wrap p.message { text-align: center; }
+
 .clearfix { *zoom: 1; }
 
 .clearfix:before, .clearfix:after { display: table; content: ""; line-height: 0; }

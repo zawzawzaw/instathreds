@@ -219,7 +219,8 @@ class CheckoutController extends \BaseController {
     }
 
     public function thankyou() {
-    	return View::make('checkout.thankyou');
+    	//return View::make('checkout.thankyou');
+    	$this->layout->content = View::make('checkout.thankyou');
     }
 
 }
