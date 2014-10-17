@@ -122,6 +122,7 @@ Route::post('admin/uploadfiles', array(
   'as' => 'admin.uploadfiles'
 ));
 Route::resource('admin/designs', 'ProductController');
+Route::resource('admin/orders', 'OrderController');
 Route::resource('admin/categories', 'CategoryController');
 Route::resource('admin/shirttypes', 'ShirttypeController');
 
