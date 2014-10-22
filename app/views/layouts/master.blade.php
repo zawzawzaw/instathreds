@@ -58,12 +58,12 @@
         <li><a href="{{ route('store.featured') }}">Choose a Design</a></li>
         <li><a href="{{ route('store.index') }}">Stores</a></li>
         <li><a href="#">Blog</a></li>
-        <li><a href="#">How To</a></li>
+        <li><a href="{{ URL::route('static.howto') }}">How To</a></li>
         <li><a href="#">Size Guide</a></li>
         <li><a href="#">Pricing</a></li>
         <li><a href="#">Bulk Orders</a></li>
-        <li><a href="#">FAQs</a></li>
-        <li><a href="#">Help</a></li>      
+        <li><a href="{{ URL::route('static.faq') }}">FAQs</a></li>
+        <li><a href="{{ URL::route('static.help') }}">Help</a></li>      
       </ul>
     </nav>
 
@@ -209,8 +209,8 @@
                 <h5>Make your own Tshirt</h5>
                 <ul>
                   <li><a href="{{ route('shirtbuilder.index') }}">Do it Now</a></li>
-                  <li><a href="#">How to</a></li>
-                  <li><a href="#">FAQs</a></li>
+                  <li><a href="{{ URL::route('static.howto') }}">How to</a></li>
+                  <li><a href="{{ URL::route('static.faq') }}">FAQs</a></li>
                 </ul>
               </li>
               <li>
@@ -225,9 +225,9 @@
               <li>
                 <h5>Signup and Sell T-Shirts</h5>
                 <ul>
-                  <li><a href="#">Calling all designers & artists</a></li>
+                  <li><a href="{{ URL::route('static.calldesigners') }}">Calling all designers & artists</a></li>
                   <li><a href="#login-modal" class="user-account-btn" data-id="signup">Signup Now</a></li>
-                  <li><a href="#">FAQs</a></li>
+                  <li><a href="{{ URL::route('static.faq') }}">FAQs</a></li>
                 </ul>
               </li>
               <li>
@@ -253,7 +253,7 @@
         <div class="row">
           <div class="twelve column">
             <p>
-              &copy; Copyright InstaThreds P/L 2014 | all rights reserved | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Help</a>
+              &copy; Copyright InstaThreds P/L 2014 | all rights reserved | <a href="{{ URL::route('static.privacy') }}">Privacy Policy</a> | <a href="{{ URL::route('static.terms') }}">Terms of Use</a> | <a href="{{ URL::route('static.help') }}">Help</a>
             </p>
           </div>
         </div>

@@ -178,7 +178,7 @@
           		<!-- MENS STANDARD -->
           		<div class="fpd-male-product" title="Standard" data-thumbnail="images/shirtbuilder-templates/mens-standard/mens-standard-front-preview.png">
 	    			<img src="images/shirtbuilder-templates/mens-standard/mens-standard-front-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  		<img src="images/shirtbuilder-templates/mens-standard/mens-standard-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#000","#fff","#51bc18","#e83fd4","#006837","#29abe2","#ff2500","#fcee20"], "price": 20}' />
+			  		<img src="images/shirtbuilder-templates/mens-standard/mens-standard-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#000","#fff","#51bc18","#e83fd4","#006837","#29abe2","#ff2500","#fcee20"], "price": 20}' boundingBox ='{"x": 100, "y": 200, "width": 300, "height": 400}' />
 			  		<img src="images/shirtbuilder-templates/mens-standard/mens-standard-front-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 			  		
 

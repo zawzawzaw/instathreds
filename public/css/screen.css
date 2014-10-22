@@ -1630,10 +1630,34 @@ ol { margin-left: 1.4rem; }
 
 ol li ul, ol li ol { margin-left: 1.25rem; margin-bottom: 0; }
 
-/* Definition Lists */
-dl dt { margin-bottom: 0.3rem; font-weight: bold; }
+ol li h5 { margin-bottom: 1%; }
 
-dl dd { margin-bottom: 0.75rem; }
+ol li { font-size: 16px; margin-bottom: 4%; line-height: 1.6; }
+
+ol li p { font-size: 16px; margin-bottom: 4%; margin-top: 0px; }
+
+ol.letter { list-style: lower-latin; }
+
+ol.lower-roman { list-style: lower-roman; }
+
+/*List with decimal*/
+ol.main > li { counter-increment: root; }
+
+ol.main > li > ol { counter-reset: subsection; list-style-type: none; margin-left: 0; }
+
+ol.main > li > ol > li { counter-increment: subsection; margin-left: 0; }
+
+ol.main > li > ol > li:before { content: counter(root) "." counter(subsection) " "; }
+
+dl.sections { counter-reset: section; }
+
+.sections dt { counter-reset: subsection; }
+
+.sections dt:before { content: "" counter(section) ". "; counter-increment: section; }
+
+.sections dd:before { counter-increment: subsection; content: counter(section) "." counter(subsection) " "; }
+
+.sections dd { margin-left: 1.25rem; margin-bottom: 0; font-size: 16px; margin-bottom: 4%; line-height: 1.6; }
 
 /* Abbreviations */
 abbr, acronym { text-transform: uppercase; font-size: 90%; color: #222222; border-bottom: 1px dotted #dddddd; cursor: help; }
