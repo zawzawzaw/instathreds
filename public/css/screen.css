@@ -677,6 +677,8 @@ table.dataTable thead th:active, table.dataTable thead td:active { outline: none
 
 .menu-account-nav .avatar-frame i { vertical-align: middle; margin: -17px 0 0 5px; }
 
+.menu-account-nav .avatar-frame img { width: 30px; }
+
 .menu-account-nav .dropdown { position: absolute; top: 60px; right: 10px; width: 160px; display: none; }
 
 .menu-account-nav .dropdown ul { background: #ffffff; list-style: none; margin: 0px; }
@@ -1022,9 +1024,13 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 
 .owl-buttons .owl-next i { z-index: 5; color: #fff; font-size: 60px; top: 40%; position: absolute; }
 
+.more-products-slider .owl-buttons { width: 0px; }
+
 .more-products-slider .owl-prev { background: url(../images/products-prev-button.png) no-repeat; width: 42px; height: 69px; top: 66px; opacity: 0.8; }
 
-.more-products-slider .owl-next { background: url(../images/products-next-button.png) no-repeat; width: 42px; height: 69px; top: 66px; opacity: 0.8; }
+.more-products-slider .owl-next { background: url(../images/products-next-button.png) no-repeat; width: 42px; height: 69px; top: 66px; opacity: 0.8; left: 940px; }
+
+.more-products-slider .item a { display: block; cursor: pointer; }
 
 /* mouse grab icon */
 .grabbing { cursor: url(grabbing.png) 8 8, move; }
@@ -1630,10 +1636,34 @@ ol { margin-left: 1.4rem; }
 
 ol li ul, ol li ol { margin-left: 1.25rem; margin-bottom: 0; }
 
-/* Definition Lists */
-dl dt { margin-bottom: 0.3rem; font-weight: bold; }
+ol li h5 { margin-bottom: 1%; }
 
-dl dd { margin-bottom: 0.75rem; }
+ol li { font-size: 16px; margin-bottom: 4%; line-height: 1.6; }
+
+ol li p { font-size: 16px; margin-bottom: 4%; margin-top: 0px; }
+
+ol.letter { list-style: lower-latin; }
+
+ol.lower-roman { list-style: lower-roman; }
+
+/*List with decimal*/
+ol.main > li { counter-increment: root; }
+
+ol.main > li > ol { counter-reset: subsection; list-style-type: none; margin-left: 0; }
+
+ol.main > li > ol > li { counter-increment: subsection; margin-left: 0; }
+
+ol.main > li > ol > li:before { content: counter(root) "." counter(subsection) " "; }
+
+dl.sections { counter-reset: section; }
+
+.sections dt { counter-reset: subsection; }
+
+.sections dt:before { content: "" counter(section) ". "; counter-increment: section; }
+
+.sections dd:before { counter-increment: subsection; content: counter(section) "." counter(subsection) " "; }
+
+.sections dd { margin-left: 1.25rem; margin-bottom: 0; font-size: 16px; margin-bottom: 4%; line-height: 1.6; }
 
 /* Abbreviations */
 abbr, acronym { text-transform: uppercase; font-size: 90%; color: #222222; border-bottom: 1px dotted #dddddd; cursor: help; }

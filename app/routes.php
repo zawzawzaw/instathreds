@@ -102,10 +102,44 @@ Route::get('checkout/thankyou', array(
   'as' => 'thank-you'
 ));
 
+
+# Generic Pages#
 Route::get('our-story', array(
   'uses' => 'StaticController@ourstory',
   'as' => 'static.ourstory'
 ));
+
+Route::get('privacy', array(
+  'uses' => 'StaticController@privacy',
+  'as' => 'static.privacy'
+));
+
+Route::get('terms', array(
+  'uses' => 'StaticController@terms',
+  'as' => 'static.terms'
+));
+
+Route::get('faq', array(
+  'uses' => 'StaticController@faq',
+  'as' => 'static.faq'
+));
+
+Route::get('howto', array(
+  'uses' => 'StaticController@howto',
+  'as' => 'static.howto'
+));
+
+Route::get('calldesigners', array(
+  'uses' => 'StaticController@calldesigners',
+  'as' => 'static.calldesigners'
+));
+
+Route::get('help', array(
+  'uses' => 'StaticController@help',
+  'as' => 'static.help'
+));
+
+
 
 # Back end #
 

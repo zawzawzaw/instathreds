@@ -22,7 +22,92 @@ class StaticController extends \BaseController {
 		}
 
 		$this->layout->content = View::make('static.ourstory')->with('username', $username);
-
 	}
+
+
+	//Privacy Policy
+	public function privacy()
+	{
+		//
+		if (Auth::check())
+		{
+		    $username = Auth::user()->username;
+		}else {
+			$username = '';
+		}
+
+		$this->layout->content = View::make('static.privacy')->with('username', $username);
+	}
+
+	//Terms of Use
+	public function terms()
+	{
+		//
+		if (Auth::check())
+		{
+		    $username = Auth::user()->username;
+		}else {
+			$username = '';
+		}
+
+		$this->layout->content = View::make('static.terms')->with('username', $username);
+	}
+
+	//Terms of Use
+	public function faq()
+	{
+		//
+		if (Auth::check())
+		{
+		    $username = Auth::user()->username;
+		}else {
+			$username = '';
+		}
+
+		$this->layout->content = View::make('static.faq')->with('username', $username);
+	}
+
+	//Terms of Use
+	public function howto()
+	{
+		//
+		if (Auth::check())
+		{
+		    $username = Auth::user()->username;
+		}else {
+			$username = '';
+		}
+
+		$this->layout->content = View::make('static.howto')->with('username', $username);
+	}
+
+	//Calling all Designers
+	public function calldesigners()
+	{
+		//
+		if (Auth::check())
+		{
+		    $username = Auth::user()->username;
+		}else {
+			$username = '';
+		}
+
+		$this->layout->content = View::make('static.calldesigners')->with('username', $username);
+	}
+
+	//Help
+	public function help()
+	{
+		//
+		if (Auth::check())
+		{
+		    $username = Auth::user()->username;
+		}else {
+			$username = '';
+		}
+
+		$this->layout->content = View::make('static.help')->with('username', $username);
+	}
+
 
 }

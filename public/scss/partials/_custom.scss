@@ -156,6 +156,9 @@
 .menu-account-nav .avatar-frame{padding:5px 8px;}
 .menu-account-nav .avatar-frame:hover{background:#fff;}
 .menu-account-nav .avatar-frame i{vertical-align:middle;margin:-17px 0 0 5px;}
+.menu-account-nav .avatar-frame img{width:30px;}
+
+
 .menu-account-nav .dropdown{position:absolute;top:60px;right:10px;width:160px;display:none;}
 .menu-account-nav .dropdown ul{background:#ffffff;list-style:none;margin:0px;}
 .menu-account-nav .dropdown ul li a{margin:0px;clear: both;color: #0381f4 !important;display: block;font-weight: 400;line-height: 1.42857;
@@ -1138,6 +1141,10 @@ h3.divider-word span {
     position:absolute;
 }
 
+.more-products-slider .owl-buttons{
+	width:0px;
+}
+
 
 
 .more-products-slider .owl-prev{
@@ -1154,8 +1161,12 @@ h3.divider-word span {
 	height:69px;
 	top:66px;
 	opacity:0.8;
+	left:940px;
 }
 
+
+
+.more-products-slider .item a{display:block;cursor:pointer;}
 
 /* mouse grab icon */
 .grabbing { 

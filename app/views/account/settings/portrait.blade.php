@@ -40,7 +40,7 @@
               </div>
                 <p>You can inject a little more personality into your profile and help people recognize you across Instathreds by uploading an avatar (an image, photo or other graphic icon of “you”).</p>
                 <div class="profile-avatar">
-                    <img alt="karloestrada" height="100" src="//assets0.redbubble.net/assets/rb-default-avatar.100x100-b2a76668c2a262873b60ce8c583fe533.png" width="100">
+                    {{ HTML::image('images/avatar.png', 'logo') }}
                 </div>
 
                 <h6>UPLOAD A NEW AVATAR</h6>
