@@ -677,6 +677,8 @@ table.dataTable thead th:active, table.dataTable thead td:active { outline: none
 
 .menu-account-nav .avatar-frame i { vertical-align: middle; margin: -17px 0 0 5px; }
 
+.menu-account-nav .avatar-frame img { width: 30px; }
+
 .menu-account-nav .dropdown { position: absolute; top: 60px; right: 10px; width: 160px; display: none; }
 
 .menu-account-nav .dropdown ul { background: #ffffff; list-style: none; margin: 0px; }

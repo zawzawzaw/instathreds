@@ -133,7 +133,7 @@
             <div class="menu-account-nav">
               <a href="/people/karloestrada" class="account-dropdown-trigger top-level">
                 <div class="avatar-frame">
-                  <img alt="karloestrada" height="30" src="//assets0.redbubble.net/assets/rb-default-avatar.30x30-27c8350283cdf9743226fd500e260b69.png" width="30">
+                  {{ HTML::image('images/avatar.png', 'logo') }}
                   <i class="fa fa-caret-down"></i>
                 </div>
               </a>
