@@ -351,6 +351,9 @@
                   @endforeach
                 @endif
               </div>
+              <div class="shirt-chart">
+                <a href="" class="size-chart">SIZING CHART</a>
+              </div>
               <div class="shirt-color">
                 <h6>Select a colour</h6>
                 <ul class="color-list">
@@ -460,6 +463,22 @@
       </div>
     </div>
 
+
+    <!-- SIZE CHART MODAL -->
+    <div class="modal fade" id="size-chart-modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            
+            <div class="chart-wrap">
+                
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
     {{ HTML::script('js/admin/jquery-1.10.2.min.js') }}
     {{ HTML::script('js/shirt.js') }}
     <script type="text/javascript">
@@ -548,6 +567,51 @@
         $('.shirt-size a').on('click', function(e){
           $('.shirt-size .active').removeClass('active');
           $(this).addClass('active');
+        });
+
+        //OPEN SIZE CHART MODAL
+        $('.size-chart').on('click', function(e){
+            e.preventDefault();
+            $('#size-chart-modal').modal('show');
+            var shirt_type = $('.shirt-template.active').attr("id");
+            if(shirt_type == 'mens-standard'){
+                img = '{{ HTML::image("images/shirt-chart/chart-mens-standard.jpg") }}';
+                $('.chart-wrap').html(img);        
+            }else if(shirt_type == 'mens-staple'){
+                img = '{{ HTML::image("images/shirt-chart/chart-standard-tee.jpg") }}';
+                $('.chart-wrap').html(img);  
+            }else if(shirt_type == 'mens-lowdown'){
+                img = '{{ HTML::image("images/shirt-chart/chart-lowdown.jpg") }}';
+                $('.chart-wrap').html(img);  
+            }else if(shirt_type == 'mens-barnard'){
+                img = '{{ HTML::image("images/shirt-chart/chart-barnard.jpg") }}';
+                $('.chart-wrap').html(img);  
+            }else if(shirt_type == 'mens-tall'){
+                img = '{{ HTML::image("images/shirt-chart/chart-tall.jpg") }}';
+                $('.chart-wrap').html(img);  
+            }else if(shirt_type == 'womens-standard'){
+                img = '{{ HTML::image("images/shirt-chart/chart-womens-standard.jpg") }}';
+                $('.chart-wrap').html(img);  
+            }else if(shirt_type == 'womens-tanktee'){
+                img = '{{ HTML::image("images/shirt-chart/chart-tank-tee.jpg") }}';
+                $('.chart-wrap').html(img);  
+            }else if(shirt_type == 'womens-mali'){
+                img = '{{ HTML::image("images/shirt-chart/chart-mali.jpg") }}';
+                $('.chart-wrap').html(img);  
+            }else if(shirt_type == 'womens-dashracerback'){
+                img = '{{ HTML::image("images/shirt-chart/chart-racerback.jpg") }}';
+                $('.chart-wrap').html(img);  
+            }else if(shirt_type == 'kids-tee'){
+                img = '{{ HTML::image("images/shirt-chart/chart-kids-tee.jpg") }}';
+                $('.chart-wrap').html(img);  
+            }else if(shirt_type == 'kids-mini'){
+                img = '{{ HTML::image("images/shirt-chart/chart-mini-onepiece.jpg") }}';
+                $('.chart-wrap').html(img);  
+            }
+
+
+
+
         });
 
     })

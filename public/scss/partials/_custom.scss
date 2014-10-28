@@ -1319,12 +1319,18 @@ h3.divider-word span {
 
 
 
-.product .shirt-size{position:relative;display:block;margin-bottom:20px;}
-.product .shirt-size a{border:1px solid #0381f4;padding:7px 10px; @include border-radius(5px);font-family:$typeface-primary;font-size:18px;}
+.product .shirt-size{position:relative;display:block;margin-bottom:10px;float:left;}
+.product .shirt-size a{float: left;
+margin-right: 5px;border:1px solid #0381f4;padding:7px 10px; @include border-radius(5px);font-family:$typeface-primary;font-size:18px;}
 .product .shirt-size a:hover{background:$color-off-black;color:#fff;border:1px solid $color-off-black;}
 .product .shirt-size a.active{background:$color-off-black;color:#fff;border:1px solid $color-off-black;}
 
-.product .shirt-color{position:relative;display:block;margin-bottom:20px;overflow:hidden;}
+.product .shirt-chart{position:relative;display:block;overflow:hidden;}
+.product .shirt-chart a.size-chart{font-family:$typeface-primary;@include border-radius(5px);border:1px solid #0381f4;
+	font-size:11px;padding:5px 10px;text-align:center;width:70px;display:inline-block;}
+.product .shirt-chart a:hover{background:$color-off-black;color:#fff;border:1px solid $color-off-black;}
+
+.product .shirt-color{position:relative;display:block;margin-bottom:20px;overflow:hidden;clear:both;}
 .product .shirt-color .color-list{list-style:none;margin:0px;padding:0px;}
 .product .shirt-color .color-list li{float:left;margin-right:5px;}
 .product .shirt-color .color-list li .color-option{cursor:pointer;width: 23px; height: 23px; display: inline-block}
@@ -1627,3 +1633,6 @@ h3.divider-word span {
 .table .table {
   background-color: #fff;
 }
+#size-chart-modal .modal-dialog{width:380px;}
+#size-chart-modal .chart-wrap{border:4px solid #000;@include border-radius(10px);text-align:center;}
+#size-chart-modal .chart-wrap img{margin:0 auto;text-align:center;}
