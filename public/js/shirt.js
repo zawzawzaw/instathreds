@@ -54,18 +54,17 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
 
         context2.drawImage(shadowImg,0,0,canvas2.width, canvas2.height);
 
-        
         var canvas3 = document.createElement('canvas');
         var context3 = canvas3.getContext('2d');  
         canvas3.width = 630;
         canvas3.height = 460;
 
-        var result = ScaleImage(designImg.width, designImg.height, 630, 460, true);
+        var result = ScaleImage(designImg.width, designImg.height, 630-120, 460-120, true);
         x = canvas3.width - result.width;
         
         //var result = ScaleImage(designImg.width, designImg.height, baseImg.width-30, baseImg.height-30, true);
         //x = canvas3.width - result.width - 45;
-        context3.drawImage(designImg, x, result.targettop, result.width, result.height);
+        context3.drawImage(designImg, x-20, result.targettop + 60, result.width, result.height);
         
         var resultsmall = ScaleImage(designImg.width, designImg.height, baseImg.width-130, baseImg.height-130, true);
         //xposition = (canvas2.width - resultsmall.width)/2 ;
