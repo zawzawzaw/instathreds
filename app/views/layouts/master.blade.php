@@ -106,16 +106,7 @@
               <ul>
                 <li><a href="{{ route('shirtbuilder.index') }}">Make Your Own</a></li>
                 <li><a href="{{ route('store.featured') }}">Choose a Design</a></li>
-                <li>
-                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">Blog</a>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                    <li role="presentation"><a href="http://twitter.com/fat" tabindex="-1" role="menuitem">Action</a></li>
-                    <li role="presentation"><a href="http://twitter.com/fat" tabindex="-1" role="menuitem">Action</a></li>
-                    <li role="presentation"><a href="http://twitter.com/fat" tabindex="-1" role="menuitem">Another action</a></li>
-                    <li role="presentation"><a href="http://twitter.com/fat" tabindex="-1" role="menuitem">Something else here</a></li>
-                    <li role="presentation"><a href="http://twitter.com/fat" tabindex="-1" role="menuitem">Separated link</a></li>
-                  </ul>
-                </li>
+                <li><a data-toggle="dropdown" class="dropdown-toggle" href="#">Blog</a></li>
                 <li><a href="{{ route('store.index') }}">Stores</a></li>
               </ul>
             </div>
@@ -185,8 +176,8 @@
                 <p style="font-weight:bold;">
                 InstaThreds P/L<br>
                 CONTACT US: 1300 469 453<br>
-                PRINT ORDERS: <a href="mailto:print@instathreds.com">print@instathreds.com</a><br>
-                GENERAL ENQUIRIES: <a href="mailto:info@instathreds.com">info@instathreds.com</a>
+                PRINT ORDERS: <a href="mailto:print@instathreds.co">print@instathreds.co</a><br>
+                GENERAL ENQUIRIES: <a href="mailto:info@instathreds.co">info@instathreds.co</a>
                 </p>
               </li>
               <li>
@@ -218,8 +209,6 @@
                 <ul>
                   <li><a href="{{ route('store.index') }}">All Categories</a></li>
                   <li><a href="{{ route('store.featured') }}">Featured</a></li>
-                  <li><a href="#">His</a></li>
-                  <li><a href="#">Hers</a></li>
                 </ul>
               </li>
               <li>
@@ -240,9 +229,9 @@
               <li>
                 <h5>Order</h5>
                 <ul>
-                  <li><a href="#">Bulk Order Contact us here</a></li>
-                  <li><a href="#">Login</a></li>
-                  <li><a href="#">Signup</a></li>
+                  <li><a href="mailto:info@instathreds.co">Bulk Order Contact us here</a></li>
+                  <li><a href="#login-modal" class="user-account-btn login-link" data-id="login">Login</a></li>
+                  <li><a href="#login-modal" class="user-account-btn signup-link" data-id="signup">Signup</a></li>
                 </ul>
               </li>
                 
@@ -272,8 +261,8 @@
               <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
               <!-- Nav tabs -->
               <ul class="nav nav-tabs" id="login-tab" role="tablist">
-                <li class="active"><a href="#login" role="tab" data-toggle="tab">Login</a></li>
-                <li><a href="#signup" role="tab" data-toggle="tab">Signup</a></li>
+                <li><a href="#login-modal" class="user-account-btn login-link" data-id="login">Login</a></li>
+                <li><a href="#login-modal" class="user-account-btn signup-link" data-id="signup">Signup</a></li>
               </ul>
 
               <!-- Tab panes -->
