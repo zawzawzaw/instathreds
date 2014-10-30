@@ -49,7 +49,6 @@
         </div>
         <div class="nine column">
           <div class="content-right">
-            <a href="" class="banner-page"><img src="images/image-placeholder1.png" style="width:790px;height:150px;"></a>
             <h3>PRIVACY POLICY</h3>
             
             <ol>

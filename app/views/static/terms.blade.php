@@ -15,7 +15,7 @@
         <div class="row">
         <div class="three column">
           <div class="sidebar">  
-            <h3>PRIVACY</h3>
+            <h3>TERMS</h3>
             <div class="separator-line"></div>
             <div class="menu-sidebar">
               <ul>
@@ -49,7 +49,6 @@
         </div>
         <div class="nine column">
           <div class="content-right">
-            <a href="" class="banner-page"><img src="images/image-placeholder1.png" style="width:790px;height:150px;"></a>
             <h3>AGREEMENTS</h3>
             
             <ol class="main">
