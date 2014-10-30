@@ -15,7 +15,22 @@ class AdminController extends BaseController {
      */
     public function index()
     {
-        $this->layout->content = View::make('admin.index');
+        //
+        if (Auth::check())
+        {
+            $username = Auth::user()->username;
+        }else {
+            $username = '';
+        }
+
+        $orders = Order::with(array('shippingaddress','collection'))->orderBy('created_at','DESC')->paginate(8);
+
+        $orders_total = $orders->getTotal();
+
+        $this->layout->content = View::make('admin.index')
+            ->with('username', $username)
+            ->with('orders', $orders)
+            ->with('orders_total', $orders_total);
     }
 
     public function uploadfiles()

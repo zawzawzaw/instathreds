@@ -247,6 +247,7 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
             $("#womens-type").addClass("active-type");
 
             var autoSelectedType = $('.active-type').children('.dropdown-menu').find('a').first().text();
+            $('.active-type').children('.dropdown-menu').find('a').first().trigger('click');
             $('.active-type').children('.shirt-type').html(autoSelectedType + '<span class="caret"></span>');
 
         }else if(gender == 'mens'){
@@ -264,6 +265,7 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
             $("#mens-type").addClass("active-type");
 
             var autoSelectedType = $('.active-type').children('.dropdown-menu').find('a').first().text();
+            $('.active-type').children('.dropdown-menu').find('a').first().trigger('click');
             $('.active-type').children('.shirt-type').html(autoSelectedType + '<span class="caret"></span>');
 
         }else if(gender == 'kids'){
@@ -280,6 +282,7 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
             $("#kids-type").addClass("active-type");
 
             var autoSelectedType = $('.active-type').children('.dropdown-menu').find('a').first().text();
+            $('.active-type').children('.dropdown-menu').find('a').first().trigger('click');
             $('.active-type').children('.shirt-type').html(autoSelectedType + '<span class="caret"></span>');
         }
 

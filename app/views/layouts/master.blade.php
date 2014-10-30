@@ -35,12 +35,12 @@
 
     <nav class="mobile-menu-items">
       <ul>
-        <li>
+        <!-- <li>
           <div class="search-form-mobile">
               <input type="text" class="search-input" placeholder="SEARCH">
               <button class="button-search"><i class="fa fa-search"></i></button>
           </div>    
-        </li>
+        </li> -->
         <li>
           <a href="login-mobile.php">
             <!-- <img class="img-userprofile" src="images/userprofile.png" width="100"> -->
@@ -54,7 +54,7 @@
             <a href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart"></i><span>2 items in your cart<span></a>
           </div>
         </li>
-        <li><a href="{{ route('shirtbuilder.index') }}">Make Your Own</a></li>
+        <li><a href="{{ route('shirtbuilder.index') }}" target="_blank">Make Your Own</a></li>
         <li><a href="{{ route('store.featured') }}">Choose a Design</a></li>
         <li><a href="{{ route('store.index') }}">Stores</a></li>
         <li><a href="#">Blog</a></li>
@@ -75,10 +75,10 @@
             <div class="float-left">
               <h6 class="contact-us"><span>CONTACT US</span> 1300 468 453</h6>
             </div>
-            <div class="search-form">
+            <!-- <div class="search-form">
                 <input type="text" class="search-input" placeholder="SEARCH">
                 <button class="button-search"><i class="fa fa-search"></i></button>
-            </div>
+            </div> -->
             <div class="social">
               <a href="https://facebook.com/instathreds" target="_blank" class="icon"><i class="fa fa-facebook"></i></a>
               <a href="https://instagram.com/instathreds" target="_blank" class="icon"><i class="fa fa-instagram"></i></a>
@@ -104,7 +104,7 @@
           <div class="navigation-menu">
             <div class="menu-main">
               <ul>
-                <li><a href="{{ route('shirtbuilder.index') }}">Make Your Own</a></li>
+                <li><a href="{{ route('shirtbuilder.index') }}" target="_blank">Make Your Own</a></li>
                 <li><a href="{{ route('store.featured') }}">Choose a Design</a></li>
                 <li><a data-toggle="dropdown" class="dropdown-toggle" href="#">Blog</a></li>
                 <li><a href="{{ route('store.index') }}">Stores</a></li>

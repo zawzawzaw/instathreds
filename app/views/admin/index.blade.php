@@ -2,9 +2,9 @@
  <h5 class="sidebartitle">Navigation</h5>
   <ul class="nav nav-pills nav-stacked nav-bracket">
     <li class="active"><a href="{{ URL::to('admin') }}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-    <li><a href="#"><span class="pull-right badge badge-success">12</span><i class="fa fa-pencil-square-o"></i> <span>Orders</span></a></li>
+    <li><a href="{{ URL::to('admin/orders') }}"><span class="pull-right badge badge-success"></span><i class="fa fa-pencil-square-o"></i> <span>Orders</span></a></li>
     <li><a href="{{ URL::to('admin/users') }}"><i class="fa fa-users"></i> <span>Users</span></a></li>
-    <li><a href="{{ URL::to('admin/designs') }}"><span class="pull-right badge badge-success">11</span><i class="fa fa-photo"></i> <span>Designs in Store</span></a></li>
+    <li><a href="{{ URL::to('admin/designs') }}"><span class="pull-right badge badge-success"></span><i class="fa fa-photo"></i> <span>Designs in Store</span></a></li>
     <li><a href="{{ URL::to('admin/shirttypes') }}"><i class="fa fa-tasks"></i> <span>Shirt Types</span></a></li>
     <li><a href="#"><i class="fa fa-suitcase"></i> <span>Stock Art</span></a></li>
     <li><a href="#"><i class="fa fa-file-o"></i> <span>Pages</span></a></li>
@@ -74,7 +74,37 @@
 			         </tr>
 			      </thead>
 			      <tbody>
-			         <tr class="odd">
+			      	@if($orders->count() > 0)
+	                  	@foreach($orders as $k => $order)
+		                    @if($k % 2 == 0)
+			                <tr class="even">
+			                @else
+			                <tr class="odd">
+			                @endif
+		                      <td>{{ $order->id }}</td>
+		                      <td>{{ date("Y-m-d",strtotime($order->created_at)) }}</td>
+		                      <td>{{ $order->status or 'Pending...' }}</td>
+		                      <td>{{ $order->contact_first_name }}</td>
+		                      <td>{{ $order->total }}</td>
+		                      
+		                      @if(!$order->shippingaddress->isEmpty())
+		                        <td>{{ $order->shippingaddress[0]->address_1 }} {{ $order->shippingaddress[0]->address_2 }} {{ $order->shippingaddress[0]->city }} {{ $order->shippingaddress[0]->country }} {{ $order->shippingaddress[0]->post_zip_code }}</td>
+		                      @elseif(!$order->collection->isEmpty())
+                        		<td>Collection at {{ $order->collection[0]->store_location }}</td> 
+		                      @else
+		                        <td>Collection</td>
+		                      @endif
+		                      <td class="table-action">
+		                        <a href="{{ '/admin/orders/'.$order->id }}"><i class="fa fa-pencil"></i></a>
+		                      </td>
+		                    </tr>
+	                  	@endforeach
+	                @else
+						<div class="col-xs-6 col-sm-4 col-md-3 image">
+							<p>No order to display!</p>
+	                  	</div>
+	                @endif
+			         <!-- <tr class="odd">
 			            <td>617</td>
 			            <td>12/01/2014</td>
 			            <td>Pending</td>
@@ -84,8 +114,8 @@
 			            <td class="table-action">
 			              <a href="orders-detail.html"><i class="fa fa-pencil"></i></a>
 			            </td>
-			         </tr>
-			         <tr class="even">
+			         </tr> -->
+			         <!-- <tr class="even">
 			            <td>618</td>
 			            <td>11/21/2014</td>
 			            <td>Completed</td>
@@ -183,10 +213,12 @@
 			            <td class="table-action">
 			              <a href="orders-detail.html"><i class="fa fa-pencil"></i></a>
 			            </td>
-			         </tr>
+			         </tr> -->
 
 			      </tbody>
 			   </table>
+
+			   {{ $orders->links() }}
 			  </div><!-- table-responsive -->
 			  <div class="clearfix mb30"></div>
 			</div>    

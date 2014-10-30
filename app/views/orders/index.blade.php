@@ -77,18 +77,20 @@
                   @foreach($orders as $order)
                     <tr class="odd">
                       <td>{{ $order->id }}</td>
-                      <td>{{ $order->created_at }}</td>
-                      <td>Pending</td>
+                      <td>{{ date("Y-m-d",strtotime($order->created_at)) }}</td>
+                      <td>{{ $order->status or 'Pending...' }}</td>
                       <td>{{ $order->contact_first_name }}</td>
                       <td>{{ $order->total }}</td>
                       
-                      @if(!empty($order->shippingaddress->country))
-                        <td>{{ $order->shippingaddress->address_1 }} {{ $order->shippingaddress->address_2 }} {{ $order->shippingaddress->city }} {{ $order->shippingaddress->country }} {{ $order->shippingaddress->post_zip_code }}</td>
+                      @if(!$order->shippingaddress->isEmpty())
+                        <td>{{ $order->shippingaddress[0]->address_1 }} {{ $order->shippingaddress[0]->address_2 }} {{ $order->shippingaddress[0]->city }} {{ $order->shippingaddress[0]->country }} {{ $order->shippingaddress[0]->post_zip_code }}</td>
+                      @elseif(!$order->collection->isEmpty())
+                        <td>Collection at {{ $order->collection[0]->store_location }}</td> 
                       @else
-                        <td>Collection</td>
+                        <td>Collection</td>                       
                       @endif
                       <td class="table-action">
-                        <a href="#"><i class="fa fa-pencil"></i></a>
+                        <a href="{{ '/admin/orders/'.$order->id }}"><i class="fa fa-pencil"></i></a>
                       </td>
                     </tr>
                   @endforeach
@@ -236,12 +238,12 @@
 <script>
   jQuery(document).ready(function() {
 
-    $('#orders-table').dataTable( {
-      "sPaginationType": "full_numbers",
-      "aoColumnDefs": [
-      { "bSortable": false, "aTargets": [ 6 ] }
-      ] 
-    });
+    // $('#orders-table').dataTable( {
+    //   "sPaginationType": "full_numbers",
+    //   "aoColumnDefs": [
+    //   { "bSortable": false, "aTargets": [ 6 ] }
+    //   ] 
+    // });
     
     //jQuery('#orders-table').dataTable({
     //  "sPaginationType": "full_numbers"

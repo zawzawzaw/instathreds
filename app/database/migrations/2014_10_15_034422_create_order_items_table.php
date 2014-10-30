@@ -15,11 +15,12 @@ class CreateOrderItemsTable extends Migration {
 		//
 		Schema::create('ordersitems', function($table){
 			$table->increments('id');
+			$table->string('product_name');
 			$table->string('product_id');
 			$table->integer("order_id")->unsigned();
 			$table->string('qty');
 			$table->string('price');
-			$table->string('options');
+			$table->mediumText('options');
 			$table->timestamps();
 		});
 

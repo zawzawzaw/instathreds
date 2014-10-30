@@ -19,4 +19,8 @@ class Order extends Eloquent {
 		return $this->hasMany('Shippingaddress');
 	}
 
+	public function collection() {
+		return $this->hasMany('Collection');
+	}
+
 }

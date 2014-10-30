@@ -25,7 +25,7 @@ class OrderController extends \BaseController {
 			$username = '';
 		}
 
-	    $orders = Order::with('shippingaddress')->paginate(8);
+	    $orders = Order::with(array('shippingaddress','collection'))->orderBy('created_at','DESC')->paginate(8);
 
 	    // return $orders;
 
@@ -66,6 +66,22 @@ class OrderController extends \BaseController {
 	public function show($id)
 	{
 		//
+		//
+		if (Auth::check())
+		{
+		    $username = Auth::user()->username;
+		}else {
+			$username = '';
+		}
+
+	    $order = Order::with(array('shippingaddress','collection','ordersitem'))->where('id','=',$id)->orderBy('created_at','DESC')->get();
+
+	    // return $order;
+
+		$this->layout->content = View::make('orders.show')
+			->with('username', $username)
+			->with('order', $order);
+
 	}
 
 

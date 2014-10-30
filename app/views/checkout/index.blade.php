@@ -55,11 +55,11 @@
             	<a href="" class="store-loc storeloc-link"><i class="fa fa-info-circle"></i>Store Location</a>
 	            <div class="choose-store">
 	              <div class="left">
-	                <input type="radio" name="store_location" checked="checked" value="robina-store" style="display: inline-block;margin-left: 1px;">
+	                <input type="radio" name="store_location" checked="checked" value="Robina Store" style="display: inline-block;margin-left: 1px;">
                   <p style="display: inline-block;width:auto;padding-left:5px;">Robina Store</p>
 	              </div>
 	              <div class="right">
-	                <input type="radio" name="store_location" value="carindale-store" style="display: inline-block;margin-left: 1px;">
+	                <input type="radio" name="store_location" value="Carindale Store" style="display: inline-block;margin-left: 1px;">
                   <p style="display: inline-block;width:auto;padding-left:5px;">Carindale Store</p>
                 </div>
 	            </div>

@@ -531,10 +531,12 @@
         $('.addtocart-link').on('click', function(e){
           addToCartJSON.qty = $('.qty').val();
           addToCartJSON.price = $('.price').text().replace("$", "");
+          addToCartJSON.attr.gender = $('.gender').find('.active').attr('id');
           addToCartJSON.attr.size = $('.shirt-size .active').text();
           addToCartJSON.attr.color = $('.color-list .active').data('color');
           addToCartJSON.attr.shirt_type = $('.active-type').find('.shirt-type').text();
           addToCartJSON.attr.image = $('.final-product-image').children('img').attr('src');
+          addToCartJSON.attr.back_image = '';
 
           if($('.shirt-back-checkbox').children('input[name="print_back"]').is(':checked')) {
             addToCartJSON.attr.print_back = true;

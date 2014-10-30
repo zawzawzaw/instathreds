@@ -20,7 +20,21 @@ class AccountController extends\BaseController{
 	}
 
 	public function orderhistory(){
-		$this->layout->content = View::make('account/settings.orderhistory');
+
+		//
+		if (Auth::check())
+		{
+		    $email = Auth::user()->email;
+		}else {
+			$email = '';
+		}
+
+		$orders = Order::with(array('shippingaddress', 'collection'))->where('contact_email', '=', $email)->orderBy('created_at','DESC')->paginate(10);
+
+		// return $orders;
+
+		$this->layout->content = View::make('account/settings.orderhistory')->with('orders', $orders);
+
 	}
 
 	public function password(){

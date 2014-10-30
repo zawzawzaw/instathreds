@@ -22,6 +22,7 @@ class CreateOrdersTable extends Migration {
 			$table->string('sub_total');
 			$table->string('shipping_cost');
 			$table->string('total');
+			$table->string('status');
 			$table->timestamps();
 		});
 	}

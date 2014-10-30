@@ -448,6 +448,7 @@
 				var currentQty = $('input[name="qty"]').val();
 				var frontImage = thisClass.getViewsDataURL()[0];
 				var backImage = thisClass.getViewsDataURL()[1];
+				var currentGender = $('input[name=gender]:checked').val();
 				var currentSize = $('.select-size > a').text();
 				var currentPrice = $('#current-price').text();
 				var activeColor = $('.active-color').data('color');
@@ -478,12 +479,16 @@
 							'price' : currentPrice,
 							'qty' : currentQty,
 							'attr' : {
+								'gender' : currentGender,
 								'size' : currentSize,
 								'color' : activeColor,
 								'shirt_type' : currentShirtType,
-								'image' : frontImage
+								'image' : frontImage,
+								'back_image' : backImage
 							}
 				        };
+
+				        console.log(addToCartJSON);
 
 				        // abort any pending request
 			          	if (request) {
@@ -498,7 +503,7 @@
 							console.log(result)
 						           
 							if(result) {
-							  // window.location = "/cart";
+							  window.location = "/cart";
 							}
 
 						}); 

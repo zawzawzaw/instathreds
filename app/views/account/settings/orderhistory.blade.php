@@ -23,13 +23,19 @@
                  </tr>
               </thead>
               <tbody>
+                @foreach($orders as $k => $order)
+                 @if($k % 2 == 0)
+                 <tr class="even">
+                 @else
                  <tr class="odd">
-                    <td>617</td>
-                    <td>12/01/2014</td>
-                    <td>$131.50</td>
+                 @endif
+                    <td>{{ $order->id }}</td>
+                    <td>{{ date("Y-m-d",strtotime($order->created_at)) }}</td>
+                    <td>${{ $order->total }}</td>
                     <td>Pending</td>
                  </tr>
-                 <tr class="even">
+                @endforeach
+                 <!-- <tr class="even">
                     <td>618</td>
                     <td>12/01/2014</td>
                     <td>$131.50</td>
@@ -82,11 +88,13 @@
                     <td>12/01/2014</td>
                     <td>$131.50</td>
                     <td>Completed</td>
-                 </tr>
+                 </tr> -->
                  
 
               </tbody>
               </table>
+
+              {{ $orders->links() }}
               </div><!-- table-responsive -->
               
               

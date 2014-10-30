@@ -61,39 +61,7 @@ class CheckoutController extends \BaseController {
 		    $order->shipping_cost = $shipping_cost;
 		    $total = Cart::total() + $shipping_cost;
 		    $order->total = $total;
-		    $order->save();
-
-		    $order_id = $order->id;
-
-		    $cart = Cart::content();
-
-		    foreach ($cart as $key => $row) {
-		    	$ordersitem = new Ordersitem;
-		    	$ordersitem->order_id = $order_id;
-		    	$ordersitem->product_id = $row->id;
-			    $ordersitem->qty = $row->qty;
-			    $ordersitem->price = $row->price;
-			    $ordersitem->options = $row->options;
-			    $ordersitem->save();
-		    }
-
-		    if(Input::get('redemption_type')=="shipping") {
-			    $shippingaddress = new Shippingaddress;
-			    $shippingaddress->order_id = $order_id;
-			    $shippingaddress->country = Input::get('country');
-			    $shippingaddress->address_1 = Input::get('address_1');
-			    $shippingaddress->address_2 = Input::get('address_2');
-			    $shippingaddress->city = Input::get('city');
-			    $shippingaddress->state = Input::get('state');
-			    $shippingaddress->post_zip_code = Input::get('post_zip_code');
-			    $shippingaddress->save();
-			}else {
-				$collection = new Collection;
-				$collection->order_id = $order_id;
-				$collection->store_location = Input::get('store_location');
-				$collection->save();
-			}
-
+		    $order->status = 'Pending';
 
 			// Use the config for the stripe secret key
 			Stripe::setApiKey(Config::get('stripe.stripe.secret'));
@@ -118,7 +86,9 @@ class CheckoutController extends \BaseController {
 			      	'exp_year' => Input::get('exp_year'), 
 			      	'cvc' => Input::get('cvc')
 			      ),
-			      "description" => 'Charge for Instathreds products')
+			      "description" => 'Charge for Instathreds products',
+			      "receipt_email" => Input::get('contact_email')
+			      )
 			    );
 
 			} catch(Stripe_CardError $e) {
@@ -132,6 +102,40 @@ class CheckoutController extends \BaseController {
 			}
 			// Maybe add an entry to your DB that the charge was successful, or at least Log the charge or errors
 			// Stripe charge was successfull, continue by redirecting to a page with a thank you message
+
+			$order->save();
+
+		    $order_id = $order->id;
+
+		    $cart = Cart::content();
+
+		    foreach ($cart as $key => $row) {
+		    	$ordersitem = new Ordersitem;
+		    	$ordersitem->order_id = $order_id;
+		    	$ordersitem->product_name = $row->name;
+		    	$ordersitem->product_id = $row->id;
+			    $ordersitem->qty = $row->qty;
+			    $ordersitem->price = $row->price;
+			    $ordersitem->options = $row->options;
+			    $ordersitem->save();
+		    }
+
+		    if(Input::get('redemption_type')=="shipping") {
+			    $shippingaddress = new Shippingaddress;
+			    $shippingaddress->order_id = $order_id;
+			    $shippingaddress->country = Input::get('country');
+			    $shippingaddress->address_1 = Input::get('address_1');
+			    $shippingaddress->address_2 = Input::get('address_2');
+			    $shippingaddress->city = Input::get('city');
+			    $shippingaddress->state = Input::get('state');
+			    $shippingaddress->post_zip_code = Input::get('post_zip_code');
+			    $shippingaddress->save();
+			}else {
+				$collection = new Collection;
+				$collection->order_id = $order_id;
+				$collection->store_location = Input::get('store_location');
+				$collection->save();
+			}
 
 			Cart::destroy();
 
