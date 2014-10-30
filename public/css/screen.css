@@ -1174,15 +1174,21 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 
 #kids-type { display: none; }
 
-.product .shirt-size { position: relative; display: block; margin-bottom: 20px; }
+.product .shirt-size { position: relative; display: block; margin-bottom: 10px; float: left; }
 
-.product .shirt-size a { border: 1px solid #0381f4; padding: 7px 10px; -webkit-border-radius: 5px; border-radius: 5px; background-clip: padding-box; /* stops bg color from leaking outside the border: */ font-family: "museo-slab", serif; font-size: 18px; }
+.product .shirt-size a { float: left; margin-right: 5px; border: 1px solid #0381f4; padding: 7px 10px; -webkit-border-radius: 5px; border-radius: 5px; background-clip: padding-box; /* stops bg color from leaking outside the border: */ font-family: "museo-slab", serif; font-size: 18px; }
 
 .product .shirt-size a:hover { background: #231f20; color: #fff; border: 1px solid #231f20; }
 
 .product .shirt-size a.active { background: #231f20; color: #fff; border: 1px solid #231f20; }
 
-.product .shirt-color { position: relative; display: block; margin-bottom: 20px; overflow: hidden; }
+.product .shirt-chart { position: relative; display: block; overflow: hidden; }
+
+.product .shirt-chart a.size-chart { font-family: "museo-slab", serif; -webkit-border-radius: 5px; border-radius: 5px; background-clip: padding-box; /* stops bg color from leaking outside the border: */ border: 1px solid #0381f4; font-size: 11px; padding: 5px 10px; text-align: center; width: 70px; display: inline-block; }
+
+.product .shirt-chart a:hover { background: #231f20; color: #fff; border: 1px solid #231f20; }
+
+.product .shirt-color { position: relative; display: block; margin-bottom: 20px; overflow: hidden; clear: both; }
 
 .product .shirt-color .color-list { list-style: none; margin: 0px; padding: 0px; }
 
@@ -1543,6 +1549,12 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 .table > tbody + tbody { border-top: 2px solid #ddd; }
 
 .table .table { background-color: #fff; }
+
+#size-chart-modal .modal-dialog { width: 380px; }
+
+#size-chart-modal .chart-wrap { border: 4px solid #000; -webkit-border-radius: 10px; border-radius: 10px; background-clip: padding-box; /* stops bg color from leaking outside the border: */ text-align: center; }
+
+#size-chart-modal .chart-wrap img { margin: 0 auto; text-align: center; }
 
 /* ======== TYPOGRAPHY ============ */
 .font-size-xxx-large, h1 { font-size: 38px; }

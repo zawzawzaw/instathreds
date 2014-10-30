@@ -46,7 +46,7 @@ class CheckoutController extends \BaseController {
 
 	    	$order = new Order;
 		    $order->contact_first_name = Input::get('contact_first_name');
-		    $order->contact_last_name = Input::get('contact_first_name');
+		    $order->contact_last_name = Input::get('contact_last_name');
 		    $order->contact_email = Input::get('contact_email');
 		    $order->contact_phone = Input::get('contact_phone');
 
@@ -128,7 +128,7 @@ class CheckoutController extends \BaseController {
 			    // The card has been declined
 			    // redirect back to checkout page
 			    return Redirect::to('/checkout')
-			        ->withInput()->with('message',$error['message']);
+			        ->withInput()->with('message', $error['message']);
 			}
 			// Maybe add an entry to your DB that the charge was successful, or at least Log the charge or errors
 			// Stripe charge was successfull, continue by redirecting to a page with a thank you message

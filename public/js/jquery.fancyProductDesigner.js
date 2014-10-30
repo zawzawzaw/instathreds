@@ -215,7 +215,7 @@
 						padding: 7
 					});
 
-					// console.log(currentElement);
+					console.log(elemParams);
 
 					// zza edit (to open respective tab depends on user select)
 					if(currentElement.title=="Base") {
@@ -232,6 +232,19 @@
 					// ??? this choose product type from dropdown
 					$sidebarContent.find('.fpd-elements-dropdown').children('option[value="'+currentElement.id+'"]').prop('selected', true).parent().trigger('chosen:updated');
 
+					// zza edit
+					var $sizelist = $('.select-size').find('.dropdown-menu');
+
+					if("sizes" in elemParams && elemParams.sizes.length > 1){
+						$sizelist.empty();
+						$.each(elemParams.sizes, function(i, size){
+							$('.select-size').find('.dropdown-menu').append('<li><a href="javascript:void(0);">'+size+'</a></li>').children('li:last').click(function(evt) {
+								evt.preventDefault();
+								$('.select-size > a').html($(this).text()+'<b class="caret"></b>');
+							});
+						});
+					}
+				
 					// toggle colorpicker
 					if(Array.isArray(elemParams.colors) && _elementIsColorizable(currentElement) != false) {
 						$colorPicker.children('input').val(elemParams.currentColor ? elemParams.currentColor : elemParams.colors[0]);
@@ -497,13 +510,13 @@
 
 
 			// zza edit
-			$('.select-size').find('.dropdown-menu li').on('click', function(e){
+			// $('.select-size').find('.dropdown-menu li').on('click', function(e){
 
-				e.preventDefault();
+			// 	e.preventDefault();
 
-				$('.select-size > a').html($(this).text()+'<b class="caret"></b>');
+			// 	$('.select-size > a').html($(this).text()+'<b class="caret"></b>');
 
-			});
+			// });
 
 
 			// zza edit : fix male product selection bug by setting male product on load
