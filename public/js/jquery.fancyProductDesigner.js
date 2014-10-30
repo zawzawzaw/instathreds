@@ -34,6 +34,7 @@
 			$modificationTooltip,
 			$maleproducts,
 			$femaleproducts,
+			$kidsproducts,
 			$designs,
 			$viewSelection,
 			$editorBox,
@@ -60,6 +61,7 @@
 		$elem = $(elem).addClass('fpd-container fpd-clearfix');
 		$maleproducts = $elem.children('.fpd-male-product').remove();
 		$femaleproducts = $elem.children('.fpd-female-product').remove();
+		$kidsproducts = $elem.children('.fpd-kids-product').remove();
 		$designs = $elem.children('.fpd-design');
 
 		//test if canvas is supported
@@ -213,10 +215,10 @@
 						padding: 7
 					});
 
-					console.log(currentElement);
+					// console.log(currentElement);
 
 					// zza edit (to open respective tab depends on user select)
-					if(currentElement.title=="Body") {
+					if(currentElement.title=="Base") {
 						$('#collapseOne').collapse('show');
 					}else if(currentElement._element!==undefined) {
 						$('#collapseTwo').collapse('show');
@@ -264,8 +266,11 @@
 
 										color = $(this).children('span').data('color');
 
-										if(color=='#fff') $('input[name="white_underbase"]').prop('checked', false);
-										else $('input[name="white_underbase"]').prop('checked', true);
+										$('.colorOptions').removeClass('active-color');
+										$(this).children('span').addClass('active-color');
+
+										// if(color=='#fff') $('input[name="white_underbase"]').prop('checked', false);
+										// else $('input[name="white_underbase"]').prop('checked', true);
 										
 										_changeColor(currentElement, color);
 								});
@@ -284,6 +289,10 @@
 							});
 						}
 						$colorPicker.show();
+						// console.log($toolbar.children())
+
+						$colorPicker.parent().show();
+						$colorPicker.parent().parent().show();
 					}
 					else {
 						$colorPicker.hide();
@@ -357,7 +366,8 @@
 
 					stage.renderAll();
 
-					$toolbar.show();
+					$toolbar.show().children('.fpd-color-picker, .fpd-fonts-dropdown-wrapper, .fpd-customize-text').show();
+
 					$sidebarNavi.find('li[data-target=".fpd-edit-elements"]').click();
 					_outOfContainment(currentElement);
 
@@ -393,7 +403,130 @@
 				return viewsArr;
 			}
 
+			var makeRequest = function(Data, URL, Method) {
+
+	            var request = $.ajax({
+	              	url: URL,
+	              	type: Method,
+	              	data: Data,
+	                dataType: "JSON",
+					success: function(response) {
+					  	// if success remove current item
+					  	console.log(response);
+					},
+					error: function( error ){
+					  	// Log any error.
+					  	console.log( "ERROR:", error );
+				}
+          	});
+
+	          return request;
+	        };
+
+			// zza edit // add to cart
+			var saverequest;
+			var request;
+			$('.add-to-cart-btn').on('click', function(e){
+				
+				e.preventDefault();
+
+				//get key and value
+
+				var currentQty = $('input[name="qty"]').val();
+				var frontImage = thisClass.getViewsDataURL()[0];
+				var backImage = thisClass.getViewsDataURL()[1];
+				var currentSize = $('.select-size > a').text();
+				var currentPrice = $('#current-price').text();
+				var activeColor = $('.active-color').data('color');
+				var currentShirtType = $('.fpd-products').children('.select').children('a').text();
+				var product = thisClass.getProduct(false);
+
+				var addBuilderProductJSON = {
+		          'title': 'Shirt builder product',
+		          'front_image': frontImage,
+		          'back_image': backImage,
+		          'product_details': JSON.stringify(product)		          
+		        };
+
+				// abort any pending request
+				if (saverequest) {
+				  	saverequest.abort();
+				}
+
+				saverequest = makeRequest(addBuilderProductJSON, "/shirtbuilder" , "POST");
+
+				saverequest.done(function(){
+					var result = jQuery.parseJSON(saverequest.responseText);
+					           
+					if("product_id" in result) {
+					  	var addToCartJSON = {
+							'id': result.product_id,
+							'title': 'Shirt builder product',
+							'price' : currentPrice,
+							'qty' : currentQty,
+							'attr' : {
+								'size' : currentSize,
+								'color' : activeColor,
+								'shirt_type' : currentShirtType,
+								'image' : frontImage
+							}
+				        };
+
+				        // abort any pending request
+			          	if (request) {
+			              	request.abort();
+			          	}
+
+			          	request = makeRequest(addToCartJSON, "/cart" , "POST");
+
+						request.done(function(){
+							var result = jQuery.parseJSON(request.responseText);
+
+							console.log(result)
+						           
+							if(result) {
+							  // window.location = "/cart";
+							}
+
+						}); 
+					}
+				});    				
+
+
+			});
+
+
+			// zza edit
+			$('.select-size').find('.dropdown-menu li').on('click', function(e){
+
+				e.preventDefault();
+
+				$('.select-size > a').html($(this).text()+'<b class="caret"></b>');
+
+			});
+
+
+			// zza edit : fix male product selection bug by setting male product on load
+
+			$sidebarContent.find('.fpd-products ul').html('');
+
+			for(var i=0; i < $maleproducts.length; ++i) {
+				//get other views
+				views = $($maleproducts.get(i)).children('.fpd-male-product');
+				//get first view
+				views.splice(0,0,$maleproducts.get(i));
+
+				viewsArr = createViewArr(views);
+				
+				thisClass.addProduct(viewsArr);
+
+			}
+
 			$('#collapseOne').find('.gender-select').children('input').on('change', function(e){
+				var obj = stage.getObjects();
+
+				console.log(obj)
+
 				if($(this).val()=='male') {
 					$sidebarContent.find('.fpd-products ul').html('');
 
@@ -406,7 +539,19 @@
 						viewsArr = createViewArr(views);
 						
 						thisClass.addProduct(viewsArr);
+
 					}
+
+					console.log($('.fpd-products ul li').first().children('a').text());
+
+					console.log(obj[1]);
+
+					$('.fpd-products ul li').first().trigger('click');
+
+			  		
+					console.log(obj);
+
+			  		// console.log(stage.setActiveObject(objects[1]));
 
 				}else if($(this).val()=='female') {
 					$sidebarContent.find('.fpd-products ul').html('');
@@ -420,11 +565,36 @@
 						viewsArr = createViewArr(views);
 
 						thisClass.addProduct(viewsArr);
+
 					}
+
+					console.log($('.fpd-products ul li').first().children('a').text());
+
+					$('.fpd-products ul li').first().children('a').trigger('click');
+
+				}else if($(this).val()=='kids') {
+					$sidebarContent.find('.fpd-products ul').html('');
+
+					for(var i=0; i < $kidsproducts.length; ++i) {
+						//get other views
+						views = $($kidsproducts.get(i)).children('.fpd-kids-product');
+						//get first view
+						views.splice(0,0,$kidsproducts.get(i));
+
+						viewsArr = createViewArr(views);
+
+						thisClass.addProduct(viewsArr);
+
+					}
+
+					console.log($('.fpd-products ul li').first().children('a').text());
+
+					$('.fpd-products ul li').first().children('a').trigger('click');
 				}
 			});
 
-			$('#collapseOne').find('.gender-select').children('input').first().trigger('change');
+			// weird issue 2
+			// $('#collapseOne').find('.gender-select').children('input').first().trigger('change');
 
 			//load all designs
 			if($designs.size() > 0) {
@@ -468,7 +638,7 @@
 			//show edit elements navi
 			$sidebarNavi.find('li[data-target=".fpd-edit-elements"]').show();
 
-			//zza edit init tab (select image tab)
+			//zza edit init tab (tabs inside image tab)
 			$('#imageSelectTab a').click(function (e) {
 			  e.preventDefault()
 			  $(this).tab('show')
@@ -635,7 +805,7 @@
 
 											}
 											else {
-												console.log('hi')
+												// console.log('hi')
 												alert(data.error);
 											}
 
@@ -875,6 +1045,8 @@
 					savedProducts.push({thumbnail: thumbnail, product: product});
 					window.localStorage.setItem($elem.attr('id'), JSON.stringify(savedProducts));
 
+					// console.log(savedProducts);
+
 					_addSavedProduct(thumbnail, product);
 
 				});
@@ -954,15 +1126,12 @@
 				var objects = stage.getObjects();
 		  		var currentActiveObj = stage.getActiveObject();
 
-		  		console.log(currentActiveObj);
-
-		  		if(currentActiveObj === null) {
+		  		if(currentActiveObj === null)
 		  			stage.setActiveObject(objects[openIndex]);
-		  			console.log(objects[1])
-		  		}
 		  		else {
 		  			// if base has not selected
-		  			if(currentActiveObj.title!=='Base') stage.setActiveObject(objects[openIndex]);
+		  			if(currentActiveObj !== undefined && currentActiveObj.title!=='Base') 
+		  				stage.setActiveObject(objects[openIndex]);
 		  		}		  			
 			}
 
@@ -999,12 +1168,12 @@
 			  	var currentActiveObj = stage.getActiveObject();
 			  	var objects = stage.getObjects();
 
-			  	console.log('open index' + openIndex)
+			  	console.log('open index ' + openIndex)
 			  	
 			  	// if first accordian open
 			  	if(openIndex==0) {
-			  		console.log('first');
-			  		setcurrentObj(openIndex);	
+			  		// console.log('first');
+			  		setcurrentObj(openIndex+1);	//plus 1 here because base image tag is second in order
 			  	}else if(openIndex==1) { // if image select
 			  			
 			  		if(currentActiveObj !== null) {
@@ -1014,10 +1183,15 @@
 			  			var setIndex = findandselectObj(openIndex);
 
 			  			if(setIndex!==0){
-			  				console.log(currentActiveObj)
-			  				console.log(objects[setIndex])
-			  				if(currentActiveObj.title=='Base' || currentActiveObj._element.className!=objects[setIndex]._element.className)			  				
+			  				// console.log(currentActiveObj)
+			  				// console.log(objects[setIndex])
+			  				if(currentActiveObj.title=='Base' )  {
 			  					setcurrentObj(setIndex);	
+			  				}else if("className" in currentActiveObj && currentActiveObj._element.className!=objects[setIndex]._element.className) {
+			  					setcurrentObj(setIndex);
+			  				}else if("text" in currentActiveObj) {
+			  					setcurrentObj(setIndex);
+			  				}
 			  			}else {
 			  				_deselectElement();
 			  			}
@@ -1034,7 +1208,7 @@
 			  				console.log('null');
 			  			}
 			  		}
-			  	}else { // if text select
+			  	}else if(openIndex==2) { // if text select
 			  		if(currentActiveObj !== null) {
 			  			if(currentActiveObj.title==='Base')
 			  				_deselectElement();
@@ -1059,6 +1233,8 @@
 			  				console.log('null');
 			  			}
 			  		}
+			  	}else {
+			  		_deselectElement();
 			  	}
 			});
 			
@@ -1646,6 +1822,9 @@
 			.children('li:last').children('img').click(function(evt) {
 				//load product
 				evt.preventDefault();
+
+				console.log($(this).data('product'))
+
 				thisClass.loadProduct($(this).data('product'));
 				currentProductIndex = -1;
 			}).data('product', product)
@@ -2027,6 +2206,8 @@
 				var $this = $(this),
 					index = $sidebarContent.find('.fpd-products ul li').index($this);
 
+					$('.fpd-products').children('.select').children('a').html($this.text() + '<b class="caret"></b>');
+
 				thisClass.selectProduct(index);
 			}).data('views', views)
 			.children('img').load(function() {
@@ -2157,8 +2338,23 @@
 			$viewSelection.append('<li class="fpd-content-color"><img src="'+view.thumbnail+'" title="'+view.title+'" class="fpd-tooltip" /></li>')
 			.children('li:last').click(function(evt) {
 
+				var objects = stage.getObjects();
+		  		
+		  		var frontBackValue = $viewSelection.children('li').index($(this));
+
+		  		_deselectElement();
+
 				evt.preventDefault();
-				thisClass.selectView($viewSelection.children('li').index($(this)));
+				thisClass.selectView(frontBackValue);
+
+				if(frontBackValue === 0) {
+		  			console.log('front')
+		  			stage.setActiveObject(objects[1]);
+		  		}
+		  		else {
+		  			console.log('back')
+		  			stage.setActiveObject(objects[4]);
+		  		}
 
 			});
 

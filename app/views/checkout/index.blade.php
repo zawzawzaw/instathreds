@@ -216,12 +216,12 @@
 		          	@foreach($cart as $row)
 						<tr>
 		                	<td>
-		                		<a href="{{ URL::to('product', array(Product::slug($row->product->title), $row->product->id)) }}">
+		                		<a href="{{ URL::to('product', array(Product::slug($row->name), $row->id)) }}">
 		                			<img src="{{ $row->options->image }}" style="width:30px;">
 		                		</a>
 		                	</td>
 		                	<td>
-		                		<a href="{{ URL::to('product', array(Product::slug($row->product->title), $row->product->id)) }}">{{ $row->product->title }}<br>({{ $row->qty }}) {{ $row->product->title }}, {{ $row->options->size }}</a>
+		                		<a href="{{ URL::to('product', array(Product::slug($row->name), $row->id)) }}">{{ $row->name }}<br>({{ $row->qty }}) {{ $row->name }}, {{ $row->options->size }}</a>
 		                	</td>
 		                	<td><p>${{ $row->price }}</p></td>
 		              	</tr>
@@ -324,6 +324,7 @@
 			$('.collect').slideDown();
 
 			$totalPrice.text( '$' + parseFloat('{{ Cart::total() }}').toFixed(2) );
+      $shippingPrice.text( '$' + 0 );
 		}else {
 			$('.ship').slideDown();
 			$('.collect').slideUp();

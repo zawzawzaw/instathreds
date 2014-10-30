@@ -34,12 +34,12 @@
 		           	  
               			<td><a href="javascript:void(0);" class="button-remove"><i class="fa fa-close">X</i></a></td>
 		              	<td>
-			              	<a href="{{ URL::to('product', array(Product::slug($row->product->title), $row->product->id)) }}" class="product-image">
+			              	<a href="{{ URL::to('product', array(Product::slug($row->name), $row->id)) }}" class="product-image">
                         <img src="{{ $row->options->image }}" alt="product image" style="width:150px;" alt="">
 			              	</a>
 	              		</td>
-		              	<td><a href="{{ URL::to('product', array(Product::slug($row->product->title), $row->product->id)) }}">{{ $row->product->title }}</a></td>
-		              <td>{{ $row->product->description }}</td>
+		              	<td><a href="{{ URL::to('product', array(Product::slug($row->name), $row->id)) }}">{{ $row->name }}</a></td>
+		              <td>{{ $row->options->description }}</td>
 		              <td>${{ $row->price }}</td>
 		              <td>
 		              	<div class="update-cart-input">

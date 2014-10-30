@@ -75,10 +75,11 @@ $saved_products_headline = 'Your Saved Products';
 			        </a>
 			    </div>
 			    <div id="collapseOne" data-index="0" class="panel-collapse collapse">
-			      <div class="panel-body" style="height:250px;">
+			      <div class="panel-body">
 					<div class="gender-select">
 						<label for="gender">Male</label><input type="radio" name="gender" value="male" checked>
 						<label for="gender">Female</label><input type="radio" name="gender" value="female">
+						<label for="gender">Kids</label><input type="radio" name="gender" value="kids">
 					</div>
 
 			      	<!-- Products -->
@@ -99,20 +100,20 @@ $saved_products_headline = 'Your Saved Products';
 						</div>
 					</div>
 
-					<div class="select" style="margin:20px 0 20px 0;">
-					  <a data-toggle="dropdown" class="dropdown" href="#">Size<b class="caret"></b></a>
-					  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-					  	<li><a href="javascript:void(0);">Small</a></li>
-					  	<li><a href="javascript:void(0);">Medium</a></li>
-					  	<li><a href="javascript:void(0);">Large</a></li>
-					  	<li><a href="javascript:void(0);">X-Large</a></li>
-					  </ul>
+					<div class="select select-size" style="margin:20px 0 20px 0;">
+					  	<a data-toggle="dropdown" class="dropdown" href="#">Size<b class="caret"></b></a>
+					  	<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						  	<li><a href="javascript:void(0);">Small</a></li>
+						  	<li><a href="javascript:void(0);">Medium</a></li>
+						  	<li><a href="javascript:void(0);">Large</a></li>
+						  	<li><a href="javascript:void(0);">X-Large</a></li>
+					  	</ul>
 					</div>
 
-					<div class="detail">
+					<!-- <div class="detail">
 						<input type="checkbox" name="white_underbase"> White Underbase <span>?</span><br>
 						<input type="checkbox" name="printarea"> Upgrade to large print area <span>?</span>
-					</div>
+					</div> -->
 
 			      </div>
 			    </div>

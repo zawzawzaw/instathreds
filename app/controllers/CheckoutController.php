@@ -70,7 +70,7 @@ class CheckoutController extends \BaseController {
 		    foreach ($cart as $key => $row) {
 		    	$ordersitem = new Ordersitem;
 		    	$ordersitem->order_id = $order_id;
-		    	$ordersitem->product_id = $row->product->id;
+		    	$ordersitem->product_id = $row->id;
 			    $ordersitem->qty = $row->qty;
 			    $ordersitem->price = $row->price;
 			    $ordersitem->options = $row->options;
@@ -113,10 +113,10 @@ class CheckoutController extends \BaseController {
 			      "amount" => $cents, // amount in cents
 			      "currency" => "aud",
 			      "card"  => array(
-			      	'number' => '4242 4242 4242 4242',  //test acc
-			      	'exp_month' => 12, 
-			      	'exp_year' => 18, 
-			      	'cvc' => 111
+			      	'number' => Input::get('number'),  //test acc // 4242 4242 4242 4242
+			      	'exp_month' => Input::get('exp_month'), 
+			      	'exp_year' => Input::get('exp_year'), 
+			      	'cvc' => Input::get('cvc')
 			      ),
 			      "description" => 'Charge for Instathreds products')
 			    );
@@ -124,17 +124,18 @@ class CheckoutController extends \BaseController {
 			} catch(Stripe_CardError $e) {
 			    $e_json = $e->getJsonBody();
 			    $error = $e_json['error'];
+
 			    // The card has been declined
 			    // redirect back to checkout page
-			    return Redirect::to('pay')
-			        ->withInput()->with('stripe_errors',$error['message']);
+			    return Redirect::to('/checkout')
+			        ->withInput()->with('message',$error['message']);
 			}
 			// Maybe add an entry to your DB that the charge was successful, or at least Log the charge or errors
 			// Stripe charge was successfull, continue by redirecting to a page with a thank you message
 
 			Cart::destroy();
 
-			return Redirect::to('checkout/thankyou');
+			return Redirect::to('checkout/thankyou?order_id='.$order_id);
 
 	    } else {
 	        # validation has failed, display error messages
@@ -223,7 +224,9 @@ class CheckoutController extends \BaseController {
 
     public function thankyou() {
     	//return View::make('checkout.thankyou');
-    	$this->layout->content = View::make('checkout.thankyou');
+    	$order_id = Input::get('order_id');
+
+    	$this->layout->content = View::make('checkout.thankyou')->with('order_id', $order_id);
     }
 
 }

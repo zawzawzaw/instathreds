@@ -491,6 +491,7 @@
           'price' : $('.price').text(),
           'qty' : 1,
           'attr' : {
+            'description': '{{ $product->description }}',
             'size' : 'M',
             'color' : 'Black'
           }
