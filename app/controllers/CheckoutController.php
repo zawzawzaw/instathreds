@@ -46,7 +46,7 @@ class CheckoutController extends \BaseController {
 
 	    	$order = new Order;
 		    $order->contact_first_name = Input::get('contact_first_name');
-		    $order->contact_last_name = Input::get('contact_first_name');
+		    $order->contact_last_name = Input::get('contact_last_name');
 		    $order->contact_email = Input::get('contact_email');
 		    $order->contact_phone = Input::get('contact_phone');
 
