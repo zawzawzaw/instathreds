@@ -300,6 +300,77 @@
     
   </div>
 </section>
+
+<!-- STORE LOCATION MODAL -->
+<div class="modal fade" id="store-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        
+        <div class="wrap">
+          <h3 style="text-align:center;">STORE LOCATIONS</h3>
+          <div class="separator-line"></div>
+          <table>
+            <tr>
+              <td>
+                <h6>ROBINA</h6>
+                <p>Robina Town Centre<br>
+                Robina Town Centre Drive<br>
+                (off Robina Parkway)<br>
+                Robina QLD 4230</p>  
+              </td>
+              <td></td>
+              <td>
+                <h6>CARINDALE</h6>
+                <p>Westfield Carindale<br>
+                1151 Creek Road<br>
+                Carindale QLD 4152</p>  
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>
+                Mon: 9am – 5.30pm<br>
+                Tues: 9am – 5.30pm<br>
+                Wed: 9am – 5.30pm<br>
+                Thurs: 9am – 9pm<br>
+                Fri: 9am – 5.30pm<br>
+                Sat: 9am – 5.30pm<br>
+                Sun: 10am – 4pm</p>  
+              </td>
+              <td></td>
+              <td>
+                <p>
+                  Mon: 9am – 5.30pm<br>
+                  Tues: 9am – 5.30pm<br>
+                  Wed: 9am – 5.30pm<br>
+                  Thurs: 9am – 9pm<br>
+                  Fri: 9am – 5.30pm<br>
+                  Sat: 9am – 5pm<br>
+                  Sun: 10am – 5pm
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <p>
+                  e. <a href="mailto:info@instathreds.com">info@instathreds.com</a><br>
+                  p. 1300 469 453
+                </p>  
+              </td>
+            </tr>
+          </table>
+
+          
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 {{ HTML::script('js/vendor/jquery-2.1.1.js') }}
 <script>
 	$(".login-link").on("click",function(){
@@ -348,5 +419,11 @@
 		$shippingPrice.text( '$' + shippingCost );
 
 	});
+
+  $(".storeloc-link").on("click",function(e){
+    e.preventDefault();
+    $('#store-modal').modal('show')
+  });
+  
 </script>
 @endsection
