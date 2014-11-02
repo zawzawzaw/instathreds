@@ -197,6 +197,7 @@ $saved_products_headline = 'Your Saved Products';
 			    <div id="collapseThird" data-index="2" class="panel-collapse collapse">
 			    	<div id="customText" class="panel-body">
 						<div class="fpd-toolbar font-toolbar">
+
 							<div class="fpd-fonts-dropdown-wrapper">
 								<select class="fpd-fonts-dropdown"></select>
 							</div>
@@ -209,7 +210,10 @@ $saved_products_headline = 'Your Saved Products';
 									<button title="<?php echo $customize_text_align_right; ?>" class="fpd-align-right fpd-button fpd-tooltip"><span class="fa fa-align-right"></span></button>
 									<button title="<?php echo $customize_text_bold; ?>" class="fpd-bold fpd-button fpd-tooltip"><span class="fa fa-bold"></span></button>
 									<button title="<?php echo $customize_text_italic; ?>" class="fpd-italic fpd-button fpd-tooltip"><span class="fa fa-italic"></span></button>
+									<button id="addMoreText" class="fpd-button-submit fpd-button fpd-submit custom-btn">Add New</button>
 								</div>
+
+
 							</div>
 						</div>
 
@@ -253,7 +257,7 @@ $saved_products_headline = 'Your Saved Products';
 						</div>			
 						
 						<div class="add-to-cart">
-							<input type="text" name="qty" value="" placeholder="Qty">
+							<input type="text" name="qty" value="1" placeholder="Qty">
 							<button class="custom-btn add-to-cart-btn">Add To Cart</button>
 						</div>
 					</div>

@@ -568,6 +568,16 @@ ul.color-list li {
 	margin-right: 6px;
 }
 
+#addMoreText {
+	width: 71px;
+	font-size: 11px;
+	line-height: 14px;
+	height: 23px;
+	padding: 0;
+	display: inline-block;
+	background-color: #C1CFD9!important;
+}
+
 /*
 //////////////////////////////////
 //////// gender select ///////////

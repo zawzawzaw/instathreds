@@ -166,8 +166,8 @@
 			stage.on({
 				'mouse:down': function(opts) {
 					if(opts.target == undefined) {
-						_deselectElement();
-						$customText.show();
+						// _deselectElement();
+						// $customText.show();
 					}
 				},
 				'object:moving': function(opts) {
@@ -215,7 +215,7 @@
 						padding: 7
 					});
 
-					console.log(elemParams);
+					// console.log(elemParams);
 
 					// zza edit (to open respective tab depends on user select)
 					if(currentElement.title=="Base") {
@@ -337,6 +337,8 @@
 
 					//check for a boundingbox
 
+					console.log(elemParams)
+
 					if(elemParams.boundingBox && !options.editorMode) {
 						//custom boundingbox
 						if(typeof elemParams.boundingBox == "object") {
@@ -355,6 +357,8 @@
 							});
 							stage.add(currentBoundingObject);
 							currentBoundingObject.moveTo(stage.getObjects().indexOf(currentElement));
+
+							console.log('there')
 						}
 						//boundingbox by another element
 						else {
@@ -373,7 +377,7 @@
 								}
 							}
 
-							console.log(currentBoundingObject)
+							console.log('here')
 						}
 					}
 
@@ -416,6 +420,22 @@
 				return viewsArr;
 			}
 
+			// zza edit : fix male product selection bug by setting male product on load
+
+			$sidebarContent.find('.fpd-products ul').html('');
+
+			for(var i=0; i < $maleproducts.length; ++i) {
+				//get other views
+				views = $($maleproducts.get(i)).children('.fpd-male-product');
+				//get first view
+				views.splice(0,0,$maleproducts.get(i));
+
+				viewsArr = createViewArr(views);
+				
+				thisClass.addProduct(viewsArr);
+
+			}
+
 			var makeRequest = function(Data, URL, Method) {
 
 	            var request = $.ajax({
@@ -435,6 +455,11 @@
 
 	          return request;
 	        };
+
+	        $('#addMoreText').on("click", function(e){
+	        	_deselectElement();
+	        	$customText.show();
+	        });
 
 			// zza edit // add to cart
 			var saverequest;
@@ -462,153 +487,83 @@
 		          'product_details': JSON.stringify(product)		          
 		        };
 
+		        var passes = true;
+		        var errors = new Array();
+		        if(currentQty == '' || currentQty <= 0) {
+		        	passes = false;
+		        	errors.push("Missing qty");
+		        }
+		        if(currentSize == '' || currentSize == "Size") {
+		        	passes = false;
+		        	errors.push("Missing size");
+		        }
+		        if(activeColor == '' || activeColor == null) {
+		        	passes = false;
+		        	errors.push("Missing color");
+		        }
+
+		        console.log(currentQty)
+
 				// abort any pending request
 				if (saverequest) {
 				  	saverequest.abort();
 				}
 
-				saverequest = makeRequest(addBuilderProductJSON, "/shirtbuilder" , "POST");
+				if (passes == true) {
 
-				saverequest.done(function(){
-					var result = jQuery.parseJSON(saverequest.responseText);
-					           
-					if("product_id" in result) {
-					  	var addToCartJSON = {
-							'id': result.product_id,
-							'title': 'Shirt builder product',
-							'price' : currentPrice,
-							'qty' : currentQty,
-							'attr' : {
-								'gender' : currentGender,
-								'size' : currentSize,
-								'color' : activeColor,
-								'shirt_type' : currentShirtType,
-								'image' : frontImage,
-								'back_image' : backImage
-							}
-				        };
+					saverequest = makeRequest(addBuilderProductJSON, "/shirtbuilder" , "POST");
 
-				        console.log(addToCartJSON);
-
-				        // abort any pending request
-			          	if (request) {
-			              	request.abort();
-			          	}
-
-			          	request = makeRequest(addToCartJSON, "/cart" , "POST");
-
-						request.done(function(){
-							var result = jQuery.parseJSON(request.responseText);
-
-							console.log(result)
+					saverequest.done(function(){
+						var result = jQuery.parseJSON(saverequest.responseText);
 						           
-							if(result) {
-							  window.location = "/cart";
-							}
+						if("product_id" in result) {
+						  	var addToCartJSON = {
+								'id': result.product_id,
+								'title': 'Shirt builder product',
+								'price' : currentPrice,
+								'qty' : currentQty,
+								'attr' : {
+									'gender' : currentGender,
+									'size' : currentSize,
+									'color' : activeColor,
+									'shirt_type' : currentShirtType,
+									'image' : frontImage,
+									'back_image' : backImage
+								}
+					        };
 
-						}); 
-					}
-				});    				
+					        console.log(addToCartJSON);
 
+					        // abort any pending request
+				          	if (request) {
+				              	request.abort();
+				          	}
 
-			});
+				          	request = makeRequest(addToCartJSON, "/cart" , "POST");
 
+							request.done(function(){
+								var result = jQuery.parseJSON(request.responseText);
 
-			// zza edit
-			// $('.select-size').find('.dropdown-menu li').on('click', function(e){
+								console.log(result)
+							           
+								if(result) {
+								  window.location = "/cart";
+								}
 
-			// 	e.preventDefault();
+							}); 
+						}
+					});    				
 
-			// 	$('.select-size > a').html($(this).text()+'<b class="caret"></b>');
+				}else {
+					var errorMsg = 'Following errors occurs: \n';
+					$.each(errors, function(i, error){
+						errorMsg += error + '\n';
+					});
 
-			// });
-
-
-			// zza edit : fix male product selection bug by setting male product on load
-
-			$sidebarContent.find('.fpd-products ul').html('');
-
-			for(var i=0; i < $maleproducts.length; ++i) {
-				//get other views
-				views = $($maleproducts.get(i)).children('.fpd-male-product');
-				//get first view
-				views.splice(0,0,$maleproducts.get(i));
-
-				viewsArr = createViewArr(views);
-				
-				thisClass.addProduct(viewsArr);
-
-			}
-
-			$('#collapseOne').find('.gender-select').children('input').on('change', function(e){
-				var obj = stage.getObjects();
-
-				console.log(obj)
-
-				if($(this).val()=='male') {
-					$sidebarContent.find('.fpd-products ul').html('');
-
-					for(var i=0; i < $maleproducts.length; ++i) {
-						//get other views
-						views = $($maleproducts.get(i)).children('.fpd-male-product');
-						//get first view
-						views.splice(0,0,$maleproducts.get(i));
-
-						viewsArr = createViewArr(views);
-						
-						thisClass.addProduct(viewsArr);
-
-					}
-
-					console.log($('.fpd-products ul li').first().children('a').text());
-
-					console.log(obj[1]);
-
-					$('.fpd-products ul li').first().trigger('click');
-
-			  		
-					console.log(obj);
-
-			  		// console.log(stage.setActiveObject(objects[1]));
-
-				}else if($(this).val()=='female') {
-					$sidebarContent.find('.fpd-products ul').html('');
-
-					for(var i=0; i < $femaleproducts.length; ++i) {
-						//get other views
-						views = $($femaleproducts.get(i)).children('.fpd-female-product');
-						//get first view
-						views.splice(0,0,$femaleproducts.get(i));
-
-						viewsArr = createViewArr(views);
-
-						thisClass.addProduct(viewsArr);
-
-					}
-
-					console.log($('.fpd-products ul li').first().children('a').text());
-
-					$('.fpd-products ul li').first().children('a').trigger('click');
-
-				}else if($(this).val()=='kids') {
-					$sidebarContent.find('.fpd-products ul').html('');
-
-					for(var i=0; i < $kidsproducts.length; ++i) {
-						//get other views
-						views = $($kidsproducts.get(i)).children('.fpd-kids-product');
-						//get first view
-						views.splice(0,0,$kidsproducts.get(i));
-
-						viewsArr = createViewArr(views);
-
-						thisClass.addProduct(viewsArr);
-
-					}
-
-					console.log($('.fpd-products ul li').first().children('a').text());
-
-					$('.fpd-products ul li').first().children('a').trigger('click');
+					alert(errorMsg);
 				}
+
+
 			});
 
 			// weird issue 2
@@ -1136,9 +1091,6 @@
 			//     }
 			// });
 
-			// zza edit had to manually click on first tab so other tab close on object selection // weird issue
-			$('a#openSelectShirt').trigger('click');
-
 			// zza edit
 			function setcurrentObj(openIndex) {
 				var objects = stage.getObjects();
@@ -1255,9 +1207,101 @@
 			  		_deselectElement();
 			  	}
 			});
+
+			// zza edit had to manually click on first tab so other tab close on object selection // weird issue
+			$('a#openSelectShirt').trigger('click');
+
+
+			$('#collapseOne').find('.gender-select').children('input').on('change', function(e){
+				var test = stage;
+
+				e.preventDefault();
+
+				if($(this).val()=='male') {
+
+					$sidebarContent.find('.fpd-products ul').html('');
+
+					for(var i=0; i < $maleproducts.length; ++i) {
+						//get other views
+						views = $($maleproducts.get(i)).children('.fpd-male-product');
+						//get first view
+						views.splice(0,0,$maleproducts.get(i));
+
+						viewsArr = createViewArr(views);
+						
+						thisClass.addProduct(viewsArr);
+
+					}
+
+					// thisClass.selectProduct(0);
+
+					console.log($('.fpd-products ul li').first().children('a').text());
+
+					$('.fpd-products ul li').first().children('a').trigger('click');
+
+					// var obj = stage.getObjects();
+					// var objectToSelect = obj[1];
+					// console.log(obj);
+
+					// test.setActiveObject(objectToSelect);
+					// console.log(test.getActiveObject());
+
+				}else if($(this).val()=='female') {
+
+					$sidebarContent.find('.fpd-products ul').html('');
+
+					for(var i=0; i < $femaleproducts.length; ++i) {
+						//get other views
+						views = $($femaleproducts.get(i)).children('.fpd-female-product');
+						//get first view
+						views.splice(0,0,$femaleproducts.get(i));
+
+						viewsArr = createViewArr(views);
+
+						thisClass.addProduct(viewsArr);
+
+					}
+
+					// thisClass.selectProduct(0);
+
+					console.log($('.fpd-products ul li').first().children('a').text());
+
+					$('.fpd-products ul li').first().children('a').trigger('click');
+
+					// var obj = stage.getObjects();
+					// var objectToSelect = obj[1];
+					// console.log(obj);
+
+					// test.setActiveObject(objectToSelect);
+					// console.log(test.getActiveObject());
+
+				}else if($(this).val()=='kids') {
+
+					$sidebarContent.find('.fpd-products ul').html('');
+
+					for(var i=0; i < $kidsproducts.length; ++i) {
+						//get other views
+						views = $($kidsproducts.get(i)).children('.fpd-kids-product');
+						//get first view
+						views.splice(0,0,$kidsproducts.get(i));
+
+						viewsArr = createViewArr(views);
+
+						thisClass.addProduct(viewsArr);
+
+					}
+
+					console.log($('.fpd-products ul li').first().children('a').text());
+
+					$('.fpd-products ul li').first().children('a').trigger('click');
+				}
+			});
+
 			
 			//set active object
 			$sidebarContent.find('.fpd-elements-dropdown').change(function() {
+
+				console.log('hello')
 
 				if(this.value == 'none') {
 					_deselectElement();
@@ -1566,6 +1610,8 @@
 		};
 
 		var _createSingleView = function(title, elements) {
+
+			console.log('debug 3')
 
 			var element = elements[0];
 			//check if view contains at least one element
@@ -2271,9 +2317,19 @@
 					$elem.off('viewCreate', _onViewCreated);
 					$elem.trigger('productCreate', [currentProductTitle]);
 					$productLoader.stop().fadeOut(300);
+
+					console.log(stage);
+					var obj = stage.getObjects();
+					var objectToSelect = obj[1];
+					console.log(obj);
+					console.log(objectToSelect);
+
+					stage.setActiveObject(objectToSelect);
 				}
 
 			};
+
+			console.log('debug 1')
 
 			thisClass.addView(currentViews[0]);
 
@@ -2285,6 +2341,8 @@
 		*
 		*/
 		this.selectProduct = function(index) {
+			console.log('debug 0')
+
 			// if(index == currentProductIndex) {	return false; }
 
 			currentProductIndex = index;
@@ -2292,6 +2350,9 @@
 			else if(index > thisClass.getProductsLength()-1) { currentProductIndex = thisClass.getProductsLength()-1; }
 
 			var views = $sidebarContent.find('.fpd-products ul li').eq(currentProductIndex).data('views');
+
+			console.log(views);
+
 			thisClass.loadProduct(views);
 
 		};
@@ -2348,6 +2409,8 @@
 		*/
 		this.addView = function(view) {
 
+			console.log('debug 2')
+
 			viewsLength++;
 
 			_createSingleView(view.title, view.elements);
@@ -2394,6 +2457,8 @@
 		* 	Returns an array with all views
 		*/
 		this.addElement = function(type, source, title, params, containerIndex) {
+
+			console.log('debug 4')
 
 			containerIndex = typeof containerIndex !== 'undefined' ? containerIndex : currentViewIndex;
 
