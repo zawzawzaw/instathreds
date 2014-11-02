@@ -21,7 +21,11 @@ class StaticController extends \BaseController {
 			$username = '';
 		}
 
-		$this->layout->content = View::make('static.ourstory')->with('username', $username);
+		$categories = Category::all();
+
+		$this->layout->content = View::make('static.ourstory')
+		->with('username', $username)
+		->with('categories', $categories);
 	}
 
 
@@ -36,7 +40,11 @@ class StaticController extends \BaseController {
 			$username = '';
 		}
 
-		$this->layout->content = View::make('static.privacy')->with('username', $username);
+		$categories = Category::all();
+
+		$this->layout->content = View::make('static.privacy')
+		->with('username', $username)
+		->with('categories', $categories);
 	}
 
 	//Terms of Use
@@ -50,7 +58,11 @@ class StaticController extends \BaseController {
 			$username = '';
 		}
 
-		$this->layout->content = View::make('static.terms')->with('username', $username);
+		$categories = Category::all();
+
+		$this->layout->content = View::make('static.terms')
+		->with('username', $username)
+		->with('categories', $categories);
 	}
 
 	//Terms of Use
@@ -64,7 +76,11 @@ class StaticController extends \BaseController {
 			$username = '';
 		}
 
-		$this->layout->content = View::make('static.faq')->with('username', $username);
+		$categories = Category::all();
+
+		$this->layout->content = View::make('static.faq')
+		->with('username', $username)
+		->with('categories', $categories);
 	}
 
 	//Terms of Use
@@ -78,7 +94,11 @@ class StaticController extends \BaseController {
 			$username = '';
 		}
 
-		$this->layout->content = View::make('static.howto')->with('username', $username);
+		$categories = Category::all();
+
+		$this->layout->content = View::make('static.howto')
+		->with('username', $username)
+		->with('categories', $categories);
 	}
 
 	//Calling all Designers
@@ -92,7 +112,11 @@ class StaticController extends \BaseController {
 			$username = '';
 		}
 
-		$this->layout->content = View::make('static.calldesigners')->with('username', $username);
+		$categories = Category::all();
+
+		$this->layout->content = View::make('static.calldesigners')
+		->with('username', $username)
+		->with('categories', $categories);
 	}
 
 	//Help
@@ -106,7 +130,11 @@ class StaticController extends \BaseController {
 			$username = '';
 		}
 
-		$this->layout->content = View::make('static.help')->with('username', $username);
+		$categories = Category::all();
+
+		$this->layout->content = View::make('static.help')
+		->with('username', $username)
+		->with('categories', $categories);
 	}
 
 

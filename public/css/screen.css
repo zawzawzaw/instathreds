@@ -1349,6 +1349,13 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 
 #store-modal .wrap .separator-line { width: 90%; text-align: center; margin: 20px auto; }
 
+/*CONTACT*/
+.content.contact .panel { background: #f4f4f4; }
+
+.content.contact input[type="text"] { width: 100%; }
+
+.content.contact textarea.enquiry { height: 90px; width: 100%; }
+
 /* CHECKOUT */
 .content.checkout .four { width: 33.37%; }
 
@@ -1455,13 +1462,17 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 
 .content.thankyou { min-height: 500px; }
 
-.thankyou-wrap { margin-top: 100px; }
+.thankyou-wrap { margin-top: 100px; text-align: center; }
 
 .thankyou-wrap h1.headline { text-align: center; }
 
 .thankyou-wrap h4.ordernumber { text-align: center; }
 
 .thankyou-wrap p.message { text-align: center; }
+
+.thankyou-wrap table { width: 500px; margin: 0 auto; }
+
+.thankyou-wrap a:hover { border: none; }
 
 .clearfix { *zoom: 1; }
 
@@ -1555,6 +1566,16 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 #size-chart-modal .chart-wrap { border: 4px solid #000; -webkit-border-radius: 10px; border-radius: 10px; background-clip: padding-box; /* stops bg color from leaking outside the border: */ text-align: center; }
 
 #size-chart-modal .chart-wrap img { margin: 0 auto; text-align: center; }
+
+.panel.betaprogram { background: #ff9210; }
+
+.panel.betaprogram input[type="text"] { width: 100%; }
+
+.panel.betaprogram button { width: 100%; }
+
+.notify-text { color: #0381f4; font-size: 14px; text-align: center; }
+
+.notify-icons { margin: 0 auto; text-align: center; display: block; }
 
 /* ======== TYPOGRAPHY ============ */
 .font-size-xxx-large, h1 { font-size: 38px; }

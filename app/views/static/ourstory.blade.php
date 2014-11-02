@@ -14,21 +14,19 @@
       <div class="container">
         <div class="row">
         <div class="three column">
+          <!-- sidebar contents -->
           <div class="sidebar">  
             <h3>OUR STORY</h3>
             <div class="separator-line"></div>
             <div class="menu-sidebar">
               <ul>
-                <li><a href="">Stores</a></li>
-                <li><a href="">Blog</a></li>
-                <li class="active"><a href="">Our Story</a></li>
-                <li><a href="">How to</a></li>
-                <li><a href="">Size Guide</a></li>
-                <li><a href="">Pricing</a></li>
-                <li><a href="">Signup & Sell T-Shirts</a></li>
-                <li><a href="">Bulk Orders</a></li>
-                <li><a href="">FAQs</a></li>
-                <li><a href="">Help</a></li>
+                <li><a href="{{ route('contact') }}">Stores</a></li>
+                <li><a href="{{ route('static.ourstory') }}">Our Story</a></li>
+                <li><a href="http://blog.instathreds.co" target="_blank">Blog</a></li>
+                <li><a href="{{ route('static.calldesigners') }}">Signup & Sell T-Shirts</a></li>
+                <li><a href="{{ route('contact') }}">Bulk Orders</a></li>
+                <li><a href="{{ route('static.faq') }}">FAQs</a></li>
+                <li><a href="{{ route('contact') }}">Stores</a></li>
               </ul>
             </div>
             <div class="separator-line"></div>
@@ -37,15 +35,26 @@
             <div class="menu-sidebar">
               <h5>CHOOSE A DESIGN</h5>
               <ul>
-                <li><a href="">Trending</a></li>
-                <li><a href="">Featured</a></li>
-                <li><a href="">His</a></li>
-                <li><a href="">Hers</a></li>
+                <li><a href="{{ route('store.index') }}">Trending</a></li>
+                <li><a href="{{ route('store.featured') }}">Featured</a></li>
               </ul>
             </div>
             <div class="separator-line"></div>
+            <div class="menu-sidebar">
+              <ul>
+                @foreach($categories as $category)
+                  <li>
+                    <a href="{{ URL::to('store', array($category->name, $category->id)) }}">
+                      {{ $category->name }}
+                    </a>
+                  </li>
+                @endforeach
+              </ul>
+            </div>
 
           </div>
+          <!-- end of sidebar contents -->
+          
         </div>
         <div class="nine column">
           <div class="content-right">

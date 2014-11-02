@@ -14,21 +14,20 @@
       <div class="container">
         <div class="row">
         <div class="three column">
+          
+          <!-- sidebar contents -->
           <div class="sidebar">  
             <h3>PRIVACY</h3>
             <div class="separator-line"></div>
             <div class="menu-sidebar">
               <ul>
-                <li><a href="">Stores</a></li>
-                <li><a href="">Blog</a></li>
-                <li class="active"><a href="">Our Story</a></li>
-                <li><a href="">How to</a></li>
-                <li><a href="">Size Guide</a></li>
-                <li><a href="">Pricing</a></li>
-                <li><a href="">Signup & Sell T-Shirts</a></li>
-                <li><a href="">Bulk Orders</a></li>
-                <li><a href="">FAQs</a></li>
-                <li><a href="">Help</a></li>
+                <li><a href="{{ route('contact') }}">Stores</a></li>
+                <li><a href="{{ route('static.ourstory') }}">Our Story</a></li>
+                <li><a href="http://blog.instathreds.co" target="_blank">Blog</a></li>
+                <li><a href="{{ route('static.calldesigners') }}">Signup & Sell T-Shirts</a></li>
+                <li><a href="{{ route('contact') }}">Bulk Orders</a></li>
+                <li><a href="{{ route('static.faq') }}">FAQs</a></li>
+                <li><a href="{{ route('contact') }}">Stores</a></li>
               </ul>
             </div>
             <div class="separator-line"></div>
@@ -37,15 +36,25 @@
             <div class="menu-sidebar">
               <h5>CHOOSE A DESIGN</h5>
               <ul>
-                <li><a href="">Trending</a></li>
-                <li><a href="">Featured</a></li>
-                <li><a href="">His</a></li>
-                <li><a href="">Hers</a></li>
+                <li><a href="{{ route('store.index') }}">Trending</a></li>
+                <li><a href="{{ route('store.featured') }}">Featured</a></li>
               </ul>
             </div>
             <div class="separator-line"></div>
-
+            <div class="menu-sidebar">
+              <ul>
+                @foreach($categories as $category)
+                  <li>
+                    <a href="{{ URL::to('store', array($category->name, $category->id)) }}">
+                      {{ $category->name }}
+                    </a>
+                  </li>
+                @endforeach
+              </ul>
+            </div>
           </div>
+          <!-- end of sidebar contents -->
+
         </div>
         <div class="nine column">
           <div class="content-right">
@@ -55,7 +64,7 @@
               <li>
                 <h5>Privacy Policy</h5>
                 <ol class="letter">
-                  <li>This Privacy Policy applies to all personal information collected by Instathreds Pty Ltd ACN 160 705 439 (Instathreds) via the website located at www.instathreds.com (Site)</li>
+                  <li>This Privacy Policy applies to all personal information collected by Instathreds Pty Ltd ACN 160 705 439 (Instathreds) via the website located at <a href="http://www.instathreds.co">www.instathreds.co</a> (Site)</li>
                   <li>This Privacy Policy applies to all of the products, services, and websites offered by Instathreds, and details important information regarding the use and disclosure of User information collected on the Website.</li>
                   <li>Your use of the Site and any personal information you provide on the Site remains subject to the terms of this Privacy Policy and the Terms and Conditions.</li>
                   <li>While other websites may be displayed as links from within Instathreds, those sites are owned and operated by others, and they may have different privacy policies. When linking from Instathreds to other websites, if you have privacy concerns, we urge you to review the privacy policies of those sites.</li>

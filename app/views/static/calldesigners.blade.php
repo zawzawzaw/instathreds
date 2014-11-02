@@ -14,21 +14,20 @@
       <div class="container">
         <div class="row">
         <div class="three column">
+          
+          <!-- sidebar contents -->
           <div class="sidebar">  
             <h3>CALLING ALL DESIGNERS</h3>
             <div class="separator-line"></div>
             <div class="menu-sidebar">
               <ul>
-                <li><a href="">Stores</a></li>
-                <li><a href="">Blog</a></li>
-                <li class="active"><a href="">Our Story</a></li>
-                <li><a href="">How to</a></li>
-                <li><a href="">Size Guide</a></li>
-                <li><a href="">Pricing</a></li>
-                <li><a href="">Signup & Sell T-Shirts</a></li>
-                <li><a href="">Bulk Orders</a></li>
-                <li><a href="">FAQs</a></li>
-                <li><a href="">Help</a></li>
+                <li><a href="{{ route('contact') }}">Stores</a></li>
+                <li><a href="{{ route('static.ourstory') }}">Our Story</a></li>
+                <li><a href="http://blog.instathreds.co" target="_blank">Blog</a></li>
+                <li><a href="{{ route('static.calldesigners') }}">Signup & Sell T-Shirts</a></li>
+                <li><a href="{{ route('contact') }}">Bulk Orders</a></li>
+                <li><a href="{{ route('static.faq') }}">FAQs</a></li>
+                <li><a href="{{ route('contact') }}">Stores</a></li>
               </ul>
             </div>
             <div class="separator-line"></div>
@@ -37,28 +36,57 @@
             <div class="menu-sidebar">
               <h5>CHOOSE A DESIGN</h5>
               <ul>
-                <li><a href="">Trending</a></li>
-                <li><a href="">Featured</a></li>
-                <li><a href="">His</a></li>
-                <li><a href="">Hers</a></li>
+                <li><a href="{{ route('store.index') }}">Trending</a></li>
+                <li><a href="{{ route('store.featured') }}">Featured</a></li>
               </ul>
             </div>
             <div class="separator-line"></div>
-
+            <div class="menu-sidebar">
+              <ul>
+                @foreach($categories as $category)
+                  <li>
+                    <a href="{{ URL::to('store', array($category->name, $category->id)) }}">
+                      {{ $category->name }}
+                    </a>
+                  </li>
+                @endforeach
+              </ul>
+            </div>
           </div>
+          <!-- end of sidebar contents -->
+
         </div>
         <div class="nine column">
           <div class="content-right">
-            <a href="" class="banner-page"><img src="images/image-placeholder1.png" style="width:790px;height:150px;"></a>
-            <h3>Header</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida justo eu porttitor vehicula. Fusce eu convallis magna. Nulla urna ligula, lobortis quis enim at, varius euismod sem. Donec mauris dui, suscipit a orci ac, ultrices hendrerit enim. Maecenas at dignissim diam, vitae congue augue. Curabitur semper non velit sit amet scelerisque. Etiam sed interdum lorem. Mauris semper ante non nisi laoreet tempus. Fusce sed porttitor erat. Praesent nisi nunc, viverra eu tempus sit amet, commodo sed arcu. Donec dictum, purus ac pulvinar pharetra, dolor magna aliquam urna, a varius mauris tellus non tellus. <a href="">Link colour</a></p>
-
-            <h3 class="title orange">Header</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida justo eu porttitor vehicula. Fusce eu convallis magna. Nulla urna ligula, lobortis quis enim at, varius euismod sem. Donec mauris dui, suscipit a orci ac, ultrices hendrerit enim. Maecenas at dignissim diam, vitae congue augue. Curabitur semper non velit sit amet scelerisque. Etiam sed interdum lorem. Mauris semper ante non nisi laoreet tempus. Fusce sed porttitor erat. Praesent nisi nunc, viverra eu tempus sit amet, commodo sed arcu. Donec dictum, purus ac pulvinar pharetra, dolor magna aliquam urna, a varius mauris tellus non tellus. <a href="">Link colour</a></p>
-
-            <h3 class="title green">Header</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida justo eu porttitor vehicula. Fusce eu convallis magna. Nulla urna ligula, lobortis quis enim at, varius euismod sem. Donec mauris dui, suscipit a orci ac, ultrices hendrerit enim. Maecenas at dignissim diam, vitae congue augue. Curabitur semper non velit sit amet scelerisque. Etiam sed interdum lorem. Mauris semper ante non nisi laoreet tempus. Fusce sed porttitor erat. Praesent nisi nunc, viverra eu tempus sit amet, commodo sed arcu. Donec dictum, purus ac pulvinar pharetra, dolor magna aliquam urna, a varius mauris tellus non tellus. <a href="">Link colour</a></p>
-
+            {{ HTML::image('images/image-calldesigners1.png') }}
+            <div class="separator-line"></div>
+            <div class="row">
+              <div class="seven column">
+                <table>
+                <tr>
+                  <td>{{ HTML::image('images/image-calldesigners2.png') }}</td>
+                  <td>{{ HTML::image('images/image-calldesigners3.png') }}</td>
+                </tr>
+                </table>
+              </div>  
+              <div class="five column">
+                <div class="panel betaprogram">
+                  <h5>JOIN THE BETA PROGRAM</h5>
+                  <div class="form-group">
+                    <input type="text" placeholder="Name">    
+                  </div>
+                  <div class="form-group">
+                    <input type="text" placeholder="Email Address">    
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-primary">SIGN UP</button>
+                  </div> 
+                </div>
+                <p class="notify-text">AND WE WILL NOTIFY YOU OF YOUR<br>IMPENDING FAME AND FORTUNE</p>
+                {{ HTML::image('images/image-calldesigners4.png', '', array('class' => 'notify-icons')) }} 
+              </div>
+            </div>
+                      
 
 
           </div>

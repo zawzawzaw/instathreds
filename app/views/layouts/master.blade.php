@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
     <title>Instathreds</title>
 
     {{ HTML::style('//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css') }}
@@ -106,8 +105,9 @@
               <ul>
                 <li><a href="{{ route('shirtbuilder.index') }}" target="_blank">Make Your Own</a></li>
                 <li><a href="{{ route('store.featured') }}">Choose a Design</a></li>
-                <li><a data-toggle="dropdown" class="dropdown-toggle" href="#">Blog</a></li>
-                <li><a href="{{ route('store.index') }}">Stores</a></li>
+                <li><a href="{{ route('contact') }}">Stores</a></li>
+                <li><a href="{{ route('static.ourstory') }}">Our Story</a></li>
+                <li><a href="http://blog.instathreds.co" target="_blank">Blog</a></li>
               </ul>
             </div>
             <div class="menu-cart">
@@ -200,7 +200,6 @@
                 <h5>Make your own Tshirt</h5>
                 <ul>
                   <li><a href="{{ route('shirtbuilder.index') }}">Do it Now</a></li>
-                  <li><a href="{{ URL::route('static.howto') }}">How to</a></li>
                   <li><a href="{{ URL::route('static.faq') }}">FAQs</a></li>
                 </ul>
               </li>
@@ -215,21 +214,20 @@
                 <h5>Signup and Sell T-Shirts</h5>
                 <ul>
                   <li><a href="{{ URL::route('static.calldesigners') }}">Calling all designers & artists</a></li>
-                  <li><a href="#login-modal" class="user-account-btn" data-id="signup">Signup Now</a></li>
                   <li><a href="{{ URL::route('static.faq') }}">FAQs</a></li>
                 </ul>
               </li>
               <li>
                 <h5>Visit Us</h5>
                 <ul>
-                  <li><a href="#">Robina Store</a></li>
-                  <li><a href="#">Carindale Store</a></li>
+                  <li><a href="" class="storeloc-link">Robina Store</a></li>
+                  <li><a href="" class="storeloc-link">Carindale Store</a></li>
                 </ul>
               </li>
               <li>
                 <h5>Order</h5>
                 <ul>
-                  <li><a href="mailto:info@instathreds.co">Bulk Order Contact us here</a></li>
+                  <li><a href="{{ route('contact') }}">Bulk Orders</a></li>
                   <li><a href="#login-modal" class="user-account-btn login-link" data-id="login">Login</a></li>
                   <li><a href="#login-modal" class="user-account-btn signup-link" data-id="signup">Signup</a></li>
                 </ul>
@@ -360,6 +358,74 @@
 
           </div>
           
+        </div>
+      </div>
+    </div>
+
+    <!-- STORE LOCATION MODAL -->
+    <div class="modal fade" id="store-modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            
+            <div class="wrap">
+              <h3 style="text-align:center;">STORE LOCATIONS</h3>
+              <div class="separator-line"></div>
+              <table>
+                <tr>
+                  <td>
+                    <h6>ROBINA</h6>
+                    <p>Robina Town Centre<br>
+                    Robina Town Centre Drive<br>
+                    (off Robina Parkway)<br>
+                    Robina QLD 4230</p>  
+                  </td>
+                  <td></td>
+                  <td>
+                    <h6>CARINDALE</h6>
+                    <p>Westfield Carindale<br>
+                    1151 Creek Road<br>
+                    Carindale QLD 4152</p>  
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>
+                    Mon: 9am – 5.30pm<br>
+                    Tues: 9am – 5.30pm<br>
+                    Wed: 9am – 5.30pm<br>
+                    Thurs: 9am – 9pm<br>
+                    Fri: 9am – 5.30pm<br>
+                    Sat: 9am – 5.30pm<br>
+                    Sun: 10am – 4pm</p>  
+                  </td>
+                  <td></td>
+                  <td>
+                    <p>
+                      Mon: 9am – 5.30pm<br>
+                      Tues: 9am – 5.30pm<br>
+                      Wed: 9am – 5.30pm<br>
+                      Thurs: 9am – 9pm<br>
+                      Fri: 9am – 5.30pm<br>
+                      Sat: 9am – 5pm<br>
+                      Sun: 10am – 5pm
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3">
+                    <p>
+                      e. <a href="mailto:info@instathreds.com">info@instathreds.com</a><br>
+                      p. 1300 469 453
+                    </p>  
+                  </td>
+                </tr>
+              </table>
+
+              
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
