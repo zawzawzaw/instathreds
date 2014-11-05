@@ -1536,7 +1536,7 @@ margin-right: 5px;border:1px solid #0381f4;padding:7px 10px; @include border-rad
 .thankyou-wrap h4.ordernumber{text-align:center;}
 .thankyou-wrap p.message{text-align:center;}
 .thankyou-wrap table{width:500px;margin:0 auto;}
-.thankyou-wrap a:hover{border:none;}
+.thankyou-wrap a:hover{border-bottom:0px !important;}
 
 
 

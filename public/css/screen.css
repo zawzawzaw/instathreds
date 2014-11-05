@@ -1472,7 +1472,7 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 
 .thankyou-wrap table { width: 500px; margin: 0 auto; }
 
-.thankyou-wrap a:hover { border: none; }
+.thankyou-wrap a:hover { border-bottom: 0px !important; }
 
 .clearfix { *zoom: 1; }
 
