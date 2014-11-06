@@ -54,6 +54,11 @@ Route::get('account/settings/cancel', array(
   'as' => 'account-cancel'
 ));
 
+Route::get('contact', array(
+  'uses' => 'ContactController@index',
+  'as' => 'contact'
+));
+
 
 Route::resource('fblogin', 'FbloginController');
 Route::resource('instalogin', 'IngloginController');

@@ -9,6 +9,23 @@
     </section>
     <!-- END BANNER/SLIDER -->
 
+    @if(Cart::count() <= 0)
+    <section class="content cart">
+      <div class="container">
+        <h6 class="section-title">YOUR CART</h6>
+        
+        <div class="panel cart-empty">
+          <h6>UH-OH, YOUR CART IS EMPTY</h6>
+          <p>The Choice is Yours and Yours Alone</p>
+          <a href="{{ route('shirtbuilder.index') }}" class="btn btn-primary">MAKE YOUR OWN</a> 
+          <span class="or">OR</span> 
+          <a href="{{ route('store.featured') }}" class="btn btn-primary">CHOOSE A DESIGN</a>
+        </div>       
+         
+      </div>
+    </section>
+    @else
+
     <!-- CONTENT -->
     <section class="content cart">
       <div class="container">
@@ -52,8 +69,6 @@
 		              <td><strong>${{ $row->subtotal }}</strong></td>
 		            </tr>            
 	            @endforeach
-            @else
-				<tr><td>Your cart is empty. <a href="{{ route('store.index') }}">Click here</a> to start shopping.</td></tr>
             @endif
           </tbody>
         </table>
@@ -108,6 +123,8 @@
       </div>
     </section>
     <!-- END OF CART SECTION-->
+
+    @endif
 
     {{ HTML::script('js/admin/jquery-1.10.2.min.js') }}
 	<script>

@@ -185,5 +185,12 @@ $( document ).ready(function() {
       
     });
 
+    
+	//STORE LOCATION MODAL
+    $(".storeloc-link").on("click",function(e){
+    	e.preventDefault();
+    	$('#store-modal').modal('show')
+  	});
+
 	
 });

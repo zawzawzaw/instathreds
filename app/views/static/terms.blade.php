@@ -14,21 +14,20 @@
       <div class="container">
         <div class="row">
         <div class="three column">
+          
+          <!-- sidebar contents -->
           <div class="sidebar">  
             <h3>TERMS</h3>
             <div class="separator-line"></div>
             <div class="menu-sidebar">
               <ul>
-                <li><a href="">Stores</a></li>
-                <li><a href="">Blog</a></li>
-                <li class="active"><a href="">Our Story</a></li>
-                <li><a href="">How to</a></li>
-                <li><a href="">Size Guide</a></li>
-                <li><a href="">Pricing</a></li>
-                <li><a href="">Signup & Sell T-Shirts</a></li>
-                <li><a href="">Bulk Orders</a></li>
-                <li><a href="">FAQs</a></li>
-                <li><a href="">Help</a></li>
+                <li><a href="{{ route('contact') }}">Stores</a></li>
+                <li><a href="{{ route('static.ourstory') }}">Our Story</a></li>
+                <li><a href="http://blog.instathreds.co" target="_blank">Blog</a></li>
+                <li><a href="{{ route('static.calldesigners') }}">Signup & Sell T-Shirts</a></li>
+                <li><a href="{{ route('contact') }}">Bulk Orders</a></li>
+                <li><a href="{{ route('static.faq') }}">FAQs</a></li>
+                <li><a href="{{ route('contact') }}">Stores</a></li>
               </ul>
             </div>
             <div class="separator-line"></div>
@@ -37,15 +36,25 @@
             <div class="menu-sidebar">
               <h5>CHOOSE A DESIGN</h5>
               <ul>
-                <li><a href="">Trending</a></li>
-                <li><a href="">Featured</a></li>
-                <li><a href="">His</a></li>
-                <li><a href="">Hers</a></li>
+                <li><a href="{{ route('store.index') }}">Trending</a></li>
+                <li><a href="{{ route('store.featured') }}">Featured</a></li>
               </ul>
             </div>
             <div class="separator-line"></div>
-
+            <div class="menu-sidebar">
+              <ul>
+                @foreach($categories as $category)
+                  <li>
+                    <a href="{{ URL::to('store', array($category->name, $category->id)) }}">
+                      {{ $category->name }}
+                    </a>
+                  </li>
+                @endforeach
+              </ul>
+            </div>
           </div>
+          <!-- end of sidebar contents -->
+
         </div>
         <div class="nine column">
           <div class="content-right">
@@ -54,7 +63,7 @@
             <ol class="main">
               <li><h5>TERMS AND CONDITIONS OF USE</h5>
                 <ol>
-                    <li>As consideration for allowing you the user (User / You) to view, visit and/or use our website, located at the url, www.instathreds.com (Site), or any other website owned by Instathreds Pty Ltd ACN 160 705 439 (Instathreds), Users agree to the following terms and conditions of use (Terms and Conditions).</li>
+                    <li>As consideration for allowing you the user (User / You) to view, visit and/or use our website, located at the url, <a href="www.instathreds.co">www.instathreds.co</a> (Site), or any other website owned by Instathreds Pty Ltd ACN 160 705 439 (Instathreds), Users agree to the following terms and conditions of use (Terms and Conditions).</li>
                     <li>These Terms and Conditions apply to any and all Users of the Site.</li>
                     <li>The Site is operated by Instathreds - described as We / Our / Us – and provides Users with access to the Content and Facilities on the Site pursuant to a non-exclusive, world-wide, non-transferable licence contained in these Terms and Conditions.</li>
                     <li>By viewing the Content, using the Facilities on the Site or creating a User Account, Users acknowledge and agree that they have had sufficient opportunity to read and understand these Terms and Conditions, and that they are legally able to agree to be bound by them.</li>
@@ -139,7 +148,7 @@ Member Account means an account created by a User for the purposes of accessing 
                         </ol>
                       </li>
                       <li>Users acknowledge and agree that if we receive a notice of a claim of copyright infringement, We may immediately remove the material from our Site without further notice.</li>
-                      <li>To notify us of material that you believe should be removed from the Site other than because of alleged Copyright, please send an email to designatedagent@sitename.com.</li> 
+                      <li>To notify us of material that you believe should be removed from the Site other than because of alleged Copyright, please send an email to <a href="mailto:info@instathreds.co">info@instathreds.co</a></li> 
                     </ol>
                   </li>
                   <li>
@@ -241,7 +250,7 @@ Member Account means an account created by a User for the purposes of accessing 
                       <li>You alone will be responsible for the payment of any tax that arises as a result of receiving any payment from Instathreds, its subsidiaries, related companies, partners, or licensors.</li>
                       <li>You agree to defend, indemnify and hold harmless Instathreds, including Instathreds’ sub-licensees (each an “Indemnified Party”) from and against any and all claims, damages, liabilities, costs and expenses (including without limitation reasonable legal fees and court costs) arising out of or relating to an Indemnified Party’s use of the design (including reproducing, distributing, adapting, and displaying the design).</li>
                       <li>The design must not disparage any person; it must not be indecent, obscene, hateful, tortious, untruthful, inaccurate, defamatory, slanderous or libelous; it must not promote bigotry, racism, hatred or harm against any group or individual or promote discrimination based on race, gender, religion, nationality, disability, sexual orientation or age.</li>
-                      <li>You acknowledge that Instathreds may decline to select or print the design, exclude the design from consideration, or take down the design from Instathreds for any reason, at any time, and in its sole discretion and that the decisions of Instathreds.com are final and binding.</li>
+                      <li>You acknowledge that Instathreds may decline to select or print the design, exclude the design from consideration, or take down the design from Instathreds for any reason, at any time, and in its sole discretion and that the decisions of Instathreds.co are final and binding.</li>
                     </ol>
                   </li>
                   <li>Instathreds may, in its discretion, change these design Submission Terms and Conditions at any time and such changes shall be effective immediately and incorporated into this Agreement. It is your responsibility to review any changes to the design Submission Terms and Conditions. No modification of this Agreement shall be binding unless confirmed in writing by Instathreds.</li>

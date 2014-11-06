@@ -24,8 +24,6 @@
               <ul>
                 <li><a href="{{ route('store.index') }}">Trending</a></li>
                 <li><a href="{{ route('store.featured') }}">Featured</a></li>
-                <li><a href="#">His</a></li>
-                <li><a href="#">Hers</a></li>
               </ul>
             </div>
             <div class="separator-line"></div>
