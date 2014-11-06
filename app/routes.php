@@ -23,8 +23,7 @@ Route::get('logout', array(
   'uses' => 'LoginController@destroy',
   'as' => 'login.destroy'
 ));
-
-# ACCOUNT 
+ 
 Route::get('account/settings', array(
   'uses' => 'AccountController@index',
   'as' => 'account-settings'
@@ -103,7 +102,8 @@ Route::get('checkout/thankyou', array(
 ));
 
 
-# Generic Pages#
+# Generic Pages #
+
 Route::get('our-story', array(
   'uses' => 'StaticController@ourstory',
   'as' => 'static.ourstory'
@@ -159,4 +159,5 @@ Route::resource('admin/designs', 'ProductController');
 Route::resource('admin/orders', 'OrderController');
 Route::resource('admin/categories', 'CategoryController');
 Route::resource('admin/shirttypes', 'ShirttypeController');
+Route::resource('admin/promocodes', 'PromocodeController');
 

@@ -608,3 +608,32 @@ input[name="qty"] {
 	display: inline-block;
 	padding-left: 7px;
 }
+
+
+/* 
+/////////////////////////////////
+////////// PRELOADER ////////////
+/////////////////////////////////
+*/
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 9999999;
+  width: 100%;
+  height: 100%; }
+
+#status {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -100px 0 0 -100px;
+  color: #fff;
+  text-align: center; 
+}

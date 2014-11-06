@@ -39,6 +39,7 @@
 			$viewSelection,
 			$editorBox,
 			$productLoader,
+			$preLoader = $('#preloader'),
 			currentBoundingObject = null,
 			viewsLength = 0,
 			currentProductIndex = -1,
@@ -148,6 +149,17 @@
 		//----------------------------------
 
 		var _init = function() {
+
+			$preLoader.hide();
+			$(document)
+			  .ajaxStart(function () {
+			    $preLoader.show();
+			  });
+
+			//preloader
+			$preLoader.children("#status").fadeOut(); // will first fade out the loading animation
+			$preLoader.delay(350).fadeOut("slow"); // will fade out the white DIV that covers the website.
+
 			//create fabric stage
 			var canvas = $productContainer.children('.fpd-product-stage').children('canvas').get(0);
 			stage = new fabric.Canvas(canvas, {

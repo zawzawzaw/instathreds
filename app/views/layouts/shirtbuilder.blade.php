@@ -364,5 +364,11 @@
 		  	
 
     	</div>
+
+    	<div id="preloader">
+	        <div id="status">
+	          <img src="http://instathreds.dev/images/preloader.gif">        
+          	</div>
+	    </div>
     </body>
 </html>
