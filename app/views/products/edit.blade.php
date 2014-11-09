@@ -6,6 +6,7 @@
     <li><a href="{{ URL::to('admin/users') }}"><i class="fa fa-users"></i> <span>Users</span></a></li>
     <li class="active"><a href="{{ URL::to('admin/designs') }}"><span class="pull-right badge badge-success"></span><i class="fa fa-photo"></i> <span>Designs in Store</span></a></li>
     <li><a href="{{ URL::to('admin/shirttypes') }}"><i class="fa fa-tasks"></i> <span>Shirt Types</span></a></li>
+    <li><a href="{{ URL::to('admin/promocodes') }}"><i class="fa fa-book"></i> <span>Promo Codes</span></a></li>
     <li><a href="#"><i class="fa fa-suitcase"></i> <span>Stock Art</span></a></li>
     <li><a href="#"><i class="fa fa-file-o"></i> <span>Pages</span></a></li>
     <li><a href="#"><i class="fa fa-sliders"></i> <span>Slider</span></a></li>

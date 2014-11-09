@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="_token" content="{{ csrf_token() }}" />
     <title>Instathreds</title>
 
     {{ HTML::style('//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css') }}
@@ -24,6 +25,14 @@
   </head>
  
   <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1481886348717676&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
   
     <!-- PRELOADER -->
     <div id="preloader">
@@ -163,8 +172,8 @@
               <li>  
                 <div class="newsletter-signup">
                   <h6>SIGNUP FOR OUR NEWSLETTER</h6>
-                  <input type="text" class="text">
-                  <button class="btn btn-primary">JOIN</button>
+                  <input type="text" name="subscribe_email" id="subscribe_email" class="text">
+                  <button class="subscribe-btn btn btn-primary">JOIN</button>
                   
                 </div>
                 <div class="subscribe-rss">
@@ -229,8 +238,8 @@
                 <h5>Order</h5>
                 <ul>
                   <li><a href="{{ route('contact') }}">Bulk Orders</a></li>
-                  <li><a href="#login-modal" class="user-account-btn login-link" data-id="login">Login</a></li>
-                  <li><a href="#login-modal" class="user-account-btn signup-link" data-id="signup">Signup</a></li>
+                  <!-- <li><a href="#login-modal" class="user-account-btn login-link" data-id="login">Login</a></li>
+                  <li><a href="#login-modal" class="user-account-btn signup-link" data-id="signup">Signup</a></li> -->
                 </ul>
               </li>
                 
@@ -268,8 +277,8 @@
               <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
               <!-- Nav tabs -->
               <ul class="nav nav-tabs" id="login-tab" role="tablist">
-                <li><a href="#login-modal" class="user-account-btn login-link" data-id="login" data-toggle="tab">Login</a></li>
-                <li><a href="#signup-modal" class="user-account-btn signup-link" data-id="signup" data-toggle="tab">Signup</a></li>
+                <li class="active"><a href="#login" role="tab" data-toggle="tab">Login</a></li>
+                <li><a href="#signup" role="tab" data-toggle="tab">Signup</a></li>
               </ul>
 
               <!-- Tab panes -->

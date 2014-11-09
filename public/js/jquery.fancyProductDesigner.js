@@ -39,6 +39,7 @@
 			$viewSelection,
 			$editorBox,
 			$productLoader,
+			$preLoader = $('#preloader'),
 			currentBoundingObject = null,
 			viewsLength = 0,
 			currentProductIndex = -1,
@@ -148,6 +149,17 @@
 		//----------------------------------
 
 		var _init = function() {
+
+			$preLoader.hide();
+			$(document)
+			  .ajaxStart(function () {
+			    $preLoader.show();
+			  });
+
+			//preloader
+			$preLoader.children("#status").fadeOut(); // will first fade out the loading animation
+			$preLoader.delay(350).fadeOut("slow"); // will fade out the white DIV that covers the website.
+
 			//create fabric stage
 			var canvas = $productContainer.children('.fpd-product-stage').children('canvas').get(0);
 			stage = new fabric.Canvas(canvas, {
@@ -479,6 +491,8 @@
 				var activeColor = $('.active-color').data('color');
 				var currentShirtType = $('.fpd-products').children('.select').children('a').text();
 				var product = thisClass.getProduct(false);
+
+				// console.log(product);
 
 				var addBuilderProductJSON = {
 		          'title': 'Shirt builder product',
@@ -2643,10 +2657,35 @@
 				return false;
 			}
 
+			/* zza edit back price fix */
+			var objects = stage.getObjects();
+			var thisBasePrice;
+
+			// front base price
+			if(objects[1]) {
+				currentFrontBasePrice = objects[1].params.price;
+			}else {
+				currentFrontBasePrice = currentPrice;
+			}
+
+			// back base price
+			if(objects[4]) {
+				currentBackBasePrice = objects[4].params.price;
+			}else {
+				currentBackBasePrice = 0;
+			}
+
+			if(params.stockart==true && objParams.viewIndex==1){
+				currentFrontBasePrice += currentBackBasePrice;
+				$elem.trigger('priceChange', [params.price, currentFrontBasePrice]);
+			}
+
 			if(params.price) {
-				currentPrice += params.price;
-				// console.log(params);
-				$elem.trigger('priceChange', [params.price, currentPrice]);
+				if(containerIndex==0) {
+					currentPrice += params.price;
+					
+					$elem.trigger('priceChange', [params.price, currentPrice]);
+				}
 			}
 
 		};

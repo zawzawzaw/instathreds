@@ -23,8 +23,7 @@ Route::get('logout', array(
   'uses' => 'LoginController@destroy',
   'as' => 'login.destroy'
 ));
-
-# ACCOUNT 
+ 
 Route::get('account/settings', array(
   'uses' => 'AccountController@index',
   'as' => 'account-settings'
@@ -92,9 +91,19 @@ Route::post('singleproduct/getsizes', array(
 
 Route::resource('cart', 'CartController');
 
-Route::get('checkout', array(
+Route::match(array('GET', 'POST'), 'checkout', array(
   'uses' => 'CheckoutController@index',
   'as' => 'checkout'
+));
+
+Route::post('subscribe', array(
+  'uses' => 'SubscribeController@index',
+  'as' => 'subscribe'
+));
+
+Route::post('checkout/checkpromocode', array(
+  'uses' => 'CheckoutController@checkpromocode',
+  'as' => 'checkout.checkpromocode'
 ));
 
 Route::post('checkout/confirmorder', array(
@@ -108,7 +117,8 @@ Route::get('checkout/thankyou', array(
 ));
 
 
-# Generic Pages#
+# Generic Pages #
+
 Route::get('our-story', array(
   'uses' => 'StaticController@ourstory',
   'as' => 'static.ourstory'
@@ -164,4 +174,5 @@ Route::resource('admin/designs', 'ProductController');
 Route::resource('admin/orders', 'OrderController');
 Route::resource('admin/categories', 'CategoryController');
 Route::resource('admin/shirttypes', 'ShirttypeController');
+Route::resource('admin/promocodes', 'PromocodeController');
 

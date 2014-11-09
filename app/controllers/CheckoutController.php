@@ -6,6 +6,10 @@ class CheckoutController extends \BaseController {
 	# set template
 	protected $layout = "layouts.master";
 
+	public function __construct() {
+	    // $this->beforeFilter('csrf', array('on'=>'post'));
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -17,6 +21,8 @@ class CheckoutController extends \BaseController {
 		$cart = Cart::content();
 
 		// return $cart;
+
+		$promo_code = Input::get('promo_code');
 
 		if(Cart::count() <= 0){
 			return Redirect::intended('/cart');
@@ -33,12 +39,48 @@ class CheckoutController extends \BaseController {
 
 		$this->layout->content = View::make('checkout.index')
 			->with('cart', $cart)
-			->with('user', $user);
+			->with('user', $user)
+			->with('promo_code', $promo_code);
+	}
+
+	public function checkpromocode() {
+
+		if (Request::ajax())
+		{
+			$promo_code = Input::get('promo_code');
+			
+			$found = Promocode::where('unique_promo_code', '=', $promo_code)->first();
+
+			if($found) {
+				$usage = $found->number_of_usage;
+				$valid = Promocode::where('unique_promo_code', '=', $promo_code)->where('usage_limit', '>', $usage)->first();
+			}
+
+			$returnData = array(
+			    'status' => 'error',
+			    'message' => 'Promo code is invalid or expired!'
+			);
+
+			if($found && $valid) return $found;
+			else return Response::json($returnData, 302);
+
+		}
+
 	}
      
     public function confirmorder() {
 
-    	$validator = Validator::make(Input::all(), Order::$rules);
+    	$validator = Validator::make(Input::all(), array(
+			'contact_first_name'=>'required|min:3',
+			'contact_last_name'=>'required|min:3',
+			'contact_email'=>'required|min:3',
+			'contact_phone'=>'required|min:3'
+		));
+
+		// 'number'=>'required',
+		// 	'exp_month'=>'required',
+		// 	'exp_year'=>'required',
+		// 	'cvc'=>'required'
  
 	    if ($validator->passes()) {
 
@@ -50,6 +92,7 @@ class CheckoutController extends \BaseController {
 		    $order->contact_email = Input::get('contact_email');
 		    $order->contact_phone = Input::get('contact_phone');
 
+		    // shipping cost
 		    if(Input::get('redemption_type')=="shipping") {
 		    	if(Input::get('country')=="Australia") $shipping_cost = 6;
 		    	else if(Input::get('country')!="") $shipping_cost = 20;
@@ -60,6 +103,29 @@ class CheckoutController extends \BaseController {
 		    $order->sub_total = Cart::total();
 		    $order->shipping_cost = $shipping_cost;
 		    $total = Cart::total() + $shipping_cost;
+
+		    // discount by promo
+		    $promo_code = Input::get('promo_code');
+		    if(!empty($promo_code)) {
+		    	$found = Promocode::where('unique_promo_code', '=', $promo_code)->first();
+
+				if($found) {
+					$usage = $found->number_of_usage;
+					$promocode = Promocode::where('unique_promo_code', '=', $promo_code)->where('usage_limit', '>', $usage)->first();
+				}
+		    	
+		    	if($promocode) {
+		    		if($promocode->discount_type==='%') {
+		    			$discount_amount = $total * (floatval($promocode->amount)/100);
+		    		}else {
+		    			$discount_amount = floatval($promocode->amount);
+		    		}
+
+		    		$total = $total - $discount_amount;
+		    	}
+		    }
+
+		    $order->discount = $discount_amount;
 		    $order->total = $total;
 		    $order->status = 'Pending';
 
@@ -104,6 +170,11 @@ class CheckoutController extends \BaseController {
 			// Stripe charge was successfull, continue by redirecting to a page with a thank you message
 
 			$order->save();
+
+			if(!empty($promo_code)) {
+				$promocode->number_of_usage = $promocode->number_of_usage + 1;
+				$promocode->save();
+			}
 
 		    $order_id = $order->id;
 

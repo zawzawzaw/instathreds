@@ -321,7 +321,7 @@
 			  		
 			  		<div class="fpd-kids-product" title="Kids Tee Back" data-thumbnail="images/shirtbuilder-templates/kids-tee/kids-tee-back-preview.png">
 		    			<img src="images/shirtbuilder-templates/kids-tee/kids-tee-back-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  			<img src="images/shirtbuilder-templates/kids-tee/kids-tee-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors":"Base", "sizes": ["kids 2", "kids 4", "kids 6", "kids 8", "kids 10", "kids 12", "kids 14"], "price": 0}' />
+			  			<img src="images/shirtbuilder-templates/kids-tee/kids-tee-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors":"Base", "sizes": ["kids 2", "kids 4", "kids 6", "kids 8", "kids 10", "kids 12", "kids 14"], "price": 6}' />
 			  			<img src="images/shirtbuilder-templates/kids-tee/kids-tee-back-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 					</div>
 				</div>
@@ -334,7 +334,7 @@
 			  		
 			  		<div class="fpd-kids-product" title="Kids Mini Back" data-thumbnail="images/shirtbuilder-templates/kids-mini/kids-mini-back-preview.png">
 		    			<img src="images/shirtbuilder-templates/kids-mini/kids-mini-back-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  			<img src="images/shirtbuilder-templates/kids-mini/kids-mini-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors":"Base", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-8 Months", "18-24 Months"], "price": 0}' />
+			  			<img src="images/shirtbuilder-templates/kids-mini/kids-mini-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors":"Base", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-8 Months", "18-24 Months"], "price": 6}' />
 			  			<img src="images/shirtbuilder-templates/kids-mini/kids-mini-back-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 					</div>
 				</div>
@@ -342,27 +342,33 @@
 				<!-- DESIGNS -->
 		  		<div class="fpd-design">
 		  			<div class="fpd-category" title="Swirls">
-			  			<img src="images/designs/swirl.png" title="Swirl" data-parameters='{"zChangeable": false, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 10, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true}' />
-				  		<img src="images/designs/swirl2.png" title="Swirl 2" data-parameters='{"x": 215, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 5, "boundingBox": "Base", "autoCenter": true}' />
-				  		<img src="images/designs/swirl3.png" title="Swirl 3" data-parameters='{"x": 215, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true}' />
-				  		<img src="images/designs/heart_blur.png" title="Heart Blur" data-parameters='{"x": 215, "y": 200, "colors": "#bf0200", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 5, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true}' />
-				  		<img src="images/designs/converse.png" title="Converse" data-parameters='{"x": 215, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "autoCenter": true, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true}' />
-				  		<img src="images/designs/crown.png" title="Crown" data-parameters='{"x": 215, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true}' />
-				  		<img src="images/designs/men_women.png" title="Men hits Women" data-parameters='{"x": 215, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true}' />
+			  			<img src="images/designs/swirl.png" title="Swirl" data-parameters='{"zChangeable": false, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true, "stockart": true}' />
+				  		<img src="images/designs/swirl2.png" title="Swirl 2" data-parameters='{"x": 215, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": "Base", "autoCenter": true, "stockart": true}' />
+				  		<img src="images/designs/swirl3.png" title="Swirl 3" data-parameters='{"x": 215, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true, "stockart": true}' />
+				  		<img src="images/designs/heart_blur.png" title="Heart Blur" data-parameters='{"x": 215, "y": 200, "colors": "#bf0200", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true, "stockart": true}' />
+				  		<img src="images/designs/converse.png" title="Converse" data-parameters='{"x": 215, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "autoCenter": true, "price": 0, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true, "stockart": true}' />
+				  		<img src="images/designs/crown.png" title="Crown" data-parameters='{"x": 215, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true, "stockart": true}, ' />
+				  		<img src="images/designs/men_women.png" title="Men hits Women" data-parameters='{"x": 215, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true, "stockart": true}' />
 		  			</div>
 		  			<div class="fpd-category" title="Retro">
-			  			<img src="images/designs/retro_1.png" title="Retro One" data-parameters='{"x": 210, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "scale": 0.25, "price": 7, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true}' />
-				  		<img src="images/designs/retro_2.png" title="Retro Two" data-parameters='{"x": 193, "y": 180, "colors": "#ffffff", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "scale": 0.46, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true}' />
-				  		<img src="images/designs/retro_3.png" title="Retro Three" data-parameters='{"x": 240, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "scale": 0.25, "price": 8, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true}' />
-				  		<img src="images/designs/heart_circle.png" title="Heart Circle" data-parameters='{"x": 240, "y": 200, "colors": "#007D41", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "scale": 0.4, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true}' />
-				  		<img src="images/designs/swirl.png" title="Swirl" data-parameters='{"x": 215, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 10, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true}' />
-				  		<img src="images/designs/swirl2.png" title="Swirl 2" data-parameters='{"x": 215, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 5, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true}' />
-				  		<img src="images/designs/swirl3.png" title="Swirl 3" data-parameters='{"x": 215, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true}' />
+			  			<img src="images/designs/retro_1.png" title="Retro One" data-parameters='{"x": 210, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "scale": 0.25, "price": 0, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true, "stockart": true}' />
+				  		<img src="images/designs/retro_2.png" title="Retro Two" data-parameters='{"x": 193, "y": 180, "colors": "#ffffff", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "scale": 0.46, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true, "stockart": true}' />
+				  		<img src="images/designs/retro_3.png" title="Retro Three" data-parameters='{"x": 240, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "scale": 0.25, "price": 0, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true, "stockart": true}' />
+				  		<img src="images/designs/heart_circle.png" title="Heart Circle" data-parameters='{"x": 240, "y": 200, "colors": "#007D41", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "scale": 0.4, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true, "stockart": true}' />
+				  		<img src="images/designs/swirl.png" title="Swirl" data-parameters='{"x": 215, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true, "stockart": true}' />
+				  		<img src="images/designs/swirl2.png" title="Swirl 2" data-parameters='{"x": 215, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true, "stockart": true}' />
+				  		<img src="images/designs/swirl3.png" title="Swirl 3" data-parameters='{"x": 215, "y": 200, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "boundingBox": {"height": 350, "width": 200, "x": 325, "y": 345}, "autoCenter": true, "stockart": true}' />
 				  	</div>
 		  		</div>
 		  	</div>
 		  	
 
     	</div>
+
+    	<div id="preloader">
+	        <div id="status">
+	          <img src="http://instathreds.dev/images/preloader.gif">        
+          	</div>
+	    </div>
     </body>
 </html>

@@ -11,7 +11,8 @@
 		"gloudemans/shoppingcart": "~1.2",
 		"intervention/image": "2.*",
 		"paypal/merchant-sdk-php":"*",
-		"stripe/stripe-php": "dev-master"
+		"stripe/stripe-php": "dev-master",
+		"hugofirth/mailchimp": "2.0.*"
 	},
 	"autoload": {
 		"classmap": [
