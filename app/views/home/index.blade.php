@@ -133,11 +133,12 @@
           <h6>CURRENT PROMOTIONS | <a href="">CLICK HERE</a></h6>  
         </div>
         <div class="banner promotion">
-          <a href="">{{ HTML::image('images/promo/promo1.png') }}</a>
+          <a href="http://instathreds.co/store/Moustaches/35">{{ HTML::image('images/promo/promo1.png') }}
           <div class="captions">
             <div class="text1">SHOW YOUR MO</div>
             <div class="text2">WEAR YOUR SUPPORT THIS MOVEMBER & CHOOSE THESE GREAT MO DESIGNS</div>
           </div>
+          </a>
         </div>
 
       </div>  
