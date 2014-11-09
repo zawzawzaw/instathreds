@@ -370,9 +370,11 @@
                 <a href="" class="back">BACK</a>
                 <span class="price">${{ $men_standard_shirttype->price }}</span>
               </div>
+              <!--
               <div class="shirt-back-checkbox">
                 <input type="checkbox" name="print_back"><p>Do you want a print at the back of the shirt?</p>
               </div>
+              -->
               <div class="shirt-quantity">
                   <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4">
                   <a href="#cart-modal" class="addtocart-link btn btn-primary">ADD TO CART</a>
@@ -389,7 +391,7 @@
 
     <section class="more-products">
       <div class="container">
-        <h6>ALSO IN PIXEL PEOPLE</h6>  
+        <h6>ALSO IN {{ Str::upper($category->name) }}</h6>  
         <div class="more-products-slider owl-carousel">
           @foreach($related_products as $related_product)
           <div class="item">

@@ -4,7 +4,7 @@
     <section class="slider">
       <div class="container">
         <div class="offers-bar">
-          <h6><span>NEW FEATURED DESIGNS!</span> SHOP NOW</h6>  
+          <a href="{{ route('store.featured') }}"><h6><span>NEW FEATURED DESIGNS!</span> SHOP NOW</h6></a>  
         </div>
         <div class="banner hide-mobile">
           <div id="slider-homepage" class="owl-carousel">
@@ -22,13 +22,13 @@
               </div>
             </div>
             <div class="slide">
-              <a href="{{ route('store.index') }}"><img src="images/slider/slider3.jpg" /></a>
+              <a href="" class="storeloc-link"><img src="images/slider/slider3.jpg" /></a>
               <div class="captions">
                 <div class="text1">VISIT OUR STORES</div>
               </div>
             </div>
             <div class="slide">
-              <a href="{{ route('store.index') }}"><img src="images/slider/slider4.jpg" /></a>
+              <a href="{{ URL::route('static.calldesigners') }}"><img src="images/slider/slider4.jpg" /></a>
               <div class="captions">
                 <div class="text1">CALLING ALL DESIGNERS</div>
               </div>
@@ -64,15 +64,15 @@
             
           </li>
           <li>
-            <a href="{{ route('store.index') }}"><img src="images/howitworks2.jpg"></a>
+            <a href="{{ route('store.featured') }}"><img src="images/howitworks2.jpg"></a>
             <div class="title step2">
-              <a href="{{ route('store.index') }}">Choose a Design</a>
+              <a href="{{ route('store.featured') }}">Choose a Design</a>
             </div>
           </li>
           <li>
-            <a href="#login-modal" class="user-account-btn" data-id="signup"><img src="images/howitworks3.jpg"></a>
+            <a href="{{ URL::route('static.calldesigners') }}"><img src="images/howitworks3.jpg"></a>
             <div class="title step3">
-              <a href="#login-modal" class="user-account-btn" data-id="signup">Signup and Sell T-Shirts</a>
+              <a href="{{ URL::route('static.calldesigners') }}">Signup and Sell T-Shirts</a>
             </div>
           </li>  
         </ul> 
@@ -85,8 +85,8 @@
     <section class="recentdesigns">
       <div class="container">
         <div class="section-bar">
-          <h6 class="hide-mobile">CHECK OUT THESE RECENT DESIGNS | <a href="{{ route('store.index') }}">VIEW ALL</a> | <a href="{{ route('store.index') }}">CATEGORIES</a></h6>  
-          <h6 class="show-mobile">RECENT DESIGNS<br><a href="{{ route('store.index') }}">VIEW ALL</a> | <a href="{{ route('store.index') }}">CATEGORIES</a></h6>  
+          <h6 class="hide-mobile">CHECK OUT THESE RECENT DESIGNS | <a href="{{ route('store.featured') }}">VIEW ALL CATEGORIES</a></h6>  
+          <h6 class="show-mobile">RECENT DESIGNS<br><a href="{{ route('store.featured') }}">VIEW ALL CATEGORIES</a></h6>  
         </div>
         <ul class="block-grid five-up mobile designs">
           @foreach($products as $product)
@@ -130,13 +130,13 @@
     <section class="promotional-area hide-mobile">
       <div class="container">
         <div class="section-bar">
-          <h6>OTHER PROMOTIONAL AREA | <a href="">PROMO LINK</a></h6>  
+          <h6>CURRENT PROMOTIONS | <a href="">CLICK HERE</a></h6>  
         </div>
         <div class="banner promotion">
           <a href="">{{ HTML::image('images/promo/promo1.png') }}</a>
           <div class="captions">
-            <div class="text1">Promo</div>
-            <div class="text2">PROMO<br>DESCRIPTION<br>GOES HERE</div>
+            <div class="text1">SHOW YOUR MO</div>
+            <div class="text2">WEAR YOUR SUPPORT THIS MOVEMBER & CHOOSE THESE GREAT MO DESIGNS</div>
           </div>
         </div>
 

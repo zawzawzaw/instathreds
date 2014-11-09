@@ -54,7 +54,7 @@
           </div>
         </li>
         <li><a href="{{ route('shirtbuilder.index') }}" target="_blank">Make Your Own</a></li>
-        <li><a href="{{ route('store.featured') }}">Choose a Design</a></li>
+        <li><a href="{{ route('store.index') }}">Choose a Design</a></li>
         <li><a href="{{ route('store.index') }}">Stores</a></li>
         <li><a href="#">Blog</a></li>
         <li><a href="{{ URL::route('static.howto') }}">How To</a></li>
@@ -72,7 +72,7 @@
       <div class="header-top">
         <div class="container">
             <div class="float-left">
-              <h6 class="contact-us"><span>CONTACT US</span> 1300 468 453</h6>
+              <h6 class="contact-us"><a href="{{ route('contact') }}">CONTACT US</a> 1300 468 453</h6>
             </div>
             <!-- <div class="search-form">
                 <input type="text" class="search-input" placeholder="SEARCH">
@@ -83,7 +83,7 @@
               <a href="https://instagram.com/instathreds" target="_blank" class="icon"><i class="fa fa-instagram"></i></a>
               <a href="https://twitter.com/instathreds" target="_blank" class="icon"><i class="fa fa-twitter"></i></a>
               <a href="https://pinterest.com/instathreds" target="_blank" class="icon"><i class="fa fa-pinterest"></i></a>
-              <a href="#" class="icon"><i class="fa fa-youtube"></i></a>   
+              <a href="https://www.youtube.com/instathredsco" target="_blank" class="icon"><i class="fa fa-youtube"></i></a>   
             </div>
         </div>      
       </div>
@@ -104,7 +104,7 @@
             <div class="menu-main">
               <ul>
                 <li><a href="{{ route('shirtbuilder.index') }}" target="_blank">Make Your Own</a></li>
-                <li><a href="{{ route('store.featured') }}">Choose a Design</a></li>
+                <li><a href="{{ route('store.index') }}">Choose a Design</a></li>
                 <li><a href="{{ route('contact') }}">Stores</a></li>
                 <li><a href="{{ route('static.ourstory') }}">Our Story</a></li>
                 <li><a href="http://blog.instathreds.co" target="_blank">Blog</a></li>
@@ -168,7 +168,7 @@
                   
                 </div>
                 <div class="subscribe-rss">
-                  <a href="" class="icon-other">
+                  <a href="{{ route('store.featured') }}" class="icon-other">
                   <i class="fa fa-rss"></i>SUBSCRIBE TO OUR BLOG</a>
                 </div>
               </li>
@@ -186,7 +186,7 @@
                     <a href="https://instagram.com/instathreds" target="_blank" class="icon"><i class="fa fa-instagram"></i></a>
                     <a href="https://twitter.com/instathreds" target="_blank" class="icon"><i class="fa fa-twitter"></i></a>
                     <a href="https://pinterest.com/instathreds" target="_blank" class="icon"><i class="fa fa-pinterest"></i></a>
-                    <a href="#" class="icon"><i class="fa fa-youtube"></i></a>  
+                    <a href="https://www.youtube.com/instathredsco" target="_blank" class="icon"><i class="fa fa-youtube"></i></a>  
                   </div>
               </li>
             </ul>
@@ -222,6 +222,7 @@
                 <ul>
                   <li><a href="" class="storeloc-link">Robina Store</a></li>
                   <li><a href="" class="storeloc-link">Carindale Store</a></li>
+                  <li><a href="" class="storeloc-link">Garden City Store</a></li>
                 </ul>
               </li>
               <li>
@@ -240,7 +241,15 @@
         <div class="row">
           <div class="twelve column">
             <p>
-              &copy; Copyright InstaThreds P/L 2014 | all rights reserved | <a href="{{ URL::route('static.privacy') }}">Privacy Policy</a> | <a href="{{ URL::route('static.terms') }}">Terms of Use</a> | <a href="{{ URL::route('static.help') }}">Help</a>
+              &copy; Copyright InstaThreds P/L 2014 | all rights reserved | <a href="{{ URL::route('static.privacy') }}">Privacy Policy</a> | <a href="{{ URL::route('static.terms') }}">Terms of Use</a> 
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="twelve column">
+            <p>
+              WEBSITE BY <a href="http://roundhouse.cc/" target="_blank">ROUNDHOUSE</a> 
             </p>
           </div>
         </div>
@@ -259,8 +268,8 @@
               <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
               <!-- Nav tabs -->
               <ul class="nav nav-tabs" id="login-tab" role="tablist">
-                <li><a href="#login-modal" class="user-account-btn login-link" data-id="login">Login</a></li>
-                <li><a href="#login-modal" class="user-account-btn signup-link" data-id="signup">Signup</a></li>
+                <li><a href="#login-modal" class="user-account-btn login-link" data-id="login" data-toggle="tab">Login</a></li>
+                <li><a href="#signup-modal" class="user-account-btn signup-link" data-id="signup" data-toggle="tab">Signup</a></li>
               </ul>
 
               <!-- Tab panes -->
@@ -387,6 +396,12 @@
                     1151 Creek Road<br>
                     Carindale QLD 4152</p>  
                   </td>
+                  <td></td>
+                  <td>
+                    <h6>WESTFIELD GARDEN</h6>
+                    <p>Cnr Logan & Kessels Rd<br>
+                    Upper Mt Gravatt QLD 4122</p>  
+                  </td>
                 </tr>
                 <tr>
                   <td>
@@ -411,11 +426,23 @@
                       Sun: 10am – 5pm
                     </p>
                   </td>
+                  <td></td>
+                  <td>
+                    <p>
+                      Mon: 9am – 5.30pm<br>
+                      Tues: 9am – 5.30pm<br>
+                      Wed: 9am – 5.30pm<br>
+                      Thurs: 9am – 9pm<br>
+                      Fri: 9am – 5.30pm<br>
+                      Sat: 9am – 5pm<br>
+                      Sun: 10am – 5pm
+                    </p>
+                  </td>
                 </tr>
                 <tr>
-                  <td colspan="3">
+                  <td colspan="5">
                     <p>
-                      e. <a href="mailto:info@instathreds.com">info@instathreds.com</a><br>
+                      e. <a href="mailto:info@instathreds.co">info@instathreds.co</a><br>
                       p. 1300 469 453
                     </p>  
                   </td>

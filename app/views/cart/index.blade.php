@@ -56,7 +56,7 @@
 			              	</a>
 	              		</td>
 		              	<td><a href="{{ URL::to('product', array(Product::slug($row->name), $row->id)) }}">{{ $row->name }}</a></td>
-		              <td>{{ $row->options->description }}</td>
+		              <td>{{ $row->qty }}, {{ $row->name }}, {{ $row->options->size }}</td>
 		              <td>${{ $row->price }}</td>
 		              <td>
 		              	<div class="update-cart-input">
@@ -104,7 +104,7 @@
               <tfoot>
                 <tr>
                   <td>Total:</td>
-                  <td>${{ Cart::total() }}</td>  
+                  <td>AUD ${{ Cart::total() }}</td>  
                 </tr>
               </tfoot>
               </tr>  

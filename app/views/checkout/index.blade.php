@@ -54,30 +54,24 @@
             <div class="collect">
             	<a href="" class="store-loc storeloc-link"><i class="fa fa-info-circle"></i>Store Location</a>
 	            <div class="choose-store">
-	              <div class="left">
-	                <input type="radio" name="store_location" checked="checked" value="Robina Store" style="display: inline-block;margin-left: 1px;">
-                  <p style="display: inline-block;width:auto;padding-left:5px;">Robina Store</p>
-	              </div>
-	              <div class="right">
-	                <input type="radio" name="store_location" value="Carindale Store" style="display: inline-block;margin-left: 1px;">
-                  <p style="display: inline-block;width:auto;padding-left:5px;">Carindale Store</p>
-                </div>
+	              <ul>
+                  <li>
+                    <input type="radio" name="store_location" checked="checked" value="Robina Store" style="display: inline-block;margin-left: 1px;">
+                    <p style="display: inline-block;width:auto;padding-left:5px;">Robina Store</p>
+                  </li>  
+                  <li>
+                    <input type="radio" name="store_location" value="Carindale Store" style="display: inline-block;margin-left: 1px;">
+                    <p style="display: inline-block;width:auto;padding-left:5px;">Carindale Store</p>
+                  </li>
+                  <li>
+                    <input type="radio" name="store_location" value="Garden City" style="display: inline-block;margin-left: 1px;">
+                    <p style="display: inline-block;width:auto;padding-left:5px;">Garden City</p>
+                  </li>
 	            </div>
             </div>
 
             <input type="radio" name="redemption_type" value="shipping" style="display: inline-block;margin-left: 1px;"><h6 style="display: inline-block;width: 262px;padding-left: 10px;">Ship to this address</h6>
             <div class="ship">
-	            <div class="form-group">
-	              <div class="select-style">
-	                <select name="country" id="country-select">
-	                  <option value="Australia">Australia</option>
-	                  <option value="Philippines">Philippines</option>
-	                  <option value="Indonesia">Indonesia</option>
-	                  <option value="Singapore">Singapore</option>
-	                  <option value="Myanmar">Myanmar</option>
-	                </select>
-	              </div>
-	            </div>
 	            <div class="form-group">
 	              <input name="address_1" type="text" class="text form-control" placeholder="Address Line 1">
 	            </div>
@@ -88,27 +82,36 @@
 	              <input name="city" type="text" class="text form-control" placeholder="City or Suburb">
 	            </div>
 	            <div class="form-group">
-	              <div class="select-style">
-	                <select name="state">
-	                  <option value="" disabled selected>State, Region or Province</option>
-	                  <option value="VIC">VIC</option>
-	                  <option value="NSW">NSW</option>
-	                  <option value="BRIS">BRIS</option>
-	                </select>
-	              </div>
+                <input name="state" type="text" class="text form-control" placeholder="State, Region or Province">
 	            </div>
 	            <div class="form-group">
 	              <input type="text" name="post_zip_code" class="text form-control" placeholder="Zip or Post Code">
 	            </div>
+              <div class="form-group">
+                <div class="select-style">
+                  <select name="country" id="country-select">
+                    <option value="Australia">Australia</option>
+                    <option value="Philippines">Philippines</option>
+                    <option value="Indonesia">Indonesia</option>
+                    <option value="Singapore">Singapore</option>
+                    <option value="Myanmar">Myanmar</option>
+                  </select>
+                </div>
+              </div>
+
 	            <h6 style="margin-top:20px;">Shipping Method</h6>
 	            <div class="choose-method">
-	              <div class="form-group">
+	              <div>
 	                <input type="radio" name="shipmethod" value="shipmethod-standard" style="display: inline-block;margin-left: 1px;">
                   <h6 style="display: inline-block;width: 262px;padding-left:5px;">Standard (5-15 Business Days)</h6>
                 </div>
                 <div>
                   <input type="radio" name="shipmethod" value="shipmethod-express" style="display: inline-block;margin-left: 1px;">
                   <h6 style="display: inline-block;width: 262px;padding-left:5px;">Express (3-7 Business Days)</h6>
+                </div>
+                <div>
+                  <input type="radio" name="shipmethod" value="shipmethod-international" style="display: inline-block;margin-left: 1px;">
+                  <h6 style="display: inline-block;width: 262px;padding-left:5px;">International</h6>
                 </div>
 
 	            </div>
@@ -272,7 +275,7 @@
                   <tr>
                     <td>Total:</td>
                     @if(Cart::count() > 0)
-                    	<td class="total-price">${{ Cart::total() }}</td>  
+                    	<td class="total-price">AUD ${{ Cart::total() }}</td>  
                     @endif
                   </tr>
                 </tfoot>
