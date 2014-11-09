@@ -72,7 +72,8 @@
                 <h5>STORE LOCATIONS</h5>
                 <p>
                 <a href="" class="storeloc-link">ROBINA</a><br>
-                <a href="" class="storeloc-link">CARINDALE</a>
+                <a href="" class="storeloc-link">CARINDALE</a><br>
+                <a href="" class="storeloc-link">GARDEN CITY</a>
                 </p>
               </div>
               <div class="eight column">
@@ -133,9 +134,21 @@
                 <h5>CARINDALE STORE MAP</h5>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3538.9141583860146!2d153.1021205!3d-27.503045!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b915b8cbfba2ccf%3A0xf02a35bd7229de0!2sWestfield+Carindale!5e0!3m2!1sen!2sau!4v1414835222841" width="100%" height="100%" frameborder="0" style="border:0"></iframe> 
               </div>
-
             </div>
             <!-- end of map -->
+
+            <!-- map -->
+            <div class="row" style="margin-top:20px;">
+              <div class="six column">
+                <h5>GARDEN CITY</h5>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3537.0812517030645!2d153.08112860000003!3d-27.5599887!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b915b34f308c987%3A0xe8b2210987a33954!2sUpper+Mt+Gravatt+QLD+4122!5e0!3m2!1sen!2sau!4v1415500530459" width="100%" height="100%" frameborder="0" style="border:0"></iframe> 
+              </div>
+              <div class="six column">
+              </div>
+            </div>
+            <!-- end of map -->
+            
+
 
           </div>
         </div>

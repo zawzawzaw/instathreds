@@ -27,22 +27,26 @@ $( document ).ready(function() {
 
 	});
 
-    // $mainNav.children('.menu-login').find
-	$('.user-account-btn').on('click', function(e){
+    $('.user-account-btn').on('click', function(e){
 
 		e.preventDefault();
 
 		var link = $(this).attr('href');
 		var id = $(this).data('id');
 
+		console.log(id);
 		$(link).modal('show');
+
 
 		if(id=='login')
 			$(link).find('#login-tab a:first').tab('show');
 		else
 			$(link).find('#login-tab a:last').tab('show');
-
 	});
+
+
+
+
 
 	$mobileMenu.on("click",function(){
 

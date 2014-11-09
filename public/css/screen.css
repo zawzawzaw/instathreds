@@ -628,6 +628,10 @@ table.dataTable thead th:active, table.dataTable thead td:active { outline: none
 
 .header-top .contact-us span { color: #0381f4; }
 
+.header-top .contact-us span a { color: #0381f4; }
+
+.header-top .contact-us span a:hover { color: #0381f4; }
+
 .header-main { background: #231f20; min-height: 70px; overflow: visible; box-shadow: 0px 3px 6px #777; }
 
 .header-main .container { min-height: 70px; overflow: visible; }
@@ -1341,13 +1345,23 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 
 #store-modal .wrap tr td { padding: 10px; }
 
-#store-modal .wrap tr:first-child td:nth-child(1) { border-bottom: 1px solid #e2e2e2; width: 45%; }
+#store-modal .wrap tr:first-child td:nth-child(1) { border-bottom: 1px solid #e2e2e2; width: 30%; }
 
-#store-modal .wrap tr:first-child td:nth-child(2) { border-bottom: 0px solid #e2e2e2; width: 10%; }
+#store-modal .wrap tr:first-child td:nth-child(2) { border-bottom: 0px solid #e2e2e2; width: 5%; }
 
-#store-modal .wrap tr:first-child td:nth-child(3) { border-bottom: 1px solid #e2e2e2; width: 45%; }
+#store-modal .wrap tr:first-child td:nth-child(3) { border-bottom: 1px solid #e2e2e2; width: 30%; }
+
+#store-modal .wrap tr:first-child td:nth-child(4) { border-bottom: 0px solid #e2e2e2; width: 5%; }
+
+#store-modal .wrap tr:first-child td:nth-child(5) { border-bottom: 1px solid #e2e2e2; width: 30%; }
 
 #store-modal .wrap .separator-line { width: 90%; text-align: center; margin: 20px auto; }
+
+.choose-store ul { list-style: none; margin: 0px; }
+
+.choose-store ul li { margin-bottom: 5px; }
+
+.choose-store ul li p { padding: 0px; margin: 0px; }
 
 /*CONTACT*/
 .content.contact .panel { background: #f4f4f4; }

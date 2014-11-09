@@ -14,10 +14,23 @@
       <div class="container">
         <div class="row">
         <div class="three column">
+          <!-- sidebar contents -->
           <div class="sidebar">  
             <h3>STORE</h3>
             <div class="separator-line"></div>
-            <h5 class="title blue"><a href="{{ route('shirtbuilder.index') }}">MAKE YOUR OWN</a></h5>
+            <div class="menu-sidebar">
+              <ul>
+                <li><a href="{{ route('contact') }}">Stores</a></li>
+                <li><a href="{{ route('static.ourstory') }}">Our Story</a></li>
+                <li><a href="http://blog.instathreds.co" target="_blank">Blog</a></li>
+                <li><a href="{{ route('static.calldesigners') }}">Signup & Sell T-Shirts</a></li>
+                <li><a href="{{ route('contact') }}">Bulk Orders</a></li>
+                <li><a href="{{ route('static.faq') }}">FAQs</a></li>
+                <li><a href="{{ route('contact') }}">Stores</a></li>
+              </ul>
+            </div>
+            <div class="separator-line"></div>
+            <h5 class="title blue"><a href="">MAKE YOUR OWN</a></h5>
             <div class="separator-line"></div>
             <div class="menu-sidebar">
               <h5>CHOOSE A DESIGN</h5>
@@ -39,8 +52,8 @@
               </ul>
             </div>
 
-
           </div>
+          <!-- end of sidebar contents -->
         </div>
         <div class="nine column">
           <div class="content-right">

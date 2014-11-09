@@ -390,7 +390,7 @@
 
     <section class="more-products">
       <div class="container">
-        <h6>ALSO IN PIXEL PEOPLE</h6>  
+        <h6>ALSO IN {{ Str::upper($category->name) }}</h6>  
         <div class="more-products-slider owl-carousel">
           @foreach($related_products as $related_product)
           <div class="item">
