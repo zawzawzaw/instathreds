@@ -152,7 +152,7 @@ $( document ).ready(function() {
 		}
 	});
 
-	jQuery.validator.addMethod("alphanumeric", function(value, element) {
+	$.validator.addMethod("alphanumeric", function(value, element) {
 		return this.optional(element) || value == value.match(/^[a-z0-9A-Z#]+$/);
 	},"Only Characters, Numbers & Hash Allowed.");
 
@@ -181,13 +181,13 @@ $( document ).ready(function() {
 
 
 	//TABLE
-	$('#orders-table').dataTable( {
-	  "iDisplayLength": 25,
-      "sPaginationType": "full_numbers",
-      "bFilter": false,
-      "bLengthChange": false
+	// $('#orders-table').dataTable( {
+	//   "iDisplayLength": 25,
+ //      "sPaginationType": "full_numbers",
+ //      "bFilter": false,
+ //      "bLengthChange": false
       
-    });
+ //    });
 
     
 	//STORE LOCATION MODAL
@@ -246,7 +246,7 @@ $( document ).ready(function() {
 			request = makeRequest(subscribeJSON, "/subscribe" , "POST");
 
 			request.done(function(){
-				var result = jQuery.parseJSON(request.responseText);
+				var result = $.parseJSON(request.responseText);
 				           
 				if(result) {
 				  if($('.msg').length === 0) {
@@ -272,4 +272,48 @@ $( document ).ready(function() {
     	} 
 
     });
+
+	$('.save-avatar').on('click', function(e){
+      $(this).closest('form').submit();
+    });
+
+    // File Upload
+    var $uploadBtn = $('#file_upload');
+    var $uploadResponse = $('.fileupload-preview')
+
+    console.log($uploadBtn)
+
+    $uploadBtn.uploadifive({
+        'auto'      : true,
+        'fileType'     : 'image/*',
+        'fileSizeLimit' : '10MB',
+        'buttonText'   : '',
+        'uploadScript' : "uploadavatarfile",
+        'onError'      : function(errorType) {
+            // $uploadBtn.uploadifive('cancel', $('.uploadifive-queue-item').first().data('file'));
+            // $uploadResponse.text(errorType).css('color','red');
+        },
+        'onUploadComplete' : function(file, data) {
+            console.log(data);
+
+            var data = data.split("||").concat();
+
+            var shortText = $.trim(data[1]).substring(0, 20).trim(this) + "...";
+            console.log(data[0])
+            console.log(data[1])
+            console.log(shortText)
+
+            $(':hidden[name=avatar]').val(data[0]);
+
+            $uploadResponse.text(shortText);
+
+        }
+    });
+
+
+    $('.button-search').on('click', function(){
+    	console.log($(this).prev('.search-input').val())
+
+    	
+    })
 });

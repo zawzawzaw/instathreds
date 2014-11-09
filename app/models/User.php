@@ -11,6 +11,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var string
 	 */
 	protected $table = 'users';
+	protected $softDelete = true;
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -31,6 +32,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	    'password'=>'required|between:6,12|confirmed',
 	    'password_confirmation'=>'required|between:6,12'
     );
+
+    public function paymentdetails() {
+		return $this->hasOne('Paymentdetails');
+	}
 
 	public function getAuthIdentifier()
 	{

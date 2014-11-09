@@ -106,7 +106,7 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'Way\Generators\GeneratorsServiceProvider',
+		// 'Way\Generators\GeneratorsServiceProvider',
 		'Artdarek\OAuth\OAuthServiceProvider',
 		'Gloudemans\Shoppingcart\ShoppingcartServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
@@ -180,7 +180,7 @@ return array(
 		'OAuth' 		  => 'Artdarek\OAuth\Facade\OAuth',
 		'Cart'            => 'Gloudemans\Shoppingcart\Facades\Cart',
 		'Image'           => 'Intervention\Image\Facades\Image',
-		'MailchimpWrapper'       => 'Hugofirth\Mailchimp\Facades\MailchimpWrapper',
+		'MailchimpWrapper'       => 'Hugofirth\Mailchimp\Facades\MailchimpWrapper'
 		
 	),
 

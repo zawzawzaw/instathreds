@@ -207,6 +207,12 @@ class ProductController extends \BaseController {
 	public function destroy($id)
 	{
 		//
+		$product = Product::find($id);
+
+		$product->delete();
+
+		return Response::json('Successfully deleted', 200);
+
 	}
 
 

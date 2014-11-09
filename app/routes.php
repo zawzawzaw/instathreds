@@ -19,39 +19,49 @@ Route::get('/', 'HomeController@index');
 Route::resource('register', 'RegisterController', array('only' => array('index', 'store')));
 Route::resource('login', 'LoginController', array('only' => array('index', 'store', 'destroy')));
 
+Route::post('search', array(
+  'uses' => 'SearchController@index',
+  'as' => 'search'
+));
+
 Route::get('logout', array(
   'uses' => 'LoginController@destroy',
   'as' => 'login.destroy'
 ));
  
-Route::get('account/settings', array(
+Route::match(array('GET', 'POST'), 'account/settings', array(
   'uses' => 'AccountController@index',
-  'as' => 'account-settings'
+  'as' => 'account.settings'
 ));
 
-Route::get('account/settings/portrait', array(
+Route::post('account/settings/uploadavatarfile', array(
+  'uses' => 'AccountController@uploadavatarfile',
+  'as' => 'account.settings.uploadavatarfile'
+));
+
+Route::match(array('GET', 'POST'), 'account/settings/portrait', array(
   'uses' => 'AccountController@portrait',
-  'as' => 'account-portrait'
+  'as' => 'account.settings.portrait'
 ));
 
 Route::get('account/settings/orderhistory', array(
   'uses' => 'AccountController@orderhistory',
-  'as' => 'account-order-history'
+  'as' => 'account.settings.orderhistory'
 ));
 
-Route::get('account/settings/payment', array(
+Route::match(array('GET', 'POST'), 'account/settings/payment', array(
   'uses' => 'AccountController@payment',
-  'as' => 'account-payment'
+  'as' => 'account.settings.payment'
 ));
 
-Route::get('account/settings/password', array(
+Route::match(array('GET', 'POST'), 'account/settings/password', array(
   'uses' => 'AccountController@password',
-  'as' => 'account-password'
+  'as' => 'account.settings.password'
 ));
 
-Route::get('account/settings/cancel', array(
+Route::match(array('GET', 'POST'), 'account/settings/cancel', array(
   'uses' => 'AccountController@cancel',
-  'as' => 'account-cancel'
+  'as' => 'account.settings.cancel'
 ));
 
 Route::get('contact', array(
@@ -170,6 +180,7 @@ Route::post('admin/uploadfiles', array(
   'uses' => 'AdminController@uploadfiles',
   'as' => 'admin.uploadfiles'
 ));
+
 Route::resource('admin/designs', 'ProductController');
 Route::resource('admin/orders', 'OrderController');
 Route::resource('admin/categories', 'CategoryController');

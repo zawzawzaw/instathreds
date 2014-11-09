@@ -379,7 +379,7 @@
               </div>
               <div class="share">
                 <h6>SHARE WITH FRIENDS</h6>  
-                 
+                 <a href="#" class="share-facebook">Facebook</a>
               </div>
             </div>
           </div>  
@@ -619,6 +619,44 @@
 
 
         });
+
+        window.fbAsyncInit = function() {
+            FB.init({
+              appId      : 184271388314193,
+              xfbml      : true,
+              version    : 'v2.1'
+            });
+
+            $('.share-facebook').on('click', function(e){
+                // FB.login(function(response) {
+                //    if (response.authResponse) {
+                //      console.log('Welcome!  Fetching your information.... ');
+                //      FB.api('/me', function(response) {
+                //        console.log('Good to see you, ' + response.name + '.');
+                //      });
+                //    } else {
+                //      console.log('User cancelled login or did not fully authorize.');
+                //    }
+                //  });
+                // FB.ui(
+                // {
+                //     method: 'share',
+                //     href: '{{ Request::path() }}',
+                // },
+                // function(response) {
+                //     if (response && !response.error_code) {
+                //       alert('Posting completed.');
+                //     } else {
+                //       console.log('Error while posting.');
+                //     }
+                //   }
+                // );
+
+                window.location.href = 'https://www.facebook.com/dialog/share?%20app_id=184271388314193%20&href={{ urlencode(URL::to(Request::path())) }}&redirect_uri={{ urlencode(URL::to(Request::path())) }}';
+
+                
+            });
+        }
 
     })
     </script>

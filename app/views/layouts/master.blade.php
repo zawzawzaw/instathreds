@@ -26,13 +26,15 @@
  
   <body>
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1481886348717676&version=v2.0";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+    <script>
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
   
     <!-- PRELOADER -->
     <div id="preloader">
@@ -43,12 +45,12 @@
 
     <nav class="mobile-menu-items">
       <ul>
-        <!-- <li>
+        <li>
           <div class="search-form-mobile">
-              <input type="text" class="search-input" placeholder="SEARCH">
+              <input type="text" name="search" class="search-input" placeholder="SEARCH">
               <button class="button-search"><i class="fa fa-search"></i></button>
           </div>    
-        </li> -->
+        </li>
         <li>
           <a href="login-mobile.php">
             <!-- <img class="img-userprofile" src="images/userprofile.png" width="100"> -->
@@ -83,10 +85,12 @@
             <div class="float-left">
               <h6 class="contact-us"><a href="{{ route('contact') }}">CONTACT US</a> 1300 468 453</h6>
             </div>
-            <!-- <div class="search-form">
-                <input type="text" class="search-input" placeholder="SEARCH">
-                <button class="button-search"><i class="fa fa-search"></i></button>
-            </div> -->
+            <div class="search-form">
+                {{ Form::open(array('url' => 'search', 'method' => 'post', 'class' => 'search-product')) }}
+                  <input type="text" name="search" class="search-input" placeholder="SEARCH">
+                  <button type="submit" class="button-search"><i class="fa fa-search"></i></button>
+                {{ Form::close() }}
+            </div>
             <div class="social">
               <a href="https://facebook.com/instathreds" target="_blank" class="icon"><i class="fa fa-facebook"></i></a>
               <a href="https://instagram.com/instathreds" target="_blank" class="icon"><i class="fa fa-instagram"></i></a>
@@ -133,14 +137,18 @@
             <div class="menu-account-nav">
               <a href="/people/karloestrada" class="account-dropdown-trigger top-level">
                 <div class="avatar-frame">
-                  {{ HTML::image('images/avatar.png', 'logo') }}
+                  @if(!empty(Auth::user()->avatar))
+                    {{ HTML::image('images/avatars/'.Auth::user()->avatar, 'logo', array('width' => 70 , 'height' => 70)) }}
+                  @else
+                    {{ HTML::image('images/avatar.png', 'logo') }}
+                  @endif
                   <i class="fa fa-caret-down"></i>
                 </div>
               </a>
               <div class="dropdown dropdown-target">
                 <ul>
-                <li><a href="{{ URL::route('account-settings') }}">Account Settings</a></li>
-                <li><a href="{{ URL::route('account-order-history') }}">Order History</a></li>
+                <li><a href="{{ URL::route('account.settings') }}">Account Settings</a></li>
+                <li><a href="{{ URL::route('account.settings.orderhistory') }}">Order History</a></li>
                 <li class="nav-signout-link"><a href="{{ route('login.destroy') }}" rel="nofollow">Sign Out</a></li>
                 </ul>
               </div>
@@ -475,6 +483,25 @@
     {{ HTML::script('js/PxLoader.js') }}
     {{ HTML::script('js/PxLoaderImage.js') }}
     {{ HTML::script('js/vendor/jquery.datatables.min.js') }}
+
+    {{ HTML::script('js/admin/jquery-ui-1.10.3.min.js') }}
+    {{ HTML::script('js/admin/bootstrap.min.js') }}
+    {{ HTML::script('js/admin/modernizr.min.js') }}
+    {{ HTML::script('js/admin/jquery.sparkline.min.js') }}
+    {{ HTML::script('js/admin/toggles.min.js') }}
+    {{ HTML::script('js/admin/retina.min.js') }}
+    {{ HTML::script('js/admin/jquery.cookies.js') }}
+    {{ HTML::script('js/admin/jquery.autogrow-textarea.js') }}
+    {{ HTML::script('js/admin/bootstrap-fileupload.min.js') }}
+    {{ HTML::script('js/admin/bootstrap-timepicker.min.js') }}
+    {{ HTML::script('js/admin/jquery.maskedinput.min.js') }}
+    {{ HTML::script('js/admin/jquery.tagsinput.min.js') }}
+    {{ HTML::script('js/admin/jquery.mousewheel.js') }}
+    {{ HTML::script('js/admin/chosen.jquery.min.js') }}
+    {{ HTML::script('js/admin/dropzone.min.js') }}
+    {{ HTML::script('js/admin/colorpicker.js') }}
+    {{ HTML::script('js/admin/bootstrap-fileupload.min.js') }}
+    {{ HTML::script('js/admin/jquery.uploadifive.min.js') }}
 
     {{ HTML::script('js/main.js') }}
 

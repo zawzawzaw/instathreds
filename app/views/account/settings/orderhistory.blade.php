@@ -13,6 +13,7 @@
               </div>
 
               <div class="table-responsive">
+              @if($orders->count() > 0)
               <table class="table" id="orders-table">
               <thead>
                  <tr>
@@ -23,18 +24,19 @@
                  </tr>
               </thead>
               <tbody>
-                @foreach($orders as $k => $order)
-                 @if($k % 2 == 0)
-                 <tr class="even">
-                 @else
-                 <tr class="odd">
-                 @endif
-                    <td>{{ $order->id }}</td>
-                    <td>{{ date("Y-m-d",strtotime($order->created_at)) }}</td>
-                    <td>${{ $order->total }}</td>
-                    <td>Pending</td>
-                 </tr>
-                @endforeach
+                
+                    @foreach($orders as $k => $order)
+                     @if($k % 2 == 0)
+                     <tr class="even">
+                     @else
+                     <tr class="odd">
+                     @endif
+                        <td>{{ $order->id }}</td>
+                        <td>{{ date("Y-m-d",strtotime($order->created_at)) }}</td>
+                        <td>${{ $order->total }}</td>
+                        <td>Pending</td>
+                     </tr>
+                    @endforeach
                  <!-- <tr class="even">
                     <td>618</td>
                     <td>12/01/2014</td>
@@ -93,6 +95,9 @@
 
               </tbody>
               </table>
+            @else
+                <p>There is no orders yet!</p>
+            @endif
 
               {{ $orders->links() }}
               </div><!-- table-responsive -->

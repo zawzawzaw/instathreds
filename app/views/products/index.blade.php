@@ -99,6 +99,8 @@
 			                <div class="ckbox ckbox-default">
 			                  <input type="checkbox" name="featured" class="featured-this" value="{{ $product->id }}" @if($product->featured) checked="checked" @endif />
 			                  <label for="featured">Feature this!</label>
+
+			                  <button class="delete-this-product" style="background: none;border: none;position: relative;right: -25px;top: -4px;" data-id="{{ $product->id }}">X</button>
 			                </div>
 			                <div class="thmb-prev">
 			                  <a href="{{ '/images/products/'.$product->image }}" data-rel="prettyPhoto">
@@ -317,6 +319,37 @@ jQuery(document).ready(function(){
 
         });	    
 		
+	});
+
+	var deleterequest;
+	jQuery('.delete-this-product').on('click', function(e){
+		
+		e.preventDefault();
+		
+		// abort any pending request
+    	if (deleterequest) {
+	        deleterequest.abort();
+	    }
+
+	    if (confirm("Are you sure you want to delete this artwork?")) {
+	        var prod_id = $(this).data('id');
+		    var requestJsonData = {};
+
+		    deleterequest = makeRequest(requestJsonData, "/admin/designs/"+prod_id, "DELETE");
+
+	        deleterequest.done(function(){
+	        	console.log(deleterequest);
+
+	        	var result = jQuery.parseJSON(deleterequest.responseText);
+	        
+	        	if(result) {
+	        		window.location.reload();
+	        	}
+
+	        });	  
+	    }
+	    return false;
+
 	});
 
 });
