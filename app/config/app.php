@@ -109,7 +109,8 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider',
 		'Artdarek\OAuth\OAuthServiceProvider',
 		'Gloudemans\Shoppingcart\ShoppingcartServiceProvider',
-		'Intervention\Image\ImageServiceProvider'
+		'Intervention\Image\ImageServiceProvider',
+		'Hugofirth\Mailchimp\MailchimpServiceProvider',
 
 	),
 
@@ -179,6 +180,7 @@ return array(
 		'OAuth' 		  => 'Artdarek\OAuth\Facade\OAuth',
 		'Cart'            => 'Gloudemans\Shoppingcart\Facades\Cart',
 		'Image'           => 'Intervention\Image\Facades\Image',
+		'MailchimpWrapper'       => 'Hugofirth\Mailchimp\Facades\MailchimpWrapper',
 		
 	),
 

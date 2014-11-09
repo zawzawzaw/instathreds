@@ -370,15 +370,16 @@
                 <a href="" class="back">BACK</a>
                 <span class="price">${{ $men_standard_shirttype->price }}</span>
               </div>
-              <div class="shirt-back-checkbox">
+              <!-- <div class="shirt-back-checkbox">
                 <input type="checkbox" name="print_back"><p>Do you want a print at the back of the shirt?</p>
-              </div>
+              </div> -->
               <div class="shirt-quantity">
                   <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4">
                   <a href="#cart-modal" class="addtocart-link btn btn-primary">ADD TO CART</a>
               </div>
               <div class="share">
                 <h6>SHARE WITH FRIENDS</h6>  
+                 
               </div>
             </div>
           </div>  
@@ -517,7 +518,7 @@
         };
 
 
-        $('.shirt-back-checkbox').children('input[name="print_back"]').on('click', function(e) {
+        /*$('.shirt-back-checkbox').children('input[name="print_back"]').on('click', function(e) {
             if ($(this).is(':checked')) {
                 var includedBackPrintPrice = parseInt($('.price').text().replace("$", "")) + 6;
                 $('.price').text('$'+parseFloat(includedBackPrintPrice).toFixed(2)); // fixed for all shirt type back print may be added into table later
@@ -525,7 +526,7 @@
                 var excludedBackPrintPrice = parseInt($('.price').text().replace("$", "")) - 6;
                 $('.price').text('$'+parseFloat(excludedBackPrintPrice).toFixed(2)); // fixed for all shirt type back print may be added into table later
             }
-        });
+        });*/
         
         var request;
         $('.addtocart-link').on('click', function(e){
@@ -535,13 +536,15 @@
           addToCartJSON.attr.size = $('.shirt-size .active').text();
           addToCartJSON.attr.color = $('.color-list .active').data('color');
           addToCartJSON.attr.shirt_type = $('.active-type').find('.shirt-type').text();
-          addToCartJSON.attr.image = $('.final-product-image').children('img').attr('src');
-          addToCartJSON.attr.back_image = '';
+          
+          console.log($('.shirt-view').children('.active').text())
 
-          if($('.shirt-back-checkbox').children('input[name="print_back"]').is(':checked')) {
-            addToCartJSON.attr.print_back = true;
+          if($('.shirt-view').children('.active').text()=="BACK") {
+            addToCartJSON.attr.image = '';
+            addToCartJSON.attr.back_image = $('.final-product-image').children('img').attr('src');
           }else {
-            addToCartJSON.attr.print_back = false;
+            addToCartJSON.attr.image = $('.final-product-image').children('img').attr('src');
+            addToCartJSON.attr.back_image = '';
           }
 
           console.log(addToCartJSON);

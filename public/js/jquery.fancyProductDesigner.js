@@ -492,6 +492,8 @@
 				var currentShirtType = $('.fpd-products').children('.select').children('a').text();
 				var product = thisClass.getProduct(false);
 
+				// console.log(product);
+
 				var addBuilderProductJSON = {
 		          'title': 'Shirt builder product',
 		          'front_image': frontImage,
@@ -2655,10 +2657,35 @@
 				return false;
 			}
 
+			/* zza edit back price fix */
+			var objects = stage.getObjects();
+			var thisBasePrice;
+
+			// front base price
+			if(objects[1]) {
+				currentFrontBasePrice = objects[1].params.price;
+			}else {
+				currentFrontBasePrice = currentPrice;
+			}
+
+			// back base price
+			if(objects[4]) {
+				currentBackBasePrice = objects[4].params.price;
+			}else {
+				currentBackBasePrice = 0;
+			}
+
+			if(params.stockart==true && objParams.viewIndex==1){
+				currentFrontBasePrice += currentBackBasePrice;
+				$elem.trigger('priceChange', [params.price, currentFrontBasePrice]);
+			}
+
 			if(params.price) {
-				currentPrice += params.price;
-				// console.log(params);
-				$elem.trigger('priceChange', [params.price, currentPrice]);
+				if(containerIndex==0) {
+					currentPrice += params.price;
+					
+					$elem.trigger('priceChange', [params.price, currentPrice]);
+				}
 			}
 
 		};

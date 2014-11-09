@@ -92,6 +92,20 @@
                     </div>
 
                     <div class="form-group">
+                      <label class="col-sm-3 control-label">Discount Type (% or Fixed)</label>
+                      <div class="col-sm-6">
+                        <input type="text" name="discount_type" placeholder="Enter discount type" class="form-control" value="{{ $promocode->discount_type }}" />
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Amount</label>
+                      <div class="col-sm-6">
+                        <input type="text" name="amount" placeholder="Enter amount" class="form-control" value="{{ $promocode->amount }}" />
+                      </div>
+                    </div>
+
+                    <div class="form-group">
                       <label class="col-sm-3 control-label">Number of Usage</label>
                       <div class="col-sm-6">
                         <input type="text" name="number_of_usage" placeholder="Enter number of usage" class="form-control" value="{{ $promocode->number_of_usage }}" />

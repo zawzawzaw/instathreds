@@ -8,12 +8,12 @@
             <li>{{ $error }}</li>
         @endforeach
     </ul>
-
+    {{ Form::open(array('url'=>'checkout/confirmorder', 'class'=>'form-checkout')) }}
     <div class="row">
       
       <!-- left column  -->
       <div class="eight column">
-      	{{ Form::open(array('url'=>'checkout/confirmorder', 'class'=>'form-checkout')) }}
+      	
         <div class="panel shipping">
           <div class="heading">
             <h6>SHIPPING OR COLLECTION</h6>
@@ -49,7 +49,7 @@
 
           <!-- right column -->
           <div class="right" style="min-height: 270px;">
-            <input type="radio" name="redemption_type" checked="checked" value="collection" style="display: inline-block;margin-left: 1px;"><h6 style="display: inline-block;width: 262px;padding-left: 10px;">I wish to collect my order from</h6>
+            <input type="radio" name="redemption_type" class="redemption_type" checked="checked" value="collection" style="display: inline-block;margin-left: 1px;"><h6 style="display: inline-block;width: 262px;padding-left: 10px;">I wish to collect my order from</h6>
             
             <div class="collect">
             	<a href="" class="store-loc storeloc-link"><i class="fa fa-info-circle"></i>Store Location</a>
@@ -65,7 +65,7 @@
 	            </div>
             </div>
 
-            <input type="radio" name="redemption_type" value="shipping" style="display: inline-block;margin-left: 1px;"><h6 style="display: inline-block;width: 262px;padding-left: 10px;">Ship to this address</h6>
+            <input type="radio" name="redemption_type" class="redemption_type" value="shipping" style="display: inline-block;margin-left: 1px;"><h6 style="display: inline-block;width: 262px;padding-left: 10px;">Ship to this address</h6>
             <div class="ship">
 	            <div class="form-group">
 	              <div class="select-style">
@@ -103,11 +103,11 @@
 	            <h6 style="margin-top:20px;">Shipping Method</h6>
 	            <div class="choose-method">
 	              <div class="form-group">
-	                <input type="radio" name="shipmethod" value="shipmethod-standard" style="display: inline-block;margin-left: 1px;">
+	                <input type="radio" name="shipmethod" class="shipmethod" value="shipmethod-standard" checked="checked" style="display: inline-block;margin-left: 1px;">
                   <h6 style="display: inline-block;width: 262px;padding-left:5px;">Standard (5-15 Business Days)</h6>
                 </div>
                 <div>
-                  <input type="radio" name="shipmethod" value="shipmethod-express" style="display: inline-block;margin-left: 1px;">
+                  <input type="radio" name="shipmethod" class="shipmethod" value="shipmethod-express" style="display: inline-block;margin-left: 1px;">
                   <h6 style="display: inline-block;width: 262px;padding-left:5px;">Express (3-7 Business Days)</h6>
                 </div>
 
@@ -195,7 +195,7 @@
             </div>
 
 
-            {{ Form::close() }}
+            
 
           
         </div>
@@ -217,7 +217,11 @@
 						<tr>
 		                	<td>
 		                		<a href="{{ URL::to('product', array(Product::slug($row->name), $row->id)) }}">
-		                			<img src="{{ $row->options->image }}" style="width:30px;">
+                          @if($row->options->image!='')
+		                			 <img src="{{ $row->options->image }}" style="width:30px;">
+                          @else
+                           <img src="{{ $row->options->back_image }}" style="width:30px;">
+                          @endif
 		                		</a>
 		                	</td>
 		                	<td>
@@ -255,7 +259,7 @@
                     </td>
                     <td>
                     @if(Cart::count() > 0)
-                      <p>${{ Cart::total() }}</p>    
+                      <p>${{ number_format((float)Cart::total(), 2, '.', '') }}</p>    
                     @endif
                     </td>
                   </tr>
@@ -272,7 +276,7 @@
                   <tr>
                     <td>Total:</td>
                     @if(Cart::count() > 0)
-                    	<td class="total-price">${{ Cart::total() }}</td>  
+                    	<td class="total-price">${{ number_format((float)Cart::total(), 2, '.', '') }}</td>  
                     @endif
                   </tr>
                 </tfoot>
@@ -284,10 +288,10 @@
         
         <!-- coupon -->
         <div class="panel coupon">
-          <div class="coupon">
+          <div id="coupon">
             <h6>Enter your gift, coupon or store code</h6>
-            <input type="text" class="text coupon-input" placeholder="ENTER CODE">
-            <button class="btn btn-primary">APPLY</button>
+            <input type="text" name="promo_code" class="text promo_code coupon-input" value="{{ $promo_code }}" placeholder="ENTER CODE">
+            <a href="javascript:void(0);" class="btn btn-primary apply-promo">APPLY</a>
           </div>  
         </div>
         <!-- end of coupon -->
@@ -297,6 +301,7 @@
       <!-- end of right column  -->
       
     </div>  
+    {{ Form::close() }}
     
   </div>
 </section>
@@ -373,6 +378,28 @@
 
 {{ HTML::script('js/vendor/jquery-2.1.1.js') }}
 <script>
+$(document).ready(function(e){
+  var makeRequest = function(Data, URL, Method) {
+
+      var request = $.ajax({
+        url: URL,
+        type: Method,
+        data: Data,
+          dataType: "JSON",
+          cache: false,
+        success: function(response) {
+            // if success remove current item
+            // console.log(response);
+        },
+            error: function( error ){
+                // Log any error.
+                console.log( "ERROR:", error );
+            }
+    });
+
+    return request;
+  };
+
 	$(".login-link").on("click",function(){
 		$('#login-modal').modal('show')
 		var id = $(this).attr("data-id");
@@ -386,6 +413,9 @@
 		$('#login-tab a:last').tab('show');	
 	});	
 
+  /////////
+  /////////
+
 	var $totalPrice = $('.total-price');
 	var $shippingPrice = $('.shipping-price');
 
@@ -394,30 +424,96 @@
 			$('.ship').slideUp();
 			$('.collect').slideDown();
 
-			$totalPrice.text( '$' + parseFloat('{{ Cart::total() }}').toFixed(2) );
+      if($('.actual-discount').length!==0) {
+        var actualDiscount = $('.actual-discount').text().replace(/[^0-9\.]/g, '');
+      }else
+        var actualDiscount = 0;
+
+      var totalPrice = parseFloat('{{ Cart::total() }}') - parseFloat(actualDiscount);
+
+			$totalPrice.text( '$' + totalPrice.toFixed(2) );
       $shippingPrice.text( '$' + 0 );
 		}else {
 			$('.ship').slideDown();
 			$('.collect').slideUp();
 
-			if($("#country-select").val() == "Australia") var shippingCost = 6;
-			else var shippingCost = 20;
+			if($("#country-select").val() == "Australia") {
+        var shippingCost;
 
-			newTotalPrice = parseFloat('{{ Cart::total() }}') + shippingCost;
+        if($('.shipmethod').val()=="shipmethod-express") {
+          shippingCost = 15;
+        }else {
+          shippingCost = 6;
+        }
+
+      }
+			else var shippingCost = 25;
+
+      if($('.actual-discount').length!==0) {
+        var actualDiscount = $('.actual-discount').text().replace(/[^0-9\.]/g, '');
+      }else
+        var actualDiscount = 0;
+
+      console.log(actualDiscount);
+
+			newTotalPrice = parseFloat('{{ Cart::total() }}') - parseFloat(actualDiscount) + shippingCost;
 
 			$totalPrice.text( '$' + newTotalPrice.toFixed(2) );
-			$shippingPrice.text( '$' + shippingCost );
+			$shippingPrice.text( '$' + shippingCost.toFixed(2) );
 		}
 	});
 
-	$('#country-select').on('change', function(e){
-		if( $(this).val() == "Australia" ) var shippingCost = 6;
-		else var shippingCost = 20;
+  $('.shipmethod').on('change', function(e){
 
-		newTotalPrice = parseFloat('{{ Cart::total() }}') + shippingCost;
+    if($("input[type=radio][name='redemption_type']:checked").val()=="shipping"){
+      if($("#country-select").val() == "Australia") {
+        var shippingCost;
+
+        if($(this).val()=="shipmethod-express") {
+          shippingCost = 15;
+        }else {
+          shippingCost = 6;
+        }
+
+      }
+      else var shippingCost = 25;
+
+      if($('.actual-discount').length!==0) {
+        var actualDiscount = $('.actual-discount').text().replace(/[^0-9\.]/g, '');
+      }else
+        var actualDiscount = 0;
+
+      newTotalPrice = parseFloat('{{ Cart::total() }}') - parseFloat(actualDiscount) + shippingCost;
+
+      $totalPrice.text( '$' + newTotalPrice.toFixed(2) );
+      $shippingPrice.text( '$' + shippingCost.toFixed(2) );
+    }
+    
+  });
+
+	$('#country-select').on('change', function(e){
+
+		if( $(this).val() == "Australia" ) {
+      var shippingCost;
+
+      if($(this).val()=="shipmethod-express") {
+        shippingCost = 15;
+      }else {
+        shippingCost = 6;
+      }
+
+    }
+		else var shippingCost = 25;
+
+		if($('.actual-discount').length!==0) {
+        var actualDiscount = $('.actual-discount').text().replace(/[^0-9\.]/g, '');
+      }else
+        var actualDiscount = 0;
+
+      newTotalPrice = parseFloat('{{ Cart::total() }}') - parseFloat(actualDiscount) + shippingCost;
 
 		$totalPrice.text( '$' + newTotalPrice.toFixed(2) );
-		$shippingPrice.text( '$' + shippingCost );
+		$shippingPrice.text( '$' + shippingCost.toFixed(2) );
 
 	});
 
@@ -425,6 +521,95 @@
     e.preventDefault();
     $('#store-modal').modal('show')
   });
+
+  $('.promo_code').keypress(function(e){
+      var key = e.which;
+      if(key == 13)
+      {
+          $('.apply-promo').trigger('click');
+          return false;
+      }
+  });
+
+  $('.apply-promo').on('click', function(e){
+    var promoCode = $('.promo_code').val();
+    var checkpromoJSON = {};
+
+    checkpromoJSON.promo_code = promoCode;
+
+    request = makeRequest(checkpromoJSON, "/checkout/checkpromocode", "POST");
+
+    request.done(function(){
+      var result = jQuery.parseJSON(request.responseText);
+
+      var cartTotal = '{{ Cart::total() }}';
+      var shippingPrice = $shippingPrice.text().replace(/[^0-9\.]/g, '');
+
+      if(result.discount_type=="%") {
+        var ActualDiscountValue = parseFloat(cartTotal) * (result.amount/100);
+
+        if($('.actual-discount').length === 0) {
+          $('.total table').children('tbody').append('<tr><td><p>Discount:</p></td><td><p class="actual-discount">- $'+ActualDiscountValue.toFixed(2)+'</p></td></tr>');
+        }else {
+          $('.actual-discount').text('- $'+ActualDiscountValue.toFixed(2));
+        }
+
+        var totalPrice = parseFloat(cartTotal) + parseFloat(shippingPrice) - parseFloat(ActualDiscountValue);
+        
+        $totalPrice.text('$'+ totalPrice.toFixed(2));
+
+      } else {
+        var ActualDiscountValue = parseFloat(result.amount);
+
+        if($('.actual-discount').length === 0) {
+          $('.total table').children('tbody').append('<tr><td><p>Discount:</p></td><td><p class="actual-discount">- $'+ActualDiscountValue.toFixed(2)+'</p></td></tr>');
+        }else {
+          $('.actual-discount').text('- $'+ActualDiscountValue.toFixed(2));
+        }
+
+        var totalPrice = parseFloat(cartTotal) + parseFloat(shippingPrice) - parseFloat(ActualDiscountValue);
+
+        $totalPrice.text('$'+ totalPrice.toFixed(2));
+
+      }
+
+      if($('#msg').length === 0) {
+        $('#coupon').append('<p id="msg">Promo code has successfully applied</p>').css('color','black').fadeIn('slow');
+      }else {
+        $('#msg').text('Promo code has successfully applied').css('color','black').fadeIn('slow');
+      }
+
+      setTimeout(function() {
+        $('#msg').fadeOut('slow');
+      }, 5000 );         
+
+    });
+
+    request.error(function(){
+      var result = jQuery.parseJSON(request.responseText);
+
+      if($('.actual-discount').length !== 0) {
+        $('.total table').find('tbody').children('tr').last().remove();
+      }
+      $totalPrice.text('${{ Cart::total() }}');
+
+      if($('#msg').length === 0) {
+        $('#coupon').append('<p id="msg">'+result.message+'</p>').css('color','red').fadeIn('slow');
+      }else {
+        $('#msg').text(result.message).css('color','red').fadeIn('slow');
+      }
+
+      setTimeout(function() {
+       $('#msg').fadeOut('slow');
+      }, 5000 );
+    });
+
+  });
+
+  $('.apply-promo').trigger('click');
+
+});
+
   
 </script>
 @endsection

@@ -86,6 +86,20 @@
                     </div>
 
                     <div class="form-group">
+                      <label class="col-sm-3 control-label">Discount Type ( % or Fixed )</label>
+                      <div class="col-sm-6">
+                        <input type="text" name="discount_type" placeholder="Enter discount type" class="form-control" />
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Amount</label>
+                      <div class="col-sm-6">
+                        <input type="text" name="amount" placeholder="Enter amount" class="form-control" />
+                      </div>
+                    </div>
+
+                    <div class="form-group">
                       <label class="col-sm-3 control-label">Expiry Date</label>
                       <div class="col-sm-6">
                         <input type="text" id="date" name="expiry_date" placeholder="Enter expiry date" class="form-control" />

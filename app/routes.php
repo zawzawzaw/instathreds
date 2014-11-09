@@ -91,9 +91,19 @@ Route::post('singleproduct/getsizes', array(
 
 Route::resource('cart', 'CartController');
 
-Route::get('checkout', array(
+Route::match(array('GET', 'POST'), 'checkout', array(
   'uses' => 'CheckoutController@index',
   'as' => 'checkout'
+));
+
+Route::post('subscribe', array(
+  'uses' => 'SubscribeController@index',
+  'as' => 'subscribe'
+));
+
+Route::post('checkout/checkpromocode', array(
+  'uses' => 'CheckoutController@checkpromocode',
+  'as' => 'checkout.checkpromocode'
 ));
 
 Route::post('checkout/confirmorder', array(

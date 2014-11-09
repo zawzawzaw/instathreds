@@ -192,5 +192,80 @@ $( document ).ready(function() {
     	$('#store-modal').modal('show')
   	});
 
-	
+  	var makeRequest = function(Data, URL, Method) {
+
+        var request = $.ajax({
+          url: URL,
+          type: Method,
+          data: Data,
+            dataType: "JSON",
+          success: function(response) {
+              // if success remove current item
+              // console.log(response);
+          },
+              error: function( error ){
+                  // Log any error.
+                  console.log( "ERROR:", error );
+              }
+      });
+
+      return request;
+    };
+
+
+    // Subscription mailchimp
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-Token': $('meta[name="_token"]').attr('content')
+        }
+    });	
+
+    function validateEmail(email) { 
+	    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	    return re.test(email);
+	} 
+
+	var request;
+    $('.subscribe-btn').on('click', function(e){
+
+    	var subscription_email = $('#subscribe_email').val();
+
+    	if(validateEmail(subscription_email)) {
+    		var subscribeJSON = {};
+	    	subscribeJSON.subscribe_email = subscription_email;
+
+	    	// abort any pending request
+			if (request) {
+			  	request.abort();
+			}
+
+			request = makeRequest(subscribeJSON, "/subscribe" , "POST");
+
+			request.done(function(){
+				var result = jQuery.parseJSON(request.responseText);
+				           
+				if(result) {
+				  if($('.msg').length === 0) {
+		    			$('.newsletter-signup').append('<p class="msg">'+result+'</p>');
+		    		}else {
+		    			$('.msg').text(result).css('color', 'black').fadeIn('slow');
+		    		}
+		    		setTimeout(function() {
+			           $('.msg').fadeOut('slow');
+		          	}, 5000 );
+				}
+
+			});  
+    	}else {
+    		if($('.msg').length === 0) {
+    			$('.newsletter-signup').append('<p class="msg" style="color:red;">Invalid email address</p>');
+    		}else {
+    			$('.msg').text('Invalid email address').css('color', 'red').fadeIn('slow');
+    		}
+    		setTimeout(function() {
+	           $('.msg').fadeOut('slow');
+          	}, 5000 );
+    	} 
+
+    });
 });

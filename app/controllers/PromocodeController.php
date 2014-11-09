@@ -69,6 +69,8 @@ class PromocodeController extends \BaseController {
 
 	    	$promocode = new Promocode;
 		    $promocode->unique_promo_code = Input::get('unique_promo_code');
+		    $promocode->discount_type = Input::get('discount_type');
+		    $promocode->amount = Input::get('amount');
 		    $promocode->number_of_usage = 0;
 		    $expiry_date = DateTime::createFromFormat('d/m/Y', Input::get('expiry_date'));
 		    $promocode->expiry_date = $expiry_date->format('Y-m-d');
@@ -139,6 +141,8 @@ class PromocodeController extends \BaseController {
 
 	    	$promocode = Promocode::find($id);
 		    $promocode->unique_promo_code = Input::get('unique_promo_code');
+		    $promocode->discount_type = Input::get('discount_type');
+		    $promocode->amount = Input::get('amount');
 		    $promocode->number_of_usage = Input::get('number_of_usage');
 		    $expiry_date = DateTime::createFromFormat('d/m/Y', Input::get('expiry_date'));
 		    $promocode->expiry_date = $expiry_date->format('Y-m-d');
