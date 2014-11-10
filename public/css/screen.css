@@ -1036,6 +1036,8 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 
 .more-products-slider .item a { display: block; cursor: pointer; }
 
+.more-products-slider .item a:hover { border-bottom: 0px !important; }
+
 /* mouse grab icon */
 .grabbing { cursor: url(grabbing.png) 8 8, move; }
 
@@ -1239,6 +1241,14 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 .product .share { border: 1px solid #8e8e8e; background: #f4f4f4; -webkit-border-radius: 5px; border-radius: 5px; background-clip: padding-box; /* stops bg color from leaking outside the border: */ padding: 15px; }
 
 .product .share h6 { font-size: 18px; border-bottom: 1px solid #666666; padding-bottom: 10px; }
+
+.product .share a { margin-right: 10px; }
+
+.product .share a i { font-size: 22px; }
+
+.product .share a:hover { border-bottom: 0px !important; }
+
+.product .share a:hover i { color: #000; }
 
 .more-products { position: relative; margin-top: 50px; }
 

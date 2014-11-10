@@ -3,7 +3,7 @@
     <section class="slider">
       <div class="container">
         <div class="offers-bar">
-          <h6><span>NEW FEATURED DESIGNS!</span> SHOP NOW</h6>  
+          <a href="{{ route('store.featured') }}"><h6><span>NEW FEATURED DESIGNS!</span> SHOP NOW</h6></a>  
         </div>
       </div>
     </section>
@@ -100,6 +100,7 @@
                         <option value="">THIS ENQUIRY IS ABOUT</option>
                         <option value="">ROBINA STORE</option>
                         <option value="">CARINDALE STORE</option>
+                        <option value="">GARDEN CITY STORE</option>
                         <option value="">BULK ORDERS</option>
                         <option value="">PRINT ORDERS</option>
                         <option value="">GENERAL ENQUIRY</option>

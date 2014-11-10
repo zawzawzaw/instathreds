@@ -226,9 +226,9 @@
               <li>
                 <h5>Visit Us</h5>
                 <ul>
-                  <li><a href="" class="storeloc-link">Robina Store</a></li>
-                  <li><a href="" class="storeloc-link">Carindale Store</a></li>
-                  <li><a href="" class="storeloc-link">Garden City Store</a></li>
+                  <li><a href="{{ route('contact') }}">Robina Store</a></li>
+                  <li><a href="{{ route('contact') }}">Carindale Store</a></li>
+                  <li><a href="{{ route('contact') }}">Garden City Store</a></li>
                 </ul>
               </li>
               <li>
@@ -350,8 +350,8 @@
                       {{ Form::text('email', null, array('class'=>'form-control email', 'placeholder'=>'Email')) }}
                       </div>
                       <div class="form-group signup-text">
-                        <p>By clicking “Sign Up Now”, you agree to our <a href="">Terms of Use</a><br>
-                        We hate spam just as much as you do - <a href="">Privacy Policy</a></p>    
+                        <p>By clicking “Sign Up Now”, you agree to our <a href="{{ URL::route('static.terms') }}" target="_blank">Terms of Use</a><br>
+                        We hate spam just as much as you do - <a href="{{ URL::route('static.privacy') }}" target="_blank">Privacy Policy</a></p>    
                       </div>
                       
                       <div class="clearfix"></div>
@@ -404,7 +404,7 @@
                   </td>
                   <td></td>
                   <td>
-                    <h6>WESTFIELD GARDEN</h6>
+                    <h6>WESTFIELD GARDEN CITY</h6>
                     <p>Cnr Logan & Kessels Rd<br>
                     Upper Mt Gravatt QLD 4122</p>  
                   </td>

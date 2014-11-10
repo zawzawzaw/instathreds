@@ -177,7 +177,7 @@ $saved_products_headline = 'Your Saved Products';
 
 										<div class="fpd-element-buttons">
 											<label for="fpd-trash">Remove</label>
-											<button title="<?php echo $customize_center_trash; ?>" class="fpd-trash fpd-button fpd-button-danger fpd-tooltip"><span class="remove-white-box"></span></button>
+											<button title="<?php echo $customize_center_trash; ?>" class="fpd-trash fpd-button fpd-button-danger fpd-tooltip"><span class="remove-white-box">X</span></button>
 										</div>
 									</div>
 								</div>

@@ -555,8 +555,10 @@ ul#imageSelectTab li a {
 }
 
 #customText .fpd-trash, #imageselect .fpd-button {
-	background: white;
-	border: 1px solid black;
+	background:#999;
+}
+#customText .fpd-trash, #imageselect .fpd-button span {
+	font-weight:bold;
 }
 
 #customText .fpd-toolbar {
