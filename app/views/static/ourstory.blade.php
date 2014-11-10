@@ -58,16 +58,7 @@
         </div>
         <div class="nine column">
           <div class="content-right">
-            <a href="" class="banner-page"><img src="images/image-placeholder1.png" style="width:790px;height:150px;"></a>
-            <h3>Header</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida justo eu porttitor vehicula. Fusce eu convallis magna. Nulla urna ligula, lobortis quis enim at, varius euismod sem. Donec mauris dui, suscipit a orci ac, ultrices hendrerit enim. Maecenas at dignissim diam, vitae congue augue. Curabitur semper non velit sit amet scelerisque. Etiam sed interdum lorem. Mauris semper ante non nisi laoreet tempus. Fusce sed porttitor erat. Praesent nisi nunc, viverra eu tempus sit amet, commodo sed arcu. Donec dictum, purus ac pulvinar pharetra, dolor magna aliquam urna, a varius mauris tellus non tellus. <a href="">Link colour</a></p>
-
-            <h3 class="title orange">Header</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida justo eu porttitor vehicula. Fusce eu convallis magna. Nulla urna ligula, lobortis quis enim at, varius euismod sem. Donec mauris dui, suscipit a orci ac, ultrices hendrerit enim. Maecenas at dignissim diam, vitae congue augue. Curabitur semper non velit sit amet scelerisque. Etiam sed interdum lorem. Mauris semper ante non nisi laoreet tempus. Fusce sed porttitor erat. Praesent nisi nunc, viverra eu tempus sit amet, commodo sed arcu. Donec dictum, purus ac pulvinar pharetra, dolor magna aliquam urna, a varius mauris tellus non tellus. <a href="">Link colour</a></p>
-
-            <h3 class="title green">Header</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida justo eu porttitor vehicula. Fusce eu convallis magna. Nulla urna ligula, lobortis quis enim at, varius euismod sem. Donec mauris dui, suscipit a orci ac, ultrices hendrerit enim. Maecenas at dignissim diam, vitae congue augue. Curabitur semper non velit sit amet scelerisque. Etiam sed interdum lorem. Mauris semper ante non nisi laoreet tempus. Fusce sed porttitor erat. Praesent nisi nunc, viverra eu tempus sit amet, commodo sed arcu. Donec dictum, purus ac pulvinar pharetra, dolor magna aliquam urna, a varius mauris tellus non tellus. <a href="">Link colour</a></p>
-
+            {{ HTML::image('images/instathreds-story.png') }}
 
 
           </div>
