@@ -64,9 +64,9 @@
             
           </li>
           <li>
-            <a href="{{ route('store.featured') }}"><img src="images/howitworks2.jpg"></a>
+            <a href="{{ route('store.index') }}"><img src="images/howitworks2.jpg"></a>
             <div class="title step2">
-              <a href="{{ route('store.featured') }}">Choose a Design</a>
+              <a href="{{ route('store.index') }}">Choose a Design</a>
             </div>
           </li>
           <li>
@@ -130,7 +130,7 @@
     <section class="promotional-area hide-mobile">
       <div class="container">
         <div class="section-bar">
-          <h6>CURRENT PROMOTIONS | <a href="">CLICK HERE</a></h6>  
+          <h6>CURRENT PROMOTIONS | <a href="http://instathreds.co/store/Moustaches/35">CLICK HERE</a></h6>  
         </div>
         <div class="banner promotion">
           <a href="http://instathreds.co/store/Moustaches/35">{{ HTML::image('images/promo/promo1.png') }}

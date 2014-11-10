@@ -23,7 +23,7 @@ class StoreController extends \BaseController {
 
 		//
 		$categories = Category::all();
-	    $products = Product::paginate(8);			
+	    $products = Product::paginate(20);			
 
 		$this->layout->content = View::make('store.index')
 			->with('username', $username)
@@ -50,7 +50,7 @@ class StoreController extends \BaseController {
 		//
 		$categories = Category::all();
 
-		$products = Product::where("category_id", $id)->paginate(8);
+		$products = Product::where("category_id", $id)->paginate(20);
 
 	    $this->layout->content = View::make('store.index')
 			->with('username', $username)
