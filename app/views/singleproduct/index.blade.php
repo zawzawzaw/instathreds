@@ -379,7 +379,7 @@
               </div>
               <div class="share">
                 <h6>SHARE WITH FRIENDS</h6>  
-                 <a href="#" class="share-facebook">Facebook</a>
+                 
               </div>
             </div>
           </div>  
@@ -483,181 +483,143 @@
     {{ HTML::script('js/admin/jquery-1.10.2.min.js') }}
     {{ HTML::script('js/shirt.js') }}
     <script type="text/javascript">
-      $(document).ready(function(){
+        $(document).ready(function(){
 
-        var makeRequest = function(Data, URL, Method) {
+            var makeRequest = function(Data, URL, Method) {
 
-            var request = $.ajax({
-              url: URL,
-              type: Method,
-              data: Data,
-                dataType: "JSON",
-              success: function(response) {
-                  // if success remove current item
-                  // console.log(response);
-              },
-                  error: function( error ){
-                      // Log any error.
-                      console.log( "ERROR:", error );
-                  }
-          });
+                var request = $.ajax({
+                  url: URL,
+                  type: Method,
+                  data: Data,
+                    dataType: "JSON",
+                  success: function(response) {
+                      // if success remove current item
+                      // console.log(response);
+                  },
+                      error: function( error ){
+                          // Log any error.
+                          console.log( "ERROR:", error );
+                      }
+              });
 
-          return request;
-        };
+              return request;
+            };
 
-        var addToCartJSON = {
-          'id': '{{ $product->id }}', 
-          'title': '{{ $product->title }}',
-          'price' : $('.price').text(),
-          'qty' : 1,
-          'attr' : {
-            'description': '{{ $product->description }}',
-            'size' : 'M',
-            'color' : 'Black'
-          }
-        };
-
-
-        /*$('.shirt-back-checkbox').children('input[name="print_back"]').on('click', function(e) {
-            if ($(this).is(':checked')) {
-                var includedBackPrintPrice = parseInt($('.price').text().replace("$", "")) + 6;
-                $('.price').text('$'+parseFloat(includedBackPrintPrice).toFixed(2)); // fixed for all shirt type back print may be added into table later
-            }else {
-                var excludedBackPrintPrice = parseInt($('.price').text().replace("$", "")) - 6;
-                $('.price').text('$'+parseFloat(excludedBackPrintPrice).toFixed(2)); // fixed for all shirt type back print may be added into table later
-            }
-        });*/
-        
-        var request;
-        $('.addtocart-link').on('click', function(e){
-          addToCartJSON.qty = $('.qty').val();
-          addToCartJSON.price = $('.price').text().replace("$", "");
-          addToCartJSON.attr.gender = $('.gender').find('.active').attr('id');
-          addToCartJSON.attr.size = $('.shirt-size .active').text();
-          addToCartJSON.attr.color = $('.color-list .active').data('color');
-          addToCartJSON.attr.shirt_type = $('.active-type').find('.shirt-type').text();
-          
-          console.log($('.shirt-view').children('.active').text())
-
-          if($('.shirt-view').children('.active').text()=="BACK") {
-            addToCartJSON.attr.image = '';
-            addToCartJSON.attr.back_image = $('.final-product-image').children('img').attr('src');
-          }else {
-            addToCartJSON.attr.image = $('.final-product-image').children('img').attr('src');
-            addToCartJSON.attr.back_image = '';
-          }
-
-          console.log(addToCartJSON);
-
-          // abort any pending request
-          if (request) {
-              request.abort();
-          }
-
-          request = makeRequest(addToCartJSON, "{{ route('cart.store') }}" , "POST");
-
-          request.done(function(){
-            var result = jQuery.parseJSON(request.responseText);
-
-            console.log(result)
-                       
-            if(result) {
-              $('#cart-modal').modal('show');
-              // window.location = "{{ route('cart.index') }}";
-            }
-
-          });     
-
-        });
-
-        $('.shirt-size a').on('click', function(e){
-          $('.shirt-size .active').removeClass('active');
-          $(this).addClass('active');
-        });
-
-        //OPEN SIZE CHART MODAL
-        $('.size-chart').on('click', function(e){
-            e.preventDefault();
-            $('#size-chart-modal').modal('show');
-            var shirt_type = $('.shirt-template.active').attr("id");
-            if(shirt_type == 'mens-standard'){
-                img = '{{ HTML::image("images/shirt-chart/chart-mens-standard.jpg") }}';
-                $('.chart-wrap').html(img);        
-            }else if(shirt_type == 'mens-staple'){
-                img = '{{ HTML::image("images/shirt-chart/chart-standard-tee.jpg") }}';
-                $('.chart-wrap').html(img);  
-            }else if(shirt_type == 'mens-lowdown'){
-                img = '{{ HTML::image("images/shirt-chart/chart-lowdown.jpg") }}';
-                $('.chart-wrap').html(img);  
-            }else if(shirt_type == 'mens-barnard'){
-                img = '{{ HTML::image("images/shirt-chart/chart-barnard.jpg") }}';
-                $('.chart-wrap').html(img);  
-            }else if(shirt_type == 'mens-tall'){
-                img = '{{ HTML::image("images/shirt-chart/chart-tall.jpg") }}';
-                $('.chart-wrap').html(img);  
-            }else if(shirt_type == 'womens-standard'){
-                img = '{{ HTML::image("images/shirt-chart/chart-womens-standard.jpg") }}';
-                $('.chart-wrap').html(img);  
-            }else if(shirt_type == 'womens-tanktee'){
-                img = '{{ HTML::image("images/shirt-chart/chart-tank-tee.jpg") }}';
-                $('.chart-wrap').html(img);  
-            }else if(shirt_type == 'womens-mali'){
-                img = '{{ HTML::image("images/shirt-chart/chart-mali.jpg") }}';
-                $('.chart-wrap').html(img);  
-            }else if(shirt_type == 'womens-dashracerback'){
-                img = '{{ HTML::image("images/shirt-chart/chart-racerback.jpg") }}';
-                $('.chart-wrap').html(img);  
-            }else if(shirt_type == 'kids-tee'){
-                img = '{{ HTML::image("images/shirt-chart/chart-kids-tee.jpg") }}';
-                $('.chart-wrap').html(img);  
-            }else if(shirt_type == 'kids-mini'){
-                img = '{{ HTML::image("images/shirt-chart/chart-mini-onepiece.jpg") }}';
-                $('.chart-wrap').html(img);  
-            }
+            var addToCartJSON = {
+              'id': '{{ $product->id }}', 
+              'title': '{{ $product->title }}',
+              'price' : $('.price').text(),
+              'qty' : 1,
+              'attr' : {
+                'description': '{{ $product->description }}',
+                'size' : 'M',
+                'color' : 'Black'
+              }
+            };
 
 
+            /*$('.shirt-back-checkbox').children('input[name="print_back"]').on('click', function(e) {
+                if ($(this).is(':checked')) {
+                    var includedBackPrintPrice = parseInt($('.price').text().replace("$", "")) + 6;
+                    $('.price').text('$'+parseFloat(includedBackPrintPrice).toFixed(2)); // fixed for all shirt type back print may be added into table later
+                }else {
+                    var excludedBackPrintPrice = parseInt($('.price').text().replace("$", "")) - 6;
+                    $('.price').text('$'+parseFloat(excludedBackPrintPrice).toFixed(2)); // fixed for all shirt type back print may be added into table later
+                }
+            });*/
+            
+            var request;
+            $('.addtocart-link').on('click', function(e){
+              addToCartJSON.qty = $('.qty').val();
+              addToCartJSON.price = $('.price').text().replace("$", "");
+              addToCartJSON.attr.gender = $('.gender').find('.active').attr('id');
+              addToCartJSON.attr.size = $('.shirt-size .active').text();
+              addToCartJSON.attr.color = $('.color-list .active').data('color');
+              addToCartJSON.attr.shirt_type = $('.active-type').find('.shirt-type').text();
+              
+              console.log($('.shirt-view').children('.active').text())
 
+              if($('.shirt-view').children('.active').text()=="BACK") {
+                addToCartJSON.attr.image = '';
+                addToCartJSON.attr.back_image = $('.final-product-image').children('img').attr('src');
+              }else {
+                addToCartJSON.attr.image = $('.final-product-image').children('img').attr('src');
+                addToCartJSON.attr.back_image = '';
+              }
 
-        });
+              console.log(addToCartJSON);
 
-        window.fbAsyncInit = function() {
-            FB.init({
-              appId      : 184271388314193,
-              xfbml      : true,
-              version    : 'v2.1'
+              // abort any pending request
+              if (request) {
+                  request.abort();
+              }
+
+              request = makeRequest(addToCartJSON, "{{ route('cart.store') }}" , "POST");
+
+              request.done(function(){
+                var result = jQuery.parseJSON(request.responseText);
+
+                console.log(result)
+                           
+                if(result) {
+                  $('#cart-modal').modal('show');
+                  // window.location = "{{ route('cart.index') }}";
+                }
+
+              });     
+
             });
 
-            $('.share-facebook').on('click', function(e){
-                // FB.login(function(response) {
-                //    if (response.authResponse) {
-                //      console.log('Welcome!  Fetching your information.... ');
-                //      FB.api('/me', function(response) {
-                //        console.log('Good to see you, ' + response.name + '.');
-                //      });
-                //    } else {
-                //      console.log('User cancelled login or did not fully authorize.');
-                //    }
-                //  });
-                // FB.ui(
-                // {
-                //     method: 'share',
-                //     href: '{{ Request::path() }}',
-                // },
-                // function(response) {
-                //     if (response && !response.error_code) {
-                //       alert('Posting completed.');
-                //     } else {
-                //       console.log('Error while posting.');
-                //     }
-                //   }
-                // );
-
-                window.location.href = 'https://www.facebook.com/dialog/share?%20app_id=184271388314193%20&href={{ urlencode(URL::to(Request::path())) }}&redirect_uri={{ urlencode(URL::to(Request::path())) }}';
-
-                
+            $('.shirt-size a').on('click', function(e){
+              $('.shirt-size .active').removeClass('active');
+              $(this).addClass('active');
             });
-        }
 
-    })
+            //OPEN SIZE CHART MODAL
+            $('.size-chart').on('click', function(e){
+                e.preventDefault();
+                $('#size-chart-modal').modal('show');
+                var shirt_type = $('.shirt-template.active').attr("id");
+                if(shirt_type == 'mens-standard'){
+                    img = '{{ HTML::image("images/shirt-chart/chart-mens-standard.jpg") }}';
+                    $('.chart-wrap').html(img);        
+                }else if(shirt_type == 'mens-staple'){
+                    img = '{{ HTML::image("images/shirt-chart/chart-standard-tee.jpg") }}';
+                    $('.chart-wrap').html(img);  
+                }else if(shirt_type == 'mens-lowdown'){
+                    img = '{{ HTML::image("images/shirt-chart/chart-lowdown.jpg") }}';
+                    $('.chart-wrap').html(img);  
+                }else if(shirt_type == 'mens-barnard'){
+                    img = '{{ HTML::image("images/shirt-chart/chart-barnard.jpg") }}';
+                    $('.chart-wrap').html(img);  
+                }else if(shirt_type == 'mens-tall'){
+                    img = '{{ HTML::image("images/shirt-chart/chart-tall.jpg") }}';
+                    $('.chart-wrap').html(img);  
+                }else if(shirt_type == 'womens-standard'){
+                    img = '{{ HTML::image("images/shirt-chart/chart-womens-standard.jpg") }}';
+                    $('.chart-wrap').html(img);  
+                }else if(shirt_type == 'womens-tanktee'){
+                    img = '{{ HTML::image("images/shirt-chart/chart-tank-tee.jpg") }}';
+                    $('.chart-wrap').html(img);  
+                }else if(shirt_type == 'womens-mali'){
+                    img = '{{ HTML::image("images/shirt-chart/chart-mali.jpg") }}';
+                    $('.chart-wrap').html(img);  
+                }else if(shirt_type == 'womens-dashracerback'){
+                    img = '{{ HTML::image("images/shirt-chart/chart-racerback.jpg") }}';
+                    $('.chart-wrap').html(img);  
+                }else if(shirt_type == 'kids-tee'){
+                    img = '{{ HTML::image("images/shirt-chart/chart-kids-tee.jpg") }}';
+                    $('.chart-wrap').html(img);  
+                }else if(shirt_type == 'kids-mini'){
+                    img = '{{ HTML::image("images/shirt-chart/chart-mini-onepiece.jpg") }}';
+                    $('.chart-wrap').html(img);  
+                }
+
+
+
+
+            });
+
+        });
     </script>
 @stop

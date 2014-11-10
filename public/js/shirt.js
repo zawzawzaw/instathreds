@@ -86,6 +86,8 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
         $(".preloader").hide();
         var finalProduct = newcanvas.toDataURL('image/jpeg');
 
+        console.log(finalProduct);
+
         $(".shirt-template.active #canvas-final")[0].src = finalProduct;
         $(".final-product-image").html('<img src="'+finalProduct+'" style="width:150px;height:100px;">');
 
