@@ -473,22 +473,6 @@
     {{ HTML::script('js/PxLoaderImage.js') }}
     {{ HTML::script('js/vendor/jquery.datatables.min.js') }}
 
-    {{ HTML::script('js/admin/jquery-ui-1.10.3.min.js') }}
-    {{ HTML::script('js/admin/bootstrap.min.js') }}
-    {{ HTML::script('js/admin/modernizr.min.js') }}
-    {{ HTML::script('js/admin/jquery.sparkline.min.js') }}
-    {{ HTML::script('js/admin/toggles.min.js') }}
-    {{ HTML::script('js/admin/retina.min.js') }}
-    {{ HTML::script('js/admin/jquery.cookies.js') }}
-    {{ HTML::script('js/admin/jquery.autogrow-textarea.js') }}
-    {{ HTML::script('js/admin/bootstrap-fileupload.min.js') }}
-    {{ HTML::script('js/admin/bootstrap-timepicker.min.js') }}
-    {{ HTML::script('js/admin/jquery.maskedinput.min.js') }}
-    {{ HTML::script('js/admin/jquery.tagsinput.min.js') }}
-    {{ HTML::script('js/admin/jquery.mousewheel.js') }}
-    {{ HTML::script('js/admin/chosen.jquery.min.js') }}
-    {{ HTML::script('js/admin/dropzone.min.js') }}
-    {{ HTML::script('js/admin/colorpicker.js') }}
     {{ HTML::script('js/admin/bootstrap-fileupload.min.js') }}
     {{ HTML::script('js/admin/jquery.uploadifive.min.js') }}
 
