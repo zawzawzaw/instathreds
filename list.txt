@@ -1,0 +1,51 @@
+-    Initial shirt when opening should definitely be white tshirt (done)
+
+-    Colour selection area disappears when you make other selections (fixed)
+
+-    Builder refreshes to blank when the page refreshes (there will be save option)
+
+-    Can white under base automatically highlight when you select any shirt but white? (done)
+
+-    Needs a Male / Female selection option (done)
+
+-    Many images don't upload, I'm assuming because of the image size. What sizes are ok? Is this an issue we will work out, ideally high quality images should just be resized by the system
+
+these are size limitation on upload images and they will be resized down to 300x300. If the file was too big there is an error msg showing as an alert box..
+
+minW: 100, //the minimum upload size width
+minH: 100, //the minimum upload size height
+maxW: 1500, //the maximum upload size width
+maxH: 1500, //the maximum upload size height
+resizeToW: 300, //resizes the uploaded image to this width, when width is larger than height
+resizeToH: 300 //resizes the uploaded image to this height, when height is larger than width
+
+-    The image delete function should be available when you click on the image no mater what section is highlighted or it should automatically open the “select image” section when you click on an image on the shirt (added auto select on each tab)
+
+-    Perhaps a plain “Undo” button somewhere would be handy (cannot undo every stage of edits but can reset for each element to its original state e.g. resetting text will only effect selected text)
+
+-    Text section needs basic formatting, e.g. centre text, justify left / right, font size, ALL CAPS, all lower case. (added justify left/right/center, bold, italic, font size can be changed by scaling on the element)
+
+-    When creating a black or white shirt the text or clip art should automatically invert to be opposite to the shirt colour so you can read it. 
+
+-    Im not sure if the icons for image selection are clear enough (current images are vector images and suppose to be scable)
+
+-    When you change the browser size the builder doesn't change with it (it won't be responsive)
+
+-    should include some info about uploading a transparent background & the advantages. (need design suggestion here like where to add the text)
+
+Questions #1
+-    Will there be more font styles? (added font selection, and can install all kinds of fonts available for web)
+
+-    Share functions? How does this work? I can definitely see some (Design a shirt using our clip art) competitions in the pipeline. (shirt will be saved upon user checkout and can be showcase as user made shirt)
+
+-    Cart function for ordering multiple shirts, how does this work? (there will be an quantity input with add to cart button under cart sidebar menu)
+
+-    Are we going to be able to set different size, style & colour availabilities per garment? (we should have something that indicates actual colour may vary slightly from whats displayed on screen) (will added stock control script before the page load that will restrict out of stock items to show on shirtbuilder)
+
+-    Can different shirt styles incur different price points? (yes it can)
+
+-    Can we have people add #hashtags to their shirts as they make it & have them automatically incentivise them to share? eg. under white under base it could say Share on Facebook (Save 10%) (would be nice to add that option only after whole shirt is built and ready to checkout, so we can reduce 10% of final price upon checkout)
+
+-    Can the shirt style & each piece of clipart have a #hashtag that automatically shares she the customer does? ( that will add more complexity to the shirtbuilder, should just keep it one share for complete shirt design as we will have seperate sale for clipart too )
+
+-     Will customer be able to go back in and see &/or re-order past designs? Potentially edit them too? (there will be a temporary save list option to go back and edit. we can also re-order the past design as the shirt will be saved, but edit the past design may be tricky but still possible)

@@ -19,10 +19,10 @@ class SubscribeController extends \BaseController {
 			$subscribe_email = Input::get('subscribe_email');
 
 			//Retrieve an array of lists for your account
-			$lists = MailchimpWrapper::lists()->getList()['data'];
+			$lists = MailchimpWrapper::lists()->getList();
 
 			//Subscribe a user, with email: $email_address, to a list with id: $list_id
-			$subscribed = MailchimpWrapper::lists()->subscribe($lists[1]['id'], array('email'=>$subscribe_email));
+			$subscribed = MailchimpWrapper::lists()->subscribe($lists['data'][1]['id'], array('email'=>$subscribe_email));
 
 			if($subscribed) {
 				return Response::json('Please check your email to confirm subscription', 200);
@@ -31,76 +31,5 @@ class SubscribeController extends \BaseController {
 
 		}
 	}
-
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
-
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
 
 }

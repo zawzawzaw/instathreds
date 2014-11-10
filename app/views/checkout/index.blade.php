@@ -437,6 +437,14 @@ $(document).ready(function(e){
 			$totalPrice.text( '$' + totalPrice.toFixed(2) );
       $shippingPrice.text( '$' + 0 );
 		}else {
+
+      $('input[name="address_1"]').val('{{ $paymentdetails->address or '' }}');
+      $('input[name="address_2"]').val('{{ $paymentdetails->address_2 or '' }}');
+      $('input[name="city"]').val('{{ $paymentdetails->city or '' }}');
+      $('input[name="post_zip_code"]').val('{{ $paymentdetails->post_zip_code or '' }}');
+      $('input[name="state"]').val('{{ $paymentdetails->state or '' }}');
+      $('select[name^="country"] option[value="{{ $paymentdetails->country or '' }}"]').attr("selected","selected");
+
 			$('.ship').slideDown();
 			$('.collect').slideUp();
 
@@ -469,6 +477,7 @@ $(document).ready(function(e){
   $('.shipmethod').on('change', function(e){
 
     if($("input[type=radio][name='redemption_type']:checked").val()=="shipping"){
+
       if($("#country-select").val() == "Australia") {
         var shippingCost;
 
@@ -609,8 +618,9 @@ $(document).ready(function(e){
 
   });
 
-  $('.apply-promo').trigger('click');
-
+  <?php if(!empty($promo_code)): ?>
+    $('.apply-promo').trigger('click');
+  <?php endif; ?>
 });
 
   

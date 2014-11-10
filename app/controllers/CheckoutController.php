@@ -33,14 +33,18 @@ class CheckoutController extends \BaseController {
 		{
 		    $user_id = Auth::user()->id;
 		    $user = User::find($user_id);
+		    $paymentdetails = Paymentdetails::where('user_id', '=', $user_id)->first();
 		}else {
 			$user = "";
+			$paymentdetails = "";
 		}
+		// return $paymentdetails;
 
 		$this->layout->content = View::make('checkout.index')
 			->with('cart', $cart)
 			->with('user', $user)
-			->with('promo_code', $promo_code);
+			->with('promo_code', $promo_code)
+			->with('paymentdetails', $paymentdetails);
 	}
 
 	public function checkpromocode() {
