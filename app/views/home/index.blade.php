@@ -70,6 +70,15 @@
             
           </li>
           <li>
+<<<<<<< HEAD
+=======
+            <a href="{{ route('store.index') }}"><img src="images/howitworks2.jpg"></a>
+            <div class="title step2">
+              <a href="{{ route('store.index') }}">Choose a Design</a>
+            </div>
+          </li>
+          <li>
+>>>>>>> a9079855b8ab5907df35dc41e90b7f0a33701137
             <a href="{{ URL::route('static.calldesigners') }}"><img src="images/howitworks3.jpg"></a>
             <div class="title step3">
               <a href="{{ URL::route('static.calldesigners') }}">Signup and Sell T-Shirts</a>
@@ -130,7 +139,7 @@
     <section class="promotional-area hide-mobile">
       <div class="container">
         <div class="section-bar">
-          <h6>CURRENT PROMOTIONS | <a href="">CLICK HERE</a></h6>  
+          <h6>CURRENT PROMOTIONS | <a href="http://instathreds.co/store/Moustaches/35">CLICK HERE</a></h6>  
         </div>
         <div class="banner promotion">
           <a href="http://instathreds.co/store/Moustaches/35">{{ HTML::image('images/promo/promo1.png') }}

@@ -129,7 +129,7 @@ class CheckoutController extends \BaseController {
 		    	}
 		    }
 
-		    $order->discount = $discount_amount;
+		    $order->discount = (isset($discount_amount)) ? $discount_amount : '';
 		    $order->total = $total;
 		    $order->status = 'Pending';
 
