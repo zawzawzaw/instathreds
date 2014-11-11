@@ -279,9 +279,9 @@ $( document ).ready(function() {
 
     // File Upload
     var $uploadBtn = $('#file_upload');
-    var $uploadResponse = $('.fileupload-preview')
+    var $uploadResponse = $('.fileupload-preview');
 
-    console.log($uploadBtn)
+    console.log($uploadBtn);
 
     $uploadBtn.uploadifive({
         'auto'      : true,

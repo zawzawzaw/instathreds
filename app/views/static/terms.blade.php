@@ -3,7 +3,7 @@
     <section class="slider">
       <div class="container">
         <div class="offers-bar">
-          <a href="{{ route('store.featured') }}"><h6><span>NEW FEATURED DESIGNS!</span> SHOP NOW</h6></a>
+          <a href="{{ route('store.featured') }}"><h6><span>NEW FEATURED DESIGNS!</span> SHOP NOW</h6></a>  
         </div>
       </div>
     </section>
@@ -63,7 +63,7 @@
             <ol class="main">
               <li><h5>TERMS AND CONDITIONS OF USE</h5>
                 <ol>
-                    <li>As consideration for allowing you the user (User / You) to view, visit and/or use our website, located at the url, <a href="www.instathreds.co">www.instathreds.co</a> (Site), or any other website owned by Instathreds Pty Ltd ACN 160 705 439 (Instathreds), Users agree to the following terms and conditions of use (Terms and Conditions).</li>
+                    <li>As consideration for allowing you the user (User / You) to view, visit and/or use our website, located at the url, <a href="http://www.instathreds.co">www.instathreds.co</a> (Site), or any other website owned by Instathreds Pty Ltd ACN 160 705 439 (Instathreds), Users agree to the following terms and conditions of use (Terms and Conditions).</li>
                     <li>These Terms and Conditions apply to any and all Users of the Site.</li>
                     <li>The Site is operated by Instathreds - described as We / Our / Us – and provides Users with access to the Content and Facilities on the Site pursuant to a non-exclusive, world-wide, non-transferable licence contained in these Terms and Conditions.</li>
                     <li>By viewing the Content, using the Facilities on the Site or creating a User Account, Users acknowledge and agree that they have had sufficient opportunity to read and understand these Terms and Conditions, and that they are legally able to agree to be bound by them.</li>

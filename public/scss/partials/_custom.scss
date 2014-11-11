@@ -1177,6 +1177,8 @@ h3.divider-word span {
 
 
 .more-products-slider .item a{display:block;cursor:pointer;}
+.more-products-slider .item a:hover{border-bottom:0px !important;}
+
 
 /* mouse grab icon */
 .grabbing { 
@@ -1382,6 +1384,15 @@ margin-right: 5px;border:1px solid #0381f4;padding:7px 10px; @include border-rad
 
 .product .share{border:1px solid #8e8e8e;background:#f4f4f4;@include border-radius(5px);padding:15px;}
 .product .share h6{font-size:18px;border-bottom:1px solid #666666;padding-bottom:10px;}
+.product .share a{margin-right:10px;}
+.product .share a i{font-size:22px;}
+.product .share a:hover{border-bottom:0px !important;}
+.product .share a:hover i{color:#000;}
+
+
+
+
+
 
 .more-products{position:relative;margin-top:50px;}
 .more-products h6{border-top:3px solid $color-off-black;padding-top:10px;}

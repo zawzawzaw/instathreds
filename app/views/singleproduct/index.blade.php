@@ -490,6 +490,8 @@
       </div>
     </div>
 
+
+
     {{ HTML::script('js/admin/jquery-1.10.2.min.js') }}
     {{ HTML::script('js/shirt.js') }}
     <script type="text/javascript">
