@@ -3,11 +3,7 @@
     <section class="slider">
       <div class="container">
         <div class="offers-bar">
-<<<<<<< HEAD
-          <a href="{{ route('store.featured') }}"><h6><span>NEW FEATURED DESIGNS!</span> SHOP NOW</h6></a>  
-=======
           <a href="{{ route('store.featured') }}"><h6><span>NEW FEATURED DESIGNS!</span> SHOP NOW</h6></a>
->>>>>>> a9079855b8ab5907df35dc41e90b7f0a33701137
         </div>
       </div>
     </section>

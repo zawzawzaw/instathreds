@@ -178,14 +178,14 @@
           		<!-- MENS STAPLE -->
 				<div class="fpd-male-product" title="Staple Tee" data-thumbnail="images/shirtbuilder-templates/mens-staple/mens-staple-front-preview.png">
 	    			<img src="images/shirtbuilder-templates/mens-staple/mens-staple-front-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  		<img src="images/shirtbuilder-templates/mens-staple/mens-staple-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#3093d1","#6d7d59","#474340","#10100e","#204892","#7c3230","#666b6f","#4a2c1a","#244333","#cccfd4","#1a793d","#f1ef9b","#acaea9","#042c44","#f0783d","#372e79","#bb2040","#28b297","#ffffff"], "sizes": ["Small", "Medium", "Large", "X-Large"], "price": 34}' />
+			  		<img src="images/shirtbuilder-templates/mens-staple/mens-staple-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#3093d1","#6d7d59","#474340","#10100e","#204892","#7c3230","#666b6f","#4a2c1a","#244333","#cccfd4","#1a793d","#f1ef9b","#acaea9","#042c44","#f0783d","#372e79","#bb2040","#28b297","#ffffff"], "sizes": ["Small", "Medium", "Large", "X-Large", "2XL"], "price": 34}' />
 			  		<img src="images/shirtbuilder-templates/mens-staple/mens-staple-front-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 			  		
 
 			  		<!-- <span title="Any Text" data-parameters='{"boundingBox": "border", "x": 326, "y": 232, "zChangeable": true, "removable": true, "draggable": true, "rotatable": true, "resizable": true, "colors": "#000000"}' >Default Text</span> -->
 			  		<div class="fpd-male-product" title="Staple Back" data-thumbnail="images/shirtbuilder-templates/mens-staple/mens-staple-back-preview.png">
 		    			<img src="images/shirtbuilder-templates/mens-staple/mens-staple-back-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  			<img src="images/shirtbuilder-templates/mens-staple/mens-staple-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": "Base", "sizes": ["Small", "Medium", "Large", "X-Large"], "price": 6}' />
+			  			<img src="images/shirtbuilder-templates/mens-staple/mens-staple-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": "Base", "sizes": ["Small", "Medium", "Large", "X-Large", "2XL"], "price": 6}' />
 			  			<img src="images/shirtbuilder-templates/mens-staple/mens-staple-back-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 					</div>
 				</div>
@@ -193,14 +193,14 @@
           		<!-- MENS STANDARD -->
           		<div class="fpd-male-product" title="Standard Tee" data-thumbnail="images/shirtbuilder-templates/mens-standard/mens-standard-front-preview.png">
 	    			<img src="images/shirtbuilder-templates/mens-standard/mens-standard-front-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  		<img src="images/shirtbuilder-templates/mens-standard/mens-standard-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#000000","#ffffff"], "sizes": ["Small", "Medium", "Large", "X-Large"], "price": 29}' />
+			  		<img src="images/shirtbuilder-templates/mens-standard/mens-standard-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#000000","#ffffff"], "sizes": ["Small", "Medium", "Large", "X-Large", "2XL"], "price": 29}' />
 			  		<img src="images/shirtbuilder-templates/mens-standard/mens-standard-front-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 			  		
 
 			  		<!-- <span title="Any Text" data-parameters='{"boundingBox": "border", "x": 326, "y": 232, "zChangeable": true, "removable": true, "draggable": true, "rotatable": true, "resizable": true, "colors": "#000000"}' >Default Text</span> -->
 			  		<div class="fpd-male-product" title="Standard Back" data-thumbnail="images/shirtbuilder-templates/mens-standard/mens-standard-back-preview.png">
 		    			<img src="images/shirtbuilder-templates/mens-standard/mens-standard-back-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  			<img src="images/shirtbuilder-templates/mens-standard/mens-standard-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": "Base", "sizes": ["Small", "Medium", "Large", "X-Large"], "price": 6}' />
+			  			<img src="images/shirtbuilder-templates/mens-standard/mens-standard-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": "Base", "sizes": ["Small", "Medium", "Large", "X-Large", "2XL"], "price": 6}' />
 			  			<img src="images/shirtbuilder-templates/mens-standard/mens-standard-back-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 					</div>
 				</div>
@@ -209,14 +209,14 @@
 				<!-- MENS LOWDOWN -->
 				<div class="fpd-male-product" title="Lowdown Singlet" data-thumbnail="images/shirtbuilder-templates/mens-lowdown/mens-lowdown-front-preview.png">
 	    			<img src="images/shirtbuilder-templates/mens-lowdown/mens-lowdown-front-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  		<img src="images/shirtbuilder-templates/mens-lowdown/mens-lowdown-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#474340","#10100e","#042c44","#bb2040","#ffffff"], "sizes": ["Small", "Medium", "Large", "X-Large"], "price": 34}' />
+			  		<img src="images/shirtbuilder-templates/mens-lowdown/mens-lowdown-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#474340","#10100e","#042c44","#bb2040","#ffffff"], "sizes": ["Small", "Medium", "Large", "X-Large", "2XL"], "price": 34}' />
 			  		<img src="images/shirtbuilder-templates/mens-lowdown/mens-lowdown-front-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 			  		
 
 			  		<!-- <span title="Any Text" data-parameters='{"boundingBox": "border", "x": 326, "y": 232, "zChangeable": true, "removable": true, "draggable": true, "rotatable": true, "resizable": true, "colors": "#000000"}' >Default Text</span> -->
 			  		<div class="fpd-male-product" title="Lowdown Back" data-thumbnail="images/shirtbuilder-templates/mens-lowdown/mens-lowdown-back-preview.png">
 		    			<img src="images/shirtbuilder-templates/mens-lowdown/mens-lowdown-back-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  			<img src="images/shirtbuilder-templates/mens-lowdown/mens-lowdown-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": "Base", "sizes": ["Small", "Medium", "Large", "X-Large"], "price": 6}' />
+			  			<img src="images/shirtbuilder-templates/mens-lowdown/mens-lowdown-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": "Base", "sizes": ["Small", "Medium", "Large", "X-Large", "2XL"], "price": 6}' />
 			  			<img src="images/shirtbuilder-templates/mens-lowdown/mens-lowdown-back-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 					</div>
 				</div>
@@ -226,14 +226,14 @@
 				<!-- MENS BARNARD -->
 				<div class="fpd-male-product" title="Barnard Tank" data-thumbnail="images/shirtbuilder-templates/mens-barnard/mens-barnard-front-preview.png">
 	    			<img src="images/shirtbuilder-templates/mens-barnard/mens-barnard-front-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  		<img src="images/shirtbuilder-templates/mens-barnard/mens-barnard-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#10100e","#444243","#cccfd4","#042c44","#f2e8c9","#ffffff"], "sizes": ["X-Small", "Small", "Medium", "Large", "X-Large"], "price": 34}' />
+			  		<img src="images/shirtbuilder-templates/mens-barnard/mens-barnard-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#10100e","#444243","#cccfd4","#042c44","#f2e8c9","#ffffff"], "sizes": ["X-Small", "Small", "Medium", "Large", "X-Large", "2XL"], "price": 34}' />
 			  		<img src="images/shirtbuilder-templates/mens-barnard/mens-barnard-front-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 			  		
 
 			  		<!-- <span title="Any Text" data-parameters='{"boundingBox": "border", "x": 326, "y": 232, "zChangeable": true, "removable": true, "draggable": true, "rotatable": true, "resizable": true, "colors": "#000000"}' >Default Text</span> -->
 			  		<div class="fpd-male-product" title="Barnard Back" data-thumbnail="images/shirtbuilder-templates/mens-barnard/mens-barnard-back-preview.png">
 		    			<img src="images/shirtbuilder-templates/mens-barnard/mens-barnard-back-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  			<img src="images/shirtbuilder-templates/mens-barnard/mens-barnard-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": "Base", "sizes": ["X-Small", "Small", "Medium", "Large", "X-Large"], "price": 6}' />
+			  			<img src="images/shirtbuilder-templates/mens-barnard/mens-barnard-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": "Base", "sizes": ["X-Small", "Small", "Medium", "Large", "X-Large", "2XL"], "price": 6}' />
 			  			<img src="images/shirtbuilder-templates/mens-barnard/mens-barnard-back-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 					</div>
 				</div>
@@ -241,14 +241,14 @@
 				<!-- MENS TALL -->
 				<div class="fpd-male-product" title="Tall Tee" data-thumbnail="images/shirtbuilder-templates/mens-tall/mens-tall-front-preview.png">
 	    			<img src="images/shirtbuilder-templates/mens-tall/mens-tall-front-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  		<img src="images/shirtbuilder-templates/mens-tall/mens-tall-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#474340","#10100e","#cccfd4","#ffffff"], "sizes": ["Small", "Medium", "Large", "X-Large"], "price": 39}' />
+			  		<img src="images/shirtbuilder-templates/mens-tall/mens-tall-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#474340","#10100e","#cccfd4","#ffffff"], "sizes": ["Small", "Medium", "Large", "X-Large", "2XL"], "price": 39}' />
 			  		<img src="images/shirtbuilder-templates/mens-tall/mens-tall-front-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 			  		
 
 			  		<!-- <span title="Any Text" data-parameters='{"boundingBox": "border", "x": 326, "y": 232, "zChangeable": true, "removable": true, "draggable": true, "rotatable": true, "resizable": true, "colors": "#000000"}' >Default Text</span> -->
 			  		<div class="fpd-male-product" title="Tall Back" data-thumbnail="images/shirtbuilder-templates/mens-tall/mens-tall-back-preview.png">
 		    			<img src="images/shirtbuilder-templates/mens-tall/mens-tall-back-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  			<img src="images/shirtbuilder-templates/mens-tall/mens-tall-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors":"Base", "sizes": ["Small", "Medium", "Large", "X-Large"], "price": 6}' />
+			  			<img src="images/shirtbuilder-templates/mens-tall/mens-tall-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors":"Base", "sizes": ["Small", "Medium", "Large", "X-Large", "2XL"], "price": 6}' />
 			  			<img src="images/shirtbuilder-templates/mens-tall/mens-tall-back-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 					</div>
 				</div>
@@ -256,14 +256,14 @@
 				<!-- WOMENS STANDARD -->
 				<div class="fpd-female-product" title="Standard Tee" data-thumbnail="images/shirtbuilder-templates/womens-standard/womens-standard-front-preview.png">
 	    			<img src="images/shirtbuilder-templates/womens-standard/womens-standard-front-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  		<img src="images/shirtbuilder-templates/womens-standard/womens-standard-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#000","#fff"], "sizes": ["Small", "Medium", "Large", "X-Large"], "price": 29}' />
+			  		<img src="images/shirtbuilder-templates/womens-standard/womens-standard-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#000","#fff"], "sizes": ["Small", "Medium", "Large", "X-Large", "2XL"], "price": 29}' />
 			  		<img src="images/shirtbuilder-templates/womens-standard/womens-standard-front-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 			  		
 
 			  		<!-- <span title="Any Text" data-parameters='{"boundingBox": "border", "x": 326, "y": 232, "zChangeable": true, "removable": true, "draggable": true, "rotatable": true, "resizable": true, "colors": "#000000"}' >Default Text</span> -->
 			  		<div class="fpd-female-product" title="Standard Back" data-thumbnail="images/shirtbuilder-templates/womens-standard/womens-standard-back-preview.png">
 		    			<img src="images/shirtbuilder-templates/womens-standard/womens-standard-back-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  			<img src="images/shirtbuilder-templates/womens-standard/womens-standard-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": "Base", "sizes": ["Small", "Medium", "Large", "X-Large"], "price": 6}' />
+			  			<img src="images/shirtbuilder-templates/womens-standard/womens-standard-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": "Base", "sizes": ["Small", "Medium", "Large", "X-Large", "2XL"], "price": 6}' />
 			  			<img src="images/shirtbuilder-templates/womens-standard/womens-standard-back-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 					</div>
 				</div>
@@ -271,14 +271,14 @@
 				<!-- WOMENS TANKTEE -->
 				<div class="fpd-female-product" title="Tank Tee" data-thumbnail="images/shirtbuilder-templates/womens-tanktee/womens-tanktee-front-preview.png">
 	    			<img src="images/shirtbuilder-templates/womens-tanktee/womens-tanktee-front-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  		<img src="images/shirtbuilder-templates/womens-tanktee/womens-tanktee-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#10100e","#666b6f","#ffffff"], "sizes": ["X-Small", "Small", "Medium", "Large"], "price": 34}' />
+			  		<img src="images/shirtbuilder-templates/womens-tanktee/womens-tanktee-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#10100e","#666b6f","#ffffff"], "sizes": ["X-Small", "Small", "Medium", "Large", "2XL"], "price": 34}' />
 			  		<img src="images/shirtbuilder-templates/womens-tanktee/womens-tanktee-front-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 			  		
 
 			  		<!-- <span title="Any Text" data-parameters='{"boundingBox": "border", "x": 326, "y": 232, "zChangeable": true, "removable": true, "draggable": true, "rotatable": true, "resizable": true, "colors": "#000000"}' >Default Text</span> -->
 			  		<div class="fpd-female-product" title="Tank Tee Back" data-thumbnail="images/shirtbuilder-templates/womens-tanktee/womens-tanktee-back-preview.png">
 		    			<img src="images/shirtbuilder-templates/womens-tanktee/womens-tanktee-back-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  			<img src="images/shirtbuilder-templates/womens-tanktee/womens-tanktee-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": "Base", "sizes": ["X-Small", "Small", "Medium", "Large"], "price": 6}' />
+			  			<img src="images/shirtbuilder-templates/womens-tanktee/womens-tanktee-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": "Base", "sizes": ["X-Small", "Small", "Medium", "Large", "2XL"], "price": 6}' />
 			  			<img src="images/shirtbuilder-templates/womens-tanktee/womens-tanktee-back-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 					</div>
 				</div>
@@ -286,14 +286,14 @@
 				<!-- WOMENS MALI -->
 				<div class="fpd-female-product" title="Mali Tee" data-thumbnail="images/shirtbuilder-templates/womens-mali/womens-mali-front-preview.png">
 	    			<img src="images/shirtbuilder-templates/womens-mali/womens-mali-front-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  		<img src="images/shirtbuilder-templates/womens-mali/womens-mali-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#6d7d59","#10100e","#7c3230","#444243","#cccfd4","#82abce","#68b8a1","#0f4468","#042c44","#f2e8c9","#ffffff"], "sizes": ["X-Small", "Small", "Medium", "Large", "X-Large"], "price": 34}' />
+			  		<img src="images/shirtbuilder-templates/womens-mali/womens-mali-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#6d7d59","#10100e","#7c3230","#444243","#cccfd4","#82abce","#68b8a1","#0f4468","#042c44","#f2e8c9","#ffffff"], "sizes": ["X-Small", "Small", "Medium", "Large", "X-Large", "2XL"], "price": 34}' />
 			  		<img src="images/shirtbuilder-templates/womens-mali/womens-mali-front-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 			  		
 
 			  		<!-- <span title="Any Text" data-parameters='{"boundingBox": "border", "x": 326, "y": 232, "zChangeable": true, "removable": true, "draggable": true, "rotatable": true, "resizable": true, "colors": "#000000"}' >Default Text</span> -->
 			  		<div class="fpd-female-product" title="Mali Back" data-thumbnail="images/shirtbuilder-templates/womens-mali/womens-mali-back-preview.png">
 		    			<img src="images/shirtbuilder-templates/womens-mali/womens-mali-back-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  			<img src="images/shirtbuilder-templates/womens-mali/womens-mali-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors":"Base", "sizes": ["X-Small", "Small", "Medium", "Large", "X-Large"], "price": 6}' />
+			  			<img src="images/shirtbuilder-templates/womens-mali/womens-mali-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors":"Base", "sizes": ["X-Small", "Small", "Medium", "Large", "X-Large", "2XL"], "price": 6}' />
 			  			<img src="images/shirtbuilder-templates/womens-mali/womens-mali-back-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 					</div>
 				</div>
@@ -301,14 +301,14 @@
 				<!-- WOMENS DASH RACERBACK -->
 				<div class="fpd-female-product" title="Dash Racerback Singlet" data-thumbnail="images/shirtbuilder-templates/womens-dashracerback/womens-dashracerback-front-preview.png">
 	    			<img src="images/shirtbuilder-templates/womens-dashracerback/womens-dashracerback-front-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  		<img src="images/shirtbuilder-templates/womens-dashracerback/womens-dashracerback-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#10100e","#7c3230","#cccfd4","#ffffff"], "sizes": ["X-Small", "Small", "Medium", "Large", "X-Large"], "price": 34}' />
+			  		<img src="images/shirtbuilder-templates/womens-dashracerback/womens-dashracerback-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#10100e","#7c3230","#cccfd4","#ffffff"], "sizes": ["X-Small", "Small", "Medium", "Large", "X-Large", "2XL"], "price": 34}' />
 			  		<img src="images/shirtbuilder-templates/womens-dashracerback/womens-dashracerback-front-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 			  		
 
 			  		<!-- <span title="Any Text" data-parameters='{"boundingBox": "border", "x": 326, "y": 232, "zChangeable": true, "removable": true, "draggable": true, "rotatable": true, "resizable": true, "colors": "#000000"}' >Default Text</span> -->
 			  		<div class="fpd-female-product" title="Dash Racerback Back" data-thumbnail="images/shirtbuilder-templates/womens-dashracerback/womens-dashracerback-back-preview.png">
 		    			<img src="images/shirtbuilder-templates/womens-dashracerback/womens-dashracerback-back-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  			<img src="images/shirtbuilder-templates/womens-dashracerback/womens-dashracerback-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors":"Base", "sizes": ["X-Small", "Small", "Medium", "Large", "X-Large"], "price": 6}' />
+			  			<img src="images/shirtbuilder-templates/womens-dashracerback/womens-dashracerback-back-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors":"Base", "sizes": ["X-Small", "Small", "Medium", "Large", "X-Large", "2XL"], "price": 6}' />
 			  			<img src="images/shirtbuilder-templates/womens-dashracerback/womens-dashracerback-back-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 					</div>
 				</div>
@@ -316,7 +316,7 @@
 				<!-- KIDS TEE -->
 				<div class="fpd-kids-product" title="Kids Tee" data-thumbnail="images/shirtbuilder-templates/kids-tee/kids-tee-front-preview.png">
 	    			<img src="images/shirtbuilder-templates/kids-tee/kids-tee-front-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  		<img src="images/shirtbuilder-templates/kids-tee/kids-tee-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#10100e","#204892","#1a793d","#efb9cc","#bb2040","#ffffff"], "sizes": ["kids 2", "kids 4", "kids 6", "kids 8", "kids 10", "kids 12", "kids 14"], "price": 25}' />
+			  		<img src="images/shirtbuilder-templates/kids-tee/kids-tee-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#10100e","#204892","#1a793d","#efb9cc","#bb2040","#ffffff"], "sizes": ["kids 2", "kids 4", "kids 6", "kids 8", "kids 10", "kids 12", "kids 14"], "price": 20}' />
 			  		<img src="images/shirtbuilder-templates/kids-tee/kids-tee-front-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 			  		
 			  		<div class="fpd-kids-product" title="Kids Tee Back" data-thumbnail="images/shirtbuilder-templates/kids-tee/kids-tee-back-preview.png">
@@ -329,7 +329,7 @@
 				<!-- KIDS MINI -->
 				<div class="fpd-kids-product" title="Kids Mini" data-thumbnail="images/shirtbuilder-templates/kids-mini/kids-mini-front-preview.png">
 	    			<img src="images/shirtbuilder-templates/kids-mini/kids-mini-front-body.png" title="Body" data-parameters='{"x": 325, "y": 329}' />
-			  		<img src="images/shirtbuilder-templates/kids-mini/kids-mini-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#efb9cc","#a2cde8"], "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-8 Months", "18-24 Months"], "price": 25}' />
+			  		<img src="images/shirtbuilder-templates/kids-mini/kids-mini-front-base.png" title="Base" data-parameters='{"x": 325, "y": 329, "colors": ["#efb9cc","#a2cde8"], "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-8 Months", "18-24 Months"], "price": 20}' />
 			  		<img src="images/shirtbuilder-templates/kids-mini/kids-mini-front-shadow.png" title="Shadow" data-parameters='{"x": 325, "y": 329}' />
 			  		
 			  		<div class="fpd-kids-product" title="Kids Mini Back" data-thumbnail="images/shirtbuilder-templates/kids-mini/kids-mini-back-preview.png">

@@ -57,28 +57,18 @@
         </div> 
         <ul class="block-grid three-up mobile steps">
           <li>
-            <a href="{{ route('store.featured') }}"><img src="images/howitworks2.jpg"></a>
+            <a href="{{ route('shirtbuilder.index') }}"><img src="images/howitworks2.jpg"></a>
             <div class="title step2">
+              <a href="{{ route('shirtbuilder.index') }}">Make Your Own T-Shirt</a>
+            </div>
+          </li>
+          <li>
+            <a href="{{ route('store.featured') }}"><img src="images/howitworks1.jpg"></a>
+            <div class="title step1">
               <a href="{{ route('store.featured') }}">Choose a Design</a>
             </div>
           </li>
           <li>
-            <a href="{{ route('shirtbuilder.index') }}"><img src="images/howitworks1.jpg"></a>
-            <div class="title step1">
-              <a href="{{ route('shirtbuilder.index') }}">Make Your Own T-Shirt</a>
-            </div>
-            
-          </li>
-          <li>
-<<<<<<< HEAD
-=======
-            <a href="{{ route('store.index') }}"><img src="images/howitworks2.jpg"></a>
-            <div class="title step2">
-              <a href="{{ route('store.index') }}">Choose a Design</a>
-            </div>
-          </li>
-          <li>
->>>>>>> a9079855b8ab5907df35dc41e90b7f0a33701137
             <a href="{{ URL::route('static.calldesigners') }}"><img src="images/howitworks3.jpg"></a>
             <div class="title step3">
               <a href="{{ URL::route('static.calldesigners') }}">Signup and Sell T-Shirts</a>
