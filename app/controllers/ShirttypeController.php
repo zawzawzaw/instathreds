@@ -161,7 +161,7 @@ class ShirttypeController extends \BaseController {
 		    }
 
 		    foreach ($size_imports_arr as $key => $each_size_import) {
-		    	$size = size::find(Input::get($each_size_import.'_id'));
+		    	$size = Size::find(Input::get($each_size_import.'_id'));
 
 		    	if($size) {
 		    		$size->title = Input::get($each_size_import);

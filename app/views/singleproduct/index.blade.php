@@ -1,9 +1,13 @@
 @section('content')
+
+    <!-- facebook -->
+    <div id="fb-root"></div>
+
 	<!-- BANNER/SLIDER -->
     <section class="slider">
       <div class="container">
         <div class="offers-bar">
-          <a href="{{ route('store.featured') }}"><h6><span>NEW FEATURED DESIGNS!</span> SHOP NOW</h6></a>
+          <a href="{{ route('store.featured') }}"><h6><span>NEW FEATURED DESIGNS!</span> SHOP NOW</h6></a>  
         </div>
       </div>
     </section>
@@ -379,7 +383,13 @@
               </div>
               <div class="share">
                 <h6>SHARE WITH FRIENDS</h6>  
-                 
+                <a href="" target="_blank" class="social-icons facebook"><i class="fa fa-facebook"></i></a> 
+                <a href="https://twitter.com/share?url={{ Request::url() }}" target="_blank" class="social-icons"><i class="fa fa-twitter"></i></a>
+                <a href="https://pinterest.com/pin/create/button/?url={{ Request::url() }}&media={{ asset('images/products/'.$product->image) }}&description=
+" target="_blank" class="social-icons"><i class="fa fa-pinterest"></i></a>
+
+
+                <a href="mailto:enteryour@addresshere.com?subject=Instathred&amp;body=Check%20this%20out:%20{{ Request::url() }}" target="_blank" class="social-icons"><i class="fa fa-envelope"></i></a>
               </div>
             </div>
           </div>  
@@ -614,10 +624,43 @@
                     img = '{{ HTML::image("images/shirt-chart/chart-mini-onepiece.jpg") }}';
                     $('.chart-wrap').html(img);  
                 }
+            });
 
+            //FACEBOOK SHARE
+            //484327941698435
+            window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '484327941698435',
+              xfbml      : true,
+              version    : 'v2.1'
+            });
+            };
 
+            (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+            
+            var productimage = 'http://instathreds.co/images/products/{{ HTML::entities($product->image) }}';
+            console.log(productimage);
 
-
+            $('.social-icons.facebook').on('click', function(e){
+                
+                e.preventDefault();
+                FB.ui(
+                 {
+                    method: 'feed',
+                    name: 'Instathreds | {{ Str::upper($product->title) }}',
+                    link: '{{ Request::url() }}',
+                    picture: productimage,
+                    caption: 'Check out this shirt design in Instathreds!',
+                    description: 'This is the description.',
+                    message: ''
+                }, function(response){});
+                
             });
 
         });

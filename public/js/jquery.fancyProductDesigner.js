@@ -747,7 +747,7 @@
 				$inPhotos.children('.fpd-button-instagram').click(function(evt) {
 					evt.preventDefault();
 					// int instagram js sdk
-					window.location.href = "https://instagram.com/oauth/authorize/?display=touch&client_id="+options.instagramAppId+"&redirect_uri="+encodeURI('http://instathreds.dev/shirtbuilder')+"&response_type=token";
+					window.location.href = "https://instagram.com/oauth/authorize/?display=touch&client_id="+options.instagramAppId+"&redirect_uri="+encodeURI(document.URL)+"&response_type=token";
 				});
 
 				if(param_access_token) {
@@ -766,6 +766,7 @@
 									.children('li:last').click(function(evt) {
 
 										evt.preventDefault();
+										$('#preloader').show();
 										$productLoader.show();
 
 										var $img = $(this).children('img');
@@ -797,6 +798,7 @@
 											}
 
 											$productLoader.hide();
+											$('#preloader').hide();
 
 										}, 'json')
 										.fail(function(evt) {
