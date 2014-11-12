@@ -345,7 +345,7 @@
 
 	            <h6 style="margin-top:20px;">Shipping Method</h6>
 	            <div class="choose-method">
-	              <div class="form-group">
+	              <div>
 	                <input type="radio" name="shipmethod" class="shipmethod" value="shipmethod-standard" checked="checked" style="display: inline-block;margin-left: 1px;">
                   <h6 style="display: inline-block;width: 262px;padding-left:5px;">Standard (5-15 Business Days)</h6>
                 </div>
