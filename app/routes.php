@@ -14,6 +14,10 @@ Route::pattern('id', '[0-9]+');
 
 # Front end #
 
+/*Route::get('/', function(){
+  return Redirect::to('comingsoon.html');
+});*/
+//Route::get('/home', 'HomeController@index');
 Route::get('/', 'HomeController@index');
 
 Route::resource('register', 'RegisterController', array('only' => array('index', 'store')));
@@ -99,7 +103,7 @@ Route::post('singleproduct/getsizes', array(
   'as' => 'singleproduct.getsizes'
 ));
 
-Route::get('singleproduct/getshirts', array(
+Route::post('singleproduct/getshirts', array(
   'uses' => 'SingleproductController@getshirts',
   'as' => 'singleproduct.getshirts'
 ));
@@ -191,4 +195,3 @@ Route::resource('admin/orders', 'OrderController');
 Route::resource('admin/categories', 'CategoryController');
 Route::resource('admin/shirttypes', 'ShirttypeController');
 Route::resource('admin/promocodes', 'PromocodeController');
-
