@@ -145,13 +145,15 @@ class CheckoutController extends \BaseController {
 			//Input::get('exp_year')
 			//Input::get('cvc')
 
+			$card_number = str_replace(Input::get('number'));
+
 			try {
 				$cents = bcmul($total, 100);
 			    $charge = Stripe_Charge::create(array(
 			      "amount" => $cents, // amount in cents
 			      "currency" => "aud",
 			      "card"  => array(
-			      	'number' => Input::get('number'),  //test acc // 4242 4242 4242 4242
+			      	'number' => $card_number,  //test acc // 4242 4242 4242 4242
 			      	'exp_month' => Input::get('exp_month'), 
 			      	'exp_year' => Input::get('exp_year'), 
 			      	'cvc' => Input::get('cvc')
