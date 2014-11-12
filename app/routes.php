@@ -99,6 +99,11 @@ Route::post('singleproduct/getsizes', array(
   'as' => 'singleproduct.getsizes'
 ));
 
+Route::get('singleproduct/getshirts', array(
+  'uses' => 'SingleproductController@getshirts',
+  'as' => 'singleproduct.getshirts'
+));
+
 Route::resource('cart', 'CartController');
 
 Route::match(array('GET', 'POST'), 'checkout', array(
