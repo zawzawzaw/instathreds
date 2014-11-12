@@ -78,5 +78,18 @@ class SingleproductController extends \BaseController {
 		}
 	}
 
+	public function getshirts()
+	{
+		//
+		if (Request::ajax())
+		{
+			$id = Input::get('id');
+
+			$shirts = Shirttype::find($id);			
+
+			return $shirts;
+		}
+	}
+
 
 }
