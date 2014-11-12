@@ -41,28 +41,29 @@
           </div>    
         </li>
         <li>
-          <a href="login-mobile.php">
-            <!-- <img class="img-userprofile" src="images/userprofile.png" width="100"> -->
-            {{ HTML::image('images/userprofile.png', '', array('class'=>'img-userprofile')) }}
-            
-            Login/Signup
-          </a>  
+            @if(!Auth::check())
+              <a href="#login-modal" class="user-account-btn login-link" data-id="login">Login</a>
+            @else
+              @if(!empty(Auth::user()->avatar))
+                {{ HTML::image('images/avatars/'.Auth::user()->avatar, 'logo', array('width' => 70 , 'height' => 70)) }}
+              @else
+                {{ HTML::image('images/avatar.png', 'logo') }}
+              @endif
+            @endif
         </li>
         <li>
           <div class="menu-cart-mobile">
-            <a href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart"></i><span>2 items in your cart<span></a>
+            <a href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart"></i><span>{{ Cart::count() }} items in your cart<span></a>
           </div>
         </li>
         <li><a href="{{ route('shirtbuilder.index') }}" target="_blank">Make Your Own</a></li>
         <li><a href="{{ route('store.index') }}">Choose a Design</a></li>
-        <li><a href="{{ route('store.index') }}">Stores</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="{{ URL::route('static.howto') }}">How To</a></li>
-        <li><a href="#">Size Guide</a></li>
-        <li><a href="#">Pricing</a></li>
-        <li><a href="#">Bulk Orders</a></li>
+        <li><a href="{{ route('contact') }}">Stores</a></li>
+        <li><a href="http://blog.instathreds.co" target="_blank">Blog</a></li>
+        <li><a href="{{ URL::route('static.faq') }}">Calling All Designers</a></li>
+        <li><a href="{{ route('static.ourstory') }}">Our Story</a></li>
+        <li><a href="{{ route('contact') }}">Bulk Orders</a></li>
         <li><a href="{{ URL::route('static.faq') }}">FAQs</a></li>
-        <li><a href="{{ URL::route('static.help') }}">Help</a></li>      
       </ul>
     </nav>
 
@@ -124,7 +125,7 @@
             </div>
             @else
             <div class="menu-account-nav">
-              <a href="/people/karloestrada" class="account-dropdown-trigger top-level">
+              <a href="" class="account-dropdown-trigger top-level">
                 <div class="avatar-frame">
                   @if(!empty(Auth::user()->avatar))
                     {{ HTML::image('images/avatars/'.Auth::user()->avatar, 'logo', array('width' => 70 , 'height' => 70)) }}

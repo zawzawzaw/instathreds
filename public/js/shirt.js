@@ -411,6 +411,21 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
             });
 
         });     
+
+        request3 = makeRequest(requestJsonData, "/singleproduct/getshirts", "POST");
+
+        request3.done(function(){
+            console.log(request3);
+
+            var result = jQuery.parseJSON(request3.responseText);
+            
+            console.log(result);
+
+            if(result) {
+                $('.price').text('$'+parseFloat(result.price).toFixed(2));
+            }
+
+        });     
         
     });
 
