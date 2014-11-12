@@ -346,14 +346,14 @@
 	            <h6 style="margin-top:20px;">Shipping Method</h6>
 	            <div class="choose-method">
 	              <div class="form-group">
-	                <input type="radio" name="shipmethod" class="shipmethod" value="shipmethod-standard" checked="checked" style="display: inline-block;margin-left: 1px;">
+	                <input type="radio" name="shipmethod" class="shipmethod" value="shipmethod-standard" style="display: inline-block;margin-left: 1px;">
                   <h6 style="display: inline-block;width: 262px;padding-left:5px;">Standard (5-15 Business Days)</h6>
                 </div>
-                <div>
+                <div class="form-group">
                   <input type="radio" name="shipmethod" class="shipmethod" value="shipmethod-express" style="display: inline-block;margin-left: 1px;">
                   <h6 style="display: inline-block;width: 262px;padding-left:5px;">Express (3-7 Business Days)</h6>
                 </div>
-                <div>
+                <div class="form-group">
                   <input type="radio" name="shipmethod" value="shipmethod-international" style="display: inline-block;margin-left: 1px;">
                   <h6 style="display: inline-block;width: 262px;padding-left:5px;">International</h6>
                 </div>
@@ -711,16 +711,24 @@ $(document).ready(function(e){
 			$('.collect').slideUp();
 
 			if($("#country-select").val() == "Australia") {
-        var shippingCost;
+                var shippingCost;
 
-        if($('.shipmethod').val()=="shipmethod-express") {
-          shippingCost = 15;
-        }else {
-          shippingCost = 6;
-        }
+                if($('.shipmethod').val()=="shipmethod-express") {
+                  shippingCost = 15;
+                } else if($('.shipmethod').val()=="shipmethod-standard") {
+                  shippingCost = 6;
+                } else {
+                  $('input[name="shipmethod"][value="shipmethod-standard"]').prop('checked', true);
+                  shippingCost = 6;
+                }
 
-      }
-			else var shippingCost = 25;
+            }
+			else { 
+                var shippingCost = 25;
+                if($('.shipmethod').val()!=="shipmethod-international") {
+                    $('input[name="shipmethod"][value="shipmethod-international"]').prop('checked', true);
+                }
+            }
 
       if($('.actual-discount').length!==0) {
         var actualDiscount = $('.actual-discount').text().replace(/[^0-9\.]/g, '');
@@ -745,12 +753,20 @@ $(document).ready(function(e){
 
         if($(this).val()=="shipmethod-express") {
           shippingCost = 15;
+        }else if($(this).val()=="shipmethod-standard") {
+          shippingCost = 6;
         }else {
+          $('input[name="shipmethod"][value="shipmethod-standard"]').prop('checked', true);
           shippingCost = 6;
         }
 
       }
-      else var shippingCost = 25;
+      else {
+        var shippingCost = 25;
+        if($(this).val()!=="shipmethod-international") {
+            $('input[name="shipmethod"][value="shipmethod-international"]').prop('checked', true);
+        }
+      }
 
       if($('.actual-discount').length!==0) {
         var actualDiscount = $('.actual-discount').text().replace(/[^0-9\.]/g, '');
@@ -767,27 +783,41 @@ $(document).ready(function(e){
 
 	$('#country-select').on('change', function(e){
 
-		if( $(this).val() == "Australia" ) {
-      var shippingCost;
+        if($("input[type=radio][name='redemption_type']:checked").val()=="shipping"){
 
-      if($(this).val()=="shipmethod-express") {
-        shippingCost = 15;
-      }else {
-        shippingCost = 6;
-      }
+    		if( $(this).val() == "Australia" ) {
+              var shippingCost;
 
-    }
-		else var shippingCost = 25;
+              console.log($('.shipmethod').val())
 
-		if($('.actual-discount').length!==0) {
-        var actualDiscount = $('.actual-discount').text().replace(/[^0-9\.]/g, '');
-      }else
-        var actualDiscount = 0;
+              if($('.shipmethod').val()=="shipmethod-express") {
+                shippingCost = 15;
+              }else if($('.shipmethod').val()=="shipmethod-standard") {
+                shippingCost = 6;
+              }else {
+                $('input[name="shipmethod"][value="shipmethod-standard"]').prop('checked', true);
+                shippingCost = 6;
+              }
 
-      newTotalPrice = parseFloat('{{ Cart::total() }}') - parseFloat(actualDiscount) + shippingCost;
+            }
+    		else {
+                var shippingCost = 25;
+                if($('.shipmethod').val()!=="shipmethod-international") {
+                    $('input[name="shipmethod"][value="shipmethod-international"]').prop('checked', true);
+                }
+            }
 
-		$totalPrice.text( '$' + newTotalPrice.toFixed(2) );
-		$shippingPrice.text( '$' + shippingCost.toFixed(2) );
+    		if($('.actual-discount').length!==0) {
+                var actualDiscount = $('.actual-discount').text().replace(/[^0-9\.]/g, '');
+            }else
+                var actualDiscount = 0;
+
+            newTotalPrice = parseFloat('{{ Cart::total() }}') - parseFloat(actualDiscount) + shippingCost;
+
+    		$totalPrice.text( '$' + newTotalPrice.toFixed(2) );
+    		$shippingPrice.text( '$' + shippingCost.toFixed(2) );
+
+        }
 
 	});
 

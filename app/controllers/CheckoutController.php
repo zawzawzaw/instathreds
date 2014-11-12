@@ -98,10 +98,23 @@ class CheckoutController extends \BaseController {
 
 		    // shipping cost
 		    if(Input::get('redemption_type')=="shipping") {
-		    	if(Input::get('country')=="Australia") $shipping_cost = 6;
-		    	else if(Input::get('country')!="") $shipping_cost = 20;
+		    	if(Input::get('country')=="Australia") {
+		    		if(Input::get('shipmethod')=='shipmethod-standard') {
+		    			$shipping_cost = 6;
+		    			$shipping_method = "Standard";
+		    		}
+		    		else {
+		    			$shipping_cost = 20;
+		    			$shipping_method = "Express";
+		    		}
+		    	}
+		    	else if(Input::get('country')!="") { 
+		    		$shipping_cost = 25; 
+		    		$shipping_method = "International";
+		    	}
 		    }else {
 		    	$shipping_cost = 0;
+		    	$shipping_method = '';
 		    }
 
 		    $order->sub_total = Cart::total();
@@ -145,13 +158,15 @@ class CheckoutController extends \BaseController {
 			//Input::get('exp_year')
 			//Input::get('cvc')
 
+			$card_number = str_replace(' ', '',Input::get('number'));
+
 			try {
 				$cents = bcmul($total, 100);
 			    $charge = Stripe_Charge::create(array(
 			      "amount" => $cents, // amount in cents
 			      "currency" => "aud",
 			      "card"  => array(
-			      	'number' => Input::get('number'),  //test acc // 4242 4242 4242 4242
+			      	'number' => $card_number,  //test acc // 4242 4242 4242 4242
 			      	'exp_month' => Input::get('exp_month'), 
 			      	'exp_year' => Input::get('exp_year'), 
 			      	'cvc' => Input::get('cvc')
@@ -211,6 +226,28 @@ class CheckoutController extends \BaseController {
 				$collection->store_location = Input::get('store_location');
 				$collection->save();
 			}
+
+			//
+
+			$data = array();
+			$data['order_id'] = $order_id;
+			$data['shipping_method'] = $shipping_method;
+			$data['order_items'] = $cart;
+			$data['items_cost'] = Cart::total();
+			$data['shipping_cost'] = $shipping_cost;
+			$data['discount'] = (isset($discount_amount)) ? $discount_amount : '';
+			$data['sub_total'] = $total;
+			$data['total'] = $total;
+
+			// return $data;
+
+		 	Mail::send('emails.notifyorder', $data, function($message)
+			{
+				$message->from('info@instathreds.co', 'Instathreds');
+			    $message->to('zawzawzaw@gmail.com', 'Zaw')->subject('New Order Received!');
+			});
+
+			//
 
 			Cart::destroy();
 

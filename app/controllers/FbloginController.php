@@ -40,7 +40,9 @@ class FbloginController extends \BaseController {
 	        }else {
 
 	        	// $user = User::find(1);
-	        	$user = User::findByUsernameOrFail($result['name']);
+	        	$user = User::findByEmailOrFail($result['email']);
+
+	        	// return $user;
 
 	        	// return Redirect::to('register')->with('message', 'The following errors occurred')->withErrors($validator)->withInput();
 	        }
