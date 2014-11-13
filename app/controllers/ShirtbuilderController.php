@@ -12,15 +12,14 @@ class ShirtbuilderController extends \BaseController {
 	 */
 	public function index()
 	{
-		// if (Auth::check())
-		// {
-		    // $username = Auth::user()->username;
-		$username = 'no wifi';
+		if (Auth::check())
+		{
+		    $username = Auth::user()->username;
 		    $this->layout->content = View::make('shirtbuilder.index', compact('username'));
-		// }else {
-		// 	return Redirect::to('/')
-		//         ->with('message', 'Please Login/Register to start using shirt builder');
-		// }
+		}else {
+			return Redirect::to('/')
+		        ->with('message', 'Please Login/Register to start using shirt builder');
+		}
 		
 	}
 

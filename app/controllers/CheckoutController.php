@@ -119,7 +119,6 @@ class CheckoutController extends \BaseController {
 
 		    $order->sub_total = Cart::total();
 		    $order->shipping_cost = $shipping_cost;
-		    $total = Cart::total() + $shipping_cost;
 
 		    // discount by promo
 		    $promo_code = Input::get('promo_code');
@@ -133,14 +132,16 @@ class CheckoutController extends \BaseController {
 		    	
 		    	if($promocode) {
 		    		if($promocode->discount_type==='%') {
-		    			$discount_amount = $total * (floatval($promocode->amount)/100);
+		    			$discount_amount = Cart::total() * (floatval($promocode->amount)/100);
 		    		}else {
 		    			$discount_amount = floatval($promocode->amount);
 		    		}
 
-		    		$total = $total - $discount_amount;
+		    		$total = Cart::total() - $discount_amount;
 		    	}
 		    }
+
+		    $total = $total + $shipping_cost;
 
 		    $order->discount = (isset($discount_amount)) ? $discount_amount : '';
 		    $order->total = $total;
@@ -231,12 +232,14 @@ class CheckoutController extends \BaseController {
 
 			$data = array();
 			$data['order_id'] = $order_id;
-			$data['shipping_method'] = $shipping_method;
+			$data['redemption_type'] = Input::get('redemption_type');
+			$data['store_location'] = Input::get('store_location');
+			$data['shipping_method'] = Input::get('shipmethod');
 			$data['order_items'] = $cart;
 			$data['items_cost'] = Cart::total();
 			$data['shipping_cost'] = $shipping_cost;
-			$data['discount'] = (isset($discount_amount)) ? $discount_amount : '';
-			$data['sub_total'] = $total;
+			$data['sub_total'] = floatval(Cart::total()) + floatval($shipping_cost);
+			$data['discount_amount'] = (isset($discount_amount)) ? $discount_amount : 0;
 			$data['total'] = $total;
 
 			// return $data;
@@ -244,11 +247,28 @@ class CheckoutController extends \BaseController {
 		 	Mail::send('emails.notifyorder', $data, function($message)
 			{
 				$message->from('info@instathreds.co', 'Instathreds');
-			    $message->to('zawzawzaw@gmail.com', 'Zaw')->subject('New Order Received!');
+			    $message->to(Input::get('contact_email'), Input::get('contact_first_name'))->subject('Order Received On Instathreds!');
+			});
+
+			Mail::send('emails.notifyadmin', $data, function($message)
+			{
+				$message->from('admin@instathreds.co', 'Instathreds');
+			    $message->to('info@instathreds.co', 'info@instathreds')->subject('Order Received On Instathreds!');
+			});
+
+			Mail::send('emails.notifyadmin', $data, function($message)
+			{
+				$message->from('admin@instathreds.co', 'Instathreds');
+			    $message->to('zawzawzaw@hotmail.co.uk', 'zawzawzaw')->subject('Order Received On Instathreds!');
+			});
+
+			Mail::send('emails.notifyadmin', $data, function($message)
+			{
+				$message->from('admin@instathreds.co', 'Instathreds');
+			    $message->to('karloestrada@gmail.com', 'karlo')->subject('Order Received On Instathreds!');
 			});
 
 			//
-
 			Cart::destroy();
 
 			return Redirect::to('checkout/thankyou?order_id='.$order_id);

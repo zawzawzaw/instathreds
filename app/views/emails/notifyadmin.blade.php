@@ -152,12 +152,12 @@
   <tr bgcolor="#ffffff">
     <td colspan="2">
       <div style="padding:20px;">
-        <h1>Your Instathreds Order #{{ $order_id }}<br>has been submitted.</h1>
+        <h1>Order #{{ $order_id }}<br>has received.</h1>
 
         <p>
         Hello,<br> 
-        Thanks for ordering from Instathreds.<br>
-        <strong>Your order number is {{ $order_id }}</strong>. Your order has been submitted and is in the queue to be processed.
+        Just received an order on instathreds website.<br>
+        <strong>Order id is {{ $order_id }}</strong>.
         <br><br>
         <strong>Order Summary:</strong><br>
         
