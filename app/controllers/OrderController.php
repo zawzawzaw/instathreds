@@ -106,6 +106,17 @@ class OrderController extends \BaseController {
 	public function update($id)
 	{
 		//
+		if (Request::ajax())
+		{
+			$order_status = Input::get('order_status');
+
+			$order = Order::find($id);
+			$order->status = $order_status;
+			$order->save();
+
+			return Response::json('Successfully updated order status', 200);
+
+		}
 	}
 
 

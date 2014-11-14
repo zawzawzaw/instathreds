@@ -64,7 +64,9 @@
           <div class="panel panel-default">
             <div class="panel-body">
               <h5 class="subtitle mb5">Order No. {{ $order[0]->id }}</h5>
-              <p class="mb20">Items for {{ $order[0]->contact_first_name }}</p>
+              <p class="mb20">Customer name : {{ $order[0]->contact_first_name. ' '. $order[0]->contact_last_name; }}</p>
+              <p class="mb20">Customer email : {{ $order[0]->contact_email }}</p>
+              <p class="mb20">Customer phone : {{ $order[0]->contact_phone }}</p>
               <div class="table-responsive">
                 <table class="table" id="orders-detailed-table">
                   <thead>
@@ -117,23 +119,26 @@
               </table>
 
               <div class="pull-right">
-              <div class="btn-group mr5">
-                  <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button">
-                      Pending <span class="caret"></span>
-                  </button>
-                  <ul role="menu" class="dropdown-menu">
-                      <li><a href="#">Pending</a></li>
-                      <li><a href="#">Complete</a></li>
-                      <li><a href="#">Failed</a></li>
-                      <li><a href="#">On-hold</a></li>
-                      <li><a href="#">Refunded</a></li>
-                      <li><a href="#">Cancelled</a></li>
+                <div class="btn-group">
+                  <p class="msg" style="margin-right: 15px;margin-top: 12px;color: red;"></p>
+                </div>
+                <div class="btn-group mr5 orderstatus-section">
+                    <button data-toggle="dropdown" id="order-status-btn" class="btn btn-primary dropdown-toggle" type="button">
+                        {{ $order[0]->status }} <span class="caret"></span>
+                    </button>
+                    <ul role="menu" class="dropdown-menu status-dropdown">
+                      <li><a class="order-status" href="#">Pending</a></li>
+                      <li><a class="order-status" href="#">Complete</a></li>
+                      <li><a class="order-status" href="#">Failed</a></li>
+                      <li><a class="order-status" href="#">On-hold</a></li>
+                      <li><a class="order-status" href="#">Refunded</a></li>
+                      <li><a class="order-status" href="#">Cancelled</a></li>
                     </ul>
-                  
-              </div>
-              <div class="btn-group">
-                <!-- <a href=""><button class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete Order</button></a> -->
-              </div>
+                    
+                </div>
+                <div class="btn-group">
+                  <!-- <a href=""><button class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete Order</button></a> -->
+                </div>
               </div>
 
 
@@ -153,7 +158,7 @@
 
 {{ HTML::script('js/admin/jquery-1.10.2.min.js') }}
 {{ HTML::script('js/admin/jquery-migrate-1.2.1.min.js') }}
-{{ HTML::script('js/jquery-ui-1.10.3.min.js') }}
+{{ HTML::script('js/admin/jquery-ui-1.10.3.min.js') }}
 {{ HTML::script('js/admin/bootstrap.min.js') }}
 {{ HTML::script('js/admin/modernizr.min.js') }}
 {{ HTML::script('js/admin/jquery.sparkline.min.js') }}
@@ -161,13 +166,13 @@
 {{ HTML::script('js/admin/retina.min.js') }}
 {{ HTML::script('js/admin/jquery.cookies.js') }}
 
-{{ HTML::script('js/flot/flot.min.js') }}
-{{ HTML::script('js/flot/flot.resize.min.js') }}
-{{ HTML::script('js/morris.min.js') }}
-{{ HTML::script('js/raphael-2.1.0.min.js') }}
+{{ HTML::script('js/admin/flot/flot.min.js') }}
+{{ HTML::script('js/admin/flot/flot.resize.min.js') }}
+{{ HTML::script('js/admin/morris.min.js') }}
+{{ HTML::script('js/admin/raphael-2.1.0.min.js') }}
 
-{{ HTML::script('js/jquery.datatables.min.js') }}
-{{ HTML::script('js/chosen.jquery.min.js') }}
+{{ HTML::script('js/admin/jquery.datatables.min.js') }}
+{{ HTML::script('js/admin/chosen.jquery.min.js') }}
 
 {{ HTML::script('js/admin/custom.js') }}
 
@@ -212,6 +217,56 @@
     },function(){
       jQuery(this).find('.table-action-hide a').animate({opacity: 0});
     });
+
+    var makeRequest = function(Data, URL, Method) {
+
+        var request = $.ajax({
+          url: URL,
+          type: Method,
+          data: Data,
+            dataType: "JSON",
+          success: function(response) {
+              // if success remove current item
+              // console.log(response);
+          },
+              error: function( error ){
+                  // Log any error.
+                  console.log( "ERROR:", error );
+              }
+      });
+
+      return request;
+    };
+
+    var request;
+    $('.order-status').on('click', function(e){
+
+      $('#order-status-btn').html($(this).text()+' <span class="caret"></span>');
+
+      statusUpdateJSON = {};
+      statusUpdateJSON.order_status = $(this).text();
+
+      console.log(statusUpdateJSON);
+
+      if (request) {
+          request.abort();
+      }
+
+      request = makeRequest(statusUpdateJSON, "/admin/orders/{{ $order[0]->id }}" , "PUT");
+
+      request.done(function(){
+        var result = jQuery.parseJSON(request.responseText);
+
+        console.log(result)
+                   
+        if(result) {
+          // if($('.orderstatus-section').length < 1)
+            $('.msg').text(result);
+        }
+
+      });  
+    })
+
   
   
   });

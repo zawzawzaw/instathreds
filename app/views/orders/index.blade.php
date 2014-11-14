@@ -68,6 +68,8 @@
                     <th>Date</th>
                     <th>Status</th>
                     <th>Username</th>
+                    <th>Email</th>
+                    <th>Contact</th>
                     <th>Total</th>
                     <th>Shipping</th>
                     <th></th>
@@ -80,7 +82,9 @@
                       <td>{{ $order->id }}</td>
                       <td>{{ date("Y-m-d",strtotime($order->created_at)) }}</td>
                       <td>{{ $order->status or 'Pending...' }}</td>
-                      <td>{{ $order->contact_first_name }}</td>
+                      <td>{{ $order->contact_first_name . ' ' . $order->contact_last_name }}</td>
+                      <td>{{ $order->contact_email }}</td>
+                      <td>{{ $order->contact_phone }}</td>
                       <td>{{ $order->total }}</td>
                       
                       @if(!$order->shippingaddress->isEmpty())

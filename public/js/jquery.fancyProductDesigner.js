@@ -2174,7 +2174,7 @@
 						var object = objects[j];
 						object.visible = object.viewIndex == i;
 					}
-					dataURLs.push(stage.toDataURL({format: format}));
+					dataURLs.push(stage.toDataURL({format: 'svg'}));
 				}
 
 				//hide elements again that are not in the current view index
