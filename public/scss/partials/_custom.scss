@@ -332,11 +332,11 @@ padding: 7px 20px;font-family:$typeface-primary;}
 	color:$color-highlight;
 	border:none;
 	font-size: 18px;
-    line-height: 0;
     padding: 10px 40px 8px 10px;
     width: 100%;
 	@include border-radius(7px);
 }
+
 
 .search-form-mobile .button-search{
 	border:none;

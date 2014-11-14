@@ -139,6 +139,8 @@ class CheckoutController extends \BaseController {
 
 		    		$total = Cart::total() - $discount_amount;
 		    	}
+		    }else {
+		    	$total = Cart::total();
 		    }
 
 		    $total = $total + $shipping_cost;

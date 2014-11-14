@@ -737,7 +737,7 @@ table.dataTable thead th:active, table.dataTable thead td:active { outline: none
 
 .search-form-mobile { padding: 10px 20px 12px 20px; }
 
-.search-form-mobile .search-input { float: left; background: #0381f4; color: #fcfcfc; border: none; font-size: 18px; line-height: 0; padding: 10px 40px 8px 10px; width: 100%; -webkit-border-radius: 7px; border-radius: 7px; background-clip: padding-box; /* stops bg color from leaking outside the border: */ }
+.search-form-mobile .search-input { float: left; background: #0381f4; color: #fcfcfc; border: none; font-size: 18px; padding: 10px 40px 8px 10px; width: 100%; -webkit-border-radius: 7px; border-radius: 7px; background-clip: padding-box; /* stops bg color from leaking outside the border: */ }
 
 .search-form-mobile .button-search { border: none; background: none; position: absolute; right: 28px; top: 18px; }
 

@@ -242,7 +242,7 @@ section.fpd-sidebar .logo h6{
 .fpd-designs,
 .fpd-designs > ul {
 	height: 100%;
-	overflow: hidden;
+	overflow: visible;
 }
 
 .fpd-designs > ul > li, .fpd-saved-products > ul > li {
