@@ -3,9 +3,9 @@
 <section class="content checkout">
   <div class="container">
     <h6 class="section-title"><i class="fa fa-lock"></i>SECURE CHECKOUT</h6>
-	<ul>
+	<ul class="error-message">
         @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
+            <li><span>{{ $error }}</span></li>
         @endforeach
     </ul>
     {{ Form::open(array('url'=>'checkout/confirmorder', 'class'=>'form-checkout')) }}
@@ -29,16 +29,16 @@
           <div class="left">
             <h6>Contact Details</h6>
             <div class="form-group">
-              <input type="text" name="contact_first_name" class="text form-control" value="@if($user){{ $user->username }}@endif" placeholder="First Name">
+              <input type="text" name="contact_first_name" class="text form-control" value="@if($user){{ $user->username }}@endif" placeholder="*First Name">
             </div>
             <div class="form-group">
-              <input type="text" name="contact_last_name" class="text form-control" placeholder="Last Name">
+              <input type="text" name="contact_last_name" class="text form-control" placeholder="*Last Name">
             </div>
             <div class="form-group">
-              <input type="text" name="contact_email" class="text form-control" value="@if($user){{ $user->email }}@endif" placeholder="Email">
+              <input type="text" name="contact_email" class="text form-control" value="@if($user){{ $user->email }}@endif" placeholder="*Email">
             </div>
             <div class="form-group">
-              <input type="text" name="contact_phone" class="text form-control" placeholder="Phone">
+              <input type="text" name="contact_phone" class="text form-control" placeholder="*Phone">
             </div>
             <div class="form-group">
               <input type="checkbox" name="newsletter" id="newsletter" class="css-checkbox lrg" checked="checked"/>
@@ -73,19 +73,19 @@
             <input type="radio" name="redemption_type" class="redemption_type" value="shipping" style="display: inline-block;margin-left: 1px;"><h6 style="display: inline-block;width: 262px;padding-left: 10px;">Ship to this address</h6>
             <div class="ship">
 	            <div class="form-group">
-	              <input name="address_1" type="text" class="text form-control" placeholder="Address Line 1">
+	              <input name="address_1" type="text" class="text form-control" placeholder="*Address Line 1">
 	            </div>
 	            <div class="form-group">
-	              <input name="address_2" type="text" class="text form-control" placeholder="Address Line 2(optional)">
+	              <input name="address_2" type="text" class="text form-control" placeholder="Address Line 2 (optional)">
 	            </div>
 	            <div class="form-group">
-	              <input name="city" type="text" class="text form-control" placeholder="City or Suburb">
+	              <input name="city" type="text" class="text form-control" placeholder="*City or Suburb">
 	            </div>
 	            <div class="form-group">
-                <input name="state" type="text" class="text form-control" placeholder="State, Region or Province">
+                <input name="state" type="text" class="text form-control" placeholder="*State, Region or Province">
 	            </div>
 	            <div class="form-group">
-	              <input type="text" name="post_zip_code" class="text form-control" placeholder="Zip or Post Code">
+	              <input type="text" name="post_zip_code" class="text form-control" placeholder="*Zip or Post Code">
 	            </div>
               <div class="form-group">
                 <div class="select-style">
@@ -392,21 +392,21 @@
                   <label for="card_number">
                     Card Number<span class="cc-required-indicator">*</span>
                   </label>
-                  <input type="text" name="number" autocomplete="off" class="card-number form-control" placeholder="Card number">
+                  <input type="text" name="number" autocomplete="off" class="card-number form-control" placeholder="*Card number">
                 </div>
 
                 <div class="cc-card-cvv-wrap">
                   <label for="card_number">
                     CVV<span class="cc-required-indicator">*</span>
                   </label>
-                  <input type="text" name="cvc" size="4" autocomplete="off" class="card-number form-control" placeholder="Security Code">
+                  <input type="text" name="cvc" size="4" autocomplete="off" class="card-number form-control" placeholder="*Security Code">
                 </div>
 
                 <div class="cc-card-name-wrap">
                   <label for="card_number">
                     Name on the card<span class="cc-required-indicator">*</span>
                   </label>
-                  <input type="text" name="card_name" autocomplete="off" class="card-number form-control" placeholder="Card Name">
+                  <input type="text" name="card_name" autocomplete="off" class="card-number form-control" placeholder="*Card Name">
                 </div>
 
                 <div class="cc-card-expiration-wrap">

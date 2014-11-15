@@ -1397,6 +1397,12 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 
 .content.checkout .panel .right { width: 47.5%; }
 
+.error-message { position: relative; margin: 0 0px 20px 20px; padding: 0px; }
+
+.error-message li { margin-bottom: 10px; }
+
+.error-message li span { color: #e41e1e; text-decoration: none; }
+
 @media (max-width: 480px) { .panel.shipping .left { width: 100% !important; } }
 
 @media (max-width: 480px) { .panel.shipping .right { width: 100% !important; } }
