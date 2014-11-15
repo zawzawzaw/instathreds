@@ -235,7 +235,7 @@
 					if(currentElement.title=="Base") {
 						console.log(1)
 						$('#collapseOne').collapse('show');
-					}else if(currentElement.params.stockart!==false) {
+					}else if(currentElement.params.stockart!==false && currentElement.params.stockart!==undefined ) {
 						console.log(2)
 						$('#collapseTwo').collapse('show');
 					}else {
@@ -503,9 +503,6 @@
 				var currentQty = $('input[name="qty"]').val();
 				var frontImage = thisClass.getViewsDataURL()[0];
 				var backImage = thisClass.getViewsDataURL()[1];
-
-
-
 
 				var currentGender = $('input[name=gender]:checked').val();
 				var currentSize = $('.select-size > a').text();
