@@ -66,7 +66,6 @@ class OrderController extends \BaseController {
 	public function show($id)
 	{
 		//
-		//
 		if (Auth::check())
 		{
 		    $username = Auth::user()->username;

@@ -4,7 +4,7 @@
  This php script receives a JSON encoded string (JSON.stringify) which is sent via $_POST. It gets the JSON encoded string from the getProduct() method.
  When using this script, you should use absolute pathes for your images or place this script in the same folder where you are using the product designer.
 */
-
+// print_r($_POST['recreation_product']); exit();
 ?>
 
 <!DOCTYPE HTML>
@@ -26,8 +26,8 @@
 
 		window.onload = function() {
 			//pass the sent product from $_POST
-			var recreationStage = stage = new fabric.Canvas('recreation-canvas', {});
-			var json = <?php echo stripslashes($_POST['recreation_product']); ?>;
+			var recreationStage = new fabric.Canvas('recreation-canvas', {});
+			var json = <?php echo stripslashes('{"objects":[{"type":"image","originX":"center","originY":"center","left":325,"top":329,"width":500,"height":460,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","viewIndex":0,"src":"http://instathreds.dev/images/shirtbuilder-templates/mens-staple/mens-staple-front-body.png","filters":[],"crossOrigin":"anonymous"},{"type":"image","originX":"center","originY":"center","left":325,"top":329,"width":500,"height":460,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","viewIndex":0,"src":"http://instathreds.dev/images/shirtbuilder-templates/mens-staple/mens-staple-front-base.png","filters":[{"type":"Tint","color":"#1a793d","opacity":1}],"crossOrigin":"anonymous"},{"type":"image","originX":"center","originY":"center","left":325,"top":329,"width":500,"height":460,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","viewIndex":0,"src":"http://instathreds.dev/images/shirtbuilder-templates/mens-staple/mens-staple-front-shadow.png","filters":[],"crossOrigin":"anonymous"},{"type":"image","originX":"center","originY":"center","left":325,"top":329,"width":500,"height":460,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":false,"clipTo":null,"backgroundColor":"","viewIndex":1,"src":"http://instathreds.dev/images/shirtbuilder-templates/mens-staple/mens-staple-back-body.png","filters":[],"crossOrigin":"anonymous"},{"type":"image","originX":"center","originY":"center","left":325,"top":329,"width":500,"height":460,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":false,"clipTo":null,"backgroundColor":"","viewIndex":1,"src":"http://instathreds.dev/images/shirtbuilder-templates/mens-staple/mens-staple-back-base.png","filters":[{"type":"Tint","color":"#1a793d","opacity":1}],"crossOrigin":"anonymous"},{"type":"image","originX":"center","originY":"center","left":325,"top":329,"width":500,"height":460,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":false,"clipTo":null,"backgroundColor":"","viewIndex":1,"src":"http://instathreds.dev/images/shirtbuilder-templates/mens-staple/mens-staple-back-shadow.png","filters":[],"crossOrigin":"anonymous"},{"type":"image","originX":"center","originY":"center","left":325,"top":345,"width":171,"height":189,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","viewIndex":0,"src":"http://instathreds.dev/images/designs/converse.png","filters":[],"crossOrigin":"anonymous"}],"background":"","width":945,"height":800}'); ?>; //$_POST['recreation_product']
 			recreationStage.loadFromJSON(json, function () {
 
 				var viewIndexes = 0;
@@ -36,6 +36,9 @@
 				var objects = recreationStage.getObjects();
 			    for (var i in objects) {
 			    	var object = objects[i];
+
+			    	console.log(objects[6])
+
 			    	//scale object
 			        object.scaleX = object.scaleX * SCALE_FACTOR;
 			        object.scaleY = object.scaleY * SCALE_FACTOR;
@@ -58,7 +61,9 @@
 				        recreationStage.setHeight(recreationStage.getHeight() + (recreationStage.getHeight() * viewIndexes));
 			        }
 			    }
-			    recreationStage.renderAll();
+			    // recreationStage.renderAll();
+
+			    console.log(recreationStage.toDataURL({format: 'png'}));
 		    });
 		}
     </script>
@@ -66,6 +71,6 @@
     </head>
 
     <body>
-    	<canvas id="recreation-canvas" width="600" height="600">
+    	<canvas id="recreation-canvas" width="1800" height="1800">
     </body>
 </html>

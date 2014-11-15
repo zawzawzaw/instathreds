@@ -86,7 +86,11 @@
 			//recreate button
 			$('#recreation-button').click(function(){
 				var fabricJSON = JSON.stringify(yourDesigner.getFabricJSON());
-				$('#recreation-form input:first').val(fabricJSON).parent().submit();
+
+				console.log(fabricJSON);
+
+
+				// $('#recreation-form input:first').val(fabricJSON).parent().submit();
 				return false;
 			});
 

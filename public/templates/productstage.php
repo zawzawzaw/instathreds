@@ -19,6 +19,7 @@ $reset_tooltip = 'Reset Product';
 				<li><span class="fpd-save-pdf fa fa-file-o fpd-tooltip" title="<?php echo $pdf_tooltip; ?>"></span></li>
 				<li><span class="fpd-print fa fa-print fpd-tooltip" title="<?php echo $print_tooltip; ?>"></span></li>
 				<li><span class="fpd-reset-product fa fa-undo fpd-tooltip" title="<?php echo $reset_tooltip; ?>"></span></li>
+				<li><span id="recreation-button" class="fa fa-undo fpd-tooltip" title="<?php echo "recreation"; ?>"></span></li>
 			</ul>
 		</div>
 	</div>

@@ -4,7 +4,7 @@
  This php script receives a JSON encoded string (JSON.stringify) which is sent via $_POST. It gets the JSON encoded string from the getProduct() method.
  When using this script, you should use absolute pathes for your images or place this script in the same folder where you are using the product designer.
 */
-
+print_r($_POST); exit();
 ?>
 
 <!DOCTYPE HTML>
@@ -59,6 +59,7 @@
 			        }
 			    }
 			    recreationStage.renderAll();
+			    console.log(recreationStage.toDataURL({format: 'png'}));
 		    });
 		}
     </script>

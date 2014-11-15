@@ -57,8 +57,10 @@ class CartController extends \BaseController {
 		$shirt_type = Input::get('attr.shirt_type');
 		$image = Input::get('attr.image');
 		$back_image = Input::get('attr.back_image');
+		$print_image = Input::get('attr.print_image');
+		$back_print_image = Input::get('attr.back_print_image');
 
-		Cart::associate('Product')->add($id, $title, $qty, $price, array('description' => $description, 'gender' => $gender,'size' => $size, 'color' => $color, 'shirt_type' => $shirt_type, 'image' => $image, 'back_image' => $back_image));
+		Cart::associate('Product')->add($id, $title, $qty, $price, array('description' => $description, 'gender' => $gender,'size' => $size, 'color' => $color, 'shirt_type' => $shirt_type, 'image' => $image, 'back_image' => $back_image, 'print_image' => $print_image, 'back_print_image' => $back_print_image));
 
 		return Response::json(array(
 		    'success' => true
