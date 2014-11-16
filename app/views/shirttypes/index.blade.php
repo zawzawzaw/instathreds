@@ -102,7 +102,7 @@
 			                </div>
 			                <div class="thmb-prev">
 			                  <a href="{{ '/images/shirt-templates/'.$shirttype->image }}" data-rel="prettyPhoto">
-								<?php $image_url = "/images/shirt-templates/".strtolower(str_replace(" ", "",$shirttype->gender->title)) . "-" . strtolower(str_replace(" ", "",$shirttype->title)) . "/" . strtolower(str_replace(" ", "",$shirttype->gender->title)) . "-" . strtolower(str_replace(" ", "",$shirttype->title))."-front-body.png" ?>
+								<?php $image_url = "/images/shirt-templates/".strtolower(str_replace(" ", "",$shirttype->gender->title)) . "-" . strtolower($shirttype->filename) . "/" . strtolower(str_replace(" ", "",$shirttype->gender->title)) . "-" . strtolower($shirttype->filename)."-front-body.png" ?>
 
 			                  	{{ HTML::image($image_url, '', array('style'=>'height: 160px;', 'class'=>'img-responsive')) }}
 			                  </a>

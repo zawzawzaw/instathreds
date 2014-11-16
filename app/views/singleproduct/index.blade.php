@@ -34,273 +34,56 @@
 
           <div class="row product">
             <div class="left">
+                <?php 
+                $one = array('front'=>array('x'=>25, 'y'=>55), 'back'=>array('x'=>28, 'y'=>54));
+                $two = array('front'=>array('x'=>23, 'y'=>50), 'back'=>array('x'=>30, 'y'=>58));
+                $three = array('front'=>array('x'=>26, 'y'=>60), 'back'=>array('x'=>37, 'y'=>66));
+                $four = array('front'=>array('x'=>32, 'y'=>54), 'back'=>array('x'=>37, 'y'=>57));
+                $five = array('front'=>array('x'=>28, 'y'=>49), 'back'=>array('x'=>31, 'y'=>52));
+                $six = array('front'=>array('x'=>18, 'y'=>58), 'back'=>array('x'=>24, 'y'=>56));
+                $seven = array('front'=>array('x'=>28, 'y'=>55), 'back'=>array('x'=>35, 'y'=>73));
+                $eight = array('front'=>array('x'=>17, 'y'=>58), 'back'=>array('x'=>22, 'y'=>58));
+                $nine = array('front'=>array('x'=>27, 'y'=>61), 'back'=>array('x'=>33, 'y'=>59));
+                $ten = array('front'=>array('x'=>10, 'y'=>55), 'back'=>array('x'=>16, 'y'=>59));
+                $eleven = array('front'=>array('x'=>3, 'y'=>42), 'back'=>array('x'=>4, 'y'=>33));
 
-              <!-- MENS-STANDARD -->
-                <div class="shirt-template active" id="mens-standard">
-                    <canvas class="canvas-template" 
-                    data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-standard/mens-standard-front-shadow.png" 
-                    data-base="{{ URL::to('/') }}/images/shirt-templates/mens-standard/mens-standard-front-base.png" 
-                    data-body="{{ URL::to('/') }}/images/shirt-templates/mens-standard/mens-standard-front-body.png" 
-                    data-product="{{ asset('images/products/'.$product->image) }}" 
-                    data-x="25" 
-                    data-y="55">
-                    </canvas>
-                    <canvas class="canvas-template back" 
-                    data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-standard/mens-standard-back-shadow.png" 
-                    data-base="{{ URL::to('/') }}/images/shirt-templates/mens-standard/mens-standard-back-base.png" 
-                    data-body="{{ URL::to('/') }}/images/shirt-templates/mens-standard/mens-standard-back-body.png" 
-                    data-product="{{ asset('images/products/'.$product->image) }}" 
-                    data-x="28" 
-                    data-y="54">
-                    </canvas>
-                    <div class="preloader">
-                    {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
+                $xy[] = $one;
+                $xy[] = $two;
+                $xy[] = $three;
+                $xy[] = $four;
+                $xy[] = $five;
+                $xy[] = $six;
+                $xy[] = $seven;
+                $xy[] = $eight;
+                $xy[] = $nine;
+                $xy[] = $ten;
+                $xy[] = $eleven;
+                ?>
+
+                @foreach ($all_shirttypes as $key => $shirt_type)
+                    <div class="shirt-template @if($key==0) {{ 'active' }} @endif" id="{{ Str::lower($shirt_type->gender->title) }}-{{ strtolower($shirt_type->filename) }}">
+                        <canvas class="canvas-template" 
+                        data-shadow="{{ URL::to('/') }}/images/shirt-templates/{{ Str::lower($shirt_type->gender->title) }}-{{ strtolower($shirt_type->filename) }}/{{ Str::lower($shirt_type->gender->title) }}-{{ strtolower($shirt_type->filename) }}-front-shadow.png" 
+                        data-base="{{ URL::to('/') }}/images/shirt-templates/{{ Str::lower($shirt_type->gender->title) }}-{{ strtolower($shirt_type->filename) }}/{{ Str::lower($shirt_type->gender->title) }}-{{ strtolower($shirt_type->filename) }}-front-base.png" 
+                        data-body="{{ URL::to('/') }}/images/shirt-templates/{{ Str::lower($shirt_type->gender->title) }}-{{ strtolower($shirt_type->filename) }}/{{ Str::lower($shirt_type->gender->title) }}-{{ strtolower($shirt_type->filename) }}-front-body.png" 
+                        data-product="{{ asset('images/products/'.$product->image) }}" 
+                        data-x="{{ $xy[$key]['front']['x'] }}" 
+                        data-y="{{ $xy[$key]['front']['y'] }}">
+                        </canvas>
+                        <canvas class="canvas-template back" 
+                        data-shadow="{{ URL::to('/') }}/images/shirt-templates/{{ Str::lower($shirt_type->gender->title) }}-{{ strtolower($shirt_type->filename) }}/{{ Str::lower($shirt_type->gender->title) }}-{{ strtolower($shirt_type->filename) }}-back-shadow.png" 
+                        data-base="{{ URL::to('/') }}/images/shirt-templates/{{ Str::lower($shirt_type->gender->title) }}-{{ strtolower($shirt_type->filename) }}/{{ Str::lower($shirt_type->gender->title) }}-{{ strtolower($shirt_type->filename) }}-back-base.png" 
+                        data-body="{{ URL::to('/') }}/images/shirt-templates/{{ Str::lower($shirt_type->gender->title) }}-{{ strtolower($shirt_type->filename) }}/{{ Str::lower($shirt_type->gender->title) }}-{{ strtolower($shirt_type->filename) }}-back-body.png" 
+                        data-product="{{ asset('images/products/'.$product->image) }}" 
+                        data-x="{{ $xy[$key]['back']['x'] }}" 
+                        data-y="{{ $xy[$key]['back']['y'] }}">
+                        </canvas>
+                        <div class="preloader">
+                        {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
+                        </div>
+                        <img id="canvas-final" src="">
                     </div>
-                    <img id="canvas-final" src="">
-                </div>
-              <!-- MENS-STANDARD -->
-              
-
-              <!-- MENS-STAPLE -->
-              <div class="shirt-template" id="mens-staple">
-                <canvas class="canvas-template" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-staple/mens-staple-front-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/mens-staple/mens-staple-front-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/mens-staple/mens-staple-front-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}" 
-                data-x="23" 
-                data-y="50">
-                </canvas>
-                <canvas class="canvas-template back" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-staple/mens-staple-back-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/mens-staple/mens-staple-back-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/mens-staple/mens-staple-back-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}" 
-                data-x="30" 
-                data-y="58">
-                </canvas>
-                <div class="preloader">
-                {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
-                </div>
-                <img id="canvas-final" src="">
-              </div>
-
-              <!-- MENS-LOWDOWN -->
-              <div class="shirt-template" id="mens-lowdown">
-                <canvas class="canvas-template" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-lowdown/mens-lowdown-front-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/mens-lowdown/mens-lowdown-front-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/mens-lowdown/mens-lowdown-front-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}" 
-                data-x="26" 
-                data-y="60"> 
-                </canvas>
-                <canvas class="canvas-template back" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-lowdown/mens-lowdown-back-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/mens-lowdown/mens-lowdown-back-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/mens-lowdown/mens-lowdown-back-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}"
-                data-x="37" 
-                data-y="66">
-                </canvas>
-                <div class="preloader">
-                {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
-                </div>
-                <img id="canvas-final" src="">
-              </div>
-
-              <!-- MENS-BARNARD -->
-              <div class="shirt-template" id="mens-barnard">
-                <canvas class="canvas-template" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-barnard/mens-barnard-front-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/mens-barnard/mens-barnard-front-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/mens-barnard/mens-barnard-front-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}"
-                data-x="32" 
-                data-y="54">
-                </canvas>
-                <canvas class="canvas-template back" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-barnard/mens-barnard-back-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/mens-barnard/mens-barnard-back-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/mens-barnard/mens-barnard-back-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}"
-                data-x="37" 
-                data-y="57">
-                </canvas>
-                <div class="preloader">
-                {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
-                </div>
-                <img id="canvas-final" src="">
-              </div>
-
-              <!-- MENS-TALL -->
-              <div class="shirt-template" id="mens-tall">
-                <canvas class="canvas-template" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-tall/mens-tall-front-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/mens-tall/mens-tall-front-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/mens-tall/mens-tall-front-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}"
-                data-x="28" 
-                data-y="49">
-                </canvas>
-                <canvas class="canvas-template back" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/mens-tall/mens-tall-back-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/mens-tall/mens-tall-back-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/mens-tall/mens-tall-back-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}"
-                data-x="31" 
-                data-y="52">
-                </canvas>
-                <div class="preloader">
-                {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
-                </div>
-                <img id="canvas-final" src="">
-              </div>
-
-              <!-- WOMENS-STANDARD -->
-              <div class="shirt-template" id="womens-standard">
-                <canvas class="canvas-template" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/womens-standard/womens-standard-front-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/womens-standard/womens-standard-front-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/womens-standard/womens-standard-front-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}" 
-                data-x="18" 
-                data-y="58">
-                </canvas>
-                <canvas class="canvas-template back" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/womens-standard/womens-standard-back-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/womens-standard/womens-standard-back-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/womens-standard/womens-standard-back-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}" 
-                data-x="24" 
-                data-y="56">
-                </canvas>
-                <div class="preloader">
-                {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
-                </div>
-                <img id="canvas-final" src="">
-              </div>
-
-              <!-- WOMENS-TANKTEE -->
-              <div class="shirt-template" id="womens-tanktee">
-                <canvas class="canvas-template" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/womens-tanktee/womens-tanktee-front-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/womens-tanktee/womens-tanktee-front-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/womens-tanktee/womens-tanktee-front-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}" 
-                data-x="28" 
-                data-y="55">
-                </canvas>
-                <canvas class="canvas-template back" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/womens-tanktee/womens-tanktee-back-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/womens-tanktee/womens-tanktee-back-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/womens-tanktee/womens-tanktee-back-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}" 
-                data-x="35" 
-                data-y="73">
-                </canvas>
-                <div class="preloader">
-                {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
-                </div>
-                <img id="canvas-final" src="">
-              </div>
-
-              <!-- WOMENS-MALI -->
-              <div class="shirt-template" id="womens-mali">
-                <canvas class="canvas-template" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/womens-mali/womens-mali-front-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/womens-mali/womens-mali-front-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/womens-mali/womens-mali-front-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}" 
-                data-x="17" 
-                data-y="58">
-                </canvas>
-                <canvas class="canvas-template back" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/womens-mali/womens-mali-back-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/womens-mali/womens-mali-back-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/womens-mali/womens-mali-back-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}" 
-                data-x="22" 
-                data-y="58">
-                </canvas>
-                <div class="preloader">
-                {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
-                </div>
-                <img id="canvas-final" src="">
-              </div>
-
-              <!-- WOMENS-DASHRACERBACK -->
-              <div class="shirt-template" id="womens-dashracerback">
-                <canvas class="canvas-template" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/womens-dashracerback/womens-dashracerback-front-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/womens-dashracerback/womens-dashracerback-front-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/womens-dashracerback/womens-dashracerback-front-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}" 
-                data-x="27" 
-                data-y="61">
-                </canvas>
-                <canvas class="canvas-template back" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/womens-dashracerback/womens-dashracerback-back-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/womens-dashracerback/womens-dashracerback-back-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/womens-dashracerback/womens-dashracerback-back-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}" 
-                data-x="33" 
-                data-y="59">
-                </canvas>
-                <div class="preloader">
-                {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
-                </div>
-                <img id="canvas-final" src="">
-              </div>
-
-              <!-- KIDS TEE -->
-              <div class="shirt-template" id="kids-tee">
-                <canvas class="canvas-template" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/kids-tee/kids-tee-front-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/kids-tee/kids-tee-front-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/kids-tee/kids-tee-front-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}" 
-                data-x="10" 
-                data-y="55">
-                </canvas>
-                <canvas class="canvas-template back" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/kids-tee/kids-tee-back-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/kids-tee/kids-tee-back-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/kids-tee/kids-tee-back-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}" 
-                data-x="16" 
-                data-y="59">
-                </canvas>
-                <div class="preloader">
-                {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
-                </div>
-                <img id="canvas-final" src="">
-              </div>
-
-              <!-- KIDS MINI -->
-              <div class="shirt-template" id="kids-mini">
-                <canvas class="canvas-template" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/kids-mini/kids-mini-front-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/kids-mini/kids-mini-front-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/kids-mini/kids-mini-front-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}" 
-                data-x="3" 
-                data-y="42">
-                </canvas>
-                <canvas class="canvas-template back" 
-                data-shadow="{{ URL::to('/') }}/images/shirt-templates/kids-mini/kids-mini-back-shadow.png" 
-                data-base="{{ URL::to('/') }}/images/shirt-templates/kids-mini/kids-mini-back-base.png" 
-                data-body="{{ URL::to('/') }}/images/shirt-templates/kids-mini/kids-mini-back-body.png" 
-                data-product="{{ asset('images/products/'.$product->image) }}" 
-                data-x="4" 
-                data-y="33">
-                </canvas>
-                <div class="preloader">
-                {{ HTML::image('images/loading-spinning-bubbles.svg', '', array('width' => '64','height' => '64')) }}
-                </div>
-                <img id="canvas-final" src="">
-              </div>
-
+                @endforeach
             </div>
             <div class="right">
               <h6 class="product-title">{{ Str::upper($product->title) }}</h6>
@@ -310,13 +93,9 @@
                 <ul class="dropdown-menu">
                 @if($men_shirttypes->count() > 0)
                   @foreach($men_shirttypes as $index => $men_shirttype)
-                    <li><a href="javascript:void(0);" data-shirt="mens-{{ Str::lower($men_shirttype->title) }}"  data-id="{{ $men_shirttype->id }}">{{ $men_shirttype->title }}</a></li>
+                    <li><a href="javascript:void(0);" data-shirt="mens-{{ strtolower($men_shirttype->filename) }}"  data-id="{{ $men_shirttype->id }}">{{ $men_shirttype->title }}</a></li>
                   @endforeach
                 @endif
-                    <!-- <li><a href="javascript:void(0);" data-shirt="mens-staple">Staple</a></li>
-                    <li><a href="javascript:void(0);" data-shirt="mens-lowdown">Lowdown</a></li>
-                    <li><a href="javascript:void(0);" data-shirt="mens-barnard">Barnard</a></li>
-                    <li><a href="javascript:void(0);" data-shirt="mens-tall">Tall</a></li> -->
                 </ul>
               </div>
 
@@ -325,13 +104,9 @@
                 <ul class="dropdown-menu">
                     @if($women_shirttypes->count() > 0)
                       @foreach($women_shirttypes as $index => $women_shirttype)
-                        <li><a href="javascript:void(0);" data-shirt="womens-<?php echo strtolower(str_replace(" ", "",$women_shirttype->title)); ?>"  data-id="{{ $women_shirttype->id }}">{{ $women_shirttype->title }}</a></li>
+                        <li><a href="javascript:void(0);" data-shirt="womens-{{ strtolower($women_shirttype->filename) }}"  data-id="{{ $women_shirttype->id }}">{{ $women_shirttype->title }}</a></li>
                       @endforeach
                     @endif
-                  <!-- <li><a href="javascript:void(0);" data-shirt="womens-standard">Standard</a></li>
-                  <li><a href="javascript:void(0);" data-shirt="womens-tanktee">Tank Tee</a></li>
-                  <li><a href="javascript:void(0);" data-shirt="womens-mali">Mali</a></li>
-                  <li><a href="javascript:void(0);" data-shirt="womens-dashracerback">Dash Racerback</a></li> -->
                 </ul>
               </div>
 
@@ -340,11 +115,9 @@
                 <ul class="dropdown-menu">
                     @if($kid_shirttypes->count() > 0)
                       @foreach($kid_shirttypes as $index => $kid_shirttype)
-                        <li><a href="javascript:void(0);" data-shirt="kids-{{ Str::lower($kid_shirttype->title) }}"  data-id="{{ $kid_shirttype->id }}">{{ $kid_shirttype->title }}</a></li>
+                        <li><a href="javascript:void(0);" data-shirt="kids-{{ Str::lower($kid_shirttype->filename) }}"  data-id="{{ $kid_shirttype->id }}">{{ $kid_shirttype->title }}</a></li>
                       @endforeach
                     @endif
-                  <!-- <li><a href="javascript:void(0);" data-shirt="kids-tee">Kids Tee</a></li>
-                  <li><a href="javascript:void(0);" data-shirt="kids-mini">Kids Mini</a></li> -->
                 </ul>
               </div>
               
@@ -408,43 +181,6 @@
             <a href="{{ URL::to('product', array(Product::slug($related_product->title), $related_product->id)) }}" class="product-title">{{ $related_product->title }}</a>
           </div>
           @endforeach
-          <!-- <div class="item">
-            <a href="">{{ HTML::image('images/image-placeholder1.png', '',array('style'=>'width:198px;height:198px;')) }}</a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href="">{{ HTML::image('images/image-placeholder1.png', '',array('style'=>'width:198px;height:198px;')) }}</a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href="">{{ HTML::image('images/image-placeholder1.png', '',array('style'=>'width:198px;height:198px;')) }}</a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href="">{{ HTML::image('images/image-placeholder1.png', '',array('style'=>'width:198px;height:198px;')) }}</a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href="">{{ HTML::image('images/image-placeholder1.png', '',array('style'=>'width:198px;height:198px;')) }}</a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href="">{{ HTML::image('images/image-placeholder1.png', '',array('style'=>'width:198px;height:198px;')) }}</a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href="">{{ HTML::image('images/image-placeholder1.png', '',array('style'=>'width:198px;height:198px;')) }}</a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href="">{{ HTML::image('images/image-placeholder1.png', '',array('style'=>'width:198px;height:198px;')) }}</a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div>
-          <div class="item">
-            <a href="">{{ HTML::image('images/image-placeholder1.png', '',array('style'=>'width:198px;height:198px;')) }}</a>
-            <a href="" class="product-title">Design title goes here</a>
-          </div> -->
-            
         </div>
       </div>
     </section>
