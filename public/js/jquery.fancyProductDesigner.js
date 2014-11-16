@@ -497,6 +497,7 @@
 			// zza edit // add to cart
 			var saverequest;
 			var request;
+
 			$(document).ready(function(){
 				$('.add-to-cart-btn').on('click', function(e){
 
