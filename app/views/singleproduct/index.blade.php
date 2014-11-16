@@ -384,7 +384,7 @@
               <div class="share">
                 <h6>SHARE WITH FRIENDS</h6>  
                 <a href="" target="_blank" class="social-icons facebook"><i class="fa fa-facebook"></i></a> 
-                <a href="https://twitter.com/share?url={{ Request::url() }}" target="_blank" class="social-icons"><i class="fa fa-twitter"></i></a>
+                <a href="https://twitter.com/share?url={{ Request::url() }}" target="_blank" class="social-icons twitter"><i class="fa fa-twitter"></i></a>
                 <a href="https://pinterest.com/pin/create/button/?url={{ Request::url() }}&media={{ asset('images/products/'.$product->image) }}&description=
 " target="_blank" class="social-icons"><i class="fa fa-pinterest"></i></a>
 
@@ -629,7 +629,7 @@
             });
 
             //FACEBOOK SHARE
-            //484327941698435
+            // appId: 484327941698435
             window.fbAsyncInit = function() {
             FB.init({
               appId      : '484327941698435',
@@ -646,11 +646,11 @@
              fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
             
-            var productimage = 'http://instathreds.co/images/products/{{ HTML::entities($product->image) }}';
+            var productimage = 'http://instathreds.co/images/products/{{ HTML::decode($product->image) }}';
+            productimage = encodeURI( productimage );
             console.log(productimage);
 
             $('.social-icons.facebook').on('click', function(e){
-                
                 e.preventDefault();
                 FB.ui(
                  {
@@ -662,8 +662,9 @@
                     description: 'This is the description.',
                     message: ''
                 }, function(response){});
-                
             });
+
+            
 
         });
     </script>

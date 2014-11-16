@@ -230,11 +230,16 @@
 					// console.log(elemParams);
 
 					// zza edit (to open respective tab depends on user select)
+
+					console.log(currentElement.params.stockart)
 					if(currentElement.title=="Base") {
+						console.log(1)
 						$('#collapseOne').collapse('show');
-					}else if(currentElement._element!==undefined) {
+					}else if(currentElement.params.stockart!==false && currentElement.params.stockart!==undefined ) {
+						console.log(2)
 						$('#collapseTwo').collapse('show');
 					}else {
+						console.log(3)
 						$('#collapseThird').collapse('show');
 					}
 
@@ -473,35 +478,42 @@
 	        	$customText.show();
 	        });
 
+	        function stripslashes(str) {
+			  return (str + '')
+			    .replace(/\\(.?)/g, function(s, n1) {
+			      switch (n1) {
+			        case '\\':
+			          return '\\';
+			        case '0':
+			          return '\u0000';
+			        case '':
+			          return '';
+			        default:
+			          return n1;
+			      }
+			    });
+			}
+
 			// zza edit // add to cart
 			var saverequest;
 			var request;
 			$('.add-to-cart-btn').on('click', function(e){
 				
 				e.preventDefault();
-
-				//get key and value
-
 				var currentQty = $('input[name="qty"]').val();
 				var frontImage = thisClass.getViewsDataURL()[0];
 				var backImage = thisClass.getViewsDataURL()[1];
+
 				var currentGender = $('input[name=gender]:checked').val();
 				var currentSize = $('.select-size > a').text();
 				var currentPrice = $('#current-price').text();
 				var activeColor = $('.active-color').data('color');
 				var currentShirtType = $('.fpd-products').children('.select').children('a').text();
 				var product = thisClass.getProduct(false);
+				var SCALE_FACTOR = 14;
+				var viewIndexes = 0;
 
-				// console.log(product);
-
-				var addBuilderProductJSON = {
-		          'title': 'Shirt builder product',
-		          'front_image': frontImage,
-		          'back_image': backImage,
-		          'product_details': JSON.stringify(product)		          
-		        };
-
-		        var passes = true;
+				var passes = true;
 		        var errors = new Array();
 		        if(currentQty == '' || currentQty <= 0) {
 		        	passes = false;
@@ -516,14 +528,89 @@
 		        	errors.push("Missing color");
 		        }
 
-		        console.log(currentQty)
+		        // console.log(currentQty)
 
-				// abort any pending request
-				if (saverequest) {
-				  	saverequest.abort();
-				}
+		        if (passes == true) {					
 
-				if (passes == true) {
+					stage.setDimensions({width: stage.width * 3.6, height: stage.height * 3});//3.5//2.8
+					stage.renderAll();
+
+					var objects = stage.getObjects();
+				    for (var i in objects) {
+				    	var object = objects[i];
+
+				    	// console.log(i);
+				    	// console.log(object);
+
+				        if(object.source.indexOf("back") > -1) {
+				        	// if(object[])
+				        	//scale object
+					        object.scaleX = object.scaleX * SCALE_FACTOR;
+					        object.scaleY = object.scaleY * SCALE_FACTOR;
+				    		object.left = objects[i].left * 5.3;
+					        //if you have different views, position views among each other
+					        object.top = (objects[i].top - 1300) + (object.viewIndex * stage.height - 1300);
+				    	}else {
+				    		//scale object
+					        object.scaleX = object.scaleX * SCALE_FACTOR;
+					        object.scaleY = object.scaleY * SCALE_FACTOR;
+				    		object.left = objects[i].left * 5.3;
+					        // if you have different views, position views among each other
+					        object.top = (objects[i].top * 8) + (object.viewIndex * stage.height * 8);
+				    	}				      
+
+				        object.setCoords();
+				        object.visible = true;
+
+						// //apply filters to image objects
+				        if (object.type === 'image' && object.filters.length) {
+				        	console.log(i);
+					      object.applyFilters(function() {
+					        object.canvas.renderAll();
+					      });
+					    }
+
+				        //resize height if necessary
+				        if(object.viewIndex > viewIndexes) {
+				        	viewIndexes++;
+					        stage.setHeight(stage.getHeight() + (stage.getHeight() * viewIndexes));
+				        }
+				    }
+
+				    console.log(objects[0])
+				    objects[3].visible = false;
+				    console.log(objects[3].top -= 4000);
+				    console.log(objects[4]);
+
+				    stage.remove(objects[0]);
+				    if(i==3) {
+				    	stage.remove(objects[3]);	
+				    }
+
+				 //    stage.renderAll();
+
+				    // var bigImage = stage.toDataURL({format: 'png'});	
+
+				    console.log(thisClass.getViewsDataURL()[0]);
+				    console.log(thisClass.getViewsDataURL()[1]);
+				    console.log(frontImage);
+				    console.log(backImage);
+
+				    // return false;
+
+					var addBuilderProductJSON = {
+			          'title': 'Shirt builder product',
+			          'front_image': frontImage,
+			          'back_image': backImage,
+			          'front_print_image': thisClass.getViewsDataURL()[0],
+			          'back_print_image': thisClass.getViewsDataURL()[1],
+			          'product_details': JSON.stringify(product)		          
+			        };
+
+					// abort any pending request
+					if (saverequest) {
+					  	saverequest.abort();
+					}
 
 					saverequest = makeRequest(addBuilderProductJSON, "/shirtbuilder" , "POST");
 
@@ -542,7 +629,9 @@
 									'color' : activeColor,
 									'shirt_type' : currentShirtType,
 									'image' : frontImage,
-									'back_image' : backImage
+									'back_image' : backImage,
+									'print_image' : result.front_print_image,
+									'back_print_image' : result.back_print_image
 								}
 					        };
 
