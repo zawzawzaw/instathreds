@@ -97,13 +97,23 @@
                           <td><a href="{{ $eachordersitemoptions['image'] }}" target="_blank"><img src="{{ $eachordersitemoptions['image'] }}" width="75"></a></td>
                           <td><a href="{{ $eachordersitemoptions['back_image'] }}" target="_blank"><img src="{{ $eachordersitemoptions['back_image'] }}" width="75"></a></td>
                           <td>
-                            <a href="{{ URL::to('/').'/images/builder_products/'.$eachordersitemoptions['print_image'] }}" target="_blank">
-                              {{ HTML::image('/images/builder_products/'.$eachordersitemoptions['print_image'], 'big front', ['width'=>75]) }}
-                            </a>
+                            @if(isset($eachordersitemoptions['print_image']))
+                              <a href="{{ URL::to('/').'/images/builder_products/'.$eachordersitemoptions['print_image'] }}" download="frontimage.png" target="_blank">
+{{ HTML::image('/images/builder_products/'.$eachordersitemoptions['print_image'], 'big back', array('width'=>75)) }}
+                              </a>
+                            @else
+                              {{ 'Not available' }}
+                            @endif
                           </td>
-                          <td><a href="{{ URL::to('/').'/images/builder_products/'.$eachordersitemoptions['back_print_image'] }}" target="_blank">
-                            {{ HTML::image('/images/builder_products/'.$eachordersitemoptions['back_print_image'], 'big back', ['width'=>75]) }}
-                          </a></td>
+                          <td>
+                            @if(isset($eachordersitemoptions['back_print_image']))
+                              <a href="{{ URL::to('/').'/images/builder_products/'.$eachordersitemoptions['back_print_image'] }}" download="backimage.png" target="_blank">
+{{ HTML::image('/images/builder_products/'.$eachordersitemoptions['back_print_image'], 'big back', array('width'=>75)) }}
+                              </a>
+                            @else
+                              {{ 'Not available' }}
+                            @endif
+                          </td>
                           <td>{{ $eachordersitem['price'] }}</td>
                         </tr>
                       @endforeach

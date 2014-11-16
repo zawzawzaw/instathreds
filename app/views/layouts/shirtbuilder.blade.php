@@ -43,6 +43,7 @@
     <!-- Include only if you would like to create a pdf from your product -->
     {{ HTML::script('jspdf/jspdf.min.js') }}
     {{ HTML::script('js/webfont.js') }}
+    {{ HTML::script('js/jquery.blockUI.js') }}
 
     <script type="text/javascript">
 	    
@@ -135,6 +136,19 @@
 			//send image via mail
 			$('#send-image-mail-php').click(function() {
 				$.post( "php/send_image_via_mail.php", { base64_image: yourDesigner.getProductDataURL()} );
+			});
+
+			$('.add-to-cart-btn').on('click', function(e){
+				console.log('hi')
+				$.blockUI({ css: { 
+		            border: 'none', 
+		            padding: '15px', 
+		            backgroundColor: '#000', 
+		            '-webkit-border-radius': '10px', 
+		            '-moz-border-radius': '10px', 
+		            opacity: .5, 
+		            color: '#fff' 
+		        } }); 
 			});
 
 			//upload image

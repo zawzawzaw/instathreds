@@ -151,10 +151,10 @@
 		var _init = function() {
 
 			$preLoader.hide();
-			$(document)
-			  .ajaxStart(function () {
-			    $preLoader.show();
-			  });
+			// $(document)
+			//   .ajaxStart(function () {
+			//     $preLoader.show();
+			//   });
 
 			//preloader
 			$preLoader.children("#status").fadeOut(); // will first fade out the loading animation
@@ -497,177 +497,195 @@
 			// zza edit // add to cart
 			var saverequest;
 			var request;
-			$('.add-to-cart-btn').on('click', function(e){
-				
-				e.preventDefault();
-				var currentQty = $('input[name="qty"]').val();
-				var frontImage = thisClass.getViewsDataURL()[0];
-				var backImage = thisClass.getViewsDataURL()[1];
+			$(document).ready(function(){
+				$('.add-to-cart-btn').on('click', function(e){
 
-				var currentGender = $('input[name=gender]:checked').val();
-				var currentSize = $('.select-size > a').text();
-				var currentPrice = $('#current-price').text();
-				var activeColor = $('.active-color').data('color');
-				var currentShirtType = $('.fpd-products').children('.select').children('a').text();
-				var product = thisClass.getProduct(false);
-				var SCALE_FACTOR = 14;
-				var viewIndexes = 0;
+					e.preventDefault();
 
-				var passes = true;
-		        var errors = new Array();
-		        if(currentQty == '' || currentQty <= 0) {
-		        	passes = false;
-		        	errors.push("Missing qty");
-		        }
-		        if(currentSize == '' || currentSize == "Size") {
-		        	passes = false;
-		        	errors.push("Missing size");
-		        }
-		        if(activeColor == '' || activeColor == null) {
-		        	passes = false;
-		        	errors.push("Missing color");
-		        }
-
-		        // console.log(currentQty)
-
-		        if (passes == true) {					
-
-					stage.setDimensions({width: stage.width * 3.6, height: stage.height * 3});//3.5//2.8
-					stage.renderAll();
-
+					$.blockUI({ 
+						css: { 
+				            border: 'none', 
+				            padding: '15px', 
+				            backgroundColor: '#000', 
+				            '-webkit-border-radius': '10px', 
+				            '-moz-border-radius': '10px', 
+				            opacity: .5, 
+				            color: '#fff' 
+			        	} 
+			        }); 
+								
 					var objects = stage.getObjects();
-				    for (var i in objects) {
-				    	var object = objects[i];
 
-				    	// console.log(i);
-				    	// console.log(object);
+					if(objects[1].params.currentColor==undefined)
+			        	objects[1].params.currentColor = "#FFFFFF";
 
-				        if(object.source.indexOf("back") > -1) {
-				        	// if(object[])
-				        	//scale object
-					        object.scaleX = object.scaleX * SCALE_FACTOR;
-					        object.scaleY = object.scaleY * SCALE_FACTOR;
-				    		object.left = objects[i].left * 5.3;
-					        //if you have different views, position views among each other
-					        object.top = (objects[i].top - 1300) + (object.viewIndex * stage.height - 1300);
-				    	}else {
-				    		//scale object
-					        object.scaleX = object.scaleX * SCALE_FACTOR;
-					        object.scaleY = object.scaleY * SCALE_FACTOR;
-				    		object.left = objects[i].left * 5.3;
-					        // if you have different views, position views among each other
-					        object.top = (objects[i].top * 8) + (object.viewIndex * stage.height * 8);
-				    	}				      
+			        if(objects[4].params.currentColor==undefined)
+			        	objects[4].params.currentColor = "#FFFFFF";
 
-				        object.setCoords();
-				        object.visible = true;
+					var currentQty = $('input[name="qty"]').val();
+					var frontImage = thisClass.getViewsDataURL()[0];
+					var backImage = thisClass.getViewsDataURL()[1];
+					var currentGender = $('input[name=gender]:checked').val();
+					var currentSize = $('.select-size > a').text();
+					var currentPrice = $('#current-price').text();
+					var activeColor = objects[1].params.currentColor; //$('.active-color').data('color');
+					var currentShirtType = $('.fpd-products').children('.select').children('a').text();
+					var product = thisClass.getProduct(false);
+					var SCALE_FACTOR = 23;
+					var viewIndexes = 0;
+					var passes = true;
+			        var errors = new Array();				
+					
+			        if(currentQty == '' || currentQty <= 0) {
+			        	passes = false;
+			        	errors.push("Missing qty");
+			        }
+			        if(currentSize == '' || currentSize == "Size") {
+			        	passes = false;
+			        	errors.push("Missing size");
+			        }
+			        if(activeColor == '' || activeColor == null) {
+			        	var activeColor = objects[1].params.currentColor;
 
-						// //apply filters to image objects
-				        if (object.type === 'image' && object.filters.length) {
-				        	console.log(i);
-					      object.applyFilters(function() {
-					        object.canvas.renderAll();
-					      });
+			        	passes = false;
+			        	errors.push("Missing color");
+			        }
+
+			        // console.log(activeColor);
+			        // console.log(currentQty)
+
+			        if (passes == true) {
+
+						stage.setDimensions({width: 3366, height: stage.height * 3});//3.5//2.8//stage.width * 3.6
+						stage.renderAll();
+
+					    for (var i in objects) {
+					    	var object = objects[i];
+
+					        if(object.viewIndex == 1) {
+						        object.scaleX = object.scaleX * 23;
+						        object.scaleY = object.scaleY * 23;
+					    		object.left = objects[i].left * 5.5;
+						        object.top = (objects[i].top - 1400) + (object.viewIndex * stage.height - 1400);
+					    	}else {
+						        object.scaleX = object.scaleX * SCALE_FACTOR;
+						        object.scaleY = object.scaleY * SCALE_FACTOR;
+					    		object.left = objects[i].left * 5.5;
+						        object.top = (objects[i].top * 7.5) + (object.viewIndex * stage.height * 7.5);
+					    	}
+
+					        object.setCoords();
+					        object.visible = true;
+
+							// //apply filters to image objects
+					        if (object.type === 'image' && object.filters.length) {
+					        	console.log(i);
+						      object.applyFilters(function() {
+						        object.canvas.renderAll();
+						      });
+						    }
+
+					        //resize height if necessary
+					        if(object.viewIndex > viewIndexes) {
+					        	viewIndexes++;
+						        stage.setHeight(stage.getHeight() + (stage.getHeight() * viewIndexes));
+					        }
 					    }
 
-				        //resize height if necessary
-				        if(object.viewIndex > viewIndexes) {
-				        	viewIndexes++;
-					        stage.setHeight(stage.getHeight() + (stage.getHeight() * viewIndexes));
-				        }
-				    }
+					    objects[1].top -= 10000;
+					    objects[2].top -= 10000;
+					    objects[3].top -= 10000;
+					    objects[4].top -= 10000;
+					    objects[5].top -= 10000;
 
-				    console.log(objects[0])
-				    objects[3].visible = false;
-				    console.log(objects[3].top -= 4000);
-				    console.log(objects[4]);
+					    stage.remove(objects[0]);
+					    stage.remove(objects[1]);
+					    stage.remove(objects[2]);
 
-				    stage.remove(objects[0]);
-				    if(i==3) {
-				    	stage.remove(objects[3]);	
-				    }
+					 	// stage.renderAll();
+					    // var bigImage = stage.toDataURL({format: 'png'});
 
-				 //    stage.renderAll();
+					    console.log(thisClass.getViewsDataURL()[0]);
+					    console.log(thisClass.getViewsDataURL()[1]);
+					    console.log(frontImage);
+					    console.log(backImage);
 
-				    // var bigImage = stage.toDataURL({format: 'png'});	
+					    // return false;
 
-				    console.log(thisClass.getViewsDataURL()[0]);
-				    console.log(thisClass.getViewsDataURL()[1]);
-				    console.log(frontImage);
-				    console.log(backImage);
+						var addBuilderProductJSON = {
+				          'title': 'Shirt builder product',
+				          'front_image': frontImage,
+				          'back_image': backImage,
+				          'front_print_image': thisClass.getViewsDataURL()[0],
+				          'back_print_image': thisClass.getViewsDataURL()[1],
+				          'product_details': JSON.stringify(product)		          
+				        };
 
-				    // return false;
+						// abort any pending request
+						if (saverequest) {
+						  	saverequest.abort();
+						}
 
-					var addBuilderProductJSON = {
-			          'title': 'Shirt builder product',
-			          'front_image': frontImage,
-			          'back_image': backImage,
-			          'front_print_image': thisClass.getViewsDataURL()[0],
-			          'back_print_image': thisClass.getViewsDataURL()[1],
-			          'product_details': JSON.stringify(product)		          
-			        };
+						saverequest = makeRequest(addBuilderProductJSON, "/shirtbuilder" , "POST");
 
-					// abort any pending request
-					if (saverequest) {
-					  	saverequest.abort();
+						saverequest.done(function(){
+							var result = jQuery.parseJSON(saverequest.responseText);
+							           
+							if("product_id" in result) {
+							  	var addToCartJSON = {
+									'id': result.product_id,
+									'title': 'Shirt builder product',
+									'price' : currentPrice,
+									'qty' : currentQty,
+									'attr' : {
+										'gender' : currentGender,
+										'size' : currentSize,
+										'color' : activeColor,
+										'shirt_type' : currentShirtType,
+										'image' : frontImage,
+										'back_image' : backImage,
+										'print_image' : result.front_print_image,
+										'back_print_image' : result.back_print_image
+									}
+						        };
+
+						        console.log(addToCartJSON);
+
+						        // abort any pending request
+					          	if (request) {
+					              	request.abort();
+					          	}
+
+					          	request = makeRequest(addToCartJSON, "/cart" , "POST");
+
+								request.done(function(){
+									var result = jQuery.parseJSON(request.responseText);
+
+									console.log(result)
+								           
+									if(result) {
+									  window.location = "/cart";
+									}
+
+								}); 
+							}
+						});    				
+
+					}else {
+						var errorMsg = 'Following errors occurs: \n';
+						$.each(errors, function(i, error){
+							errorMsg += error + '\n';
+						});
+
+						alert(errorMsg);
+						$.unblockUI();
+
 					}
 
-					saverequest = makeRequest(addBuilderProductJSON, "/shirtbuilder" , "POST");
 
-					saverequest.done(function(){
-						var result = jQuery.parseJSON(saverequest.responseText);
-						           
-						if("product_id" in result) {
-						  	var addToCartJSON = {
-								'id': result.product_id,
-								'title': 'Shirt builder product',
-								'price' : currentPrice,
-								'qty' : currentQty,
-								'attr' : {
-									'gender' : currentGender,
-									'size' : currentSize,
-									'color' : activeColor,
-									'shirt_type' : currentShirtType,
-									'image' : frontImage,
-									'back_image' : backImage,
-									'print_image' : result.front_print_image,
-									'back_print_image' : result.back_print_image
-								}
-					        };
-
-					        console.log(addToCartJSON);
-
-					        // abort any pending request
-				          	if (request) {
-				              	request.abort();
-				          	}
-
-				          	request = makeRequest(addToCartJSON, "/cart" , "POST");
-
-							request.done(function(){
-								var result = jQuery.parseJSON(request.responseText);
-
-								console.log(result)
-							           
-								if(result) {
-								  window.location = "/cart";
-								}
-
-							}); 
-						}
-					});    				
-
-				}else {
-					var errorMsg = 'Following errors occurs: \n';
-					$.each(errors, function(i, error){
-						errorMsg += error + '\n';
-					});
-
-					alert(errorMsg);
-				}
-
-
+				});
 			});
+			
 
 			// weird issue 2
 			// $('#collapseOne').find('.gender-select').children('input').first().trigger('change');

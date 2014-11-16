@@ -46,22 +46,34 @@ class ShirtbuilderController extends \BaseController {
 		    
 			$front_base64_str = substr(Input::get('front_print_image'), strpos(Input::get('front_print_image'), ",")+1);
 			$front_decoded = base64_decode($front_base64_str);
-			$back_base64_str = substr(Input::get('back_print_image'), strpos(Input::get('back_print_image'), ",")+1);
-			$back_decoded = base64_decode($back_base64_str);
+
+			// if(!empty(Input::get('back_print_image'))) {
+				$back_base64_str = substr(Input::get('back_print_image'), strpos(Input::get('back_print_image'), ",")+1);
+				$back_decoded = base64_decode($back_base64_str);
+			// }
 
 			$destinationPath = public_path() . "/images/builder_products/";
 			$front_print_image_filename = str_random(6) . '_' . 'front_print_image.png';
-			$back_print_image_filename = str_random(6) . '_' . 'back_print_image.png';
+			
+			// if(!empty(Input::get('back_print_image')))
+				$back_print_image_filename = str_random(6) . '_' . 'back_print_image.png';
+			// else
+				// $back_print_image_filename = '';
+
 			$front_image_url = $destinationPath.$front_print_image_filename;
 			$back_image_url = $destinationPath.$back_print_image_filename;
 
 			$front_result = file_put_contents($front_image_url, $front_decoded);
-			$back_result = file_put_contents($back_image_url, $back_decoded);
+
+			// if(!empty(Input::get('back_print_image')))
+				$back_result = file_put_contents($back_image_url, $back_decoded);
 
 		    if($front_result) 
 		    	$builderproduct->front_print_image = $front_print_image_filename;
 		    if($back_result) 
 		    	$builderproduct->back_print_image = $back_print_image_filename;
+		    else
+		    	$builderproduct->back_print_image = '';
 
 		    $builderproduct->product_details = Input::get('product_details');
 		    $builderproduct->save();

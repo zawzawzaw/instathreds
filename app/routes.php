@@ -196,3 +196,7 @@ Route::resource('admin/categories', 'CategoryController');
 Route::resource('admin/shirttypes', 'ShirttypeController');
 Route::resource('admin/promocodes', 'PromocodeController');
 
+Route::get('testmailer', array(
+  'uses' => 'TestmailerController@index',
+  'as' => 'testmailer'
+));
