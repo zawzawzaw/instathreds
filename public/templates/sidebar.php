@@ -76,6 +76,13 @@ $saved_products_headline = 'Your Saved Products';
 			    </div>
 			    <div id="collapseOne" data-index="0" class="panel-collapse collapse">
 			      <div class="panel-body">
+
+					<div class="side-print">
+						<label for="sidetoprint">Front Print Only</label><input type="radio" name="sidetoprint" value="front" checked>
+						<label for="sidetoprint">Back Print Only</label><input type="radio" name="sidetoprint" value="back">
+						<label for="sidetoprint">Front & Back Print (+$6)</label><input type="radio" name="sidetoprint" value="frontback">
+					</div>
+
 					<div class="gender-select">
 						<label for="gender">Male</label><input type="radio" name="gender" value="male" checked>
 						<label for="gender">Female</label><input type="radio" name="gender" value="female">

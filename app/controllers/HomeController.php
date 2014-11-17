@@ -29,7 +29,7 @@ class HomeController extends BaseController {
 		}
 
 		$categories = Category::all();
-	    $products = Product::paginate(10);
+	    $products = Product::orderby('created_at', 'desc')->paginate(10);
 
 		$this->layout->content = View::make('home.index')
 		->with('username', $username)

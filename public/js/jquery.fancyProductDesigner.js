@@ -478,6 +478,26 @@
 	        	$customText.show();
 	        });
 
+	        /* zza edit back price fix */
+			var objects = stage.getObjects();
+			var thisBasePrice;
+			var $sidetoprint = $('input[name=sidetoprint]');
+			var sidetoPrint = $('input[name=sidetoprint]:checked').val();
+
+			$sidetoprint.on('change', function(e){
+				var onesidedPrice = objects[1].params.price;
+				var twosidedPrice = onesidedPrice + objects[4].params.price;// used back price value as extra charge
+				var params = currentElement.params;
+
+				if($(this).val()=='front') {
+					$elem.trigger('priceChange', [params.price, onesidedPrice]);
+				}else if($(this).val()=='back') {
+					$elem.trigger('priceChange', [params.price, onesidedPrice]);
+				}else {
+					$elem.trigger('priceChange', [params.price, twosidedPrice]);
+				}
+			});
+
 	        function stripslashes(str) {
 			  return (str + '')
 			    .replace(/\\(.?)/g, function(s, n1) {
@@ -2765,29 +2785,6 @@
 			else {
 				alert('Sorry. This type of element is not allowed!');
 				return false;
-			}
-
-			/* zza edit back price fix */
-			var objects = stage.getObjects();
-			var thisBasePrice;
-
-			// front base price
-			if(objects[1]) {
-				currentFrontBasePrice = objects[1].params.price;
-			}else {
-				currentFrontBasePrice = currentPrice;
-			}
-
-			// back base price
-			if(objects[4]) {
-				currentBackBasePrice = objects[4].params.price;
-			}else {
-				currentBackBasePrice = 0;
-			}
-
-			if(params.stockart==true && objParams.viewIndex==1){
-				currentFrontBasePrice += currentBackBasePrice;
-				$elem.trigger('priceChange', [params.price, currentFrontBasePrice]);
 			}
 
 			if(params.price) {

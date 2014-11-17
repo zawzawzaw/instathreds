@@ -23,7 +23,7 @@ class StoreController extends \BaseController {
 
 		//
 		$categories = Category::all();
-	    $products = Product::paginate(20);			
+	    $products = Product::orderby('created_at', 'desc')->paginate(20);
 
 		$this->layout->content = View::make('store.index')
 			->with('username', $username)
