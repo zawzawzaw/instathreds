@@ -23,7 +23,7 @@ class FeaturedController extends \BaseController {
 
 		//
 		$categories = Category::all();
-	    $products = Product::where("featured", "1")->paginate(8);
+	    $products = Product::where("featured", "1")->paginate(20);
 
 		$this->layout->content = View::make('store.index')
 			->with('username', $username)

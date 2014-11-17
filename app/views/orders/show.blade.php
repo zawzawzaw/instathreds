@@ -63,10 +63,20 @@
         <div class="col-sm-12 col-md-12">
           <div class="panel panel-default">
             <div class="panel-body">
-              <h5 class="subtitle mb5">Order No. {{ $order[0]->id }}</h5>
+              <h5 class="subtitle mb5">Order No. {{ $order[0]->id }}</h5><br>
               <p class="mb20">Customer name : {{ $order[0]->contact_first_name. ' '. $order[0]->contact_last_name; }}</p>
               <p class="mb20">Customer email : {{ $order[0]->contact_email }}</p>
               <p class="mb20">Customer phone : {{ $order[0]->contact_phone }}</p>
+              <p class="mb20" style="display: inline-block;float: left;margin-right: 5px;">Redemption : </p>
+              <p style="display: inline-block;">
+                @if(!$order[0]->shippingaddress->isEmpty())
+                  <span>{{ $order[0]->shippingaddress[0]->address_1 }} <br> {{ $order[0]->shippingaddress[0]->address_2 }} <br> {{ $order[0]->shippingaddress[0]->city }} <br> {{ $order[0]->shippingaddress[0]->country }} <br> {{ $order[0]->shippingaddress[0]->post_zip_code }}</span>
+                @elseif(!$order[0]->collection->isEmpty())
+                  <span>Collection at {{ $order[0]->collection[0]->store_location }}</span> 
+                @else
+                  <span>Collection</span>                       
+                @endif
+              </p>
               <div class="table-responsive">
                 <table class="table" id="orders-detailed-table">
                   <thead>
@@ -94,15 +104,31 @@
                           <td>{{ $eachordersitemoptions['color'] }}</td>
                           <td>{{ $eachordersitemoptions['gender'] }}</td>
                           <td>{{ $eachordersitemoptions['size'] }}</td>
-                          <td><a href="{{ $eachordersitemoptions['image'] }}" target="_blank"><img src="{{ $eachordersitemoptions['image'] }}" width="75"></a></td>
-                          <td><a href="{{ $eachordersitemoptions['back_image'] }}" target="_blank"><img src="{{ $eachordersitemoptions['back_image'] }}" width="75"></a></td>
+                          <td>
+                            @if(isset($eachordersitemoptions['image']))
+                            <a href="{{ $eachordersitemoptions['image'] }}" target="_blank">
+                              <img src="{{ $eachordersitemoptions['image'] }}" width="75">
+                            </a>
+                            @else
+                              {{ 'N/A' }}
+                            @endif
+                          </td>
+                          <td>
+                            @if(isset($eachordersitemoptions['back_image']))
+                            <a href="{{ $eachordersitemoptions['back_image'] }}" target="_blank">
+                              <img src="{{ $eachordersitemoptions['back_image'] }}" width="75">
+                            </a>
+                            @else
+                              {{ 'N/A' }}
+                            @endif
+                          </td>
                           <td>
                             @if(isset($eachordersitemoptions['print_image']))
                               <a href="{{ URL::to('/').'/images/builder_products/'.$eachordersitemoptions['print_image'] }}" download="frontimage.png" target="_blank">
 {{ HTML::image('/images/builder_products/'.$eachordersitemoptions['print_image'], 'big back', array('width'=>75)) }}
                               </a>
                             @else
-                              {{ 'Not available' }}
+                              {{ 'N/A' }}
                             @endif
                           </td>
                           <td>
@@ -111,7 +137,7 @@
 {{ HTML::image('/images/builder_products/'.$eachordersitemoptions['back_print_image'], 'big back', array('width'=>75)) }}
                               </a>
                             @else
-                              {{ 'Not available' }}
+                              {{ 'N/A' }}
                             @endif
                           </td>
                           <td>{{ $eachordersitem['price'] }}</td>
