@@ -127,7 +127,7 @@ $saved_products_headline = 'Your Saved Products';
 		  	</div>
 		  	<div class="panel panel-default">
 				<div class="panel-heading">
-					<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+					<a id="openSelectImage" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
 					  <img src="images/fpd/icon-camera.png">Select Image
 					</a>
 				</div>

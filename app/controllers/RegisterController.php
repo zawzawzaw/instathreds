@@ -36,6 +36,18 @@ class RegisterController extends \BaseController {
 		    $user->email = Input::get('email');
 		    $user->password = Hash::make(Input::get('password'));
 		    $user->save();
+
+		    $data = array();
+			$data['username'] = Input::get('username');
+			$data['email'] = Input::get('email');
+
+			// return $data;
+
+		 	Mail::send('emails.welcome', $data, function($message)
+			{
+				$message->from('info@instathreds.co', 'Instathreds');
+			    $message->to(Input::get('email'), Input::get('username'))->subject('Account Created On Instathreds!');
+			});
 		 
 		    return Redirect::to('/')->with('register_message', 'Thanks for registering! You may now login.');
 

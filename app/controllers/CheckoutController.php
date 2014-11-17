@@ -254,25 +254,25 @@ class CheckoutController extends \BaseController {
 
 			Mail::send('emails.notifyadmin', $data, function($message)
 			{
-				$message->from('admin@instathreds.co', 'Instathreds');
+				$message->from('info@instathreds.co', 'Instathreds');
 			    $message->to('info@instathreds.co', 'info@instathreds')->subject('Order Received On Instathreds!');
 			});
 
 			Mail::send('emails.notifyadmin', $data, function($message)
 			{
-				$message->from('admin@instathreds.co', 'Instathreds');
+				$message->from('info@instathreds.co', 'Instathreds');
 			    $message->to('us@roundhouse.cc', 'roundhouse')->subject('Order Received On Instathreds!');
 			});
 
 			Mail::send('emails.notifyadmin', $data, function($message)
 			{
-				$message->from('admin@instathreds.co', 'Instathreds');
+				$message->from('info@instathreds.co', 'Instathreds');
 			    $message->to('zawzawzaw@hotmail.co.uk', 'zawzawzaw')->subject('Order Received On Instathreds!');
 			});
 
 			Mail::send('emails.notifyadmin', $data, function($message)
 			{
-				$message->from('admin@instathreds.co', 'Instathreds');
+				$message->from('info@instathreds.co', 'Instathreds');
 			    $message->to('karloestrada@gmail.com', 'karlo')->subject('Order Received On Instathreds!');
 			});
 

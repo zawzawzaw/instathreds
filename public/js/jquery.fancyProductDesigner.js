@@ -231,7 +231,7 @@
 
 					// zza edit (to open respective tab depends on user select)
 
-					console.log(currentElement.params.stockart)
+					console.log(currentElement.params)
 					if(currentElement.title=="Base") {
 						console.log(1)
 						$('#collapseOne').collapse('show');
@@ -757,7 +757,7 @@
 			$('#imageSelectTab a').click(function (e) {
 			  e.preventDefault()
 			  $(this).tab('show')
-			})
+			});
 
 			//check if custom text is supported
 			if(options.customTexts) {
@@ -834,6 +834,7 @@
 
 								//check if its too big
 								options.customImagesParameters.scale = _getScalingByDimesions(imageW, imageH, options.customImagesParameters.resizeToW, options.customImagesParameters.resizeToH);
+								options.customImagesParameters.stockart = true
 
 					    		thisClass.addElement(
 					    			'image',
@@ -860,6 +861,15 @@
 			// get param
 			var param_access_token = window.location.hash;
 			param_access_token = param_access_token.replace("#access_token=", "");
+
+			if(param_access_token){
+				$('#openSelectImage').collapse('hide');
+				$('a#openSelectImage').trigger('click');
+				$('#imageSelectTab a:first').tab('show');
+			}else {
+				// zza edit had to manually click on first tab so other tab close on object selection // weird issue
+				$('a#openSelectShirt').trigger('click');
+			}
 
 			// zza edit check if user can add photos from instagram
 			if(options.instagramAppId && options.instagramAppId.length > 0) {
@@ -893,9 +903,19 @@
 							  	$inUserPhotosList.append('<li><span class="fpd-loading-gif"></span><img src="'+obj.images.thumbnail.url+'" title="'+obj.id+'" data-picture="'+obj.images.standard_resolution.url+'" style="display: none;" /></li>')
 									.children('li:last').click(function(evt) {
 
+										$.blockUI({ 
+											css: { 
+									            border: 'none', 
+									            padding: '15px', 
+									            backgroundColor: '#000', 
+									            '-webkit-border-radius': '10px', 
+									            '-moz-border-radius': '10px', 
+									            opacity: .5, 
+									            color: '#fff' 
+								        	} 
+								        }); 
+
 										evt.preventDefault();
-										$('#preloader').show();
-										$productLoader.show();
 
 										var $img = $(this).children('img');
 
@@ -905,6 +925,8 @@
 
 											if(data && data.error == undefined) {
 
+												$.unblockUI();
+
 												var picture = new Image();
 												picture.src = data.data_url;
 												picture.onload = function() {
@@ -913,7 +935,8 @@
 														this.width,
 														this.height,
 														options.customImagesParameters.resizeToW,
-														options.customImagesParameters.resizeToH
+														options.customImagesParameters.resizeToH,
+														options.customImagesParameters.stockart = true
 													);
 
 													thisClass.addElement('image', this.src, $img.attr('title'), options.customImagesParameters, currentViewIndex);
@@ -1351,10 +1374,6 @@
 			  		_deselectElement();
 			  	}
 			});
-
-			// zza edit had to manually click on first tab so other tab close on object selection // weird issue
-			$('a#openSelectShirt').trigger('click');
-
 
 			$('#collapseOne').find('.gender-select').children('input').on('change', function(e){
 				var test = stage;
