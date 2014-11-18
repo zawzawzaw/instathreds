@@ -7,7 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="_token" content="{{ csrf_token() }}" />
+
     <title>Instathreds</title>
+
+    <link rel="shortcut icon" type="image/ico" href="https://instathreds.co/images/favicon.ico" />
 
     {{ HTML::style('//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css') }}
     {{ HTML::style('css/screen.css') }}
@@ -59,7 +62,7 @@
         <li><a href="{{ route('shirtbuilder.index') }}" target="_blank">Make Your Own</a></li>
         <li><a href="{{ route('store.index') }}">Choose a Design</a></li>
         <li><a href="{{ route('contact') }}">Stores</a></li>
-        <li><a href="http://blog.instathreds.co" target="_blank">Blog</a></li>
+        <li><a href="http://blog.instathreds.co">Blog</a></li>
         <li><a href="{{ URL::route('static.faq') }}">Calling All Designers</a></li>
         <li><a href="{{ route('static.ourstory') }}">Our Story</a></li>
         <li><a href="{{ route('contact') }}">Bulk Orders</a></li>
@@ -73,7 +76,7 @@
       <div class="header-top">
         <div class="container">
             <div class="float-left">
-              <h6 class="contact-us"><a href="{{ route('contact') }}">CONTACT US</a> 1300 468 453</h6>
+              <h6 class="contact-us"><a href="{{ route('contact') }}">CONTACT US</a> PH. 1300 469 453</h6>
             </div>
             <div class="search-form">
                 {{ Form::open(array('url' => 'search', 'method' => 'post', 'class' => 'search-product')) }}
