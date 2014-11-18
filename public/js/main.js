@@ -273,6 +273,54 @@ $( document ).ready(function() {
 
     });
 
+	var request;
+    $('.subscribe-designer-btn').on('click', function(e){
+
+    	var subscriber_name = $('#subscriber_name').val();
+    	var subscriber_email = $('#subscriber_email').val();
+
+    	if(validateEmail(subscriber_email)) {
+    		var subscribeJSON = {};
+	    	subscribeJSON.subscriber_name = subscriber_name;
+	    	subscribeJSON.subscriber_email = subscriber_email;
+
+	    	// abort any pending request
+			if (request) {
+			  	request.abort();
+			}
+
+			request = makeRequest(subscribeJSON, "/subscribe/designer" , "POST");
+
+			request.done(function(){
+				var result = $.parseJSON(request.responseText);
+
+				console.log(result);
+				           
+				// if(result) {
+				//   if($('.msg').length === 0) {
+		  //   			$('.newsletter-signup').append('<p class="msg">'+result+'</p>');
+		  //   		}else {
+		  //   			$('.msg').text(result).css('color', 'black').fadeIn('slow');
+		  //   		}
+		  //   		setTimeout(function() {
+			 //           $('.msg').fadeOut('slow');
+		  //         	}, 5000 );
+				// }
+
+			});  
+    	}else {
+    		if($('.msg').length === 0) {
+    			$('.betaprogram').append('<p class="msg" style="color:red;">Invalid email address</p>');
+    		}else {
+    			$('.msg').text('Invalid email address').css('color', 'red').fadeIn('slow');
+    		}
+    		setTimeout(function() {
+	           $('.msg').fadeOut('slow');
+          	}, 5000 );
+    	} 
+
+    });
+
 	$('.save-avatar').on('click', function(e){
       $(this).closest('form').submit();
     });

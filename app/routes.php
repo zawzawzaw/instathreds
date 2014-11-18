@@ -120,6 +120,11 @@ Route::post('subscribe', array(
   'as' => 'subscribe'
 ));
 
+Route::post('subscribe/designer', array(
+  'uses' => 'SubscribeController@designer',
+  'as' => 'subscribe.designer'
+));
+
 Route::post('checkout/checkpromocode', array(
   'uses' => 'CheckoutController@checkpromocode',
   'as' => 'checkout.checkpromocode'

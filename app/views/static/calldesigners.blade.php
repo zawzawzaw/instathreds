@@ -73,10 +73,10 @@
                 <div class="panel betaprogram">
                   <h5>JOIN THE BETA PROGRAM</h5>
                   <div class="form-group">
-                    <input type="text" placeholder="Name">    
+                    <input type="text" name="subscriber_name" placeholder="Name">    
                   </div>
                   <div class="form-group">
-                    <input type="text" placeholder="Email Address">    
+                    <input type="text" name="subscriber_email" placeholder="Email Address">    
                   </div>
                   <div class="form-group">
                     <button class="btn btn-primary">SIGN UP</button>
