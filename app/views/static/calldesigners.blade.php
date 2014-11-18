@@ -73,13 +73,13 @@
                 <div class="panel betaprogram">
                   <h5>JOIN THE BETA PROGRAM</h5>
                   <div class="form-group">
-                    <input type="text" name="subscriber_name" placeholder="Name">    
+                    <input type="text" name="subscriber_name" id="subscriber_name" placeholder="Name">    
                   </div>
                   <div class="form-group">
-                    <input type="text" name="subscriber_email" placeholder="Email Address">    
+                    <input type="text" name="subscriber_email" id="subscriber_email" placeholder="Email Address">    
                   </div>
                   <div class="form-group">
-                    <button class="btn btn-primary">SIGN UP</button>
+                    <button class="btn btn-primary subscribe-designer-btn">SIGN UP</button>
                   </div> 
                 </div>
                 <p class="notify-text">AND WE WILL NOTIFY YOU OF YOUR<br>IMPENDING FAME AND FORTUNE</p>

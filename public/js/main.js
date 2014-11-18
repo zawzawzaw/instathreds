@@ -294,18 +294,18 @@ $( document ).ready(function() {
 			request.done(function(){
 				var result = $.parseJSON(request.responseText);
 
-				console.log(result);
+				// console.log(result);
 				           
-				// if(result) {
-				//   if($('.msg').length === 0) {
-		  //   			$('.newsletter-signup').append('<p class="msg">'+result+'</p>');
-		  //   		}else {
-		  //   			$('.msg').text(result).css('color', 'black').fadeIn('slow');
-		  //   		}
-		  //   		setTimeout(function() {
-			 //           $('.msg').fadeOut('slow');
-		  //         	}, 5000 );
-				// }
+				if(result) {
+				  if($('.msg').length === 0) {
+		    			$('.betaprogram').append('<p class="msg">'+result+'</p>');
+		    		}else {
+		    			$('.msg').text(result).css('color', 'black').fadeIn('slow');
+		    		}
+		    		setTimeout(function() {
+			           $('.msg').fadeOut('slow');
+		          	}, 5000 );
+				}
 
 			});  
     	}else {
