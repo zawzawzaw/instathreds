@@ -37,9 +37,12 @@ class RegisterController extends \BaseController {
 		    $user->password = Hash::make(Input::get('password'));
 		    $user->save();
 
+		    $pwd_char_count = strlen(Input::get('password'));
+
 		    $data = array();
 			$data['username'] = Input::get('username');
 			$data['email'] = Input::get('email');
+			$data['pwd_char_count'] = $pwd_char_count;
 
 			// return $data;
 

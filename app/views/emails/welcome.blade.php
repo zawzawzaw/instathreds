@@ -152,11 +152,14 @@
   <tr bgcolor="#ffffff">
     <td colspan="2">
       <div style="padding:20px;">
-        <h1>Your Instathreds Account "{{ $username }}" has been created.</h1>
+        <h1>Hi,</h1>
 
-        <p>
-        Welcome,<br> 
-        Your account has been created successfully using {{ $email }}. Thanks again for joining us. Your account may benefits for you to store and access previous orders, store all the details for faster checkout process. Have fun!<br>
+        <p>Thanks for signing up to Instathreds.<br>
+        Please save this email for your records</p>
+
+        <p>Your email: {{ $email }}</p>
+        <p>Your username: {{ $username }}</p>
+        <p>Your password: @for($i=0;$i<$pwd_char_count;$i++){{ '*' }}@endfor</p>
 
       </div>  
     </td>

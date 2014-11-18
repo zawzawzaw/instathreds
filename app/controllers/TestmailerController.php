@@ -12,27 +12,32 @@ class TestmailerController extends \BaseController {
 		//
 		// $your_email = Input::get('email');
 		$data = array();
-		$data['order_id'] = 0000000;
-		$data['redemption_type'] = '';
-		$data['store_location'] = '';
-		$data['shipping_method'] = '';
-		$data['order_items'] = array();
-		$data['items_cost'] = 0;
-		$data['shipping_cost'] = 0;
-		$data['sub_total'] = 0;
-		$data['discount_amount'] = 0;
-		$data['total'] = 0;
+		// $data['order_id'] = 0000000;
+		// $data['redemption_type'] = '';
+		// $data['store_location'] = '';
+		// $data['shipping_method'] = '';
+		// $data['order_items'] = array();
+		// $data['items_cost'] = 0;
+		// $data['shipping_cost'] = 0;
+		// $data['sub_total'] = 0;
+		// $data['discount_amount'] = 0;
+		// $data['total'] = 0;
+
+		$pwd_char_count = strlen('p@ssword');
+		$data['username'] = 'zawzawzaw';
+		$data['email'] = 'test@email.com';
+		$data['pwd_char_count'] = $pwd_char_count;
 
 
-		Mail::send('emails.notifyadmin', $data, function($message)
+		// Mail::send('emails.notifyadmin', $data, function($message)
+		// {
+		// 	$message->from('admin@instathreds.co', 'Instathreds');
+		//     $message->to('info@instathreds.co', 'info@instathreds')->subject('Order Received On Instathreds!');
+		// });
+
+		Mail::send('emails.welcome', $data, function($message)
 		{
-			$message->from('admin@instathreds.co', 'Instathreds');
-		    $message->to('info@instathreds.co', 'info@instathreds')->subject('Order Received On Instathreds!');
-		});
-
-		Mail::send('emails.notifyadmin', $data, function($message)
-		{
-			$message->from('admin@instathreds.co', 'Instathreds');
+			$message->from('info@instathreds.co', 'Instathreds');
 		    $message->to('zawzawzaw@gmail.com', 'info@instathreds')->subject('Order Received On Instathreds!');
 		});
 	}
