@@ -1312,7 +1312,7 @@ h3.divider-word span { background: none repeat scroll 0 0 #fff; border: 0 none; 
 .total-panel .coupon .coupon-input { width: 260px; }
 @media (max-width: 480px) { .total-panel .coupon .coupon-input { width: 200px; } }
 
-.total-panel .total { position: relative; display: block; overflow: hidden; background: #fff; border: 1px solid #999; width: 40%; min-height: 50px; padding: 10px; -webkit-border-radius: 5px; border-radius: 5px; background-clip: padding-box; /* stops bg color from leaking outside the border: */ }
+.total-panel .total { position: relative; display: block; overflow: hidden; float: right; background: #fff; border: 1px solid #999; width: 40%; min-height: 50px; padding: 10px; -webkit-border-radius: 5px; border-radius: 5px; background-clip: padding-box; /* stops bg color from leaking outside the border: */ }
 @media (max-width: 480px) { .total-panel .total { width: 100%; margin-top: 20px; } }
 
 .total-panel .total table { width: 100%; }

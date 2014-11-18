@@ -80,7 +80,7 @@
         <!-- total -->
         @if(Cart::count() > 0)
         <div class="total-panel">
-          <div class="coupon">
+          <div class="coupon" style="display:none;">
             <h6>Enter your gift, coupon or store code</h6>
             {{ Form::open(array('url'=>'checkout', 'class'=>'checkout-form', 'style'=>'display:inline;')) }}
               <input type="text" name="promo_code" class="text promo_code" placeholder="ENTER CODE">
