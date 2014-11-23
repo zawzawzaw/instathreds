@@ -79,41 +79,52 @@
               <div class="eight column">
                 <div class="panel">
                   <h5>SEND US A MESSAGE</h5>
+                  @if(Session::has('contact_message'))
+                      <p class="alert">{{ Session::get('contact_message') }}</p>
+                  @endif
+                  <ul style="margin: 10px 0;">
+                  @foreach($errors->all() as $error)
+                      <li style="color:red;padding: 5px 0;list-style-type:disc;">{{ $error }}</li>
+                  @endforeach
+                  </ul>
+                  {{ Form::open(array('url' => '/contact/submit/', 'method' => 'post')) }}
                   <div class="form-group">
-                    <input type="text" name="" class="text form-control" value="" placeholder="First Name">
+                    <input type="text" name="first_name" class="text form-control" value="" placeholder="First Name">
                   </div>
                   <div class="form-group">
-                    <input type="text" name="" class="text form-control" placeholder="Last Name">
+                    <input type="text" name="last_name" class="text form-control" placeholder="Last Name">
                   </div>
                   <div class="form-group">
-                    <input type="text" name="" class="text form-control" placeholder="Business/Company Name">
+                    <input type="text" name="company_name" class="text form-control" placeholder="Business/Company Name">
                   </div>
                   <div class="form-group">
-                    <input type="text" name="" class="text form-control" placeholder="Email Address">
+                    <input type="text" name="email" class="text form-control" placeholder="Email Address">
                   </div>
                   <div class="form-group">
-                    <input type="text" name="" class="text form-control" placeholder="Phone">
+                    <input type="text" name="phone" class="text form-control" placeholder="Phone">
                   </div>
                   <div class="form-group">
                     <div class="select-style">
-                      <select name="" id="enquiry-select">
+                      <select name="enquiry" id="enquiry-select">
                         <option value="">THIS ENQUIRY IS ABOUT</option>
-                        <option value="">ROBINA STORE</option>
-                        <option value="">CARINDALE STORE</option>
-                        <option value="">GARDEN CITY STORE</option>
-                        <option value="">BULK ORDERS</option>
-                        <option value="">PRINT ORDERS</option>
-                        <option value="">GENERAL ENQUIRY</option>
+                        <option value="ROBINA STORE">ROBINA STORE</option>
+                        <option value="CARINDALE STORE">CARINDALE STORE</option>
+                        <option value="GARDEN CITY STORE">GARDEN CITY STORE</option>
+                        <option value="BULK ORDERS">BULK ORDERS</option>
+                        <option value="PRINT ORDERS">PRINT ORDERS</option>
+                        <option value="GENERAL ENQUIRY">GENERAL ENQUIRY</option>
                       </select>
                     </div>
                   </div>
                   <div class="form-group">
-                    <textarea class="enquiry form-control">Your Message / Print / Bulk Order Details</textarea>
+                    <textarea name="message" class="form-control">Your Message / Print / Bulk Order Details</textarea>
                   </div>
                   <div class="form-group">
-                    <button class="btn btn-primary">SUBMIT</button>
+                    <!-- <button class="btn btn-primary">SUBMIT</button> -->
+                    {{ Form::token() }}
+                    <input type="submit" class="btn btn-primary" value="SUBMIT">
                   </div>
-                  
+                  {{ Form::close() }}
               </div>
 
                   

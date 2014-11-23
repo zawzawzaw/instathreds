@@ -68,9 +68,19 @@ Route::match(array('GET', 'POST'), 'account/settings/cancel', array(
   'as' => 'account.settings.cancel'
 ));
 
-Route::get('contact', array(
+// Route::get('contact', array(
+//   'uses' => 'ContactController@index',
+//   'as' => 'contact'
+// ));
+
+Route::match(array('GET'), 'contact', array(
   'uses' => 'ContactController@index',
   'as' => 'contact'
+));
+
+Route::match(array('POST'), 'contact/submit', array(
+  'uses' => 'ContactController@submit',
+  'as' => 'contact.submit'
 ));
 
 

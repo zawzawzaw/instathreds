@@ -26,6 +26,7 @@ $reset_tooltip = 'Reset Product';
 	<!-- Kinetic Stage -->
 	<div class="fpd-product-stage fpd-content-color">
 		<canvas></canvas>
+		<canvas id="resized-canvas" style="visibility:hidden;">
 		<span class="price badge badge-inverse"><span id="current-price"></span> $</span>
 	</div>
 </section>

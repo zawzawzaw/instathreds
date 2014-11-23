@@ -104,7 +104,7 @@ class CheckoutController extends \BaseController {
 		    			$shipping_method = "Standard";
 		    		}
 		    		else {
-		    			$shipping_cost = 20;
+		    			$shipping_cost = 15;
 		    			$shipping_method = "Express";
 		    		}
 		    	}
