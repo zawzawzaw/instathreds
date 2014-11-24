@@ -588,8 +588,8 @@
 			        if (passes == true) {
 
 			        	console.log('before stage width: '+ stage.width+ 'stage.height' + stage.height );
-			        	var oldWidth = parseInt(stage.width);
-			        	var oldHeight = parseInt(stage.height);
+			        	var oldWidth = 173;//parseInt(stage.width)
+			        	var oldHeight = 314;//parseInt(stage.height)
 
 						// stage.setDimensions({width: 3366, height: stage.height * 3});//3.5//2.8//stage.width * 3.6
 						stage.setDimensions({width: 3600, height: 2100 }); //somehow doubling height at some point //stage.width * ORG_FACTOR , (stage.height * ORG_FACTOR)/1.5
@@ -611,8 +611,8 @@
 						        object.setCoords();
 						        // object.centerH();
 						        // object.centerV(); // object.top = parseFloat(stage.height/2);
-						        object.left = parseFloat((3600 * (object.left)) / oldWidth);
-						        object.top = parseFloat((4200 * (object.top)) / oldHeight);
+						        object.left = parseFloat((3600 * (object.left - 163)) / oldWidth);
+						        object.top = parseFloat((4200 * (object.top - 77)) / oldHeight);
 				        	}
 				        	// else {
 				        	// 	object.scaleX = parseFloat(SCALE_FACTOR * object.scaleX);
@@ -3137,8 +3137,8 @@
 			sidebarNavWidth: 50,
 			sidebarContentWidth: 200,
 			sidebarHeight: 950,
-			productStageWidth: windowWidth - 335,
-			productStageHeight: 800
+			productStageWidth: windowWidth - 335, //514
+			productStageHeight: 800 //460
 		},//the dimensions for the product designer
 		facebookAppId: '', //to add photos from facebook, you have to set your own facebook api key
 		instagramAppId: '1a2bb373cd9f4775b7720eb5005a04f6', //to add photos from facebook, you have to set your own facebook api key
