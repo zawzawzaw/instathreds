@@ -60,6 +60,18 @@ class ContactController extends \BaseController {
 			    $message->to('info@instathreds.co', 'Instathreds')->subject('Received message from Instathreds website!');
 			});
 
+			Mail::send('emails.contact', $data, function($message)
+			{
+				$message->from(Input::get('email'), Input::get('username'));
+			    $message->to('zawzawzaw@gmail.com', 'Instathreds')->subject('Received message from Instathreds website!');
+			});
+
+			Mail::send('emails.contact', $data, function($message)
+			{
+				$message->from(Input::get('email'), Input::get('username'));
+			    $message->to('karloestrada@gmail.com', 'Instathreds')->subject('Received message from Instathreds website!');
+			});
+
 			return Redirect::to('contact')->withInput()->with('contact_message', 'Your message has successfully sent!');
 		}
 

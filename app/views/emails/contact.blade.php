@@ -158,7 +158,7 @@
 
         <p>First Name: {{ $first_name }}</p>
         <p>Last Name: {{ $last_name }}</p>
-        <p>Email: {{ $email }}</p>
+        <p style="color: #000!important;">Email: {{ $email }}</p>
         <p>Company Name: {{ $company_name or 'N/A' }}</p>
         <p>Phone: {{ $phone }}</p>
         <p>Enquiry: {{ $enquiry }}</p>
