@@ -10,7 +10,7 @@
     {{ HTML::style('bootstrap/css/bootstrap.css') }}
     
     <!-- Google Webfonts -->
-    {{ HTML::style('http://fonts.googleapis.com/css?family=Gorditas') }}
+    {{ HTML::style('http://fonts.googleapis.com/css?family=Gorditas|Open Sans|Droid Sans|PT Sans|Lato|Oswald|Droid Serif|Roboto|Lora|Libre Baskerville|Josefin Slab|Arvo|Ubuntu|Raleway|Source Sans Pro|Lobster|PT Serif|Old Standard TT|Volkorn|Gravitas One|Merriweather') }}
 
     <!-- Font-awesome for the icons -->
     {{ HTML::style('//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css') }}
@@ -52,7 +52,7 @@
 	    	var yourDesigner = $('#clothing-designer').fancyProductDesigner({
 	    		editorMode: false,
 	    		centerInBoundingbox:true, 
-	    		fonts: ['Arial', 'Fearless', 'Helvetica', 'Times New Roman', 'Verdana', 'Geneva', 'Gorditas'],
+	    		fonts: ['Arial', 'Fearless', 'Helvetica', 'Times New Roman', 'Verdana', 'Geneva', 'Gorditas', 'Open Sans', 'Droid Sans', 'PT Sans', 'Lato', 'Oswald', 'Droid Serif', 'Roboto', 'Lora', 'Libre Baskerville', 'Josefin Slab', 'Arvo', 'Ubuntu', 'Raleway', 'Source Sans Pro', 'Lobster', 'PT Serif', 'Old Standard TT', 'Volkorn', 'Gravitas One', 'Merriweather'],
 	    		customTextParameters: {colors: "#000", removable: true, resizable: true, draggable: true, rotatable: true, autoCenter: true, boundingBox: {"x": 265, "y": 236, "width": 150, "height": 300}},
 	    		uploadedDesignsParameters: {draggable: true, removable: true, resizable: true, rotatable: true, colors: '#000', autoCenter: true, boundingBox: {"x": 265, "y": 236, "width": 150, "height": 300}},
 	    		zoomFactor: 1
