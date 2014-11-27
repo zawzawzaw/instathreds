@@ -103,7 +103,7 @@
                     <option value="Argentina">Argentina</option>
                     <option value="Armenia">Armenia</option>
                     <option value="Aruba">Aruba</option>
-                    <option value="Australia">Australia</option>
+                    <option value="Australia" selected="selected">Australia</option>
                     <option value="AT">Austria</option>
                     <option value="AZ">Azerbaijan</option>
                     <option value="Bahamas">Bahamas</option>

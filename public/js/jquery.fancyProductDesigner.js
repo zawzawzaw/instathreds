@@ -3117,7 +3117,7 @@
 			confirmProductDelete: "Delete saved product?",
 			modificationTooltips: {x: "x: ", y: " y: ", width: "width: ", height: " height: ", angle: "angle: "},
 			colorpicker : {cancel: "Cancel", change: "Change Color"},
-			uploadedDesignSizeAlert: "Sorry! But the uploaded image size does not conform our indication of size."
+			uploadedDesignSizeAlert: "Sorry! But the uploaded image size should be between 500x500 to 2500x2500."
 		}, //Set custom labels for the titles
 		allowProductSaving: true, //Allows the users to save products in a list
 		centerInBoundingbox: true, //center added elemets with a bounding box automatically
@@ -3125,10 +3125,10 @@
 		saveAsPdf: true, //shows the button in the product stage to save product as pdf
 		uploadDesigns: true, //users can upload own designs from the sidebar
 		customImagesParameters: {
-			minW: 100, //the minimum upload size width
-			minH: 100, //the minimum upload size height
-			maxW: 1500, //the maximum upload size width
-			maxH: 1500, //the maximum upload size height
+			minW: 500, //the minimum upload size width
+			minH: 500, //the minimum upload size height
+			maxW: 2500, //the maximum upload size width
+			maxH: 2500, //the maximum upload size height
 			resizeToW: 300, //resizes the uploaded image to this width, when width is larger than height
 			resizeToH: 300 //resizes the uploaded image to this height, when height is larger than width
 		}, //additional parameters for uploaded designs, will merge with the default parameters

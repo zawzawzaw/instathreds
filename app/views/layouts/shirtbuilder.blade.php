@@ -342,7 +342,7 @@
 				
 				<!-- DESIGNS -->
 		  		<div class="fpd-design">
-		  			<div class="fpd-category" title="Animals">
+		  			<!-- <div class="fpd-category" title="Animals">
 			  			<img src="images/stockart/animals/animals_bear.svg" title="Bear" data-parameters='{"zChangeable": false, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 300, "width": 150, "x": 265, "y": 236}, "autoCenter": true, "stockart": true}' />
 				  		<img src="images/stockart/animals/animals_beaver.svg" title="Bear" data-parameters='{"zChangeable": false, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 300, "width": 150, "x": 265, "y": 236}, "autoCenter": true, "stockart": true}' />
 				  		<img src="images/stockart/animals/animals_bird.svg" title="Bird" data-parameters='{"zChangeable": false, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 300, "width": 150, "x": 265, "y": 236}, "autoCenter": true, "stockart": true}' />
@@ -356,7 +356,7 @@
 				  		<img src="images/stockart/animals/animals_kangaroo.svg" title="Kangaroo" data-parameters='{"zChangeable": false, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 300, "width": 150, "x": 265, "y": 236}, "autoCenter": true, "stockart": true}' />
 				  		<img src="images/stockart/animals/animals_koala.svg" title="Koala" data-parameters='{"zChangeable": false, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 300, "width": 150, "x": 265, "y": 236}, "autoCenter": true, "stockart": true}' />
 				  		<img src="images/stockart/animals/animals_moose.svg" title="Moose" data-parameters='{"zChangeable": false, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 300, "width": 150, "x": 265, "y": 236}, "autoCenter": true, "stockart": true}' />
-		  			</div>
+		  			</div> -->
 		  			
 		  			<div class="fpd-category" title="Icons">
 			  			<img src="images/stockart/icons/icons_award.svg" title="Award" data-parameters='{"zChangeable": false, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 300, "width": 150, "x": 265, "y": 236}, "autoCenter": true, "stockart": true}' />
@@ -440,4 +440,13 @@
           	</div>
 	    </div>
     </body>
+
+    <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-57142573-1', 'auto');
+	  ga('send', 'pageview');
+	</script>
 </html>
