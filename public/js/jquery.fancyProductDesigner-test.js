@@ -517,224 +517,233 @@
 			// zza edit // add to cart
 			var saverequest;
 			var request;
-
+			var resizedStage = new fabric.Canvas('recreation-canvas', {});
+			var ORG_FACTOR = 4;
+			var SCALE_FACTOR = ORG_FACTOR * 5;
+			resizedStage.setDimensions({width: resizedStage.width * SCALE_FACTOR, height: resizedStage.height * SCALE_FACTOR});
 			$(document).ready(function(){
 				$('.add-to-cart-btn').on('click', function(e){
+					var json = JSON.stringify(thisClass.getFabricJSON());
 
-					e.preventDefault();
+					console.log(json);
 
-					$.blockUI({ 
-						css: { 
-				            border: 'none', 
-				            padding: '15px', 
-				            backgroundColor: '#000', 
-				            '-webkit-border-radius': '10px', 
-				            '-moz-border-radius': '10px', 
-				            opacity: .5, 
-				            color: '#fff' 
-			        	} 
-			        }); 
-								
-					var objects = stage.getObjects();
+					resizedStage.loadFromJSON(json, function () {
 
-					if(objects[1].params.currentColor==undefined)
-			        	objects[1].params.currentColor = "#FFFFFF";
+						e.preventDefault();
 
-			        if(objects[4].params.currentColor==undefined)
-			        	objects[4].params.currentColor = "#FFFFFF";
+						$.blockUI({ 
+							css: { 
+					            border: 'none', 
+					            padding: '15px', 
+					            backgroundColor: '#000', 
+					            '-webkit-border-radius': '10px', 
+					            '-moz-border-radius': '10px', 
+					            opacity: .5, 
+					            color: '#fff' 
+				        	} 
+				        }); 
+									
+						resizedStage.renderAll();
+						var objects = resizedStage.getObjects();
 
-					var currentQty = $('input[name="qty"]').val();
-					var frontImage = thisClass.getViewsDataURL()[0];
-					var backImage = thisClass.getViewsDataURL()[1];
-					var currentGender = $('input[name=gender]:checked').val();
-					var currentSize = $('.select-size > a').text();
-					var currentPrice = $('#current-price').text();
-					var activeColor = objects[1].params.currentColor; //$('.active-color').data('color');
-					var currentShirtType = $('.fpd-products').children('.select').children('a').text();
-					var product = thisClass.getProduct(false);
-					var ORG_FACTOR = 4;
-					var SCALE_FACTOR = 20;
-					var viewIndexes = 0;
-					var passes = true;
-			        var errors = new Array();				
-					
-			        if(currentQty == '' || currentQty <= 0) {
-			        	passes = false;
-			        	errors.push("Missing qty");
-			        }
-			        if(currentSize == '' || currentSize == "Size") {
-			        	passes = false;
-			        	errors.push("Missing size");
-			        }
-			        if(activeColor == '' || activeColor == null) {
-			        	var activeColor = objects[1].params.currentColor;
+						console.log(objects[1].params);
 
-			        	passes = false;
-			        	errors.push("Missing color");
-			        }
+						if(objects[1].params.currentColor==undefined)
+				        	objects[1].params.currentColor = "#FFFFFF";
 
-			        // console.log('0 top: '+ objects[0].top + 'left: '+ objects[0].left);
-			        // console.log('1 top: '+ objects[1].top + 'left: '+ objects[1].left);
-			        // console.log('2 top: '+ objects[2].top + 'left: '+ objects[2].left);
-			        // console.log('3 top: '+ objects[3].top + 'left: '+ objects[3].left);
-			        // console.log('4 top: '+ objects[4].top + 'left: '+ objects[4].left);
-			        // console.log('5 top: '+ objects[5].top + 'left: '+ objects[5].left);
-			        // console.log('6 top: '+ objects[6].top + 'left: '+ objects[6].left);
-			        // console.log('7 top: '+ objects[7].top + 'left: '+ objects[7].left);
+				        if(objects[4].params.currentColor==undefined)
+				        	objects[4].params.currentColor = "#FFFFFF";
 
-			        // console.log(activeColor);
-			        // console.log(currentQty)
+						var currentQty = $('input[name="qty"]').val();
+						var frontImage = thisClass.getViewsDataURL()[0];
+						var backImage = thisClass.getViewsDataURL()[1];
+						var currentGender = $('input[name=gender]:checked').val();
+						var currentSize = $('.select-size > a').text();
+						var currentPrice = $('#current-price').text();
+						var activeColor = objects[1].params.currentColor; //$('.active-color').data('color');
+						var currentShirtType = $('.fpd-products').children('.select').children('a').text();
+						var product = thisClass.getProduct(false);
+						var viewIndexes = 0;
+						var passes = true;
+				        var errors = new Array();				
+						
+				        if(currentQty == '' || currentQty <= 0) {
+				        	passes = false;
+				        	errors.push("Missing qty");
+				        }
+				        if(currentSize == '' || currentSize == "Size") {
+				        	passes = false;
+				        	errors.push("Missing size");
+				        }
+				        if(activeColor == '' || activeColor == null) {
+				        	var activeColor = objects[1].params.currentColor;
 
-			        if (passes == true) {
+				        	passes = false;
+				        	errors.push("Missing color");
+				        }
 
-			        	console.log('before stage width: '+ stage.width+ 'stage.height' + stage.height );
-			        	var oldWidth = 173;//parseInt(stage.width)
-			        	var oldHeight = 314;//parseInt(stage.height)
+				        if (passes == true) {
 
-						// stage.setDimensions({width: 3366, height: stage.height * 3});//3.5//2.8//stage.width * 3.6
-						stage.setDimensions({width: 3600, height: 2100 }); //somehow doubling height at some point //stage.width * ORG_FACTOR , (stage.height * ORG_FACTOR)/1.5
-						// stage.setDimensions({width: stage.width, height: (stage.height)});//3.5//2.8//stage.width * 3.6
-						stage.renderAll();
+							// stage.setDimensions({width: 3366, height: stage.height * 3});//3.5//2.8//stage.width * 3.6
+							console.log(stage.width * ORG_FACTOR);
+							console.log(stage.height * ORG_FACTOR);
+							// stage.setDimensions({width: stage.width * ORG_FACTOR, height: (stage.height * ORG_FACTOR)/1.5});//3.5//2.8//stage.width * 3.6
+							// stage.setDimensions({width: stage.width, height: (stage.height)});//3.5//2.8//stage.width * 3.6
+							// stage.renderAll();
 
-						console.log('after stage width: '+ stage.width+ 'stage.height' + stage.height );
+						    for (var i in objects) {
+						    	var object = objects[i];
 
-					    for (var i in objects) {
-					    	var object = objects[i];
-					   
-					    	console.log('before scaling '+i+' left: '+ object.left + 'top: '+ object.top);
-					    	console.log('before scaling '+i+' scalex: '+ object.scaleX + 'scaley: '+ object.scaleY);
+						        if(object.viewIndex == 1) {
+						        	if(i>5) {
+						        		object.scaleX = object.scaleX * SCALE_FACTOR;
+								        object.scaleY = object.scaleY * SCALE_FACTOR;
+								        object.centerH();
+								        object.centerV();
+								        // object.left = objects[i].left * ORG_FACTOR+60;
+								        // object.top = (objects[i].top * ORG_FACTOR) + (object.viewIndex * 800 * SCALE_FACTOR);	
+						        	}else {
+						        		object.scaleX = object.scaleX * ORG_FACTOR;
+								        object.scaleY = object.scaleY * ORG_FACTOR;
+								        object.centerH();
+								        object.centerV();
+								        // object.left = objects[i].left * ORG_FACTOR+60;
+								        // object.top = (objects[i].top * ORG_FACTOR) + (object.viewIndex * 800 * ORG_FACTOR);
+						        	}
+							        
+						    		// object.left = objects[i].left * 5.5;
+							     //    object.top = (objects[i].top - 1400) + (object.viewIndex * stage.height - 1400);
+						    	}else {
+						    		if(i>5) {
+								        object.scaleX = object.scaleX * SCALE_FACTOR;
+								        object.scaleY = object.scaleY * SCALE_FACTOR;
+								        object.centerH();
+								        object.centerV();
+								     	// object.left = objects[i].left * ORG_FACTOR+60;
+								      //   object.top = (objects[i].top * ORG_FACTOR) + (object.viewIndex * 800 * SCALE_FACTOR);
+								    }else {
+								    	object.scaleX = object.scaleX * ORG_FACTOR;
+								        object.scaleY = object.scaleY * ORG_FACTOR;
+								        object.centerH();
+								        object.centerV();
+								     	// object.left = objects[i].left * ORG_FACTOR+60;
+								      //   object.top = (objects[i].top * ORG_FACTOR) + (object.viewIndex * 800 * ORG_FACTOR);
+								    }
 
-				        	if(i>5) {
-				        		
-				        		object.scaleX = parseFloat(SCALE_FACTOR * object.scaleX);
-						        object.scaleY = parseFloat(SCALE_FACTOR * object.scaleY);
+							        // object.left = objects[i].left * 5.5;
+							     //    object.top = (objects[i].top * 7.5) + (object.viewIndex * stage.height * 7.5);
+						    	}
+
 						        object.setCoords();
-						        // object.centerH();
-						        // object.centerV(); // object.top = parseFloat(stage.height/2);
-						        object.left = parseFloat((3600 * (object.left - 163)) / oldWidth);
-						        object.top = parseFloat((4200 * (object.top - 77)) / oldHeight);
-				        	}
-				        	// else {
-				        	// 	object.scaleX = parseFloat(SCALE_FACTOR * object.scaleX);
-						       //  object.scaleY = parseFloat(SCALE_FACTOR * object.scaleY);
-						       //  object.left = parseFloat((3600 * (object.left)) / oldWidth);
-						       //  object.top = parseFloat((4200 * (object.top)) / oldHeight);
-						       //  object.setCoords();
-				        	// }				
+						        object.visible = true;
 
-				        	object.setCoords();
-					        object.visible = true;	       
+								// //apply filters to image objects
+						        if (object.type === 'image' && object.filters.length) {
+						        	console.log(i);
+							      object.applyFilters(function() {
+							        object.canvas.renderAll();
+							      });
+							    }
 
-							// //apply filters to image objects
-					        if (object.type === 'image' && object.filters.length) {
-					        	console.log(i);
-						      object.applyFilters(function() {
-						        object.canvas.renderAll();
-						      });
+						        //resize height if necessary
+						        if(object.viewIndex > viewIndexes) {
+						        	viewIndexes++;
+							        stage.setHeight(stage.getHeight() + (stage.getHeight() * viewIndexes));
+						        }
 						    }
 
-					        //resize height if necessary
-					        if(object.viewIndex > viewIndexes) {
-					        	viewIndexes++;
-						        stage.setHeight(stage.getHeight() + (stage.getHeight() * viewIndexes));
-					        }
+						    objects[1].top -= 10000;
+						    objects[2].top -= 10000;
+						    objects[3].top -= 10000;
+						    objects[4].top -= 10000;
+						    objects[5].top -= 10000;
 
-					        console.log('after scaling '+i+' left: '+ object.left + 'top: '+ object.top);
-					    	console.log('after scaling '+i+' scalex: '+ object.scaleX + 'scaley: '+ object.scaleY);
-					    }
+						    stage.remove(objects[0]);
+						    stage.remove(objects[1]);
+						    stage.remove(objects[2]);
 
-					    objects[1].top -= 10000;
-					    objects[2].top -= 10000;
-					    objects[3].top -= 10000;
-					    objects[4].top -= 10000;
-					    objects[5].top -= 10000;
+						 	// stage.renderAll();
+						    // var bigImage = stage.toDataURL({format: 'png'});
 
-					    stage.remove(objects[0]);
-					    stage.remove(objects[1]);
-					    stage.remove(objects[2]);
+						    console.log(thisClass.getViewsDataURL()[0]);
+						    console.log(thisClass.getViewsDataURL()[1]);
+						    console.log(frontImage);
+						    console.log(backImage);
 
-					 	// stage.renderAll();
-					    // var bigImage = stage.toDataURL({format: 'png'});
+						    // return false;
 
-					    console.log(thisClass.getViewsDataURL()[0]);
-					    console.log(thisClass.getViewsDataURL()[1]);
-					    console.log(frontImage);
-					    console.log(backImage);
+							var addBuilderProductJSON = {
+					          'title': 'Shirt builder product',
+					          'front_image': frontImage,
+					          'back_image': backImage,
+					          'front_print_image': thisClass.getViewsDataURL()[0],
+					          'back_print_image': thisClass.getViewsDataURL()[1],
+					          'product_details': JSON.stringify(product)		          
+					        };
 
-					    // return false;
-
-						var addBuilderProductJSON = {
-				          'title': 'Shirt builder product',
-				          'front_image': frontImage,
-				          'back_image': backImage,
-				          'front_print_image': thisClass.getViewsDataURL()[0],
-				          'back_print_image': thisClass.getViewsDataURL()[1],
-				          'product_details': JSON.stringify(product)		          
-				        };
-
-						// abort any pending request
-						if (saverequest) {
-						  	saverequest.abort();
-						}
-
-						saverequest = makeRequest(addBuilderProductJSON, "/shirtbuilder" , "POST");
-
-						saverequest.done(function(){
-							var result = jQuery.parseJSON(saverequest.responseText);
-							           
-							if("product_id" in result) {
-							  	var addToCartJSON = {
-									'id': result.product_id,
-									'title': 'Shirt builder product',
-									'price' : currentPrice,
-									'qty' : currentQty,
-									'attr' : {
-										'gender' : currentGender,
-										'size' : currentSize,
-										'color' : activeColor,
-										'shirt_type' : currentShirtType,
-										'image' : frontImage,
-										'back_image' : backImage,
-										'print_image' : result.front_print_image,
-										'back_print_image' : result.back_print_image
-									}
-						        };
-
-						        console.log(addToCartJSON);
-
-						        // abort any pending request
-					          	if (request) {
-					              	request.abort();
-					          	}
-
-					          	request = makeRequest(addToCartJSON, "/cart" , "POST");
-
-								request.done(function(){
-									var result = jQuery.parseJSON(request.responseText);
-
-									console.log(result)
-								           
-									if(result) {
-									  window.location = "/cart";
-									}
-
-								}); 
+							// abort any pending request
+							if (saverequest) {
+							  	saverequest.abort();
 							}
-						});    				
 
-					}else {
-						var errorMsg = 'Following errors occurs: \n';
-						$.each(errors, function(i, error){
-							errorMsg += error + '\n';
-						});
+							saverequest = makeRequest(addBuilderProductJSON, "/shirtbuilder" , "POST");
 
-						alert(errorMsg);
-						$.unblockUI();
+							saverequest.done(function(){
+								var result = jQuery.parseJSON(saverequest.responseText);
+								           
+								if("product_id" in result) {
+								  	var addToCartJSON = {
+										'id': result.product_id,
+										'title': 'Shirt builder product',
+										'price' : currentPrice,
+										'qty' : currentQty,
+										'attr' : {
+											'gender' : currentGender,
+											'size' : currentSize,
+											'color' : activeColor,
+											'shirt_type' : currentShirtType,
+											'image' : frontImage,
+											'back_image' : backImage,
+											'print_image' : result.front_print_image,
+											'back_print_image' : result.back_print_image
+										}
+							        };
 
-					}
+							        console.log(addToCartJSON);
 
+							        // abort any pending request
+						          	if (request) {
+						              	request.abort();
+						          	}
 
+						          	request = makeRequest(addToCartJSON, "/cart" , "POST");
+
+									request.done(function(){
+										var result = jQuery.parseJSON(request.responseText);
+
+										console.log(result)
+									           
+										if(result) {
+										  window.location = "/cart";
+										}
+
+									}); 
+								}
+							});    				
+
+						}else {
+							var errorMsg = 'Following errors occurs: \n';
+							$.each(errors, function(i, error){
+								errorMsg += error + '\n';
+							});
+
+							alert(errorMsg);
+							$.unblockUI();
+
+						}
+					});
 				});
+
 			});
 			
 
@@ -3117,7 +3126,7 @@
 			confirmProductDelete: "Delete saved product?",
 			modificationTooltips: {x: "x: ", y: " y: ", width: "width: ", height: " height: ", angle: "angle: "},
 			colorpicker : {cancel: "Cancel", change: "Change Color"},
-			uploadedDesignSizeAlert: "Sorry! But the uploaded image size should be between 500x500 to 2500x2500."
+			uploadedDesignSizeAlert: "Sorry! But the uploaded image size does not conform our indication of size."
 		}, //Set custom labels for the titles
 		allowProductSaving: true, //Allows the users to save products in a list
 		centerInBoundingbox: true, //center added elemets with a bounding box automatically
@@ -3125,10 +3134,10 @@
 		saveAsPdf: true, //shows the button in the product stage to save product as pdf
 		uploadDesigns: true, //users can upload own designs from the sidebar
 		customImagesParameters: {
-			minW: 500, //the minimum upload size width
-			minH: 500, //the minimum upload size height
-			maxW: 2500, //the maximum upload size width
-			maxH: 2500, //the maximum upload size height
+			minW: 100, //the minimum upload size width
+			minH: 100, //the minimum upload size height
+			maxW: 1500, //the maximum upload size width
+			maxH: 1500, //the maximum upload size height
 			resizeToW: 300, //resizes the uploaded image to this width, when width is larger than height
 			resizeToH: 300 //resizes the uploaded image to this height, when height is larger than width
 		}, //additional parameters for uploaded designs, will merge with the default parameters
@@ -3137,8 +3146,8 @@
 			sidebarNavWidth: 50,
 			sidebarContentWidth: 200,
 			sidebarHeight: 950,
-			productStageWidth: windowWidth - 335, //514
-			productStageHeight: 800 //460
+			productStageWidth: windowWidth - 335,
+			productStageHeight: 800
 		},//the dimensions for the product designer
 		facebookAppId: '', //to add photos from facebook, you have to set your own facebook api key
 		instagramAppId: '1a2bb373cd9f4775b7720eb5005a04f6', //to add photos from facebook, you have to set your own facebook api key

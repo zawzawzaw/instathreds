@@ -127,6 +127,11 @@
                               <a href="{{ URL::to('/').'/images/builder_products/'.$eachordersitemoptions['print_image'] }}" download="frontimage.png" target="_blank">
 {{ HTML::image('/images/builder_products/'.$eachordersitemoptions['print_image'], 'big back', array('width'=>75)) }}
                               </a>
+                            @elseif(is_numeric($eachordersitem->product_id))
+                              <?php $product = Product::where('id', '=', $eachordersitem->product_id)->first(); ?>
+                              <a href="{{ URL::to('/').'/images/products/'.$product->image }}" download="designimage.png" target="_blank">
+                              {{ HTML::image('images/products/'.$product->image, 'big back', array('width'=>75)) }}
+                              </a>
                             @else
                               {{ 'N/A' }}
                             @endif

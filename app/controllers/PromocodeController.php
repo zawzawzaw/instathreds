@@ -149,7 +149,7 @@ class PromocodeController extends \BaseController {
 		    $promocode->usage_limit = Input::get('usage_limit');
 		    $promocode->save();
 		 
-		    return Redirect::to('/admin/promocodes/'.$id.'/edit')->with('message', 'Product successfully updated');
+		    return Redirect::to('/admin/promocodes/'.$id.'/edit')->with('message', 'Promo code successfully updated');
 
 	    } else {
 	        # validation has failed, display error messages

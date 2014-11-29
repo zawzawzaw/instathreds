@@ -57,7 +57,8 @@ class CheckoutController extends \BaseController {
 
 			if($found) {
 				$usage = $found->number_of_usage;
-				$valid = Promocode::where('unique_promo_code', '=', $promo_code)->where('usage_limit', '>', $usage)->first();
+				$expiry_date = $found->expiry_date;
+				$valid = Promocode::where('unique_promo_code', '=', $promo_code)->where('usage_limit', '>', $usage)->whereRaw('expiry_date >= now()')->first();
 			}
 
 			$returnData = array(
@@ -104,7 +105,7 @@ class CheckoutController extends \BaseController {
 		    			$shipping_method = "Standard";
 		    		}
 		    		else {
-		    			$shipping_cost = 20;
+		    			$shipping_cost = 15;
 		    			$shipping_method = "Express";
 		    		}
 		    	}
