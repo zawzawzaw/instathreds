@@ -127,38 +127,66 @@
     </section>  
     <!-- END HEADER -->
 
-    <!-- BANNER/SLIDER -->
-    <section class="slider">
-      <div class="container">
-        <div class="offers-bar">
-          <h6><span>NEW FEATURED DESIGNS!</span> SHOP NOW</h6>  
-        </div>
-      </div>
-    </section>
-    <!-- END BANNER/SLIDER -->
-
+    
     <!-- CONTENT -->
     <section class="content">
       <div class="container">
+        <h6 class="section-title"><i class="fa fa-tag"></i>ORDER NO. 45</h6>
         <div class="row">
-        <div class="two column">
-          <p>I had my own private Euro comics convention this past week at various sites around Paris. I lived in Paris for a year when I was in college, but I wasn’t really into comics back then (I was studying comparative literature, so I was more into picking up books by Deleuze and Guattari that I now use as book weights in the Chance Press workshop). I’ve followed French comics in the intervening years, however, and I thankfully never fully lost the language. So, upon going back to Paris for the first time in 13 years, I made it a priority to go to as many bookstores as I could, and I’m coming back with what the French call a merde-ton of books. (I’m still on the road - for work now, not fun - but expect a deluge of pictures once I get home.)</p>
-        </div>
-        <div class="ten column">
-          <p>I had my own private Euro comics convention this past week at various sites around Paris. I lived in Paris for a year when I was in college, but I wasn’t really into comics back then (I was studying comparative literature, so I was more into picking up books by Deleuze and Guattari that I now use as book weights in the Chance Press workshop). I’ve followed French comics in the intervening years, however, and I thankfully never fully lost the language. So, upon going back to Paris for the first time in 13 years, I made it a priority to go to as many bookstores as I could, and I’m coming back with what the French call a merde-ton of books. (I’m still on the road - for work now, not fun - but expect a deluge of pictures once I get home.)
+          <div class="table-responsive">
+          <table class="table" id="orders-detailed-table">
+          <thead>
+          <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Shirt Type</th>
+            <th>Color</th>
+            <th>Gender</th>
+            <th>Size</th>
+            <th>Image</th>
+            <th>Back Image</th>
+            <th>Total</th>
+          </tr>
+          </thead>
+          <tbody>
+                                                          <tr class="odd">
+              <td>70</td>
+              <td>1</td>
+              <td>Dash Racerback Singlet</td>
+              <td>#10100e</td>
+              <td>female</td>
+              <td>X-Small</td>
+              <td>
+              </td>
+              <td>
+              </td>
 
-Here are some things that I’ve thought of while over here…
-
-1) The French love North American cartoonists, and not just Clowes/Burns/Ware*. I saw the Michael DeForge Lose collection everywhere, Joseph Lambert was all over the place (in multiple formats), Pompeii in both languages (and quite a few Storeyvilles), Anders Nilsen, Alec Longstreth, etc. Also (not North America, but whatev), Simon Hanselmann’s book is prominently displayed in the book shop at the Centre Pompidou, which would seem like a huge deal if it weren’t already common knowledge that he’s taking over the world.
-
-(*I may start using Cloburware as a catch-all term for “cartoonists who have been lovingly accepted by the international fine art crowd.” Feel free to use it as necessary.)
-
-2) With very few exceptions, French editions are nicer than North American editions. This even includes standard bearers of quality like D&Q and Fantagraphics. (When I say nicer, I mean: they’re usually in larger format, the hardcover boards are thicker, the paper is thicker, and the binding is more durable/less prone to cracking (if softcover).) That said, they’re also more expensive, with $25 - $45 being the norm, and fatter books pushing $60. Plus, with the restrictions on retailers discounting books, keeping up with current releases is awfully pricey. 
-
-3) Publishing houses have more sway in French shops, to the point that many shops shelve books according to publisher. It’s not uncommon for shops to have books shelved by author for the more famous authors, and then to group books from Futuropolis, Cornelius, Dupuis, Glenat, Casterman, etc. It makes looking for books really annoying, especially if you just want to find everything by an author who has published with multiple houses. 
-
-4) Even more annoying, many shops don’t shelve by author at all and instead shelve by title - I get why this makes sense with a series that doesn’t have a single creator, but is there a good reason why someone looking for Tardi books should have to remember N for Nestor Burma, A for Adele Blanc Sec, M for Manchette, etc?</p>
-        </div>
+              <td>34</td>
+            </tr>
+                            </tbody>
+          </table>
+          </div>
+          <table class="table table-total">
+              <tbody>
+                  <tr>
+                      <td><strong>Sub Total :</strong></td>
+                      <td>$34</td>
+                  </tr>
+                  <tr>
+                      <td><strong>Shipping :</strong></td>
+                      <td>$0</td>
+                  </tr>
+                  <tr>
+                      <td><strong>Discount :</strong></td>
+                      <td>$0</td>
+                  </tr>
+                  <tr>
+                      <td><strong>TOTAL :</strong></td>
+                      <td>$34</td>
+                  </tr>
+              </tbody>
+          </table>
+        
         </div>  
 
       </div>
