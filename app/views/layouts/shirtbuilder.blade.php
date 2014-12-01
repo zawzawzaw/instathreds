@@ -174,6 +174,15 @@
     </head>
 
     <body>
+    	<div class="overlay">
+    		<div class="message">
+    			<div style="text-align:center;"><img src="http://instathreds.dev/images/preloader.gif"></div>
+    			<p class="line1">Please Wait...</p>
+    			<p class="line2">Your shirt is being built</p>
+    			<p class="line3">Do not navigate away from this page</p>
+    		</div>	
+    	</div>
+
     	<div id="main-container">
           	<div id="clothing-designer">
           		<!-- MENS STAPLE -->
@@ -345,13 +354,13 @@
 
 		  			
 		  			<div class="fpd-category" title="Icons">
-			  			<img src="images/stockart/icons/icons_award.svg" title="Award" data-parameters='{"zChangeable": true, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 300, "width": 140, "x": 255, "y": 236}, "autoCenter": true}' />
-				  		<img src="images/stockart/icons/icons_battery.svg" title="Battery" data-parameters='{"zChangeable": true, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 300, "width": 140, "x": 254, "y": 236}, "autoCenter": true}' />
-				  		<img src="images/stockart/icons/icons_location.svg" title="Location" data-parameters='{"colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": "Base", "autoCenter": true}' />
-				  		<img src="images/stockart/icons/icons_robot.svg" title="robot" data-parameters='{"colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": "Base", "autoCenter": true}' />
-				  		<img src="images/stockart/icons/icons_shield.svg" title="shield" data-parameters='{"colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0,"boundingBox": "Base", "autoCenter": true}' />
-				  		<img src="images/stockart/icons/icons_sound.svg" title="sound" data-parameters='{"colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": "Base", "autoCenter": true}' />
-				  		<img src="images/stockart/icons/icons_tools.svg" title="tools" data-parameters='{"colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": "Base", "autoCenter": true}' />
+			  			<img src="images/stockart/icons/icons_award.svg" title="Award" data-parameters='{"zChangeable": true, "colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 300, "width": 150, "x": 265, "y": 236}, "autoCenter": true}' />
+				  		<img src="images/stockart/icons/icons_battery.svg" title="Battery" data-parameters='{"colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 300, "width": 150, "x": 265, "y": 236}, "autoCenter": true}' />
+				  		<img src="images/stockart/icons/icons_location.svg" title="Location" data-parameters='{"colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 300, "width": 150, "x": 265, "y": 236}, "autoCenter": true}' />
+				  		<img src="images/stockart/icons/icons_robot.svg" title="robot" data-parameters='{"colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 300, "width": 150, "x": 265, "y": 236}, "autoCenter": true}' />
+				  		<img src="images/stockart/icons/icons_shield.svg" title="shield" data-parameters='{"colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 300, "width": 150, "x": 265, "y": 236}, "autoCenter": true}' />
+				  		<img src="images/stockart/icons/icons_sound.svg" title="sound" data-parameters='{"colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 300, "width": 150, "x": 265, "y": 236}, "autoCenter": true}' />
+				  		<img src="images/stockart/icons/icons_tools.svg" title="tools" data-parameters='{"colors": "#000000", "removable": true, "draggable": true, "rotatable": true, "resizable": true, "price": 0, "boundingBox": {"height": 300, "width": 150, "x": 265, "y": 236}, "autoCenter": true}' />
 		  			</div>
 
 				  	<div class="fpd-category" title="Food">
