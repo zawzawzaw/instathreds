@@ -149,7 +149,7 @@
           </tr>
           </thead>
           <tbody>
-                                                          <tr class="odd">
+            <tr class="odd">
               <td>70</td>
               <td>1</td>
               <td>Dash Racerback Singlet</td>

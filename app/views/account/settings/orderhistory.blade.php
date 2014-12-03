@@ -37,62 +37,6 @@
                         <td>Pending</td>
                      </tr>
                     @endforeach
-                 <!-- <tr class="even">
-                    <td>618</td>
-                    <td>12/01/2014</td>
-                    <td>$131.50</td>
-                    <td>Completed</td>
-                 </tr>
-                 <tr class="odd">
-                    <td>619</td>
-                    <td>12/01/2014</td>
-                    <td>$131.50</td>
-                    <td>Pending</td>
-                 </tr>
-                 <tr class="even">
-                    <td>620</td>
-                    <td>12/01/2014</td>
-                    <td>$131.50</td>
-                    <td>Completed</td>
-                 </tr>
-                 <tr class="odd">
-                    <td>621</td>
-                    <td>12/01/2014</td>
-                    <td>$131.50</td>
-                    <td>Pending</td>
-                 </tr>
-                 <tr class="even">
-                    <td>622</td>
-                    <td>12/01/2014</td>
-                    <td>$131.50</td>
-                    <td>Completed</td>
-                 </tr>
-                 <tr class="odd">
-                    <td>623</td>
-                    <td>12/01/2014</td>
-                    <td>$131.50</td>
-                    <td>Pending</td>
-                 </tr>
-                 <tr class="even">
-                    <td>624</td>
-                    <td>12/01/2014</td>
-                    <td>$131.50</td>
-                    <td>Completed</td>
-                 </tr>
-                 <tr class="odd">
-                    <td>625</td>
-                    <td>12/01/2014</td>
-                    <td>$131.50</td>
-                    <td>Pending</td>
-                 </tr>
-                 <tr class="even">
-                    <td>626</td>
-                    <td>12/01/2014</td>
-                    <td>$131.50</td>
-                    <td>Completed</td>
-                 </tr> -->
-                 
-
               </tbody>
               </table>
             @else
