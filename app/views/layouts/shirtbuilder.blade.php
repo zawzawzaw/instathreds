@@ -10,7 +10,7 @@
     {{ HTML::style('bootstrap/css/bootstrap.css') }}
     
     <!-- Google Webfonts -->
-    {{ HTML::style('http://fonts.googleapis.com/css?family=Gorditas|Open Sans|Droid Sans|PT Sans|Lato|Oswald|Droid Serif|Roboto|Lora|Libre Baskerville|Josefin Slab|Arvo|Ubuntu|Raleway|Source Sans Pro|Lobster|PT Serif|Old Standard TT|Volkorn|Gravitas One|Merriweather') }}
+    {{ HTML::style('//fonts.googleapis.com/css?family=Gorditas|Open Sans|Droid Sans|PT Sans|Lato|Oswald|Droid Serif|Roboto|Lora|Libre Baskerville|Josefin Slab|Arvo|Ubuntu|Raleway|Source Sans Pro|Lobster|PT Serif|Old Standard TT|Volkorn|Gravitas One|Merriweather') }}
 
     <!-- Font-awesome for the icons -->
     {{ HTML::style('//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css') }}
@@ -436,7 +436,7 @@
 
     	<div id="preloader">
 	        <div id="status">
-	          <img src="http://instathreds.dev/images/preloader.gif">        
+	          {{ HTML::image('images/preloader.gif', 'Preloader') }}        
           	</div>
 	    </div>
     </body>
