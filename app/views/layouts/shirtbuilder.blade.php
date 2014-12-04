@@ -176,7 +176,7 @@
     <body>
     	<div class="overlay">
     		<div class="message">
-    			<div style="text-align:center;"><img src="http://instathreds.dev/images/preloader.gif"></div>
+    			<div style="text-align:center;"><img src="https://instathreds.co/images/preloader.gif"></div>
     			<p class="line1">Please Wait...</p>
     			<p class="line2">Your shirt is being built</p>
     			<p class="line3">Do not navigate away from this page</p>

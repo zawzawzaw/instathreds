@@ -31,13 +31,28 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
         //show the preloader
         $('.shirt-template.active .preloader').show();
 
+        //design
+        var canvasdesign = document.createElement('canvas');
+        var contextdesign = canvasdesign.getContext('2d');
+        canvasdesign.width = 630;
+        canvasdesign.height = 460;
+        var result = ScaleImage(designImg.width, designImg.height, 630, 460, true);
+        x = canvasdesign.width - result.width;
+        
+        //var result = ScaleImage(designImg.width, designImg.height, baseImg.width-30, baseImg.height-30, true);
+        //x = canvas3.width - result.width - 45;
+        contextdesign.fillStyle = "#f3f3f4";
+        contextdesign.fillRect(0,0,630,460);
+        contextdesign.drawImage(designImg, x-20, result.targettop + 10, result.width, result.height);
+
+
         var canvas = document.createElement('canvas');
         var context = canvas.getContext('2d');
         canvas.width = 630;
         canvas.height = 460;
         // Fill the path
-        context.fillStyle = "#f3f3f4";
-        context.fillRect(0,0,630,460);
+        //context.fillStyle = "#f3f3f4";
+        //context.fillRect(0,0,630,460);
         context.drawImage(bodyImg,0,0,bodyImg.width,bodyImg.height);
         
 
@@ -54,18 +69,22 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
 
         context2.drawImage(shadowImg,0,0,canvas2.width, canvas2.height);
 
+        /*
         var canvas3 = document.createElement('canvas');
         var context3 = canvas3.getContext('2d');  
         canvas3.width = 630;
         canvas3.height = 460;
 
-        var result = ScaleImage(designImg.width, designImg.height, 630-120, 460-120, true);
+        //design
+        
+        var result = ScaleImage(designImg.width, designImg.height, 630, 460, true);
         x = canvas3.width - result.width;
         
         //var result = ScaleImage(designImg.width, designImg.height, baseImg.width-30, baseImg.height-30, true);
         //x = canvas3.width - result.width - 45;
-        context3.drawImage(designImg, x-20, result.targettop + 60, result.width, result.height);
-        
+        context3.drawImage(designImg, x-20, result.targettop + 10, result.width, result.height);
+        */
+
         var resultsmall = ScaleImage(designImg.width, designImg.height, baseImg.width-130, baseImg.height-130, true);
         //xposition = (canvas2.width - resultsmall.width)/2 ;
         //yposition = (canvas2.height - resultsmall.height)/2;
@@ -79,9 +98,10 @@ function loadimage(imagebody,imagebase,imageshadow,imagedesign,base_x,base_y,col
         newcanvas.width = '630';
         newcanvas.height = '460';   
         
+        newcontext.drawImage(canvasdesign,0,0);
         newcontext.drawImage(canvas,0,0,630,460);
         newcontext.drawImage(canvas2,base_x,base_y);
-        newcontext.drawImage(canvas3,0,0);
+        //newcontext.drawImage(canvas3,0,0);
 
         $(".preloader").hide();
         var finalProduct = newcanvas.toDataURL('image/jpeg');
