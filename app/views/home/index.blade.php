@@ -9,36 +9,25 @@
         <div class="banner hide-mobile">
           <div id="slider-homepage" class="owl-carousel">
             <div class="slide">
-              <a href="{{ route('shirtbuilder.index') }}"><img src="images/slider/slider1.jpg" /></a>
-              <div class="captions">
+              <a href="{{ URL::route('static.calldesigners') }}"><img src="images/slider/slider1.jpg" /></a>
+              <div class="captions" style="display:none">
                 <div class="text1">Make Your Own</div>
                 <div class="text2">BUILD FROM SCRATCH<br>OR UPLOAD YOUR OWN PHOTOS OR ARTWORK</div>
               </div>
             </div>
             <div class="slide">
               <a href="{{ route('store.index') }}"><img src="images/slider/slider2.jpg" /></a>
-              <div class="captions">
+              <div class="captions" style="display:none;">
                 <div class="text1">CHOOSE A DESIGN</div>
               </div>
             </div>
             <div class="slide">
-              <a href="" class="storeloc-link"><img src="images/slider/slider3.jpg" /></a>
-              <div class="captions">
+              <a href="{{ route('shirtbuilder.index') }}" class="storeloc-link"><img src="images/slider/slider3.jpg" /></a>
+              <div class="captions" style="display:none;">
                 <div class="text1">VISIT OUR STORES</div>
               </div>
             </div>
-            <div class="slide">
-              <a href="{{ URL::route('static.calldesigners') }}"><img src="images/slider/slider4.jpg" /></a>
-              <div class="captions">
-                <div class="text1">CALLING ALL DESIGNERS</div>
-              </div>
-            </div>
-            <div class="slide">
-              <a href="{{ route('store.featured') }}"><img src="images/slider/slider5.jpg" /></a>
-              <div class="captions">
-                <div class="text1">FEATURED DESIGNS</div>
-              </div>
-            </div>
+           
             
           </div>
           
@@ -129,11 +118,11 @@
     <section class="promotional-area hide-mobile">
       <div class="container">
         <div class="section-bar">
-          <h6>CURRENT PROMOTIONS | <a href="http://instathreds.co/store/Moustaches/35">CLICK HERE</a></h6>  
+          <h6>CURRENT PROMOTIONS | <a href="{{ URL::route('static.calldesigners') }}">CLICK HERE</a></h6>  
         </div>
         <div class="banner promotion">
-          <a href="http://instathreds.co/store/Moustaches/35">{{ HTML::image('images/promo/promo1.png') }}
-          <div class="captions">
+          <a href="{{ URL::route('static.calldesigners') }}">{{ HTML::image('images/slider/slider1.jpg') }}
+          <div class="captions" style="display:none;">
             <div class="text1">SHOW YOUR MO</div>
             <div class="text2">WEAR YOUR SUPPORT THIS MOVEMBER & CHOOSE THESE GREAT MO DESIGNS</div>
           </div>
