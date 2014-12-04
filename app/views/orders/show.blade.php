@@ -163,6 +163,10 @@
                           <td>${{ $order[0]->shipping_cost }}</td>
                       </tr>
                       <tr>
+                          <td><strong>Discount :</strong></td>
+                          <td>$@if(!empty($order[0]->discount)){{ $order[0]->discount }}@else{{ 0 }}@endif</td>
+                      </tr>
+                      <tr>
                           <td><strong>TOTAL :</strong></td>
                           <td>${{ $order[0]->total }}</td>
                       </tr>

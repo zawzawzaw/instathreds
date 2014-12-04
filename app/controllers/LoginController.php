@@ -25,7 +25,7 @@ class LoginController extends \BaseController {
 	 * @return Response
 	 */
 	public function store()
-	{
+	{	
 		if ( Auth::attempt( array( 'username'=>Input::get('username'), 'password'=>Input::get('password') ), Input::has('rememberme') ) ) {
 		    // return Redirect::to('users/profile')->with('message', 'You are now logged in!');
 			// print_r(Auth::user()); exit();
