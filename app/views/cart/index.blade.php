@@ -51,15 +51,27 @@
 		           	  
               			<td><a href="javascript:void(0);" class="button-remove"><i class="fa fa-close">X</i></a></td>
 		              	<td>
+                      @if($row->name!=='Shirt builder product')
 			              	<a href="{{ URL::to('product', array(Product::slug($row->name))) }}" class="product-image">
+                      @endif
                         @if($row->options->image!='')
                           <img src="{{ $row->options->image }}" alt="product image" style="width:150px;" alt="">
                         @else
                           <img src="{{ $row->options->back_image }}" alt="product image" style="width:150px;" alt="">
                         @endif
+                      @if($row->name!=='Shirt builder product')
 			              	</a>
+                      @endif
 	              		</td>
-		              	<td><a href="{{ URL::to('product', array(Product::slug($row->name))) }}">{{ $row->name }}</a></td>
+		              	<td>
+                    @if($row->name!=='Shirt builder product')
+                      <a href="{{ URL::to('product', array(Product::slug($row->name))) }}">
+                    @endif
+                      {{ $row->name }}
+                    @if($row->name!=='Shirt builder product')
+                      </a>
+                    @endif
+                    </td>
 		              <td>{{ $row->qty }}, {{ $row->name }}, {{ $row->options->size }}</td>
 		              <td>${{ $row->price }}</td>
 		              <td>

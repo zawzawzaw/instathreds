@@ -8,7 +8,12 @@
         </div>
         <div class="banner hide-mobile">
           <div id="slider-homepage" class="owl-carousel">
+            @foreach($sliders as $slider)
             <div class="slide">
+              <a href="{{ $slider->link_1 }}"><img src="images/sliders/{{ $slider->image }}" /></a>
+            </div>
+            @endforeach
+            <!-- <div class="slide">
               <a href="{{ URL::route('static.calldesigners') }}"><img src="images/slider/slider1.jpg" /></a>
               <div class="captions" style="display:none">
                 <div class="text1">Make Your Own</div>
@@ -26,9 +31,7 @@
               <div class="captions" style="display:none;">
                 <div class="text1">VISIT OUR STORES</div>
               </div>
-            </div>
-           
-            
+            </div> -->
           </div>
           
         </div>
@@ -82,34 +85,7 @@
               <a href="{{ URL::to('product', array(Product::slug($product->title), $product->id)) }}">{{ HTML::image('images/products/thumbs/'.$product->thumbnail_image) }}</a>
             </li>
           @endforeach
-          
-          <!-- <li>
-            <a href=""><img src="images/products/thumbs/Pixel People-02.png"></a>
-          </li>
-          <li>
-            <a href=""><img src="images/products/thumbs/Pixel People-03.png"></a>
-          </li>
-          <li>
-            <a href=""><img src="images/products/thumbs/Pixel People-04.png"></a>
-          </li>
-          <li>
-            <a href=""><img src="images/products/thumbs/Pixel People-05.png"></a>
-          </li>
-          <li>
-            <a href=""><img src="images/products/thumbs/Pixel People-06.png"></a>
-          </li>
-          <li>
-            <a href=""><img src="images/products/thumbs/Pixel People-07.png"></a>
-          </li>
-          <li>
-            <a href=""><img src="images/products/thumbs/Pixel People-08.png"></a>
-          </li>
-          <li>
-            <a href=""><img src="images/products/thumbs/Pixel People-09.png"></a>
-          </li>
-          <li>
-            <a href=""><img src="images/products/thumbs/Pixel People-10.png"></a>
-          </li> -->
+        
         </ul>    
       </div>  
     </section>

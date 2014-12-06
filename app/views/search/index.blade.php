@@ -3,11 +3,7 @@
     <section class="slider">
       <div class="container">
         <div class="offers-bar">
-<<<<<<< HEAD
-          <a href="{{ route('store.featured') }}"><h6><span>NEW FEATURED DESIGNS!</span> SHOP NOW</h6></a>  
-=======
           <a href="{{ route('store.featured') }}"><h6><span>NEW FEATURED DESIGNS!</span> SHOP NOW</h6></a>
->>>>>>> a9079855b8ab5907df35dc41e90b7f0a33701137
         </div>
       </div>
     </section>
@@ -65,8 +61,8 @@
               <ul class="block-grid four-up mobile">
                 @foreach($products as $product)
                   <li>
-                    <a href="{{ URL::to('product', array(Product::slug($product->title), $product->id)) }}">{{ HTML::image('images/products/thumbs/'.$product->thumbnail_image) }}</a>
-                    <a href="{{ URL::to('product', array(Product::slug($product->title), $product->id)) }}" class="title">{{ $product->title }}</a>
+                    <a href="{{ URL::to('product', array(Product::slug($product->title))) }}">{{ HTML::image('images/products/thumbs/'.$product->thumbnail_image) }}</a>
+                    <a href="{{ URL::to('product', array(Product::slug($product->title))) }}" class="title">{{ $product->title }}</a>
                   </li>
                 @endforeach            
               </ul>

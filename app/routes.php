@@ -210,6 +210,7 @@ Route::resource('admin/orders', 'OrderController');
 Route::resource('admin/categories', 'CategoryController');
 Route::resource('admin/shirttypes', 'ShirttypeController');
 Route::resource('admin/promocodes', 'PromocodeController');
+Route::resource('admin/sliders', 'SliderController');
 
 Route::get('testmailer', array(
   'uses' => 'TestmailerController@index',
