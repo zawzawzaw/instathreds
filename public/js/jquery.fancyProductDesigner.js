@@ -540,7 +540,7 @@
 			        });
 					*/	
 					
-					
+					//added a settimeout delay so the overlay message will appear when the addtocart button is clicked instantly
 					setTimeout(function() {
 					      
 						var objects = stage.getObjects();
@@ -743,7 +743,7 @@
 						}
 						
 
-					}, 2000);			
+					}, 500);			
 
 					
 					
