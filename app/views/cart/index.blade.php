@@ -51,7 +51,7 @@
 		           	  
               			<td><a href="javascript:void(0);" class="button-remove"><i class="fa fa-close">X</i></a></td>
 		              	<td>
-			              	<a href="{{ URL::to('product', array(Product::slug($row->name), $row->id)) }}" class="product-image">
+			              	<a href="{{ URL::to('product', array(Product::slug($row->name))) }}" class="product-image">
                         @if($row->options->image!='')
                           <img src="{{ $row->options->image }}" alt="product image" style="width:150px;" alt="">
                         @else
@@ -59,7 +59,7 @@
                         @endif
 			              	</a>
 	              		</td>
-		              	<td><a href="{{ URL::to('product', array(Product::slug($row->name), $row->id)) }}">{{ $row->name }}</a></td>
+		              	<td><a href="{{ URL::to('product', array(Product::slug($row->name))) }}">{{ $row->name }}</a></td>
 		              <td>{{ $row->qty }}, {{ $row->name }}, {{ $row->options->size }}</td>
 		              <td>${{ $row->price }}</td>
 		              <td>

@@ -98,7 +98,7 @@ Route::get('store/{name}/{id}', array(
   'as' => 'store.show'
 ));
 Route::resource('store', 'StoreController');
-Route::get('product/{title}/{id}', array(
+Route::get('product/{slug}', array(
   'uses' => 'SingleproductController@index',
   'as' => 'product'
 ));
