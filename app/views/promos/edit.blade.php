@@ -9,8 +9,8 @@
     <li><a href="{{ URL::to('admin/promocodes') }}"><i class="fa fa-book"></i> <span>Promo Codes</span></a></li>
     <li><a href="#"><i class="fa fa-suitcase"></i> <span>Stock Art</span></a></li>
     <li><a href="#"><i class="fa fa-file-o"></i> <span>Pages</span></a></li>
-    <li class="active"><a href="{{ URL::to('admin/sliders') }}"><i class="fa fa-sliders"></i> <span>Slider</span></a></li>
-    <li><a href="{{ URL::to('admin/promos') }}"><i class="fa fa-usd"></i> <span>Promotions</span></a></li>
+    <li><a href="{{ URL::to('admin/sliders') }}"><i class="fa fa-sliders"></i> <span>Slider</span></a></li>
+    <li class="active"><a href="{{ URL::to('admin/promos') }}"><i class="fa fa-usd"></i> <span>Promotions</span></a></li>
     <li><a href="#"><i class="fa fa-cogs"></i> <span>Settings</span></a></li>
   </ul>
 @stop
@@ -47,13 +47,13 @@
         </div><!-- headerbar -->
         
         <div class="pageheader">
-          <h2><i class="fa fa-home"></i> Slider <span style="display:none;"></span></h2>
+          <h2><i class="fa fa-home"></i> Promotions <span style="display:none;"></span></h2>
           <div class="breadcrumb-wrapper">
             <span class="label">You are here:</span>
             <ol class="breadcrumb">
                 <li><a href="{{ route('admin') }}">Home</a></li>
-                <li><a href="{{ route('admin.sliders.index') }}">Promo Codes</a></li>
-                <li class="active">Edit Slider</li>
+                <li><a href="{{ route('admin.promos.index') }}">Promotions</a></li>
+                <li class="active">Edit Promotion</li>
             </ol>
           </div>
         </div>
@@ -63,12 +63,12 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12">
                   
-                    {{ Form::open(array('url' => '/admin/sliders/'.$slider->id, 'method' => 'put', 'class' => 'form-horizontal')) }}
-                        <!-- CREATE A SLIDE FORM -->
+                    {{ Form::open(array('url' => '/admin/promos/'.$promo->id, 'method' => 'put', 'class' => 'form-horizontal')) }}
+                        <!-- CREATE A PROMOTION FORM -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                              <h4 class="panel-title">EDIT THIS SLIDE</h4>
-                              <p>This slide is located at the homepage.</p>
+                              <h4 class="panel-title">EDIT THIS PROMOTION</h4>
+                              <p>This promotion is located at the homepage.</p>
                             </div>
                             <div class="panel-body">
                                 <div class="row">
@@ -89,7 +89,7 @@
 
                                 <div class="form-group">
                                   <!-- <div class="col-sm-6 col-sm-offset-3">
-                                    <img src="/images/sliders/{{ $slider->image }}" class="mb10" style="width:475px;height:200px;">
+                                    <img src="/images/promos/{{ $promo->image }}" class="mb10" style="width:475px;height:200px;">
                                     <div class="btn-group">
                                       <button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i> Delete Image</button>
                                     </div>
@@ -102,14 +102,14 @@
                                       <div class="input-append">
                                         <div class="uneditable-input">
                                           <i class="glyphicon glyphicon-file fileupload-exists"></i>
-                                          <span class="fileupload-preview">{{ $slider->image }}</span>
+                                          <span class="fileupload-preview">{{ $promo->image }}</span>
                                         </div>
                                         <span class="btn btn-default btn-file">
                                           <span class="fileupload-new">Change</span>
                                           <span class="fileupload-exists">Change</span>
-                                          <input id="file_upload" name="slider_image" type="file" />
-                                          <input type="hidden" name="id" value="{{ $slider->id }}" />
-                                          <input type="hidden" name="image" value="{{ $slider->image }}" />
+                                          <input id="file_upload" name="promo_image" type="file" />
+                                          <input type="hidden" name="id" value="{{ $promo->id }}" />
+                                          <input type="hidden" name="image" value="{{ $promo->image }}" />
                                         </span>
                                         <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
                                       </div>
@@ -120,7 +120,14 @@
                                 <div class="form-group">
                                   <label class="col-sm-3 control-label">Link</label>
                                   <div class="col-sm-6">
-                                    <input type="text" name="link_1" value="{{ $slider->link_1 }}" placeholder="Link for the slide" class="form-control" />
+                                    <input type="text" name="link_1" value="{{ $promo->link_1 }}" placeholder="Link for the slide" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-3 control-label">Set as current promo</label>
+                                  <div class="col-sm-6">
+                                    <input type="checkbox" @if($promo->current_promo) checked="checked" @endif style="margin-top: 14px;" name="current_promo" value="1" />
                                   </div>
                                 </div>
 
@@ -239,7 +246,7 @@ jQuery(document).ready(function(){
         'fileType'     : 'image/*',
         'fileSizeLimit' : '10MB',
         'buttonText'   : '',
-        'formData'         : {'type' : 'slider'},
+        'formData'         : {'type' : 'promo'},
         'uploadScript' : "{{ route('admin.uploadfiles') }}",
         'onError'      : function(errorType) {
             // $uploadBtn.uploadifive('cancel', $('.uploadifive-queue-item').first().data('file'));

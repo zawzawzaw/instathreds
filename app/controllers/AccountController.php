@@ -175,6 +175,24 @@ class AccountController extends\BaseController{
 
 	}
 
+	public function orderhistorydetails($id){
+
+		//
+		if (Auth::check())
+		{
+		    $email = Auth::user()->email;
+		}else {
+			$email = '';
+		}
+
+		$orders = Order::with(array('ordersitem' ,'shippingaddress', 'collection'))->where('id', '=', $id)->orderBy('created_at','DESC')->paginate(10);
+
+		// return $orders;
+
+		$this->layout->content = View::make('account.settings.orderhistorydetails')->with('orders', $orders);
+
+	}
+
 	public function password(){
 
 		$user = Auth::user();

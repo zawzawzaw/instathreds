@@ -35,6 +35,9 @@
                         <td>{{ date("Y-m-d",strtotime($order->created_at)) }}</td>
                         <td>${{ $order->total }}</td>
                         <td>Pending</td>
+                        <td class="table-action">
+                          <a href="{{ '/account/settings/orderhistory/'.$order->id }}"><i class="fa fa-pencil"></i></a>
+                        </td>
                      </tr>
                     @endforeach
               </tbody>

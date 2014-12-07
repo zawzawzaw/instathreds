@@ -9,8 +9,8 @@
     <li><a href="{{ URL::to('admin/promocodes') }}"><i class="fa fa-book"></i> <span>Promo Codes</span></a></li>
     <li><a href="#"><i class="fa fa-suitcase"></i> <span>Stock Art</span></a></li>
     <li><a href="#"><i class="fa fa-file-o"></i> <span>Pages</span></a></li>
-    <li class="active"><a href="{{ URL::to('admin/sliders') }}"><i class="fa fa-sliders"></i> <span>Slider</span></a></li>
-    <li><a href="{{ URL::to('admin/promos') }}"><i class="fa fa-usd"></i> <span>Promotions</span></a></li>
+    <li><a href="{{ URL::to('admin/sliders') }}"><i class="fa fa-sliders"></i> <span>Slider</span></a></li>
+    <li class="active"><a href="{{ URL::to('admin/promos') }}"><i class="fa fa-usd"></i> <span>Promotion</span></a></li>
     <li><a href="#"><i class="fa fa-cogs"></i> <span>Settings</span></a></li>
   </ul>
 @stop
@@ -47,13 +47,13 @@
     </div><!-- headerbar -->
     
     <div class="pageheader">
-      <h2><i class="fa fa-home"></i> Slider <span style="display:none;"></span></h2>
+      <h2><i class="fa fa-home"></i> Promotion <span style="display:none;"></span></h2>
       <div class="breadcrumb-wrapper">
         <span class="label">You are here:</span>
         <ol class="breadcrumb">
             <li><a href="{{ route('admin') }}">Home</a></li>
-            <li><a href="{{ route('admin.sliders.index') }}">Promo Codes</a></li>
-            <li class="active">Add Slider</li>
+            <li><a href="{{ route('admin.promos.index') }}">Promotion</a></li>
+            <li class="active">Add Promotion</li>
         </ol>
       </div>
     </div>
@@ -63,13 +63,13 @@
         <div class="row">
             <div class="col-sm-12 col-md-12">
               
-              <!-- CREATE A SLIDE FORM -->
+              <!-- CREATE A PROMOTION FORM -->
               <div class="panel panel-default">
-                <form method="POST" action="/admin/sliders" class="form-horizontal">
+                <form method="POST" action="/admin/promos" class="form-horizontal">
 
                     <div class="panel-heading">
-                      <h4 class="panel-title">CREATE A SLIDE</h4>
-                      <p>This slide is located at the homepage.</p>
+                      <h4 class="panel-title">CREATE A PROMOTION</h4>
+                      <p>This promotion is located at the homepage.</p>
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -105,6 +105,13 @@
                           <label class="col-sm-3 control-label">Link</label>
                           <div class="col-sm-6">
                             <input type="text" name="link_1" placeholder="Link for the slide" class="form-control" />
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="col-sm-3 control-label">Set as current promo</label>
+                          <div class="col-sm-6">
+                            <input type="checkbox" style="margin-top: 14px;" name="current_promo" value="1" />
                           </div>
                         </div>
 
@@ -161,7 +168,7 @@ jQuery(document).ready(function(){
         'fileType'     : 'image/*',
         'fileSizeLimit' : '10MB',
         'buttonText'   : '',
-        'formData'         : {'type' : 'slider'},
+        'formData'         : {'type' : 'promo'},
         'uploadScript' : "{{ route('admin.uploadfiles') }}",
         'onUploadComplete' : function(file, data) {
             console.log(data);

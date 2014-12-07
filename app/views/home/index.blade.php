@@ -94,10 +94,10 @@
     <section class="promotional-area hide-mobile">
       <div class="container">
         <div class="section-bar">
-          <h6>CURRENT PROMOTIONS | <a href="{{ URL::route('static.calldesigners') }}">CLICK HERE</a></h6>  
+          <h6>CURRENT PROMOTIONS | <a href="{{ $promos->link_1 }}">CLICK HERE</a></h6>  
         </div>
         <div class="banner promotion">
-          <a href="{{ URL::route('static.calldesigners') }}">{{ HTML::image('images/slider/slider1.jpg') }}
+          <a href="{{ $promos->link_1 }}">{{ HTML::image('images/promos/'.$promos->image) }}
           <div class="captions" style="display:none;">
             <div class="text1">SHOW YOUR MO</div>
             <div class="text2">WEAR YOUR SUPPORT THIS MOVEMBER & CHOOSE THESE GREAT MO DESIGNS</div>

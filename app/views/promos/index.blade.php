@@ -9,8 +9,8 @@
     <li><a href="{{ URL::to('admin/promocodes') }}"><i class="fa fa-book"></i> <span>Promo Codes</span></a></li>
     <li><a href="#"><i class="fa fa-suitcase"></i> <span>Stock Art</span></a></li>
     <li><a href="#"><i class="fa fa-file-o"></i> <span>Pages</span></a></li>
-    <li class="active"><a href="{{ URL::to('admin/sliders') }}"><i class="fa fa-sliders"></i> <span>Slider</span></a></li>
-    <li><a href="{{ URL::to('admin/promos') }}"><i class="fa fa-usd"></i> <span>Promotions</span></a></li>
+    <li><a href="{{ URL::to('admin/sliders') }}"><i class="fa fa-sliders"></i> <span>Slider</span></a></li>
+    <li class="active"><a href="{{ URL::to('admin/promos') }}"><i class="fa fa-usd"></i> <span>Promotion</span></a></li>
     <li><a href="#"><i class="fa fa-cogs"></i> <span>Settings</span></a></li>
   </ul>
 @stop
@@ -47,12 +47,12 @@
     </div><!-- headerbar -->
 
     <div class="pageheader">
-      <h2><i class="fa fa-home"></i> Slider <span style="display:none;"></span></h2>
+      <h2><i class="fa fa-home"></i> Promotion <span style="display:none;"></span></h2>
       <div class="breadcrumb-wrapper">
         <span class="label">You are here:</span>
         <ol class="breadcrumb">
           <li><a href="{{ URL::to('admin') }}">Home</a></li>
-          <li class="active">Slider</li>
+          <li class="active">Promotion</li>
         </ol>
       </div>
     </div>
@@ -65,9 +65,9 @@
               <!-- Artworks -->
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h4 class="panel-title pull-left mr10">SLIDES</h4>
-                    <a href="{{ route('admin.sliders.create') }}">
-                        <button class="btn btn-sm btn-lightblue" style="vertical-align:middle;margin-top:-5px;" type="button">Add a Slide</button>
+                  <h4 class="panel-title pull-left mr10">PROMOTIONS</h4>
+                    <a href="{{ route('admin.promos.create') }}">
+                        <button class="btn btn-sm btn-lightblue" style="vertical-align:middle;margin-top:-5px;" type="button">Add a Promotion</button>
                     </a>
                   
                 </div>
@@ -78,22 +78,26 @@
                       <table class="table table-hover" id="slider-table">
                         <thead>
                            <tr>
-                              <th>Slide Image</th>
+                              <th>Promotion Image</th>
                               <th>Link</th>
+                              <th>Current Promo?</th>
                            </tr>
                         </thead>
                         <tbody>
-                            @foreach($sliders as $index => $slider)
+                            @foreach($promos as $index => $promo)
                             @if($index%2==0)
                             <tr class="even">
                             @else
                             <tr class="odd">
                             @endif
-                              <td><img src="/images/sliders/{{ $slider->image }}" width="175" height="75"></td>
-                              <td>{{ $slider->link_1 }}</td>
+                              <td><img src="/images/promos/{{ $promo->image }}" width="175" height="75"></td>
+                              <td>{{ $promo->link_1 }}</td>
+                              <td>
+                                @if($promo->current_promo) {{ 'YES' }} @else {{ 'NO' }} @endif
+                              </td>
                               <td class="table-action">
-                                <a href="{{ '/admin/sliders/'.$slider->id.'/edit' }}"><i class="fa fa-pencil"></i></a>
-                                <a href="javascript:void(0);" data-id="{{ $slider->id }}" class="delete-this-slider delete-row"><i class="fa fa-trash-o"></i></a>
+                                <a href="{{ '/admin/promos/'.$promo->id.'/edit' }}"><i class="fa fa-pencil"></i></a>
+                                <a href="javascript:void(0);" data-id="{{ $promo->id }}" class="delete-this-promo delete-row"><i class="fa fa-trash-o"></i></a>
                               </td>
                             </tr>
                             @endforeach                         
@@ -144,7 +148,7 @@
     };
 
     var deleterequest;
-    jQuery('.delete-this-slider').on('click', function(e){
+    jQuery('.delete-this-promo').on('click', function(e){
         
         e.preventDefault();
         
@@ -153,11 +157,11 @@
             deleterequest.abort();
         }
 
-        if (confirm("Are you sure you want to delete this slider?")) {
-            var slider_id = $(this).data('id');
+        if (confirm("Are you sure you want to delete this promo?")) {
+            var promo_id = $(this).data('id');
             var requestJsonData = {};
 
-            deleterequest = makeRequest(requestJsonData, "/admin/sliders/"+slider_id, "DELETE");
+            deleterequest = makeRequest(requestJsonData, "/admin/promos/"+promo_id, "DELETE");
 
             deleterequest.done(function(){
                 console.log(deleterequest);

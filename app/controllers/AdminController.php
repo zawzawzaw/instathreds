@@ -42,6 +42,8 @@ class AdminController extends BaseController {
             
             if($type=='slider')
                 $destinationPath = public_path() . "/images/sliders/";
+            if($type=='promo')
+                $destinationPath = public_path() . "/images/promos/";
             else if($type=='thumbnail')
                 $destinationPath = public_path() . "/images/products/thumbs/";
             else
