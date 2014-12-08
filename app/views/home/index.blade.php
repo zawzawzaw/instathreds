@@ -27,7 +27,7 @@
               </div>
             </div>
             <div class="slide">
-              <a href="{{ route('shirtbuilder.index') }}" class="storeloc-link"><img src="images/slider/slider3.jpg" /></a>
+              <a href="{{ route('shirtbuilder.index') }}"><img src="images/slider/slider3.jpg" /></a>
               <div class="captions" style="display:none;">
                 <div class="text1">VISIT OUR STORES</div>
               </div>
