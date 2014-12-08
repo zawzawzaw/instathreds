@@ -23,7 +23,7 @@ class Product extends Eloquent {
 	}
 
 	public static function slug($title) {
-		$slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $title);
+		$slug = Str::slug($title);
         return urlencode(strtolower($slug));
     }
 }

@@ -8,10 +8,12 @@ class SingleproductController extends \BaseController {
 	public function index()
 	{
 		//
-		$title = Route::input('title');
-		$id = Route::input('id');
+		$slug = Route::input('slug');
 
-		$product = Product::find($id);
+		// $id = Route::input('id');
+		// $product = Product::find($id);
+
+		$product = Product::where('slug', '=', $slug)->first();
 
 		$category = Category::find($product->category_id);
 

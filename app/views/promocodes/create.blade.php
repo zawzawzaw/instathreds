@@ -9,7 +9,8 @@
     <li class="active"><a href="{{ URL::to('admin/promocodes') }}"><i class="fa fa-book"></i> <span>Promo Codes</span></a></li>
     <li><a href="#"><i class="fa fa-suitcase"></i> <span>Stock Art</span></a></li>
     <li><a href="#"><i class="fa fa-file-o"></i> <span>Pages</span></a></li>
-    <li><a href="#"><i class="fa fa-sliders"></i> <span>Slider</span></a></li>
+    <li><a href="{{ URL::to('admin/sliders') }}"><i class="fa fa-sliders"></i> <span>Slider</span></a></li>
+    <li><a href="{{ URL::to('admin/promos') }}"><i class="fa fa-usd"></i> <span>Promotions</span></a></li>
     <li><a href="#"><i class="fa fa-cogs"></i> <span>Settings</span></a></li>
   </ul>
 @stop

@@ -177,8 +177,8 @@
         <div class="more-products-slider owl-carousel">
           @foreach($related_products as $related_product)
           <div class="item">
-            <a href="{{ URL::to('product', array(Product::slug($related_product->title), $related_product->id)) }}">{{ HTML::image('images/products/thumbs/'.$related_product->thumbnail_image, '', array('style'=>'width:198px;height:198px;')) }}</a>
-            <a href="{{ URL::to('product', array(Product::slug($related_product->title), $related_product->id)) }}" class="product-title">{{ $related_product->title }}</a>
+            <a href="{{ URL::to('product', array(Product::slug($related_product->title))) }}">{{ HTML::image('images/products/thumbs/'.$related_product->thumbnail_image, '', array('style'=>'width:198px;height:198px;')) }}</a>
+            <a href="{{ URL::to('product', array(Product::slug($related_product->title))) }}" class="product-title">{{ $related_product->title }}</a>
           </div>
           @endforeach
         </div>

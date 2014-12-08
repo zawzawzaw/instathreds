@@ -26,9 +26,9 @@ class ProductController extends \BaseController {
 		}
 
 		$categories = Category::all();
-	    // $products = Product::paginate(8);
+	    // $products = Product::paginate(12);
 
-	    $products = Product::with('category')->paginate(8);
+	    $products = Product::with('category')->paginate(12);
 
 		$this->layout->content = View::make('products.index')
 			->with('username', $username)
@@ -76,8 +76,10 @@ class ProductController extends \BaseController {
 	    	$product = new Product;
 		    $product->category_id = Input::get('category_id');
 		    $product->title = Input::get('title');
+		    $product->slug = Product::slug(Input::get('title'));
 		    $product->description = Input::get('description');
 		    $product->availability = 1;
+		    $product->designer_name = Input::get('designer_name');
 		    $product->image = Input::get('image');
 		    $product->thumbnail_image = Input::get('thumbnail_image');
 		    $product->save();
@@ -111,7 +113,7 @@ class ProductController extends \BaseController {
 
 		$categories = Category::all();
 
-		$products = Product::where("category_id", $id)->paginate(8);
+		$products = Product::where("category_id", $id)->paginate(12);
 
 	    $this->layout->content = View::make('products.index')
 			->with('username', $username)
@@ -175,6 +177,7 @@ class ProductController extends \BaseController {
 		    	$product = Product::find($id);
 			    $product->category_id = Input::get('category_id');
 			    $product->title = Input::get('title');
+			    $product->slug = Product::slug(Input::get('title'));
 			    $product->description = Input::get('description');
 			    // $product->price = Input::get('price');
 			    $product->availability = 1;

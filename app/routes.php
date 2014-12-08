@@ -53,6 +53,11 @@ Route::get('account/settings/orderhistory', array(
   'as' => 'account.settings.orderhistory'
 ));
 
+Route::get('account/settings/orderhistory/{id}', array(
+  'uses' => 'AccountController@orderhistorydetails',
+  'as' => 'account.settings.orderhistorydetails'
+));
+
 Route::match(array('GET', 'POST'), 'account/settings/payment', array(
   'uses' => 'AccountController@payment',
   'as' => 'account.settings.payment'
@@ -98,7 +103,7 @@ Route::get('store/{name}/{id}', array(
   'as' => 'store.show'
 ));
 Route::resource('store', 'StoreController');
-Route::get('product/{title}/{id}', array(
+Route::get('product/{slug}', array(
   'uses' => 'SingleproductController@index',
   'as' => 'product'
 ));
@@ -210,6 +215,8 @@ Route::resource('admin/orders', 'OrderController');
 Route::resource('admin/categories', 'CategoryController');
 Route::resource('admin/shirttypes', 'ShirttypeController');
 Route::resource('admin/promocodes', 'PromocodeController');
+Route::resource('admin/sliders', 'SliderController');
+Route::resource('admin/promos', 'PromotionController');
 
 Route::get('testmailer', array(
   'uses' => 'TestmailerController@index',

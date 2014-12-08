@@ -9,7 +9,8 @@
     <li><a href="{{ URL::to('admin/promocodes') }}"><i class="fa fa-book"></i> <span>Promo Codes</span></a></li>
     <li><a href="#"><i class="fa fa-suitcase"></i> <span>Stock Art</span></a></li>
     <li><a href="#"><i class="fa fa-file-o"></i> <span>Pages</span></a></li>
-    <li><a href="#"><i class="fa fa-sliders"></i> <span>Slider</span></a></li>
+    <li><a href="{{ URL::to('admin/sliders') }}"><i class="fa fa-sliders"></i> <span>Slider</span></a></li>
+    <li><a href="{{ URL::to('admin/promos') }}"><i class="fa fa-usd"></i> <span>Promotions</span></a></li>
     <li><a href="#"><i class="fa fa-cogs"></i> <span>Settings</span></a></li>
   </ul>
 @stop
@@ -156,7 +157,12 @@
 
 		            <ul class="folder-list">
 		            	@foreach($categories as $category)
-							<li><a href="{{ URL::to('admin/designs', $category->id) }}"><i class="fa fa-folder-o"></i>{{ $category->name }}</a></li>
+							<li style="position:relative;">
+								<a href="{{ URL::to('admin/designs', $category->id) }}">
+									<i class="fa fa-folder-o"></i>{{ $category->name }}
+								</a>
+								<button class="delete-this-category" style="background: none;border: none;position:absolute;top:3px;right:0px;" data-id="{{ $category->id }}">X</button>
+							</li>
 		            	@endforeach
 		            </ul>	           	          	        
 	            
@@ -341,6 +347,37 @@ jQuery(document).ready(function(){
 	        	console.log(deleterequest);
 
 	        	var result = jQuery.parseJSON(deleterequest.responseText);
+	        
+	        	if(result) {
+	        		window.location.reload();
+	        	}
+
+	        });	  
+	    }
+	    return false;
+
+	});
+
+	var deleterequest2;
+	jQuery('.delete-this-category').on('click', function(e){
+		
+		e.preventDefault();
+		
+		// abort any pending request
+    	if (deleterequest2) {
+	        deleterequest2.abort();
+	    }
+
+	    if (confirm("Are you sure you want to delete this category?")) {
+	        var cat_id = $(this).data('id');
+		    var requestJsonData = {};
+
+		    deleterequest2 = makeRequest(requestJsonData, "/admin/categories/"+cat_id, "DELETE");
+
+	        deleterequest2.done(function(){
+	        	console.log(deleterequest2);
+
+	        	var result = jQuery.parseJSON(deleterequest2.responseText);
 	        
 	        	if(result) {
 	        		window.location.reload();

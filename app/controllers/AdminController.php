@@ -40,7 +40,11 @@ class AdminController extends BaseController {
         if (Input::hasFile('Filedata')) {
             $file            = Input::file('Filedata');
             
-            if($type=='thumbnail')
+            if($type=='slider')
+                $destinationPath = public_path() . "/images/sliders/";
+            if($type=='promo')
+                $destinationPath = public_path() . "/images/promos/";
+            else if($type=='thumbnail')
                 $destinationPath = public_path() . "/images/products/thumbs/";
             else
                 $destinationPath = public_path() . "/images/products/";

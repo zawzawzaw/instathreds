@@ -29,11 +29,15 @@ class HomeController extends BaseController {
 		}
 
 		$categories = Category::all();
+		$sliders = Slider::all();
+		$promos = Promotion::where('current_promo', '=', '1')->first();
 	    $products = Product::orderby('created_at', 'desc')->paginate(10);
 
 		$this->layout->content = View::make('home.index')
 		->with('username', $username)
 		->with('categories', $categories)
+		->with('sliders', $sliders)
+		->with('promos', $promos)
 		->with('products', $products);
 	}
 }
