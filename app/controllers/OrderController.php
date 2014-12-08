@@ -73,13 +73,19 @@ class OrderController extends \BaseController {
 			$username = '';
 		}
 
-	    $order = Order::with(array('shippingaddress','collection','ordersitem'))->where('id','=',$id)->orderBy('created_at','DESC')->get();
+		if($id=='pending') {
 
-	    // return $order;
+		}else if($id=='complete') {
 
-		$this->layout->content = View::make('orders.show')
-			->with('username', $username)
-			->with('order', $order);
+		}else {
+			$order = Order::with(array('shippingaddress','collection','ordersitem'))->where('id','=',$id)->orderBy('created_at','DESC')->get();
+
+		    // return $order;
+
+			$this->layout->content = View::make('orders.show')
+				->with('username', $username)
+				->with('order', $order);
+		}
 
 	}
 

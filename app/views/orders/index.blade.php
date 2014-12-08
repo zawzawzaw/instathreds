@@ -62,6 +62,14 @@
       <div class="row">
         <div class="col-sm-12 col-md-12">
           <div class="table-responsive">
+            <label>Filter by status 
+              <select name="status_filter" id="filter" style="">
+                <option value="all" selected="selected">All</option>
+                <option value="pending">Pending</option>
+                <option value="complete">Complete</option>
+              </select>
+            </label>
+
             <table class="table" id="orders-table">
               <thead>
                  <tr>
@@ -259,11 +267,11 @@
     
     
     // Chosen Select
-    jQuery("select").chosen({
-      'min-width': '100px',
-      'white-space': 'nowrap',
-      disable_search_threshold: 10
-    });
+    // jQuery("select").chosen({
+    //   'min-width': '100px',
+    //   'white-space': 'nowrap',
+    //   disable_search_threshold: 10
+    // });
     
     // Delete row in a table
     jQuery('.delete-row').click(function(){
@@ -281,6 +289,10 @@
       jQuery(this).find('.table-action-hide a').animate({opacity: 1});
     },function(){
       jQuery(this).find('.table-action-hide a').animate({opacity: 0});
+    });
+
+    $('#filter').on('change', function(e){
+        console.log($(this).val())
     });
   
   
