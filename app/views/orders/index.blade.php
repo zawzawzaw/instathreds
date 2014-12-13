@@ -64,7 +64,7 @@
           <div class="table-responsive">
             <label>Filter by status 
               <select name="status_filter" id="filter" style="">
-                <option value="all" selected="selected">All</option>
+                <option value="" selected="selected">All</option>
                 <option value="pending">Pending</option>
                 <option value="complete">Complete</option>
               </select>
@@ -291,10 +291,20 @@
       jQuery(this).find('.table-action-hide a').animate({opacity: 0});
     });
 
+    var segment = '{{ Request::segment(3) }}';
+
+    if(segment!="")
+      $('#filter').val(segment);
+
     $('#filter').on('change', function(e){
-        console.log($(this).val())
+
+        window.location = "{{ '/admin/orders/' }}"+$(this).val();
     });
-  
+
+    
+    
+
+
   
   });
 </script>

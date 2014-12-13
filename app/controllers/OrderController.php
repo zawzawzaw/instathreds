@@ -74,8 +74,18 @@ class OrderController extends \BaseController {
 		}
 
 		if($id=='pending') {
+			$orders = Order::with(array('shippingaddress','collection'))->where('status', '=', 'Pending')->orderBy('created_at','DESC')->paginate(8);
+
+			$this->layout->content = View::make('orders.index')
+			->with('username', $username)
+			->with('orders', $orders);
 
 		}else if($id=='complete') {
+			$orders = Order::with(array('shippingaddress','collection'))->where('status', '=', 'Complete')->orderBy('created_at','DESC')->paginate(8);
+
+			$this->layout->content = View::make('orders.index')
+			->with('username', $username)
+			->with('orders', $orders);
 
 		}else {
 			$order = Order::with(array('shippingaddress','collection','ordersitem'))->where('id','=',$id)->orderBy('created_at','DESC')->get();
