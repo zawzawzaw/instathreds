@@ -125,8 +125,8 @@
                           </td>
                           <td>
                             @if(isset($eachordersitemoptions['print_image']))
-                              <a href="{{ URL::to('/').'/images/builder_products/'.$eachordersitemoptions['print_image'] }}" target="_blank">
-                                {{ $eachordersitemoptions['print_image'] }}
+                              <a href="{{ URL::to('/').'/images/builder_products/'.$eachordersitemoptions['print_image'] }}" download="frontimage.png" target="_blank">
+{{ HTML::image('/images/builder_products/'.$eachordersitemoptions['print_image'], 'big back', array('width'=>75)) }}
                               </a>
                             @elseif(is_numeric($eachordersitem->product_id))
                               <?php $product = Product::where('id', '=', $eachordersitem->product_id)->first(); ?>
@@ -139,8 +139,8 @@
                           </td>
                           <td>
                             @if(isset($eachordersitemoptions['back_print_image']))
-                              <a href="{{ URL::to('/').'/images/builder_products/'.$eachordersitemoptions['back_print_image'] }}" target="_blank">
-                                {{ $eachordersitemoptions['back_print_image'] }}
+                              <a href="{{ URL::to('/').'/images/builder_products/'.$eachordersitemoptions['back_print_image'] }}" download="backimage.png" target="_blank">
+{{ HTML::image('/images/builder_products/'.$eachordersitemoptions['back_print_image'], 'big back', array('width'=>75)) }}
                               </a>
                             @else
                               {{ 'N/A' }}

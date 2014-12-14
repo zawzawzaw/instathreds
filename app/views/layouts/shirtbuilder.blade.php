@@ -41,7 +41,9 @@
 	{{ HTML::script('js/jquery.fancyProductDesigner.js') }}
 
     <!-- Include only if you would like to create a pdf from your product -->
-    {{ HTML::script('jspdf/jspdf.min.js') }}
+    {{ HTML::script('js/vendor/jquery.base64.js') }}
+    {{ HTML::script('js/vendor/sprintf.js') }}    
+    {{ HTML::script('js/vendor/jspdf/jspdf.min.js') }}    
     {{ HTML::script('js/webfont.js') }}
     {{ HTML::script('js/jquery.blockUI.js') }}
 
@@ -95,6 +97,7 @@
 				image.src = yourDesigner.getProductDataURL('jpeg');
 				image.onload = function() {
 					var doc = new jsPDF();
+					console.log(image.src)
 					doc.addImage(this.src, 'JPEG', 0, 0, this.width * 0.2, this.height * 0.2);
 					doc.save('Product.pdf');
 				}

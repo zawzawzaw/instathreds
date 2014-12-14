@@ -517,7 +517,6 @@
 			// zza edit // add to cart
 			var saverequest;
 			var request;
-			var savepdfrequest;
 
 			$(document).ready(function(){
 				$('.add-to-cart-btn').on('click', function(e){
@@ -597,7 +596,6 @@
 				        if (passes == true) {
 
 				        	console.log('before stage width: '+ stage.width+ 'stage.height' + stage.height );
-				        	/*
 				        	var oldWidth = 173;//parseInt(stage.width)
 				        	var oldHeight = 314;//parseInt(stage.height)
 
@@ -672,94 +670,65 @@
 						    console.log(backImage);
 
 						    // return false;
-						    */
 
-							var doc = new jsPDF(),
-								viewsDataURL = thisClass.getViewsDataURL('jpeg', 'white');
-
-							for(var i=0; i < viewsDataURL.length; ++i) {
-								doc.addImage(viewsDataURL[i], 'JPEG', 0, 0);
-								if(i < viewsDataURL.length-1) {
-									doc.addPage();
-								}
-							}
-
-							var content = doc.output('datauristring');
-
-							// abort any pending request
-							if (savepdfrequest) {
-							  	savepdfrequest.abort();
-							}
-
-							var pdfJson = {
-					          'pdf': content
+							var addBuilderProductJSON = {
+					          'title': 'Shirt builder product',
+					          'front_image': frontImage,
+					          'back_image': backImage,
+					          'front_print_image': thisClass.getViewsDataURL()[0],
+					          'back_print_image': thisClass.getViewsDataURL()[1],
+					          'product_details': JSON.stringify(product)		          
 					        };
 
-					        saverequest = makeRequest(pdfJson, "/shirtbuilder/savepdf" , "POST");
+							// abort any pending request
+							if (saverequest) {
+							  	saverequest.abort();
+							}
+
+							saverequest = makeRequest(addBuilderProductJSON, "/shirtbuilder" , "POST");
 
 							saverequest.done(function(){
 								var result = jQuery.parseJSON(saverequest.responseText);
+								           
+								if("product_id" in result) {
+								  	var addToCartJSON = {
+										'id': result.product_id,
+										'title': 'Shirt builder product',
+										'price' : currentPrice,
+										'qty' : currentQty,
+										'attr' : {
+											'gender' : currentGender,
+											'size' : currentSize,
+											'color' : activeColor,
+											'shirt_type' : currentShirtType,
+											'image' : frontImage,
+											'back_image' : backImage,
+											'print_image' : result.front_print_image,
+											'back_print_image' : result.back_print_image
+										}
+							        };
 
-								var addBuilderProductJSON = {
-						          'title': 'Shirt builder product',
-						          'front_image': frontImage,
-						          'back_image': backImage,
-						          'front_print_image': result.pdf_filename,
-						          'back_print_image': result.pdf_filename,
-						          'product_details': JSON.stringify(product)		          
-						        };
+							        console.log(addToCartJSON);
 
-								// abort any pending request
-								if (saverequest) {
-								  	saverequest.abort();
-								}
+							        // abort any pending request
+						          	if (request) {
+						              	request.abort();
+						          	}
 
-								saverequest = makeRequest(addBuilderProductJSON, "/shirtbuilder" , "POST");
+						          	request = makeRequest(addToCartJSON, "/cart" , "POST");
 
-								saverequest.done(function(){
-									var result = jQuery.parseJSON(saverequest.responseText);
+									request.done(function(){
+										var result = jQuery.parseJSON(request.responseText);
+
+										console.log(result)
 									           
-									if("product_id" in result) {
-									  	var addToCartJSON = {
-											'id': result.product_id,
-											'title': 'Shirt builder product',
-											'price' : currentPrice,
-											'qty' : currentQty,
-											'attr' : {
-												'gender' : currentGender,
-												'size' : currentSize,
-												'color' : activeColor,
-												'shirt_type' : currentShirtType,
-												'image' : frontImage,
-												'back_image' : backImage,
-												'print_image' : result.front_print_image,
-												'back_print_image' : result.back_print_image
-											}
-								        };
+										if(result) {
+										  window.location = "/cart";
+										}
 
-								        console.log(addToCartJSON);
-
-								        // abort any pending request
-							          	if (request) {
-							              	request.abort();
-							          	}
-
-							          	request = makeRequest(addToCartJSON, "/cart" , "POST");
-
-										request.done(function(){
-											var result = jQuery.parseJSON(request.responseText);
-
-											console.log(result)
-										           
-											if(result) {
-											  window.location = "/cart";
-											}
-
-										}); 
-									}
-								});    		
-
-							});		
+									}); 
+								}
+							});    				
 
 						}else {
 							var errorMsg = 'Following errors occurs: \n';

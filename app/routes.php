@@ -93,6 +93,10 @@ Route::resource('fblogin', 'FbloginController');
 Route::resource('instalogin', 'IngloginController');
 
 Route::resource('shirtbuilder', 'ShirtbuilderController');
+Route::post('shirtbuilder/savepdf', array(
+  'uses' => 'ShirtbuilderController@savepdf',
+  'as' => 'shirtbuilder.savepdf'
+));
 
 Route::get('store/featured', array(
   'uses' => 'FeaturedController@index',
