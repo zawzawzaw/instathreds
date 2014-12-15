@@ -62,8 +62,11 @@ class CartController extends \BaseController {
 
 		Cart::associate('Product')->add($id, $title, $qty, $price, array('description' => $description, 'gender' => $gender,'size' => $size, 'color' => $color, 'shirt_type' => $shirt_type, 'image' => $image, 'back_image' => $back_image, 'print_image' => $print_image, 'back_print_image' => $back_print_image));
 
+		$row = Cart::search(array('id' => $id));
+
 		return Response::json(array(
-		    'success' => true
+		    'success' => true,
+		    'row' => $row
 		));
 	}
 

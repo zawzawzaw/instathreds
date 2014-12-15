@@ -83,7 +83,7 @@ class ShirtbuilderController extends \BaseController {
 		    $builderproduct_id = $builderproduct->unique_builder_product_id;
 
 		    if($builderproduct_id){
-		    	return Response::json(array('product_id' => $builderproduct_id, 'front_print_image' => Input::get('front_print_image'), 'back_print_image' => Input::get('front_print_image')));
+		    	return Response::json(array('id' => $builderproduct->id, 'product_id' => $builderproduct_id, 'front_print_image' => Input::get('front_print_image'), 'back_print_image' => Input::get('front_print_image')));
 		    }else {
 		    	return Response::json(array('error' => 'Error occured while saving builder product..'));
 		    }
@@ -100,18 +100,32 @@ class ShirtbuilderController extends \BaseController {
 
 	public function savepdf()
     {
-        $pdf_base64_str = substr(Input::get('pdf'), strpos(Input::get('pdf'), ",")+1);
+		$cart_row_id = Input::get('cart_row_id');
+		$builder_prod_id = Input::get('builder_prod_id');
+		$pdf = Input::get('pdf');
+
+		// return $builder_prod_id . ' ' . $cart_row_id;
+
+		$pdf_base64_str = substr(Input::get('pdf'), strpos(Input::get('pdf'), ",")+1);
 		$pdf_decoded = base64_decode($pdf_base64_str);
 
 		$destinationPath = public_path() . "/images/builder_products/";
 		$pdf_filename = str_random(6) . '_' . 'print.pdf';
 
 		$pdf_url = $destinationPath.$pdf_filename;
-
 		$pdf_result = file_put_contents($pdf_url, $pdf_decoded);
 
-	 	if($pdf_result) 
-		    return Response::json(array('pdf_filename' => $pdf_filename));
+
+		if($pdf_result) {
+	    	$builderproduct = Builderproduct::find($builder_prod_id);
+	    	$builderproduct->front_print_image = $pdf_filename;
+	    	$builderproduct->back_print_image = $pdf_filename;
+	    	$builderproduct->save();
+
+	    	Cart::update($cart_row_id, array('print_image' => $pdf_filename, 'back_print_image' => $pdf_filename));
+
+	    	return Redirect::to('/cart');
+		}
     }
 
 }

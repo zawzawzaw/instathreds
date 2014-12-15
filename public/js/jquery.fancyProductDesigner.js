@@ -686,80 +686,66 @@
 
 							var content = doc.output('datauristring');
 
-							// abort any pending request
-							if (savepdfrequest) {
-							  	savepdfrequest.abort();
-							}
-
-							var pdfJson = {
-					          'pdf': content
+							var addBuilderProductJSON = {
+					          'title': 'Shirt builder product',
+					          'front_image': frontImage,
+					          'back_image': backImage,
+					          'front_print_image': '',
+					          'back_print_image': '',
+					          'product_details': JSON.stringify(product)		          
 					        };
 
-					        saverequest = makeRequest(pdfJson, "/shirtbuilder/savepdf" , "POST");
+							// abort any pending request
+							if (saverequest) {
+							  	saverequest.abort();
+							}
+
+							saverequest = makeRequest(addBuilderProductJSON, "/shirtbuilder" , "POST");
 
 							saverequest.done(function(){
 								var result = jQuery.parseJSON(saverequest.responseText);
+								var id = result.id;
+								           
+								if("product_id" in result) {
+								  	var addToCartJSON = {
+										'id': result.product_id,
+										'title': 'Shirt builder product',
+										'price' : currentPrice,
+										'qty' : currentQty,
+										'attr' : {
+											'gender' : currentGender,
+											'size' : currentSize,
+											'color' : activeColor,
+											'shirt_type' : currentShirtType,
+											'image' : frontImage,
+											'back_image' : backImage,
+											'print_image' : '',
+											'back_print_image' : ''
+										}
+							        };
 
-								var addBuilderProductJSON = {
-						          'title': 'Shirt builder product',
-						          'front_image': frontImage,
-						          'back_image': backImage,
-						          'front_print_image': result.pdf_filename,
-						          'back_print_image': result.pdf_filename,
-						          'product_details': JSON.stringify(product)		          
-						        };
+							        // abort any pending request
+						          	if (request) {
+						              	request.abort();
+						          	}
 
-								// abort any pending request
-								if (saverequest) {
-								  	saverequest.abort();
-								}
+						          	request = makeRequest(addToCartJSON, "/cart" , "POST");
 
-								saverequest = makeRequest(addBuilderProductJSON, "/shirtbuilder" , "POST");
+									request.done(function(){
+										var result = jQuery.parseJSON(request.responseText);
 
-								saverequest.done(function(){
-									var result = jQuery.parseJSON(saverequest.responseText);
+										var rowId = result.row[0];
 									           
-									if("product_id" in result) {
-									  	var addToCartJSON = {
-											'id': result.product_id,
-											'title': 'Shirt builder product',
-											'price' : currentPrice,
-											'qty' : currentQty,
-											'attr' : {
-												'gender' : currentGender,
-												'size' : currentSize,
-												'color' : activeColor,
-												'shirt_type' : currentShirtType,
-												'image' : frontImage,
-												'back_image' : backImage,
-												'print_image' : result.front_print_image,
-												'back_print_image' : result.back_print_image
-											}
-								        };
+										if(result) {
+											$('input[name=cart_row_id]').val(rowId);
+											$('input[name=builder_prod_id]').val(id);
+											$('input[name=pdf]').val(content);
+											$('#savetocart').submit();
+										}
 
-								        console.log(addToCartJSON);
-
-								        // abort any pending request
-							          	if (request) {
-							              	request.abort();
-							          	}
-
-							          	request = makeRequest(addToCartJSON, "/cart" , "POST");
-
-										request.done(function(){
-											var result = jQuery.parseJSON(request.responseText);
-
-											console.log(result)
-										           
-											if(result) {
-											  window.location = "/cart";
-											}
-
-										}); 
-									}
-								});    		
-
-							});		
+									});
+								}
+							});	
 
 						}else {
 							var errorMsg = 'Following errors occurs: \n';

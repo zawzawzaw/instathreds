@@ -267,6 +267,12 @@ $saved_products_headline = 'Your Saved Products';
 							<input type="text" name="qty" value="1" placeholder="Qty">
 							<button class="custom-btn add-to-cart-btn">Add To Cart</button>
 						</div>
+
+						<form id="savetocart" method="post" action="/shirtbuilder/savepdf">
+							<input type="hidden" name="cart_row_id">
+							<input type="hidden" name="builder_prod_id">
+							<input type="hidden" name="pdf">
+						</form>
 					</div>
 			    </div>
 			</div>

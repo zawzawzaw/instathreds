@@ -221,8 +221,9 @@ Route::resource('admin/shirttypes', 'ShirttypeController');
 Route::resource('admin/promocodes', 'PromocodeController');
 Route::resource('admin/sliders', 'SliderController');
 Route::resource('admin/promos', 'PromotionController');
+Route::resource('testmailer', 'TestmailerController');
 
-Route::get('testmailer', array(
-  'uses' => 'TestmailerController@index',
-  'as' => 'testmailer'
-));
+// Route::get('testmailer', array(
+//   'uses' => 'TestmailerController@index',
+//   'as' => 'testmailer'
+// ));

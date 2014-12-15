@@ -60,7 +60,7 @@ class TestmailerController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		
 	}
 
 
