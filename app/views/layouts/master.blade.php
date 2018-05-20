@@ -309,7 +309,7 @@
                       <span>Remember me</span>
                     </div>
                     <div class="lostpassword">
-                      <a href="#">Lost Password?</a>
+                      <a href="/password/remind">Lost Password?</a>
                     </div>
 
                     <div class="clearfix"></div>

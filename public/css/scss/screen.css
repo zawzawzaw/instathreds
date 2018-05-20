@@ -373,7 +373,7 @@ body {
 
 /* Titles */
 .title, h1, h2, h3, h4, h5, h6, .widget-title {
-  font: 700 16px/1.3 "open-sans", sans-serif; }
+  font: 700 16px/1.3 open-sans, sans-serif; }
   .title a, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .widget-title a {
     color: #5d504f; }
     .title a:hover, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, .widget-title a:hover {
@@ -383,7 +383,7 @@ body {
   font-size: 22px; }
 
 .title.small, h1.small, h2.small, h3.small, h4.small, h5.small, h6.small {
-  font: 700 14px/1.25 "open-sans-condensed", sans-serif; }
+  font: 700 14px/1.25 open-sans-condensed, sans-serif; }
 
 .float-left {
   float: left; }
@@ -392,13 +392,13 @@ body {
   float: right; }
 
 .alert {
-  color: #d51c1c;
+  color: #D51C1C;
   width: 270px; }
 
 .errors-list {
   width: 270px; }
   .errors-list li {
-    color: #d51c1c;
+    color: #D51C1C;
     padding-bottom: 3px; }
 
 /* ======== GRID ============ */
@@ -1307,10 +1307,10 @@ that IE7/8 do not support :nth-child.
   left: 60px; }
 
 .banner.promotions .captions .text1 {
-  background: #0381f4; }
+  background: #0381F4; }
 
 .banner.promotions .captions .text2 {
-  background: #ffba0d; }
+  background: #FFBA0D; }
 
 /* HOW IT WORKS */
 .section-bar {
@@ -1328,7 +1328,7 @@ that IE7/8 do not support :nth-child.
   margin: 0px; }
 
 .section-bar h6 a {
-  color: #0381f4; }
+  color: #0381F4; }
 
 .steps {
   margin-bottom: 0px; }
@@ -1359,13 +1359,13 @@ that IE7/8 do not support :nth-child.
   color: #fff !important; }
 
 .steps .title.step1 a, .steps h1.step1 a, .steps h2.step1 a, .steps h3.step1 a, .steps h4.step1 a, .steps h5.step1 a, .steps h6.step1 a {
-  background: #00dd78; }
+  background: #00DD78; }
 
 .steps .title.step2 a, .steps h1.step2 a, .steps h2.step2 a, .steps h3.step2 a, .steps h4.step2 a, .steps h5.step2 a, .steps h6.step2 a {
-  background: #0381f4; }
+  background: #0381F4; }
 
 .steps .title.step3 a, .steps h1.step3 a, .steps h2.step3 a, .steps h3.step3 a, .steps h4.step3 a, .steps h5.step3 a, .steps h6.step3 a {
-  background: #ffba0d; }
+  background: #FFBA0D; }
 
 .block-grid.designs {
   margin-bottom: 0px; }
@@ -2549,8 +2549,8 @@ label.error {
 
 .modal-content {
   position: relative;
-  background-color: white;
-  border: 1px solid #999999;
+  background-color: #fff;
+  border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
@@ -2565,7 +2565,7 @@ label.error {
   bottom: 0;
   left: 0;
   z-index: 1040;
-  background-color: black; }
+  background-color: #000; }
   .modal-backdrop.fade {
     opacity: 0;
     filter: alpha(opacity=0); }
@@ -2667,7 +2667,7 @@ label.error {
     max-width: none; }
 
 .nav-tabs {
-  border-bottom: 1px solid #dddddd; }
+  border-bottom: 1px solid #ddd; }
   .nav-tabs > li {
     float: left;
     margin-bottom: -1px; }
@@ -2676,11 +2676,11 @@ label.error {
       line-height: 1.6;
       border: 1px solid transparent; }
       .nav-tabs > li > a:hover {
-        border-color: #e5e5e5 #e5e5e5 #dddddd; }
+        border-color: #e5e5e5 #e5e5e5 #ddd; }
     .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
       color: #e5e5e5;
       background-color: #fff;
-      border: 1px solid #dddddd;
+      border: 1px solid #ddd;
       border-bottom-color: transparent;
       cursor: default; }
 
@@ -2734,10 +2734,10 @@ Mixin for adding on top the shared `.nav-justified` styles for our tabs
   .nav-tabs.nav-justified > .active > a:hover,
   .nav-tabs-justified > .active > a:focus,
   .nav-tabs.nav-justified > .active > a:focus {
-    border: 1px solid #dddddd; }
+    border: 1px solid #ddd; }
   @media (min-width: 768px) {
     .nav-tabs-justified > li > a, .nav-tabs.nav-justified > li > a {
-      border-bottom: 1px solid #dddddd;
+      border-bottom: 1px solid #ddd;
       border-radius: 10px; }
     .nav-tabs-justified > .active > a, .nav-tabs.nav-justified > .active > a,
     .nav-tabs-justified > .active > a:hover,

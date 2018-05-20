@@ -30,7 +30,7 @@
               </ul>
             </div>
             <div class="separator-line"></div>
-            <h5 class="title blue"><a href="">MAKE YOUR OWN</a></h5>
+            <h5 class="title blue"><a href="{{ route('shirtbuilder.index') }}">MAKE YOUR OWN</a></h5>
             <div class="separator-line"></div>
             <div class="menu-sidebar">
               <h5>CHOOSE A DESIGN</h5>

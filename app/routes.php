@@ -197,7 +197,7 @@ Route::get('help', array(
   'as' => 'static.help'
 ));
 
-
+Route::controller('password', 'RemindersController');
 
 # Back end #
 
